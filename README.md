@@ -3,7 +3,7 @@
 This is a working project developed by Chris Butler, starting on 25/01/2025
 
 Background:
-A cloud inversion is a meteorological event characterized by the ability to look down upon cloud formations. The phenomenon typically occurs due to temperature inversions, where higher altitudes are associated with warmer, rather than cooler, temperatures. In short, this warm 'lid' can trap colder air below, including clouds and fog. For some excellent photos of such occurrences, please see this article from the BBC.
+A cloud inversion is a meteorological event characterized by the ability to look down upon cloud formations. The phenomenon typically occurs due to temperature inversions, where higher altitudes are associated with warmer, rather than cooler, temperatures. In short, this warm 'lid' can trap colder air below, including clouds and fog. 
 
 ## Example of a Cloud Inversion
 
@@ -15,8 +15,10 @@ While observing a cloud inversion can occur at relatively low altitudes, Scotlan
 
 However, predicting when and where a cloud inversion is likely to occur remains something of a mystery. This software aims to address this by providing:
 
-A map of all 282 Munro locations across Scotland.
-A live RAG (Red, Amber, Green) rating indicating the likelihood of a cloud inversion on a particular date, using the latest weather predictions from XXXXX.
+1) A map of all 282 Munro locations across Scotland.
+
+
+2) A live RAG (Red, Amber, Green) rating indicating the likelihood of a cloud inversion on a particular date, using the latest weather predictions from XXXXX.
 
  
 
