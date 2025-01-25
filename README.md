@@ -18,7 +18,17 @@ However, predicting when and where a cloud inversion is likely to occur remains 
 1) A map of all 282 Munro locations across Scotland.
 
 
-2) A live RAG (Red, Amber, Green) rating indicating the likelihood of a cloud inversion on a particular date, using the latest weather predictions from [Mountain Forecast](https://www.mountain-forecast.com)
+2) A live RAG (Red, Amber, Green) rating indicating the likelihood of a cloud inversion on a particular date
+
+Methods:
+
+Currently this software uses Python coding to calculate the RAG cloud inversion rating using the latest weather predictions from [Mountain Forecast](https://www.mountain-forecast.com). It does so based on the guidance provided in by [Our Sporting life](https://oursportinglife.co.uk/cloud-inversions-forecast/) which suggests cloud inversions may be likely if the following criteria are met:
+
+1) The temperature at the top of the summit is greater than that at the bottom of the summit
+
+2) A dew point equal to or higher than the forecast temperature around ground level. The dew point is the temperature at which moisture in the air will form mist
+
+3) Wind speeds of less than 5mph. Higher wind speeds will cause any mist formed to dissipate.
 
 
  
