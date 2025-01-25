@@ -5,9 +5,9 @@ This is a working project developed by Chris Butler, starting on 25/01/2025
 Background:
 A cloud inversion is a meteorological event characterized by the ability to look down upon cloud formations. The phenomenon typically occurs due to temperature inversions, where higher altitudes are associated with warmer, rather than cooler, temperatures. In short, this warm 'lid' can trap colder air below, including clouds and fog. For some excellent photos of such occurrences, please see this article from the BBC.
 
+## Example of a Cloud Inversion
 
-
-![A stunning cloud inversion](https://www.bbc.co.uk/news/uk-scotland-highlands-islands-59727407)
+![A stunning cloud inversion](https://d3teiib5p3f439.cloudfront.net/news/wp-content/uploads/2015/10/1-3.jpg)
 
 
 Goals:
