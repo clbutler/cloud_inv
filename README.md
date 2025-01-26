@@ -31,5 +31,7 @@ Currently this software uses Python coding to calculate the RAG cloud inversion 
 3) Wind speeds of less than 5mph. Higher wind speeds will cause any mist formed to dissipate.
 
 
- 
+## References:
+
+Geographical munro data was sourced from [The Database of British and Irish Hills v18.2](https://www.hills-database.co.uk/downloads.html) 
 
