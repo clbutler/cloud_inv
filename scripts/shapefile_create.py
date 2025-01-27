@@ -44,10 +44,10 @@ def test_shapefile():
     assert isinstance(shapefile, gpd.GeoDataFrame), 'file was not correctly converted to a GeoDataFrame Object'
     
 #align to correct CRS
-shapefile = shapefile.set_crs(epsg=3857)
+shapefile = shapefile.set_crs(epsg=27700) 
 
 def test_crs():
-    assert shapefile.crs == 'EPSG:3857', 'file could not be converted to the correct coordinate reference system (3857)'
+    assert shapefile.crs == 'EPSG:27700', 'file could not be converted to the correct coordinate reference system (27700)'
     
 #save file 
 shapefile.to_file('../outputs/munro.shp') 
