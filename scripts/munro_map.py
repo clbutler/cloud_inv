@@ -8,8 +8,6 @@ Created on Mon Jan 27 21:59:03 2025
 
 import geopandas as gpd
 import pytest
-import matplotlib.pyplot as plt
-import contextily as ctx
 import folium 
 
 
@@ -40,7 +38,6 @@ folium.Choropleth(
     data=munros,                 # DataFrame with the data
     columns=['Name','Height (m)'], # Columns to use
     key_on='feature.properties.Name',
-    legend_name= 'Height',
     line_width=2                        # Width of borders
 ).add_to(m)
 

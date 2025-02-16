@@ -47,7 +47,7 @@ def test_shapefile():
 shapefile = shapefile.set_crs(epsg=27700) 
 
 def test_crs():
-    assert shapefile.crs == 'EPSG:27700', 'file could not be converted to the correct coordinate reference system (27700)'
+    assert shapefile.crs == 'EPSG:27700', 'file could not be converted to the correct coordinate reference system (27700 - Ordinance Survey System UK'
     
 #save file 
 shapefile.to_file('../outputs/munro.shp') 
