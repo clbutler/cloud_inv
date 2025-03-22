@@ -30,6 +30,16 @@ Currently this software uses Python coding to calculate the RAG cloud inversion 
 
 3) Wind speeds of less than 5mph. Higher wind speeds will cause any mist formed to dissipate.
 
+##MoSCoW Analysis:
+
+1) Must Have: User must be able to be able to click on each individual munro and get a cloud inversion likelihood. This is the crucial differentiator - rather than looking at weather reports per "area" it can zoom in on each mountain. The ability to interact with this via an application opposed to needing python downloaded is also key. The date of the data pull must be visible for the user.
+
+2) Should Have: Users should be able to see each munro on a map, allowing geographical rather than specific naming knowledge. Users should be able to compare the cloud inversion likelihood across multiple munros at once to enable prioritisation of locations to climb. Cloud inversion likelihood should be present as a RAG rating for ease of visibility. 
+
+3) Could Have: Users could have the ability to select various dates and see RAG ratings into the a future specified time. Users could see the breakdown of  the RAG rating components for each hill separately. 
+
+4) Would not Have: Users would not have the ability to look at cloud inversion rates at sites other than munros.  
+
 
 ## References:
 
