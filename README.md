@@ -30,16 +30,39 @@ Currently this software uses Python coding to calculate the RAG cloud inversion 
 
 3) Wind speeds of less than 5mph. Higher wind speeds will cause any mist formed to dissipate.
 
-##MoSCoW Analysis:
+## MoSCoW Analysis: Cloud Inversion Likelihood Application
 
-1) Must Have: User must be able to be able to click on each individual munro and get a cloud inversion likelihood. This is the crucial differentiator - rather than looking at weather reports per "area" it can zoom in on each mountain. The ability to interact with this via an application opposed to needing python downloaded is also key. The date of the data pull must be visible for the user.
 
-2) Should Have: Users should be able to see each munro on a map, allowing geographical rather than specific naming knowledge. Users should be able to compare the cloud inversion likelihood across multiple munros at once to enable prioritisation of locations to climb. Cloud inversion likelihood should be present as a RAG rating for ease of visibility. 
+**1. Must Have (Essential Functionality):**
 
-3) Could Have: Users could have the ability to select various dates and see RAG ratings into the a future specified time. Users could see the breakdown of  the RAG rating components for each hill separately. 
+* **Individual Munro Cloud Inversion Likelihood:**
+    * Users must be able to select any individual Munro and retrieve its specific cloud inversion likelihood.
+    * This provides granular, mountain-specific data, differentiating it from area-based weather reports.
+* **Application-Based Interaction:**
+    * The application must be accessible without requiring users to download and execute Python scripts.
+* **Data Timestamp:**
+    * The date and time of the data retrieval must be clearly displayed to the user.
 
-4) Would not Have: Users would not have the ability to look at cloud inversion rates at sites other than munros.  
+**2. Should Have (Important Functionality):**
 
+* **Geographical Map Integration:**
+    * A map displaying all Munros should be incorporated, enabling users to navigate based on geographical location rather than solely relying on Munro names.
+* **Comparative Analysis:**
+    * Users should be able to compare cloud inversion likelihood across multiple Munros simultaneously, facilitating informed decision-making for climbing locations.
+* **RAG Rating System:**
+    * Cloud inversion likelihood should be presented using a Red, Amber, Green (RAG) rating system for quick and intuitive visual assessment.
+
+**3. Could Have (Desirable Functionality):**
+
+* **Future Date Selection:**
+    * Users could be given the option to select various future dates and view the corresponding RAG ratings.
+* **RAG Rating Component Breakdown:**
+    * Users could access a detailed breakdown of the individual components that contribute to the RAG rating for each Munro.
+
+**4. **Would Not Have (Out of Scope):**
+
+* **Non-Munro Site Analysis:**
+    * **Users would not have the ability to view cloud inversion likelihood for locations other than Munros.**
 
 ## References:
 
