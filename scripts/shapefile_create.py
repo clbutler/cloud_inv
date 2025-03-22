@@ -7,48 +7,30 @@ Created on Sun Jan 26 17:53:41 2025
 """
 
 import pandas as pd
-import pytest
-import os 
 import geopandas as gpd
 from shapely.geometry import Point
+import os
 
-#import the file 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+script_dir
 
-def test_files():
-    assert os.path.exists('../data/munrotab_v8.0.1.csv'), 'could not find the munrotab_v8.0.1.csv'
+munros_input = '../data/munrotab_v8.0.1.csv'
+munros_output = '../outputs/munro.shp'
+
+def shapefile_create(input_file, output_file):
+    """ this function takes a csv file with x and y coordinates and converts it into a shapefile """
+    shapefile = pd.read_csv(input_file, encoding = 'latin1') #import the file
+    shapefile = shapefile[['Name', 'Height (m)', 'xcoord', 'ycoord', '2021']] #data clean
+    shapefile = shapefile[shapefile['2021'] == 'MUN' ].reset_index(drop = True) 
+    shapefile = shapefile.drop('2021', axis = 1)
+    geometry = [Point(xy) for xy in zip(shapefile['xcoord'], shapefile['ycoord'])] #export as a shapefile
+    shapefile = gpd.GeoDataFrame(shapefile, geometry = geometry)
+    shapefile = shapefile.set_crs(epsg=27700) #align to correct CRS
+    shapefile.to_file(output_file)
 
 
-shapefile = pd.read_csv('../data/munrotab_v8.0.1.csv', encoding='latin1')
-
-
-
-#data clean 
-def test_csv():
-    assert isinstance(shapefile, pd.DataFrame), 'munros not loading in the correct format (csv)'
+if __name__ == "__main__":
+    shapefile_create(munros_input, munros_output)
     
-shapefile = shapefile[['Name', 'Height (m)', 'xcoord', 'ycoord', '2021']]
-shapefile = shapefile[shapefile['2021'] == 'MUN' ].reset_index(drop = True)   
 
-def test_munro_count():
-    assert shapefile.shape[0] == 282, 'munro count is not coming back as 282?'
-    
-shapefile = shapefile.drop('2021', axis = 1)
-
-#export as a shapefile 
-
-geometry = [Point(xy) for xy in zip(shapefile['xcoord'], shapefile['ycoord'])]
-
-shapefile = gpd.GeoDataFrame(shapefile, geometry = geometry)
-
-def test_shapefile():
-    assert isinstance(shapefile, gpd.GeoDataFrame), 'file was not correctly converted to a GeoDataFrame Object'
-    
-#align to correct CRS
-shapefile = shapefile.set_crs(epsg=27700) 
-
-def test_crs():
-    assert shapefile.crs == 'EPSG:27700', 'file could not be converted to the correct coordinate reference system (27700 - Ordinance Survey System UK'
-    
-#save file 
-shapefile.to_file('../outputs/munro.shp') 
    

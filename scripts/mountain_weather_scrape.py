@@ -45,3 +45,5 @@ df = pd.DataFrame(data, columns=headers if headers else None)
 
 # Print the DataFrame
 print(df)
+
+https://www.zenrows.com/blog/beautifulsoup-parse-table#parse-html-tables-2
