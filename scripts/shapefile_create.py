@@ -12,7 +12,7 @@ from shapely.geometry import Point
 import os
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-script_dir
+
 
 munros_input = '../data/munrotab_v8.0.1.csv'
 munros_output = '../outputs/munro.shp'
