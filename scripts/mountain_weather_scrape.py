@@ -11,36 +11,23 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 
+munro = 'Ben-Lomond'
+height = '974'
+
 #get the websites html
-url = "https://www.mountain-forecast.com/peaks/Ben-Lomond/forecasts/974"
+url = "https://www.mountain-forecast.com/peaks/{}/forecasts/{}".format(munro, height)
 response = requests.get(url)
 soup = BeautifulSoup(response.content, 'html.parser')
 
-#find the day and date
 
 forecast_table = soup.find('table', class_=['forecast-table__table', 'forecast-table__table--content'])
 
-if forecast_table:
-    thead = forecast_table.find('thead')
-    header_rows = thead.find_all('tr')
-    day_header_row = header_rows[1]
-    day_cells = day_header_row.find_all('td', class_='forecast-table-days__cell')
+thead = forecast_table.find('thead')
+header_rows = thead.find_all('tr')
+day_header_row = header_rows[1]
+day_cells = day_header_row.find_all('td', class_='forecast-table-days__cell')
 
-    day_dates = []
-    for cell in day_cells:
-        day_name_div = cell.find('div', class_='forecast-table-days__content').find('div', class_='forecast-table-days__name')
-        date_div = cell.find('div', class_='forecast-table-days__content').find('div', class_='forecast-table-days__date')
-        day = day_name_div.text.strip() if day_name_div else None
-        date = date_div.text.strip() if date_div else None
-        day_dates.append((day, date))
 
-    print("Day and Dates:", day_dates)
-
-else:
-    print("Could not find the forecast table.")
-    
-
-# Find the time row
 # Find the time row
 time_row = thead.find('tr', {'data-row': 'time'})
 time_periods = []
@@ -51,13 +38,8 @@ if time_row:
         if time_span:
             time_periods.append(time_span.text.strip())
         else:
-            # If the span isn't directly in the cell, try one level deeper
-            container_div = cell.find('div', class_='forecast-table__container')
-            if container_div:
-                time_span_in_div = container_div.find('span', class_='en')
-                time_periods.append(time_span_in_div.text.strip() if time_span_in_div else None)
-            else:
-                time_periods.append(None)
+            time_periods.append(None)
+    #print("Time Periods:", time_periods)
 else:
     print("Could not find the 'time' row.")
 
@@ -74,7 +56,7 @@ if phrase_row:
             cloud_cover_descriptions.append(phrase_span.text.strip())
         else:
             cloud_cover_descriptions.append(None)
-    print("Cloud Cover Descriptions:", cloud_cover_descriptions)
+    #print("Cloud Cover Descriptions:", cloud_cover_descriptions)
 else:
     print("Could not find the 'phrases' row in the forecast table.")
     
@@ -90,7 +72,7 @@ if max_temp_row:
             max_temp_values.append(temp_div.text)
         else:
             max_temp_values.append(None)
-    print("Max Temperatures:", max_temp_values)
+    #print("Max Temperatures:", max_temp_values)
 else:
     print("Could not find the 'temperature-max' row.")
     
@@ -106,29 +88,25 @@ if min_temp_row:
             min_temp_values.append(temp_div.text)
         else:
             min_temp_values.append(None)
-    print("Min Temperatures:", min_temp_values)
+   # print("Min Temperatures:", min_temp_values)
 else:
     print("Could not find the 'temperature-min' row.")
     
  ##
 
-# Separate days and dates
-days = [item[0] for item in day_dates]
-dates = [item[1] for item in day_dates]
-
 
 # Create the dictionary for the DataFrame
 data = {
-    'Day': days,
-    'Date': dates,
     'Time': time_periods,
     'Cloud Cover': cloud_cover_descriptions,
-    'Max Temperature (°C)': max_temp_values,
-    'Min Temperature (°C)': min_temp_values
+    'Max Temperature (°C) at {}'.format(height): max_temp_values,
+    'Min Temperature (°C) at {}'.format(height): min_temp_values,
+    'Munro Name': munro
 }
 
 # Create the Pandas DataFrame
 df = pd.DataFrame(data)
 
-# Print the DataFrame
-print(df)   
+  
+#outout
+df.to_csv('../outputs/munro_scrapes/{}_scrape.csv'.format(munro))
