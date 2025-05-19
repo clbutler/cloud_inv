@@ -39,4 +39,41 @@ munro_data = munro_data[munro_data['munro height (m)'] > 914.4]
 
 munro_data.to_csv('../outputs/munro_data.csv')
 
+####### Step 2 Import the Weather data#########
 
+from weather_scrape_function import time_periods, cloud_cover, max_temperature, min_temperature
+
+list_of_munro_weather_dfs = []
+
+for index, row in munro_data.iterrows():
+    munro_name = row['munro name']
+    i = row['URL']
+    
+    
+  
+    tp = time_periods(i)
+    cc = cloud_cover(i)
+    maxt = max_temperature(i)
+    mint = min_temperature(i)
+    
+    
+    
+    # Create the dictionary for the DataFrame
+    data = {
+        'Munro Name': munro_name,
+        'Time': tp,
+        'Cloud Cover': cc,
+        'Max Temperature (°C)': maxt,
+        'Min Temperature (°C)': mint,
+        }
+    
+    # Create the Pandas DataFrame
+    current_weather_df = pd.DataFrame(data)
+    list_of_munro_weather_dfs.append(current_weather_df)
+    
+all_weather_df = pd.concat(list_of_munro_weather_dfs) 
+
+all_weather_df.to_csv('../outputs/munro_weather.csv')
+
+
+  

@@ -1,0 +1,3112 @@
+,Munro Name,Time,Cloud Cover,Max Temperature (°C),Min Temperature (°C)
+0,A' Bhuidheanach Bheag,PM,cloudy,9,9
+1,A' Bhuidheanach Bheag,night,some clouds,7,6
+2,A' Bhuidheanach Bheag,AM,some clouds,11,9
+3,A' Bhuidheanach Bheag,PM,some clouds,12,11
+4,A' Bhuidheanach Bheag,night,some clouds,9,7
+5,A' Bhuidheanach Bheag,AM,clear,11,9
+6,A' Bhuidheanach Bheag,PM,clear,12,9
+7,A' Bhuidheanach Bheag,night,clear,5,1
+8,A' Bhuidheanach Bheag,AM,clear,3,1
+9,A' Bhuidheanach Bheag,PM,clear,5,4
+10,A' Bhuidheanach Bheag,night,clear,2,1
+11,A' Bhuidheanach Bheag,AM,some clouds,7,4
+12,A' Bhuidheanach Bheag,PM,cloudy,8,7
+13,A' Bhuidheanach Bheag,night,light rain,7,5
+14,A' Bhuidheanach Bheag,AM,light rain,7,7
+15,A' Bhuidheanach Bheag,PM,rain shwrs,7,5
+16,A' Bhuidheanach Bheag,night,rain shwrs,3,2
+0,A' Mharconaich,PM,cloudy,9,9
+1,A' Mharconaich,night,some clouds,7,6
+2,A' Mharconaich,AM,some clouds,10,9
+3,A' Mharconaich,PM,some clouds,12,11
+4,A' Mharconaich,night,some clouds,9,7
+5,A' Mharconaich,AM,clear,11,9
+6,A' Mharconaich,PM,clear,12,9
+7,A' Mharconaich,night,clear,5,1
+8,A' Mharconaich,AM,clear,3,1
+9,A' Mharconaich,PM,clear,5,4
+10,A' Mharconaich,night,clear,2,1
+11,A' Mharconaich,AM,some clouds,6,4
+12,A' Mharconaich,PM,cloudy,8,7
+13,A' Mharconaich,night,light rain,6,5
+14,A' Mharconaich,AM,light rain,7,7
+15,A' Mharconaich,PM,rain shwrs,6,4
+16,A' Mharconaich,night,rain shwrs,3,1
+0,Am Bodach,PM,cloudy,8,8
+1,Am Bodach,night,rain shwrs,7,5
+2,Am Bodach,AM,some clouds,9,8
+3,Am Bodach,PM,some clouds,11,10
+4,Am Bodach,night,clear,8,7
+5,Am Bodach,AM,clear,10,9
+6,Am Bodach,PM,clear,11,9
+7,Am Bodach,night,clear,6,2
+8,Am Bodach,AM,clear,4,1
+9,Am Bodach,PM,clear,6,6
+10,Am Bodach,night,clear,3,2
+11,Am Bodach,AM,cloudy,5,4
+12,Am Bodach,PM,cloudy,6,5
+13,Am Bodach,night,mod. rain,6,4
+14,Am Bodach,AM,light rain,6,5
+15,Am Bodach,PM,rain shwrs,4,3
+16,Am Bodach,night,rain shwrs,2,1
+0,An Caisteal,PM,some clouds,8,7
+1,An Caisteal,night,clear,6,5
+2,An Caisteal,AM,some clouds,9,8
+3,An Caisteal,PM,some clouds,11,10
+4,An Caisteal,night,some clouds,8,7
+5,An Caisteal,AM,clear,11,9
+6,An Caisteal,PM,clear,12,11
+7,An Caisteal,night,clear,7,2
+8,An Caisteal,AM,clear,5,2
+9,An Caisteal,PM,some clouds,7,6
+10,An Caisteal,night,clear,4,2
+11,An Caisteal,AM,some clouds,6,4
+12,An Caisteal,PM,cloudy,7,6
+13,An Caisteal,night,light rain,7,5
+14,An Caisteal,AM,light rain,7,7
+15,An Caisteal,PM,rain shwrs,5,4
+16,An Caisteal,night,some clouds,3,1
+0,An Gearanach,PM,cloudy,9,9
+1,An Gearanach,night,rain shwrs,7,5
+2,An Gearanach,AM,some clouds,10,8
+3,An Gearanach,PM,some clouds,12,10
+4,An Gearanach,night,clear,8,7
+5,An Gearanach,AM,clear,11,9
+6,An Gearanach,PM,clear,12,10
+7,An Gearanach,night,clear,6,2
+8,An Gearanach,AM,clear,4,2
+9,An Gearanach,PM,clear,6,6
+10,An Gearanach,night,clear,4,2
+11,An Gearanach,AM,cloudy,6,4
+12,An Gearanach,PM,cloudy,6,5
+13,An Gearanach,night,mod. rain,6,5
+14,An Gearanach,AM,light rain,7,5
+15,An Gearanach,PM,rain shwrs,4,3
+16,An Gearanach,night,rain shwrs,3,1
+0,An Socach (Glen Ey),PM,cloudy,9,8
+1,An Socach (Glen Ey),night,cloudy,7,6
+2,An Socach (Glen Ey),AM,clear,11,9
+3,An Socach (Glen Ey),PM,some clouds,12,11
+4,An Socach (Glen Ey),night,some clouds,8,6
+5,An Socach (Glen Ey),AM,some clouds,11,9
+6,An Socach (Glen Ey),PM,clear,12,8
+7,An Socach (Glen Ey),night,some clouds,4,0
+8,An Socach (Glen Ey),AM,some clouds,3,1
+9,An Socach (Glen Ey),PM,clear,4,3
+10,An Socach (Glen Ey),night,clear,2,0
+11,An Socach (Glen Ey),AM,clear,7,3
+12,An Socach (Glen Ey),PM,some clouds,9,8
+13,An Socach (Glen Ey),night,light rain,7,6
+14,An Socach (Glen Ey),AM,light rain,8,7
+15,An Socach (Glen Ey),PM,rain shwrs,7,6
+16,An Socach (Glen Ey),night,rain shwrs,3,2
+0,An Stuc,PM,cloudy,7,7
+1,An Stuc,night,some clouds,6,5
+2,An Stuc,AM,cloudy,9,7
+3,An Stuc,PM,some clouds,10,10
+4,An Stuc,night,rain shwrs,8,6
+5,An Stuc,AM,some clouds,9,8
+6,An Stuc,PM,clear,11,9
+7,An Stuc,night,clear,5,1
+8,An Stuc,AM,clear,3,0
+9,An Stuc,PM,clear,4,4
+10,An Stuc,night,clear,2,1
+11,An Stuc,AM,some clouds,5,3
+12,An Stuc,PM,cloudy,6,5
+13,An Stuc,night,light rain,6,4
+14,An Stuc,AM,light rain,6,6
+15,An Stuc,PM,rain shwrs,5,3
+16,An Stuc,night,some clouds,2,0
+0,Aonach Beag,PM,cloudy,7,6
+1,Aonach Beag,night,rain shwrs,5,5
+2,Aonach Beag,AM,some clouds,7,6
+3,Aonach Beag,PM,some clouds,9,9
+4,Aonach Beag,night,clear,7,6
+5,Aonach Beag,AM,clear,8,7
+6,Aonach Beag,PM,clear,9,7
+7,Aonach Beag,night,clear,4,0
+8,Aonach Beag,AM,clear,2,-1
+9,Aonach Beag,PM,clear,4,4
+10,Aonach Beag,night,clear,2,1
+11,Aonach Beag,AM,cloudy,3,3
+12,Aonach Beag,PM,cloudy,4,4
+13,Aonach Beag,night,mod. rain,6,4
+14,Aonach Beag,AM,light rain,5,4
+15,Aonach Beag,PM,rain shwrs,2,1
+16,Aonach Beag,night,snow shwrs,1,-1
+0,Aonach Eagach,PM,cloudy,9,8
+1,Aonach Eagach,night,rain shwrs,7,5
+2,Aonach Eagach,AM,some clouds,10,8
+3,Aonach Eagach,PM,some clouds,11,10
+4,Aonach Eagach,night,clear,8,7
+5,Aonach Eagach,AM,clear,11,9
+6,Aonach Eagach,PM,clear,12,10
+7,Aonach Eagach,night,clear,7,3
+8,Aonach Eagach,AM,clear,5,2
+9,Aonach Eagach,PM,clear,7,7
+10,Aonach Eagach,night,clear,4,2
+11,Aonach Eagach,AM,cloudy,6,5
+12,Aonach Eagach,PM,cloudy,6,5
+13,Aonach Eagach,night,mod. rain,7,5
+14,Aonach Eagach,AM,light rain,7,5
+15,Aonach Eagach,PM,rain shwrs,4,4
+16,Aonach Eagach,night,rain shwrs,3,1
+0,Aonach Mòr,PM,cloudy,7,7
+1,Aonach Mòr,night,some clouds,5,5
+2,Aonach Mòr,AM,some clouds,8,6
+3,Aonach Mòr,PM,some clouds,9,9
+4,Aonach Mòr,night,clear,7,6
+5,Aonach Mòr,AM,clear,8,7
+6,Aonach Mòr,PM,clear,9,8
+7,Aonach Mòr,night,clear,4,0
+8,Aonach Mòr,AM,clear,2,-1
+9,Aonach Mòr,PM,clear,4,4
+10,Aonach Mòr,night,clear,2,1
+11,Aonach Mòr,AM,cloudy,4,3
+12,Aonach Mòr,PM,cloudy,4,4
+13,Aonach Mòr,night,mod. rain,6,4
+14,Aonach Mòr,AM,light rain,5,4
+15,Aonach Mòr,PM,rain shwrs,2,1
+16,Aonach Mòr,night,snow shwrs,1,-1
+0,Beinn a' Bheithir,PM,cloudy,8,8
+1,Beinn a' Bheithir,night,some clouds,7,5
+2,Beinn a' Bheithir,AM,some clouds,9,8
+3,Beinn a' Bheithir,PM,some clouds,10,10
+4,Beinn a' Bheithir,night,clear,8,7
+5,Beinn a' Bheithir,AM,clear,10,9
+6,Beinn a' Bheithir,PM,clear,11,10
+7,Beinn a' Bheithir,night,clear,7,3
+8,Beinn a' Bheithir,AM,clear,4,2
+9,Beinn a' Bheithir,PM,clear,6,6
+10,Beinn a' Bheithir,night,clear,4,2
+11,Beinn a' Bheithir,AM,cloudy,5,4
+12,Beinn a' Bheithir,PM,light rain,6,5
+13,Beinn a' Bheithir,night,mod. rain,6,5
+14,Beinn a' Bheithir,AM,light rain,6,5
+15,Beinn a' Bheithir,PM,rain shwrs,4,3
+16,Beinn a' Bheithir,night,rain shwrs,2,1
+0,Beinn a' Bhùird,PM,cloudy,7,6
+1,Beinn a' Bhùird,night,cloudy,6,5
+2,Beinn a' Bhùird,AM,clear,8,7
+3,Beinn a' Bhùird,PM,some clouds,9,8
+4,Beinn a' Bhùird,night,some clouds,6,5
+5,Beinn a' Bhùird,AM,some clouds,8,7
+6,Beinn a' Bhùird,PM,clear,9,5
+7,Beinn a' Bhùird,night,some clouds,1,-3
+8,Beinn a' Bhùird,AM,some clouds,-1,-2
+9,Beinn a' Bhùird,PM,clear,1,0
+10,Beinn a' Bhùird,night,clear,0,-2
+11,Beinn a' Bhùird,AM,clear,4,1
+12,Beinn a' Bhùird,PM,some clouds,6,6
+13,Beinn a' Bhùird,night,light rain,6,4
+14,Beinn a' Bhùird,AM,light rain,6,6
+15,Beinn a' Bhùird,PM,rain shwrs,5,3
+16,Beinn a' Bhùird,night,some clouds,1,0
+0,Beinn a' Chaorainn (Cairngorms),PM,cloudy,8,7
+1,Beinn a' Chaorainn (Cairngorms),night,cloudy,6,6
+2,Beinn a' Chaorainn (Cairngorms),AM,clear,9,8
+3,Beinn a' Chaorainn (Cairngorms),PM,some clouds,10,9
+4,Beinn a' Chaorainn (Cairngorms),night,some clouds,7,6
+5,Beinn a' Chaorainn (Cairngorms),AM,some clouds,9,8
+6,Beinn a' Chaorainn (Cairngorms),PM,clear,10,6
+7,Beinn a' Chaorainn (Cairngorms),night,some clouds,2,-2
+8,Beinn a' Chaorainn (Cairngorms),AM,some clouds,1,-1
+9,Beinn a' Chaorainn (Cairngorms),PM,clear,2,1
+10,Beinn a' Chaorainn (Cairngorms),night,clear,1,-1
+11,Beinn a' Chaorainn (Cairngorms),AM,clear,5,2
+12,Beinn a' Chaorainn (Cairngorms),PM,some clouds,7,7
+13,Beinn a' Chaorainn (Cairngorms),night,light rain,6,5
+14,Beinn a' Chaorainn (Cairngorms),AM,light rain,6,6
+15,Beinn a' Chaorainn (Cairngorms),PM,rain shwrs,6,4
+16,Beinn a' Chaorainn (Cairngorms),night,some clouds,2,1
+0,Beinn a' Chaorainn (Glen Spean),PM,cloudy,8,8
+1,Beinn a' Chaorainn (Glen Spean),night,cloudy,6,5
+2,Beinn a' Chaorainn (Glen Spean),AM,some clouds,9,8
+3,Beinn a' Chaorainn (Glen Spean),PM,some clouds,11,10
+4,Beinn a' Chaorainn (Glen Spean),night,some clouds,8,6
+5,Beinn a' Chaorainn (Glen Spean),AM,some clouds,10,8
+6,Beinn a' Chaorainn (Glen Spean),PM,clear,11,8
+7,Beinn a' Chaorainn (Glen Spean),night,clear,4,0
+8,Beinn a' Chaorainn (Glen Spean),AM,clear,3,0
+9,Beinn a' Chaorainn (Glen Spean),PM,clear,5,4
+10,Beinn a' Chaorainn (Glen Spean),night,clear,2,1
+11,Beinn a' Chaorainn (Glen Spean),AM,some clouds,5,4
+12,Beinn a' Chaorainn (Glen Spean),PM,cloudy,7,5
+13,Beinn a' Chaorainn (Glen Spean),night,light rain,6,4
+14,Beinn a' Chaorainn (Glen Spean),AM,light rain,6,5
+15,Beinn a' Chaorainn (Glen Spean),PM,rain shwrs,4,3
+16,Beinn a' Chaorainn (Glen Spean),night,rain shwrs,2,1
+0,Beinn a' Chleibh,PM,cloudy,8,8
+1,Beinn a' Chleibh,night,some clouds,7,5
+2,Beinn a' Chleibh,AM,some clouds,10,8
+3,Beinn a' Chleibh,PM,some clouds,11,10
+4,Beinn a' Chleibh,night,clear,8,7
+5,Beinn a' Chleibh,AM,clear,11,10
+6,Beinn a' Chleibh,PM,clear,12,11
+7,Beinn a' Chleibh,night,clear,8,3
+8,Beinn a' Chleibh,AM,clear,5,3
+9,Beinn a' Chleibh,PM,some clouds,7,7
+10,Beinn a' Chleibh,night,clear,4,2
+11,Beinn a' Chleibh,AM,some clouds,6,5
+12,Beinn a' Chleibh,PM,cloudy,7,6
+13,Beinn a' Chleibh,night,mod. rain,7,5
+14,Beinn a' Chleibh,AM,light rain,7,7
+15,Beinn a' Chleibh,PM,rain shwrs,5,4
+16,Beinn a' Chleibh,night,rain shwrs,3,2
+0,Beinn a' Chreachain,PM,cloudy,7,7
+1,Beinn a' Chreachain,night,some clouds,6,5
+2,Beinn a' Chreachain,AM,some clouds,9,7
+3,Beinn a' Chreachain,PM,some clouds,10,10
+4,Beinn a' Chreachain,night,clear,8,7
+5,Beinn a' Chreachain,AM,clear,10,8
+6,Beinn a' Chreachain,PM,clear,11,9
+7,Beinn a' Chreachain,night,clear,6,2
+8,Beinn a' Chreachain,AM,clear,3,1
+9,Beinn a' Chreachain,PM,some clouds,5,5
+10,Beinn a' Chreachain,night,clear,3,2
+11,Beinn a' Chreachain,AM,some clouds,5,4
+12,Beinn a' Chreachain,PM,cloudy,6,5
+13,Beinn a' Chreachain,night,light rain,6,4
+14,Beinn a' Chreachain,AM,light rain,6,6
+15,Beinn a' Chreachain,PM,rain shwrs,4,3
+16,Beinn a' Chreachain,night,some clouds,2,1
+0,Beinn a' Chroin,PM,some clouds,8,8
+1,Beinn a' Chroin,night,clear,6,5
+2,Beinn a' Chroin,AM,some clouds,10,8
+3,Beinn a' Chroin,PM,some clouds,11,10
+4,Beinn a' Chroin,night,some clouds,8,7
+5,Beinn a' Chroin,AM,clear,11,9
+6,Beinn a' Chroin,PM,clear,12,11
+7,Beinn a' Chroin,night,clear,8,3
+8,Beinn a' Chroin,AM,clear,5,3
+9,Beinn a' Chroin,PM,some clouds,7,7
+10,Beinn a' Chroin,night,clear,4,2
+11,Beinn a' Chroin,AM,some clouds,6,5
+12,Beinn a' Chroin,PM,cloudy,7,6
+13,Beinn a' Chroin,night,light rain,7,5
+14,Beinn a' Chroin,AM,light rain,7,7
+15,Beinn a' Chroin,PM,rain shwrs,5,4
+16,Beinn a' Chroin,night,some clouds,3,2
+0,Beinn a' Ghlò,PM,cloudy,7,7
+1,Beinn a' Ghlò,night,some clouds,6,5
+2,Beinn a' Ghlò,AM,some clouds,9,7
+3,Beinn a' Ghlò,PM,some clouds,11,9
+4,Beinn a' Ghlò,night,rain shwrs,7,6
+5,Beinn a' Ghlò,AM,some clouds,9,8
+6,Beinn a' Ghlò,PM,clear,10,8
+7,Beinn a' Ghlò,night,clear,3,-1
+8,Beinn a' Ghlò,AM,clear,1,-1
+9,Beinn a' Ghlò,PM,clear,3,2
+10,Beinn a' Ghlò,night,clear,1,0
+11,Beinn a' Ghlò,AM,some clouds,5,2
+12,Beinn a' Ghlò,PM,cloudy,7,7
+13,Beinn a' Ghlò,night,light rain,6,4
+14,Beinn a' Ghlò,AM,light rain,6,6
+15,Beinn a' Ghlò,PM,rain shwrs,6,4
+16,Beinn a' Ghlò,night,some clouds,2,1
+0,Beinn Achaladair,PM,cloudy,8,8
+1,Beinn Achaladair,night,some clouds,7,5
+2,Beinn Achaladair,AM,some clouds,9,8
+3,Beinn Achaladair,PM,some clouds,11,10
+4,Beinn Achaladair,night,clear,8,7
+5,Beinn Achaladair,AM,clear,10,9
+6,Beinn Achaladair,PM,clear,11,10
+7,Beinn Achaladair,night,clear,7,2
+8,Beinn Achaladair,AM,clear,4,1
+9,Beinn Achaladair,PM,some clouds,6,6
+10,Beinn Achaladair,night,clear,3,2
+11,Beinn Achaladair,AM,some clouds,5,4
+12,Beinn Achaladair,PM,cloudy,6,5
+13,Beinn Achaladair,night,mod. rain,6,4
+14,Beinn Achaladair,AM,light rain,7,6
+15,Beinn Achaladair,PM,rain shwrs,4,3
+16,Beinn Achaladair,night,rain shwrs,2,1
+0,Beinn an Dothaidh,PM,cloudy,8,8
+1,Beinn an Dothaidh,night,rain shwrs,7,5
+2,Beinn an Dothaidh,AM,some clouds,9,8
+3,Beinn an Dothaidh,PM,some clouds,11,10
+4,Beinn an Dothaidh,night,clear,8,7
+5,Beinn an Dothaidh,AM,clear,10,9
+6,Beinn an Dothaidh,PM,clear,12,10
+7,Beinn an Dothaidh,night,clear,7,2
+8,Beinn an Dothaidh,AM,clear,4,2
+9,Beinn an Dothaidh,PM,some clouds,6,6
+10,Beinn an Dothaidh,night,clear,4,2
+11,Beinn an Dothaidh,AM,some clouds,6,4
+12,Beinn an Dothaidh,PM,cloudy,6,6
+13,Beinn an Dothaidh,night,mod. rain,7,4
+14,Beinn an Dothaidh,AM,light rain,7,6
+15,Beinn an Dothaidh,PM,rain shwrs,5,4
+16,Beinn an Dothaidh,night,rain shwrs,3,1
+0,Beinn Bhreac,PM,cloudy,9,8
+1,Beinn Bhreac,night,cloudy,7,6
+2,Beinn Bhreac,AM,clear,11,9
+3,Beinn Bhreac,PM,some clouds,12,11
+4,Beinn Bhreac,night,some clouds,8,6
+5,Beinn Bhreac,AM,some clouds,11,9
+6,Beinn Bhreac,PM,clear,11,7
+7,Beinn Bhreac,night,some clouds,3,0
+8,Beinn Bhreac,AM,some clouds,2,0
+9,Beinn Bhreac,PM,clear,4,3
+10,Beinn Bhreac,night,clear,1,0
+11,Beinn Bhreac,AM,clear,7,3
+12,Beinn Bhreac,PM,some clouds,9,8
+13,Beinn Bhreac,night,light rain,7,6
+14,Beinn Bhreac,AM,light rain,7,7
+15,Beinn Bhreac,PM,rain shwrs,7,5
+16,Beinn Bhreac,night,rain shwrs,3,2
+0,Beinn Bhrotain,PM,cloudy,7,7
+1,Beinn Bhrotain,night,cloudy,6,6
+2,Beinn Bhrotain,AM,clear,9,7
+3,Beinn Bhrotain,PM,some clouds,10,9
+4,Beinn Bhrotain,night,some clouds,7,6
+5,Beinn Bhrotain,AM,some clouds,9,7
+6,Beinn Bhrotain,PM,clear,10,6
+7,Beinn Bhrotain,night,some clouds,2,-2
+8,Beinn Bhrotain,AM,some clouds,0,-2
+9,Beinn Bhrotain,PM,clear,2,1
+10,Beinn Bhrotain,night,clear,0,-1
+11,Beinn Bhrotain,AM,clear,5,1
+12,Beinn Bhrotain,PM,cloudy,7,6
+13,Beinn Bhrotain,night,light rain,6,4
+14,Beinn Bhrotain,AM,light rain,6,6
+15,Beinn Bhrotain,PM,rain shwrs,6,3
+16,Beinn Bhrotain,night,some clouds,2,0
+0,Beinn Bhuidhe (Glen Fyne),PM,some clouds,8,8
+1,Beinn Bhuidhe (Glen Fyne),night,clear,7,5
+2,Beinn Bhuidhe (Glen Fyne),AM,clear,10,8
+3,Beinn Bhuidhe (Glen Fyne),PM,some clouds,11,10
+4,Beinn Bhuidhe (Glen Fyne),night,some clouds,8,7
+5,Beinn Bhuidhe (Glen Fyne),AM,clear,11,9
+6,Beinn Bhuidhe (Glen Fyne),PM,clear,12,11
+7,Beinn Bhuidhe (Glen Fyne),night,clear,8,3
+8,Beinn Bhuidhe (Glen Fyne),AM,clear,5,3
+9,Beinn Bhuidhe (Glen Fyne),PM,clear,7,7
+10,Beinn Bhuidhe (Glen Fyne),night,clear,4,2
+11,Beinn Bhuidhe (Glen Fyne),AM,cloudy,6,5
+12,Beinn Bhuidhe (Glen Fyne),PM,cloudy,7,6
+13,Beinn Bhuidhe (Glen Fyne),night,mod. rain,7,5
+14,Beinn Bhuidhe (Glen Fyne),AM,light rain,7,6
+15,Beinn Bhuidhe (Glen Fyne),PM,rain shwrs,5,4
+16,Beinn Bhuidhe (Glen Fyne),night,rain shwrs,3,1
+0,Beinn Chabhair,PM,some clouds,8,8
+1,Beinn Chabhair,night,clear,7,5
+2,Beinn Chabhair,AM,clear,10,8
+3,Beinn Chabhair,PM,some clouds,11,10
+4,Beinn Chabhair,night,some clouds,8,7
+5,Beinn Chabhair,AM,clear,11,9
+6,Beinn Chabhair,PM,clear,12,11
+7,Beinn Chabhair,night,clear,8,3
+8,Beinn Chabhair,AM,clear,5,3
+9,Beinn Chabhair,PM,some clouds,7,7
+10,Beinn Chabhair,night,clear,4,2
+11,Beinn Chabhair,AM,some clouds,6,5
+12,Beinn Chabhair,PM,cloudy,7,6
+13,Beinn Chabhair,night,mod. rain,7,5
+14,Beinn Chabhair,AM,light rain,7,7
+15,Beinn Chabhair,PM,rain shwrs,5,5
+16,Beinn Chabhair,night,rain shwrs,3,2
+0,Beinn Challuim,PM,cloudy,8,8
+1,Beinn Challuim,night,some clouds,6,5
+2,Beinn Challuim,AM,some clouds,9,8
+3,Beinn Challuim,PM,some clouds,11,10
+4,Beinn Challuim,night,clear,8,7
+5,Beinn Challuim,AM,some clouds,10,9
+6,Beinn Challuim,PM,clear,12,10
+7,Beinn Challuim,night,clear,7,2
+8,Beinn Challuim,AM,clear,4,1
+9,Beinn Challuim,PM,clear,6,6
+10,Beinn Challuim,night,clear,3,2
+11,Beinn Challuim,AM,some clouds,6,4
+12,Beinn Challuim,PM,cloudy,6,6
+13,Beinn Challuim,night,light rain,7,4
+14,Beinn Challuim,AM,light rain,7,6
+15,Beinn Challuim,PM,rain shwrs,5,4
+16,Beinn Challuim,night,rain shwrs,2,1
+0,Beinn Dorain,PM,cloudy,7,7
+1,Beinn Dorain,night,rain shwrs,6,5
+2,Beinn Dorain,AM,some clouds,9,7
+3,Beinn Dorain,PM,some clouds,10,9
+4,Beinn Dorain,night,clear,8,7
+5,Beinn Dorain,AM,clear,10,8
+6,Beinn Dorain,PM,clear,11,10
+7,Beinn Dorain,night,clear,7,2
+8,Beinn Dorain,AM,clear,4,1
+9,Beinn Dorain,PM,some clouds,6,5
+10,Beinn Dorain,night,clear,3,2
+11,Beinn Dorain,AM,some clouds,5,4
+12,Beinn Dorain,PM,cloudy,6,5
+13,Beinn Dorain,night,mod. rain,6,4
+14,Beinn Dorain,AM,light rain,6,6
+15,Beinn Dorain,PM,rain shwrs,4,3
+16,Beinn Dorain,night,some clouds,2,1
+0,Beinn Dubhchraig,PM,cloudy,8,8
+1,Beinn Dubhchraig,night,some clouds,7,5
+2,Beinn Dubhchraig,AM,some clouds,10,8
+3,Beinn Dubhchraig,PM,some clouds,11,10
+4,Beinn Dubhchraig,night,clear,8,7
+5,Beinn Dubhchraig,AM,clear,11,9
+6,Beinn Dubhchraig,PM,clear,12,11
+7,Beinn Dubhchraig,night,clear,8,3
+8,Beinn Dubhchraig,AM,clear,5,2
+9,Beinn Dubhchraig,PM,some clouds,7,6
+10,Beinn Dubhchraig,night,clear,4,2
+11,Beinn Dubhchraig,AM,some clouds,6,5
+12,Beinn Dubhchraig,PM,cloudy,6,6
+13,Beinn Dubhchraig,night,mod. rain,7,5
+14,Beinn Dubhchraig,AM,light rain,7,7
+15,Beinn Dubhchraig,PM,rain shwrs,5,4
+16,Beinn Dubhchraig,night,rain shwrs,3,1
+0,Beinn Ghlas,PM,cloudy,7,7
+1,Beinn Ghlas,night,some clouds,6,5
+2,Beinn Ghlas,AM,cloudy,9,7
+3,Beinn Ghlas,PM,some clouds,10,10
+4,Beinn Ghlas,night,rain shwrs,8,6
+5,Beinn Ghlas,AM,some clouds,10,8
+6,Beinn Ghlas,PM,clear,11,9
+7,Beinn Ghlas,night,clear,6,1
+8,Beinn Ghlas,AM,clear,3,0
+9,Beinn Ghlas,PM,clear,4,4
+10,Beinn Ghlas,night,clear,2,1
+11,Beinn Ghlas,AM,some clouds,5,3
+12,Beinn Ghlas,PM,cloudy,6,6
+13,Beinn Ghlas,night,light rain,6,4
+14,Beinn Ghlas,AM,light rain,7,6
+15,Beinn Ghlas,PM,rain shwrs,5,3
+16,Beinn Ghlas,night,some clouds,2,1
+0,Beinn Heasgarnich,PM,cloudy,7,7
+1,Beinn Heasgarnich,night,some clouds,6,5
+2,Beinn Heasgarnich,AM,some clouds,9,7
+3,Beinn Heasgarnich,PM,some clouds,10,10
+4,Beinn Heasgarnich,night,clear,8,7
+5,Beinn Heasgarnich,AM,some clouds,10,8
+6,Beinn Heasgarnich,PM,clear,11,10
+7,Beinn Heasgarnich,night,clear,6,2
+8,Beinn Heasgarnich,AM,clear,3,1
+9,Beinn Heasgarnich,PM,clear,6,5
+10,Beinn Heasgarnich,night,clear,3,2
+11,Beinn Heasgarnich,AM,some clouds,5,4
+12,Beinn Heasgarnich,PM,cloudy,6,5
+13,Beinn Heasgarnich,night,light rain,6,4
+14,Beinn Heasgarnich,AM,light rain,6,6
+15,Beinn Heasgarnich,PM,rain shwrs,4,3
+16,Beinn Heasgarnich,night,some clouds,2,1
+0,Beinn Ime,PM,rain shwrs,7,7
+1,Beinn Ime,night,clear,6,5
+2,Beinn Ime,AM,clear,9,7
+3,Beinn Ime,PM,some clouds,10,9
+4,Beinn Ime,night,some clouds,8,7
+5,Beinn Ime,AM,clear,10,9
+6,Beinn Ime,PM,clear,11,10
+7,Beinn Ime,night,clear,8,3
+8,Beinn Ime,AM,clear,5,2
+9,Beinn Ime,PM,some clouds,7,6
+10,Beinn Ime,night,clear,4,2
+11,Beinn Ime,AM,some clouds,6,5
+12,Beinn Ime,PM,cloudy,6,6
+13,Beinn Ime,night,mod. rain,7,5
+14,Beinn Ime,AM,light rain,7,6
+15,Beinn Ime,PM,rain shwrs,4,4
+16,Beinn Ime,night,rain shwrs,3,1
+0,Beinn Mhanach,PM,cloudy,8,8
+1,Beinn Mhanach,night,some clouds,7,5
+2,Beinn Mhanach,AM,some clouds,10,8
+3,Beinn Mhanach,PM,some clouds,11,11
+4,Beinn Mhanach,night,clear,9,7
+5,Beinn Mhanach,AM,clear,11,9
+6,Beinn Mhanach,PM,clear,12,11
+7,Beinn Mhanach,night,clear,7,2
+8,Beinn Mhanach,AM,clear,5,2
+9,Beinn Mhanach,PM,some clouds,7,6
+10,Beinn Mhanach,night,clear,4,2
+11,Beinn Mhanach,AM,some clouds,6,4
+12,Beinn Mhanach,PM,cloudy,7,6
+13,Beinn Mhanach,night,light rain,7,5
+14,Beinn Mhanach,AM,light rain,7,7
+15,Beinn Mhanach,PM,rain shwrs,5,4
+16,Beinn Mhanach,night,rain shwrs,3,2
+0,Beinn Mheadhoin,PM,cloudy,7,6
+1,Beinn Mheadhoin,night,cloudy,6,5
+2,Beinn Mheadhoin,AM,clear,8,7
+3,Beinn Mheadhoin,PM,some clouds,10,8
+4,Beinn Mheadhoin,night,some clouds,7,6
+5,Beinn Mheadhoin,AM,some clouds,8,7
+6,Beinn Mheadhoin,PM,clear,9,5
+7,Beinn Mheadhoin,night,some clouds,1,-2
+8,Beinn Mheadhoin,AM,some clouds,0,-2
+9,Beinn Mheadhoin,PM,clear,1,1
+10,Beinn Mheadhoin,night,clear,0,-1
+11,Beinn Mheadhoin,AM,clear,4,1
+12,Beinn Mheadhoin,PM,some clouds,6,6
+13,Beinn Mheadhoin,night,light rain,6,4
+14,Beinn Mheadhoin,AM,light rain,6,6
+15,Beinn Mheadhoin,PM,rain shwrs,5,3
+16,Beinn Mheadhoin,night,some clouds,2,0
+0,Beinn Narnain,PM,some clouds,8,8
+1,Beinn Narnain,night,clear,7,5
+2,Beinn Narnain,AM,clear,10,8
+3,Beinn Narnain,PM,some clouds,11,10
+4,Beinn Narnain,night,some clouds,8,7
+5,Beinn Narnain,AM,clear,11,10
+6,Beinn Narnain,PM,clear,12,11
+7,Beinn Narnain,night,clear,8,3
+8,Beinn Narnain,AM,clear,5,3
+9,Beinn Narnain,PM,some clouds,7,7
+10,Beinn Narnain,night,clear,4,2
+11,Beinn Narnain,AM,some clouds,6,5
+12,Beinn Narnain,PM,cloudy,7,6
+13,Beinn Narnain,night,mod. rain,7,5
+14,Beinn Narnain,AM,light rain,7,7
+15,Beinn Narnain,PM,rain shwrs,5,4
+16,Beinn Narnain,night,rain shwrs,3,2
+0,Beinn Sgulaird,PM,light rain,9,8
+1,Beinn Sgulaird,night,some clouds,7,5
+2,Beinn Sgulaird,AM,some clouds,10,8
+3,Beinn Sgulaird,PM,some clouds,11,10
+4,Beinn Sgulaird,night,clear,9,7
+5,Beinn Sgulaird,AM,clear,11,9
+6,Beinn Sgulaird,PM,clear,11,11
+7,Beinn Sgulaird,night,clear,8,3
+8,Beinn Sgulaird,AM,clear,5,3
+9,Beinn Sgulaird,PM,clear,7,7
+10,Beinn Sgulaird,night,clear,4,2
+11,Beinn Sgulaird,AM,cloudy,6,5
+12,Beinn Sgulaird,PM,light rain,7,5
+13,Beinn Sgulaird,night,mod. rain,7,5
+14,Beinn Sgulaird,AM,rain shwrs,7,6
+15,Beinn Sgulaird,PM,rain shwrs,5,4
+16,Beinn Sgulaird,night,snow shwrs,3,1
+0,Beinn Tulaichean,PM,some clouds,8,8
+1,Beinn Tulaichean,night,clear,6,5
+2,Beinn Tulaichean,AM,some clouds,10,8
+3,Beinn Tulaichean,PM,some clouds,11,10
+4,Beinn Tulaichean,night,some clouds,8,7
+5,Beinn Tulaichean,AM,clear,11,9
+6,Beinn Tulaichean,PM,clear,12,11
+7,Beinn Tulaichean,night,clear,8,2
+8,Beinn Tulaichean,AM,clear,5,2
+9,Beinn Tulaichean,PM,some clouds,7,7
+10,Beinn Tulaichean,night,clear,4,2
+11,Beinn Tulaichean,AM,some clouds,6,5
+12,Beinn Tulaichean,PM,cloudy,7,7
+13,Beinn Tulaichean,night,light rain,7,5
+14,Beinn Tulaichean,AM,light rain,7,7
+15,Beinn Tulaichean,PM,rain shwrs,5,4
+16,Beinn Tulaichean,night,some clouds,3,2
+0,Beinn Udlamain,PM,cloudy,9,8
+1,Beinn Udlamain,night,some clouds,7,6
+2,Beinn Udlamain,AM,some clouds,10,8
+3,Beinn Udlamain,PM,some clouds,12,11
+4,Beinn Udlamain,night,some clouds,8,7
+5,Beinn Udlamain,AM,clear,10,9
+6,Beinn Udlamain,PM,clear,11,9
+7,Beinn Udlamain,night,clear,5,1
+8,Beinn Udlamain,AM,clear,3,1
+9,Beinn Udlamain,PM,clear,5,4
+10,Beinn Udlamain,night,clear,2,1
+11,Beinn Udlamain,AM,some clouds,6,4
+12,Beinn Udlamain,PM,cloudy,7,6
+13,Beinn Udlamain,night,light rain,6,5
+14,Beinn Udlamain,AM,light rain,7,6
+15,Beinn Udlamain,PM,rain shwrs,6,4
+16,Beinn Udlamain,night,some clouds,3,1
+0,Ben Alder,PM,cloudy,7,7
+1,Ben Alder,night,some clouds,6,5
+2,Ben Alder,AM,some clouds,8,7
+3,Ben Alder,PM,some clouds,10,10
+4,Ben Alder,night,some clouds,8,6
+5,Ben Alder,AM,clear,9,8
+6,Ben Alder,PM,clear,10,8
+7,Ben Alder,night,clear,4,0
+8,Ben Alder,AM,clear,2,0
+9,Ben Alder,PM,clear,4,3
+10,Ben Alder,night,clear,2,1
+11,Ben Alder,AM,some clouds,4,3
+12,Ben Alder,PM,cloudy,6,5
+13,Ben Alder,night,light rain,6,4
+14,Ben Alder,AM,light rain,6,5
+15,Ben Alder,PM,rain shwrs,4,2
+16,Ben Alder,night,some clouds,2,0
+0,Ben Avon,PM,cloudy,7,6
+1,Ben Avon,night,cloudy,6,5
+2,Ben Avon,AM,clear,9,7
+3,Ben Avon,PM,some clouds,10,8
+4,Ben Avon,night,some clouds,6,6
+5,Ben Avon,AM,some clouds,8,7
+6,Ben Avon,PM,clear,9,5
+7,Ben Avon,night,some clouds,1,-2
+8,Ben Avon,AM,some clouds,0,-2
+9,Ben Avon,PM,clear,1,0
+10,Ben Avon,night,clear,0,-1
+11,Ben Avon,AM,clear,4,1
+12,Ben Avon,PM,some clouds,7,6
+13,Ben Avon,night,light rain,6,4
+14,Ben Avon,AM,light rain,6,6
+15,Ben Avon,PM,rain shwrs,5,3
+16,Ben Avon,night,some clouds,2,0
+0,Ben Chonzie,PM,cloudy,8,8
+1,Ben Chonzie,night,some clouds,6,5
+2,Ben Chonzie,AM,cloudy,10,9
+3,Ben Chonzie,PM,some clouds,12,11
+4,Ben Chonzie,night,rain shwrs,9,7
+5,Ben Chonzie,AM,some clouds,11,9
+6,Ben Chonzie,PM,clear,13,11
+7,Ben Chonzie,night,clear,6,2
+8,Ben Chonzie,AM,clear,5,2
+9,Ben Chonzie,PM,clear,6,6
+10,Ben Chonzie,night,clear,3,2
+11,Ben Chonzie,AM,some clouds,7,4
+12,Ben Chonzie,PM,cloudy,8,7
+13,Ben Chonzie,night,light rain,7,5
+14,Ben Chonzie,AM,light rain,8,7
+15,Ben Chonzie,PM,rain shwrs,7,5
+16,Ben Chonzie,night,some clouds,3,2
+0,Ben Cruachan,PM,light rain,6,6
+1,Ben Cruachan,night,some clouds,6,4
+2,Ben Cruachan,AM,some clouds,8,7
+3,Ben Cruachan,PM,some clouds,8,8
+4,Ben Cruachan,night,clear,8,7
+5,Ben Cruachan,AM,clear,9,8
+6,Ben Cruachan,PM,clear,9,9
+7,Ben Cruachan,night,clear,7,2
+8,Ben Cruachan,AM,clear,3,2
+9,Ben Cruachan,PM,clear,5,5
+10,Ben Cruachan,night,clear,3,2
+11,Ben Cruachan,AM,cloudy,4,4
+12,Ben Cruachan,PM,cloudy,5,4
+13,Ben Cruachan,night,mod. rain,6,5
+14,Ben Cruachan,AM,rain shwrs,6,5
+15,Ben Cruachan,PM,rain shwrs,3,3
+16,Ben Cruachan,night,snow shwrs,2,0
+0,Ben Lawers,PM,cloudy,6,6
+1,Ben Lawers,night,some clouds,5,4
+2,Ben Lawers,AM,cloudy,8,6
+3,Ben Lawers,PM,some clouds,9,9
+4,Ben Lawers,night,rain shwrs,7,6
+5,Ben Lawers,AM,some clouds,9,7
+6,Ben Lawers,PM,clear,10,8
+7,Ben Lawers,night,clear,5,0
+8,Ben Lawers,AM,clear,2,-1
+9,Ben Lawers,PM,clear,3,3
+10,Ben Lawers,night,clear,2,1
+11,Ben Lawers,AM,some clouds,4,2
+12,Ben Lawers,PM,cloudy,6,5
+13,Ben Lawers,night,light rain,6,4
+14,Ben Lawers,AM,light rain,6,6
+15,Ben Lawers,PM,rain shwrs,4,2
+16,Ben Lawers,night,some clouds,1,0
+0,Ben Lomond,PM,some clouds,8,7
+1,Ben Lomond,night,clear,6,4
+2,Ben Lomond,AM,clear,9,8
+3,Ben Lomond,PM,some clouds,11,10
+4,Ben Lomond,night,some clouds,8,7
+5,Ben Lomond,AM,clear,11,9
+6,Ben Lomond,PM,clear,12,11
+7,Ben Lomond,night,clear,8,2
+8,Ben Lomond,AM,clear,5,2
+9,Ben Lomond,PM,some clouds,7,7
+10,Ben Lomond,night,clear,4,2
+11,Ben Lomond,AM,some clouds,6,5
+12,Ben Lomond,PM,cloudy,7,6
+13,Ben Lomond,night,light rain,7,5
+14,Ben Lomond,AM,light rain,7,7
+15,Ben Lomond,PM,rain shwrs,5,4
+16,Ben Lomond,night,some clouds,3,2
+0,Ben Lui,PM,cloudy,7,6
+1,Ben Lui,night,some clouds,6,4
+2,Ben Lui,AM,some clouds,8,7
+3,Ben Lui,PM,some clouds,9,9
+4,Ben Lui,night,clear,7,7
+5,Ben Lui,AM,clear,9,8
+6,Ben Lui,PM,clear,10,9
+7,Ben Lui,night,clear,7,2
+8,Ben Lui,AM,clear,3,1
+9,Ben Lui,PM,some clouds,6,5
+10,Ben Lui,night,clear,3,2
+11,Ben Lui,AM,some clouds,4,4
+12,Ben Lui,PM,cloudy,5,5
+13,Ben Lui,night,mod. rain,6,4
+14,Ben Lui,AM,light rain,6,5
+15,Ben Lui,PM,rain shwrs,3,3
+16,Ben Lui,night,some clouds,2,0
+0,Ben Macdui,PM,cloudy,6,5
+1,Ben Macdui,night,cloudy,5,5
+2,Ben Macdui,AM,clear,7,6
+3,Ben Macdui,PM,some clouds,9,8
+4,Ben Macdui,night,some clouds,6,5
+5,Ben Macdui,AM,some clouds,7,6
+6,Ben Macdui,PM,clear,8,4
+7,Ben Macdui,night,some clouds,1,-3
+8,Ben Macdui,AM,some clouds,-1,-3
+9,Ben Macdui,PM,clear,0,0
+10,Ben Macdui,night,clear,0,-2
+11,Ben Macdui,AM,clear,3,0
+12,Ben Macdui,PM,cloudy,5,5
+13,Ben Macdui,night,light rain,5,3
+14,Ben Macdui,AM,light rain,5,5
+15,Ben Macdui,PM,rain shwrs,4,2
+16,Ben Macdui,night,some clouds,1,-1
+0,Ben More (Crianlarich),PM,cloudy,6,6
+1,Ben More (Crianlarich),night,some clouds,5,4
+2,Ben More (Crianlarich),AM,some clouds,8,6
+3,Ben More (Crianlarich),PM,some clouds,9,9
+4,Ben More (Crianlarich),night,clear,7,6
+5,Ben More (Crianlarich),AM,some clouds,9,8
+6,Ben More (Crianlarich),PM,clear,10,9
+7,Ben More (Crianlarich),night,clear,6,1
+8,Ben More (Crianlarich),AM,clear,3,0
+9,Ben More (Crianlarich),PM,clear,5,4
+10,Ben More (Crianlarich),night,clear,2,1
+11,Ben More (Crianlarich),AM,some clouds,4,3
+12,Ben More (Crianlarich),PM,cloudy,5,5
+13,Ben More (Crianlarich),night,light rain,6,4
+14,Ben More (Crianlarich),AM,light rain,6,6
+15,Ben More (Crianlarich),PM,rain shwrs,4,2
+16,Ben More (Crianlarich),night,some clouds,1,0
+0,Ben Nevis,PM,cloudy,6,6
+1,Ben Nevis,night,some clouds,5,4
+2,Ben Nevis,AM,some clouds,6,5
+3,Ben Nevis,PM,some clouds,8,8
+4,Ben Nevis,night,clear,6,6
+5,Ben Nevis,AM,clear,7,6
+6,Ben Nevis,PM,clear,8,7
+7,Ben Nevis,night,clear,4,0
+8,Ben Nevis,AM,clear,1,-2
+9,Ben Nevis,PM,clear,3,3
+10,Ben Nevis,night,clear,1,1
+11,Ben Nevis,AM,cloudy,2,2
+12,Ben Nevis,PM,cloudy,3,3
+13,Ben Nevis,night,mod. rain,5,3
+14,Ben Nevis,AM,light rain,5,3
+15,Ben Nevis,PM,some clouds,1,0
+16,Ben Nevis,night,snow shwrs,0,-1
+0,Ben Oss,PM,cloudy,8,7
+1,Ben Oss,night,some clouds,6,5
+2,Ben Oss,AM,some clouds,9,7
+3,Ben Oss,PM,some clouds,10,9
+4,Ben Oss,night,clear,8,7
+5,Ben Oss,AM,clear,10,9
+6,Ben Oss,PM,clear,11,10
+7,Ben Oss,night,clear,7,2
+8,Ben Oss,AM,clear,4,2
+9,Ben Oss,PM,some clouds,6,6
+10,Ben Oss,night,clear,4,2
+11,Ben Oss,AM,some clouds,5,4
+12,Ben Oss,PM,cloudy,6,5
+13,Ben Oss,night,mod. rain,7,4
+14,Ben Oss,AM,light rain,7,6
+15,Ben Oss,PM,rain shwrs,4,4
+16,Ben Oss,night,rain shwrs,2,1
+0,Ben Starav,PM,light rain,7,7
+1,Ben Starav,night,rain shwrs,6,5
+2,Ben Starav,AM,some clouds,9,7
+3,Ben Starav,PM,some clouds,9,9
+4,Ben Starav,night,clear,8,7
+5,Ben Starav,AM,clear,9,8
+6,Ben Starav,PM,clear,10,9
+7,Ben Starav,night,clear,7,3
+8,Ben Starav,AM,clear,4,2
+9,Ben Starav,PM,clear,6,6
+10,Ben Starav,night,clear,4,2
+11,Ben Starav,AM,cloudy,5,4
+12,Ben Starav,PM,cloudy,5,5
+13,Ben Starav,night,mod. rain,6,4
+14,Ben Starav,AM,light rain,6,5
+15,Ben Starav,PM,rain shwrs,3,3
+16,Ben Starav,night,snow shwrs,2,0
+0,Ben Vane,PM,rain shwrs,8,7
+1,Ben Vane,night,clear,7,5
+2,Ben Vane,AM,clear,10,8
+3,Ben Vane,PM,some clouds,11,10
+4,Ben Vane,night,some clouds,8,7
+5,Ben Vane,AM,clear,11,10
+6,Ben Vane,PM,clear,12,11
+7,Ben Vane,night,clear,8,3
+8,Ben Vane,AM,clear,6,3
+9,Ben Vane,PM,some clouds,8,7
+10,Ben Vane,night,clear,5,2
+11,Ben Vane,AM,some clouds,7,5
+12,Ben Vane,PM,cloudy,7,6
+13,Ben Vane,night,mod. rain,7,5
+14,Ben Vane,AM,light rain,8,7
+15,Ben Vane,PM,rain shwrs,5,5
+16,Ben Vane,night,rain shwrs,3,2
+0,Ben Vorlich (Loch Earn),PM,some clouds,8,7
+1,Ben Vorlich (Loch Earn),night,clear,6,5
+2,Ben Vorlich (Loch Earn),AM,some clouds,9,8
+3,Ben Vorlich (Loch Earn),PM,some clouds,11,11
+4,Ben Vorlich (Loch Earn),night,some clouds,9,7
+5,Ben Vorlich (Loch Earn),AM,clear,11,9
+6,Ben Vorlich (Loch Earn),PM,clear,12,11
+7,Ben Vorlich (Loch Earn),night,clear,7,2
+8,Ben Vorlich (Loch Earn),AM,clear,4,2
+9,Ben Vorlich (Loch Earn),PM,some clouds,6,6
+10,Ben Vorlich (Loch Earn),night,clear,3,2
+11,Ben Vorlich (Loch Earn),AM,some clouds,6,4
+12,Ben Vorlich (Loch Earn),PM,cloudy,7,7
+13,Ben Vorlich (Loch Earn),night,light rain,7,5
+14,Ben Vorlich (Loch Earn),AM,light rain,7,7
+15,Ben Vorlich (Loch Earn),PM,rain shwrs,6,4
+16,Ben Vorlich (Loch Earn),night,rain shwrs,3,2
+0,Ben Vorlich (Loch Lomond),PM,rain shwrs,8,7
+1,Ben Vorlich (Loch Lomond),night,clear,6,5
+2,Ben Vorlich (Loch Lomond),AM,clear,10,8
+3,Ben Vorlich (Loch Lomond),PM,some clouds,11,10
+4,Ben Vorlich (Loch Lomond),night,some clouds,8,7
+5,Ben Vorlich (Loch Lomond),AM,clear,11,9
+6,Ben Vorlich (Loch Lomond),PM,clear,12,11
+7,Ben Vorlich (Loch Lomond),night,clear,8,3
+8,Ben Vorlich (Loch Lomond),AM,clear,5,3
+9,Ben Vorlich (Loch Lomond),PM,some clouds,7,7
+10,Ben Vorlich (Loch Lomond),night,clear,4,2
+11,Ben Vorlich (Loch Lomond),AM,some clouds,6,5
+12,Ben Vorlich (Loch Lomond),PM,cloudy,7,6
+13,Ben Vorlich (Loch Lomond),night,mod. rain,7,5
+14,Ben Vorlich (Loch Lomond),AM,light rain,7,7
+15,Ben Vorlich (Loch Lomond),PM,rain shwrs,5,4
+16,Ben Vorlich (Loch Lomond),night,rain shwrs,3,2
+0,Bidean Nam Bian,PM,light rain,7,7
+1,Bidean Nam Bian,night,rain shwrs,6,5
+2,Bidean Nam Bian,AM,some clouds,8,7
+3,Bidean Nam Bian,PM,some clouds,9,9
+4,Bidean Nam Bian,night,clear,7,6
+5,Bidean Nam Bian,AM,clear,9,8
+6,Bidean Nam Bian,PM,clear,10,9
+7,Bidean Nam Bian,night,clear,6,2
+8,Bidean Nam Bian,AM,clear,3,1
+9,Bidean Nam Bian,PM,clear,5,5
+10,Bidean Nam Bian,night,clear,3,2
+11,Bidean Nam Bian,AM,cloudy,4,3
+12,Bidean Nam Bian,PM,cloudy,5,4
+13,Bidean Nam Bian,night,mod. rain,6,4
+14,Bidean Nam Bian,AM,light rain,6,4
+15,Bidean Nam Bian,PM,rain shwrs,3,2
+16,Bidean Nam Bian,night,snow shwrs,1,0
+0,Binnein Beag,PM,cloudy,9,9
+1,Binnein Beag,night,rain shwrs,7,6
+2,Binnein Beag,AM,some clouds,10,9
+3,Binnein Beag,PM,some clouds,12,11
+4,Binnein Beag,night,clear,9,7
+5,Binnein Beag,AM,clear,11,9
+6,Binnein Beag,PM,clear,12,10
+7,Binnein Beag,night,clear,6,2
+8,Binnein Beag,AM,clear,5,2
+9,Binnein Beag,PM,clear,7,6
+10,Binnein Beag,night,clear,4,2
+11,Binnein Beag,AM,cloudy,6,5
+12,Binnein Beag,PM,cloudy,7,6
+13,Binnein Beag,night,mod. rain,7,5
+14,Binnein Beag,AM,light rain,7,6
+15,Binnein Beag,PM,rain shwrs,5,4
+16,Binnein Beag,night,rain shwrs,3,1
+0,Binnein Mor,PM,cloudy,8,7
+1,Binnein Mor,night,rain shwrs,6,5
+2,Binnein Mor,AM,some clouds,8,7
+3,Binnein Mor,PM,some clouds,10,9
+4,Binnein Mor,night,clear,8,6
+5,Binnein Mor,AM,clear,9,8
+6,Binnein Mor,PM,clear,10,9
+7,Binnein Mor,night,clear,5,1
+8,Binnein Mor,AM,clear,3,0
+9,Binnein Mor,PM,clear,5,5
+10,Binnein Mor,night,clear,3,1
+11,Binnein Mor,AM,cloudy,4,3
+12,Binnein Mor,PM,cloudy,5,4
+13,Binnein Mor,night,mod. rain,6,4
+14,Binnein Mor,AM,light rain,6,4
+15,Binnein Mor,PM,rain shwrs,3,2
+16,Binnein Mor,night,some clouds,1,0
+0,Braeriach,PM,cloudy,6,5
+1,Braeriach,night,cloudy,5,5
+2,Braeriach,AM,clear,7,6
+3,Braeriach,PM,some clouds,9,8
+4,Braeriach,night,some clouds,6,5
+5,Braeriach,AM,some clouds,7,6
+6,Braeriach,PM,clear,8,4
+7,Braeriach,night,some clouds,1,-3
+8,Braeriach,AM,some clouds,-1,-3
+9,Braeriach,PM,clear,1,0
+10,Braeriach,night,clear,0,-2
+11,Braeriach,AM,clear,3,0
+12,Braeriach,PM,cloudy,5,5
+13,Braeriach,night,light rain,5,3
+14,Braeriach,AM,light rain,5,5
+15,Braeriach,PM,rain shwrs,4,2
+16,Braeriach,night,some clouds,1,-1
+0,Broad Cairn,PM,cloudy,8,8
+1,Broad Cairn,night,cloudy,7,6
+2,Broad Cairn,AM,clear,10,8
+3,Broad Cairn,PM,clear,12,10
+4,Broad Cairn,night,some clouds,7,6
+5,Broad Cairn,AM,some clouds,10,9
+6,Broad Cairn,PM,clear,11,7
+7,Broad Cairn,night,some clouds,3,-1
+8,Broad Cairn,AM,cloudy,1,0
+9,Broad Cairn,PM,clear,3,2
+10,Broad Cairn,night,clear,1,0
+11,Broad Cairn,AM,clear,6,3
+12,Broad Cairn,PM,some clouds,8,8
+13,Broad Cairn,night,light rain,7,5
+14,Broad Cairn,AM,light rain,8,7
+15,Broad Cairn,PM,rain shwrs,7,5
+16,Broad Cairn,night,some clouds,3,1
+0,Buachaille Etive Beag,PM,cloudy,9,9
+1,Buachaille Etive Beag,night,rain shwrs,7,5
+2,Buachaille Etive Beag,AM,some clouds,10,8
+3,Buachaille Etive Beag,PM,some clouds,11,10
+4,Buachaille Etive Beag,night,clear,9,7
+5,Buachaille Etive Beag,AM,clear,11,9
+6,Buachaille Etive Beag,PM,clear,12,10
+7,Buachaille Etive Beag,night,clear,7,3
+8,Buachaille Etive Beag,AM,clear,5,2
+9,Buachaille Etive Beag,PM,clear,7,7
+10,Buachaille Etive Beag,night,clear,4,2
+11,Buachaille Etive Beag,AM,cloudy,6,5
+12,Buachaille Etive Beag,PM,cloudy,6,5
+13,Buachaille Etive Beag,night,mod. rain,7,5
+14,Buachaille Etive Beag,AM,light rain,7,6
+15,Buachaille Etive Beag,PM,rain shwrs,4,4
+16,Buachaille Etive Beag,night,rain shwrs,3,1
+0,Buachaille Etive Mor,PM,cloudy,8,8
+1,Buachaille Etive Mor,night,rain shwrs,7,5
+2,Buachaille Etive Mor,AM,some clouds,9,8
+3,Buachaille Etive Mor,PM,some clouds,11,10
+4,Buachaille Etive Mor,night,clear,8,7
+5,Buachaille Etive Mor,AM,clear,10,9
+6,Buachaille Etive Mor,PM,clear,11,10
+7,Buachaille Etive Mor,night,clear,7,2
+8,Buachaille Etive Mor,AM,clear,4,2
+9,Buachaille Etive Mor,PM,clear,6,6
+10,Buachaille Etive Mor,night,clear,4,2
+11,Buachaille Etive Mor,AM,cloudy,5,4
+12,Buachaille Etive Mor,PM,cloudy,6,5
+13,Buachaille Etive Mor,night,mod. rain,6,4
+14,Buachaille Etive Mor,AM,light rain,7,5
+15,Buachaille Etive Mor,PM,rain shwrs,4,3
+16,Buachaille Etive Mor,night,rain shwrs,2,1
+0,Bynack More,PM,cloudy,8,7
+1,Bynack More,night,cloudy,6,6
+2,Bynack More,AM,clear,9,8
+3,Bynack More,PM,some clouds,10,9
+4,Bynack More,night,some clouds,7,6
+5,Bynack More,AM,some clouds,9,8
+6,Bynack More,PM,clear,10,6
+7,Bynack More,night,some clouds,2,-2
+8,Bynack More,AM,some clouds,1,-1
+9,Bynack More,PM,clear,2,1
+10,Bynack More,night,clear,1,-1
+11,Bynack More,AM,clear,5,2
+12,Bynack More,PM,some clouds,7,7
+13,Bynack More,night,light rain,6,4
+14,Bynack More,AM,light rain,6,6
+15,Bynack More,PM,rain shwrs,6,4
+16,Bynack More,night,some clouds,2,1
+0,Cairn Toul,PM,cloudy,6,6
+1,Cairn Toul,night,cloudy,5,5
+2,Cairn Toul,AM,clear,8,6
+3,Cairn Toul,PM,some clouds,9,8
+4,Cairn Toul,night,some clouds,6,5
+5,Cairn Toul,AM,some clouds,8,6
+6,Cairn Toul,PM,clear,8,5
+7,Cairn Toul,night,some clouds,1,-3
+8,Cairn Toul,AM,some clouds,-1,-3
+9,Cairn Toul,PM,clear,1,0
+10,Cairn Toul,night,clear,0,-1
+11,Cairn Toul,AM,clear,3,0
+12,Cairn Toul,PM,cloudy,5,5
+13,Cairn Toul,night,light rain,5,3
+14,Cairn Toul,AM,light rain,5,5
+15,Cairn Toul,PM,rain shwrs,4,2
+16,Cairn Toul,night,some clouds,1,0
+0,Cairngorm,PM,cloudy,7,6
+1,Cairngorm,night,cloudy,6,5
+2,Cairngorm,AM,clear,8,7
+3,Cairngorm,PM,some clouds,9,8
+4,Cairngorm,night,some clouds,6,5
+5,Cairngorm,AM,some clouds,8,7
+6,Cairngorm,PM,clear,8,5
+7,Cairngorm,night,some clouds,1,-3
+8,Cairngorm,AM,some clouds,-1,-2
+9,Cairngorm,PM,clear,1,0
+10,Cairngorm,night,clear,0,-1
+11,Cairngorm,AM,clear,4,1
+12,Cairngorm,PM,cloudy,6,6
+13,Cairngorm,night,light rain,5,4
+14,Cairngorm,AM,light rain,5,5
+15,Cairngorm,PM,rain shwrs,5,3
+16,Cairngorm,night,some clouds,1,0
+0,Carn a' Chlamain,PM,cloudy,9,8
+1,Carn a' Chlamain,night,some clouds,7,6
+2,Carn a' Chlamain,AM,some clouds,11,9
+3,Carn a' Chlamain,PM,some clouds,12,11
+4,Carn a' Chlamain,night,rain shwrs,8,6
+5,Carn a' Chlamain,AM,some clouds,11,9
+6,Carn a' Chlamain,PM,clear,12,9
+7,Carn a' Chlamain,night,rain shwrs,4,0
+8,Carn a' Chlamain,AM,clear,3,1
+9,Carn a' Chlamain,PM,clear,5,4
+10,Carn a' Chlamain,night,clear,2,1
+11,Carn a' Chlamain,AM,some clouds,7,3
+12,Carn a' Chlamain,PM,cloudy,8,8
+13,Carn a' Chlamain,night,light rain,6,5
+14,Carn a' Chlamain,AM,light rain,7,7
+15,Carn a' Chlamain,PM,rain shwrs,7,5
+16,Carn a' Chlamain,night,rain shwrs,3,2
+0,Càrn a' Gheòidh,PM,cloudy,9,8
+1,Càrn a' Gheòidh,night,some clouds,7,6
+2,Càrn a' Gheòidh,AM,some clouds,10,9
+3,Càrn a' Gheòidh,PM,some clouds,12,10
+4,Càrn a' Gheòidh,night,rain shwrs,8,6
+5,Càrn a' Gheòidh,AM,some clouds,11,9
+6,Càrn a' Gheòidh,PM,clear,12,8
+7,Càrn a' Gheòidh,night,some clouds,4,0
+8,Càrn a' Gheòidh,AM,clear,2,0
+9,Càrn a' Gheòidh,PM,clear,4,3
+10,Càrn a' Gheòidh,night,clear,1,0
+11,Càrn a' Gheòidh,AM,clear,6,3
+12,Càrn a' Gheòidh,PM,some clouds,8,8
+13,Càrn a' Gheòidh,night,light rain,6,5
+14,Càrn a' Gheòidh,AM,rain shwrs,8,7
+15,Càrn a' Gheòidh,PM,rain shwrs,7,5
+16,Càrn a' Gheòidh,night,some clouds,3,2
+0,Càrn a' Mhàim,PM,cloudy,8,8
+1,Càrn a' Mhàim,night,cloudy,7,6
+2,Càrn a' Mhàim,AM,clear,10,8
+3,Càrn a' Mhàim,PM,some clouds,11,10
+4,Càrn a' Mhàim,night,some clouds,8,6
+5,Càrn a' Mhàim,AM,some clouds,10,8
+6,Càrn a' Mhàim,PM,clear,11,7
+7,Càrn a' Mhàim,night,some clouds,3,-1
+8,Càrn a' Mhàim,AM,some clouds,1,-1
+9,Càrn a' Mhàim,PM,clear,3,2
+10,Càrn a' Mhàim,night,clear,1,0
+11,Càrn a' Mhàim,AM,clear,6,2
+12,Càrn a' Mhàim,PM,cloudy,8,7
+13,Càrn a' Mhàim,night,light rain,6,5
+14,Càrn a' Mhàim,AM,light rain,7,7
+15,Càrn a' Mhàim,PM,rain shwrs,6,4
+16,Càrn a' Mhàim,night,some clouds,3,1
+0,Càrn Aosda,PM,cloudy,9,9
+1,Càrn Aosda,night,cloudy,7,6
+2,Càrn Aosda,AM,clear,11,9
+3,Càrn Aosda,PM,some clouds,12,11
+4,Càrn Aosda,night,some clouds,8,6
+5,Càrn Aosda,AM,some clouds,11,9
+6,Càrn Aosda,PM,clear,12,9
+7,Càrn Aosda,night,some clouds,4,0
+8,Càrn Aosda,AM,some clouds,3,1
+9,Càrn Aosda,PM,clear,4,4
+10,Càrn Aosda,night,clear,2,0
+11,Càrn Aosda,AM,clear,7,3
+12,Càrn Aosda,PM,some clouds,9,9
+13,Càrn Aosda,night,light rain,7,6
+14,Càrn Aosda,AM,light rain,8,7
+15,Càrn Aosda,PM,rain shwrs,7,6
+16,Càrn Aosda,night,rain shwrs,4,2
+0,Carn Dearg (Loch Ossian),PM,cloudy,9,9
+1,Carn Dearg (Loch Ossian),night,some clouds,7,6
+2,Carn Dearg (Loch Ossian),AM,some clouds,10,9
+3,Carn Dearg (Loch Ossian),PM,some clouds,12,12
+4,Carn Dearg (Loch Ossian),night,some clouds,9,7
+5,Carn Dearg (Loch Ossian),AM,clear,11,9
+6,Carn Dearg (Loch Ossian),PM,clear,12,10
+7,Carn Dearg (Loch Ossian),night,clear,6,2
+8,Carn Dearg (Loch Ossian),AM,clear,4,2
+9,Carn Dearg (Loch Ossian),PM,clear,6,6
+10,Carn Dearg (Loch Ossian),night,clear,3,2
+11,Carn Dearg (Loch Ossian),AM,some clouds,6,4
+12,Carn Dearg (Loch Ossian),PM,cloudy,7,6
+13,Carn Dearg (Loch Ossian),night,light rain,7,5
+14,Carn Dearg (Loch Ossian),AM,light rain,7,6
+15,Carn Dearg (Loch Ossian),PM,rain shwrs,5,4
+16,Carn Dearg (Loch Ossian),night,rain shwrs,3,2
+0,Càrn Dearg (Monadh Liath),PM,cloudy,9,9
+1,Càrn Dearg (Monadh Liath),night,cloudy,7,6
+2,Càrn Dearg (Monadh Liath),AM,some clouds,10,9
+3,Càrn Dearg (Monadh Liath),PM,some clouds,12,11
+4,Càrn Dearg (Monadh Liath),night,some clouds,8,7
+5,Càrn Dearg (Monadh Liath),AM,some clouds,11,9
+6,Càrn Dearg (Monadh Liath),PM,clear,11,8
+7,Càrn Dearg (Monadh Liath),night,clear,4,0
+8,Càrn Dearg (Monadh Liath),AM,clear,3,1
+9,Càrn Dearg (Monadh Liath),PM,clear,4,3
+10,Càrn Dearg (Monadh Liath),night,clear,2,1
+11,Càrn Dearg (Monadh Liath),AM,some clouds,6,4
+12,Càrn Dearg (Monadh Liath),PM,cloudy,8,7
+13,Càrn Dearg (Monadh Liath),night,light rain,6,5
+14,Càrn Dearg (Monadh Liath),AM,light rain,7,7
+15,Càrn Dearg (Monadh Liath),PM,rain shwrs,6,4
+16,Càrn Dearg (Monadh Liath),night,rain shwrs,3,2
+0,Càrn Gorm,PM,cloudy,8,8
+1,Càrn Gorm,night,some clouds,6,5
+2,Càrn Gorm,AM,cloudy,10,8
+3,Càrn Gorm,PM,some clouds,11,11
+4,Càrn Gorm,night,some clouds,8,7
+5,Càrn Gorm,AM,some clouds,10,9
+6,Càrn Gorm,PM,clear,12,9
+7,Càrn Gorm,night,clear,6,1
+8,Càrn Gorm,AM,clear,3,1
+9,Càrn Gorm,PM,clear,5,5
+10,Càrn Gorm,night,clear,3,1
+11,Càrn Gorm,AM,some clouds,6,3
+12,Càrn Gorm,PM,cloudy,7,6
+13,Càrn Gorm,night,light rain,6,5
+14,Càrn Gorm,AM,light rain,7,7
+15,Càrn Gorm,PM,rain shwrs,6,4
+16,Càrn Gorm,night,some clouds,3,1
+0,Càrn Mairg,PM,cloudy,8,8
+1,Càrn Mairg,night,some clouds,6,5
+2,Càrn Mairg,AM,some clouds,10,8
+3,Càrn Mairg,PM,some clouds,11,11
+4,Càrn Mairg,night,rain shwrs,8,6
+5,Càrn Mairg,AM,clear,10,9
+6,Càrn Mairg,PM,clear,12,9
+7,Càrn Mairg,night,clear,5,1
+8,Càrn Mairg,AM,clear,3,1
+9,Càrn Mairg,PM,clear,5,4
+10,Càrn Mairg,night,clear,2,1
+11,Càrn Mairg,AM,some clouds,6,3
+12,Càrn Mairg,PM,cloudy,7,6
+13,Càrn Mairg,night,light rain,6,5
+14,Càrn Mairg,AM,light rain,7,7
+15,Càrn Mairg,PM,rain shwrs,6,4
+16,Càrn Mairg,night,some clouds,2,1
+0,Càrn Mòr Dearg,PM,cloudy,7,7
+1,Càrn Mòr Dearg,night,some clouds,5,5
+2,Càrn Mòr Dearg,AM,some clouds,7,6
+3,Càrn Mòr Dearg,PM,some clouds,9,9
+4,Càrn Mòr Dearg,night,clear,7,6
+5,Càrn Mòr Dearg,AM,clear,8,7
+6,Càrn Mòr Dearg,PM,clear,9,8
+7,Càrn Mòr Dearg,night,clear,5,1
+8,Càrn Mòr Dearg,AM,clear,2,-1
+9,Càrn Mòr Dearg,PM,clear,4,4
+10,Càrn Mòr Dearg,night,clear,2,1
+11,Càrn Mòr Dearg,AM,cloudy,4,3
+12,Càrn Mòr Dearg,PM,cloudy,4,4
+13,Càrn Mòr Dearg,night,mod. rain,6,4
+14,Càrn Mòr Dearg,AM,light rain,5,4
+15,Càrn Mòr Dearg,PM,rain shwrs,2,1
+16,Càrn Mòr Dearg,night,snow shwrs,1,-1
+0,Chno Dearg,PM,cloudy,8,8
+1,Chno Dearg,night,some clouds,6,5
+2,Chno Dearg,AM,some clouds,9,8
+3,Chno Dearg,PM,some clouds,11,11
+4,Chno Dearg,night,some clouds,8,7
+5,Chno Dearg,AM,clear,10,8
+6,Chno Dearg,PM,clear,11,9
+7,Chno Dearg,night,clear,5,1
+8,Chno Dearg,AM,clear,3,1
+9,Chno Dearg,PM,clear,5,4
+10,Chno Dearg,night,clear,2,1
+11,Chno Dearg,AM,some clouds,5,4
+12,Chno Dearg,PM,cloudy,6,5
+13,Chno Dearg,night,light rain,6,4
+14,Chno Dearg,AM,light rain,6,5
+15,Chno Dearg,PM,rain shwrs,4,3
+16,Chno Dearg,night,rain shwrs,2,1
+0,Creag Meagaidh,PM,cloudy,8,7
+1,Creag Meagaidh,night,cloudy,6,5
+2,Creag Meagaidh,AM,some clouds,9,7
+3,Creag Meagaidh,PM,some clouds,10,10
+4,Creag Meagaidh,night,some clouds,8,6
+5,Creag Meagaidh,AM,clear,9,8
+6,Creag Meagaidh,PM,clear,10,7
+7,Creag Meagaidh,night,some clouds,4,0
+8,Creag Meagaidh,AM,clear,2,0
+9,Creag Meagaidh,PM,clear,4,3
+10,Creag Meagaidh,night,clear,1,1
+11,Creag Meagaidh,AM,some clouds,5,3
+12,Creag Meagaidh,PM,cloudy,6,5
+13,Creag Meagaidh,night,light rain,6,4
+14,Creag Meagaidh,AM,light rain,6,5
+15,Creag Meagaidh,PM,rain shwrs,4,2
+16,Creag Meagaidh,night,some clouds,2,0
+0,Creag Mhòr,PM,cloudy,8,7
+1,Creag Mhòr,night,some clouds,6,5
+2,Creag Mhòr,AM,some clouds,9,8
+3,Creag Mhòr,PM,some clouds,10,10
+4,Creag Mhòr,night,clear,8,7
+5,Creag Mhòr,AM,some clouds,10,9
+6,Creag Mhòr,PM,clear,11,10
+7,Creag Mhòr,night,clear,7,2
+8,Creag Mhòr,AM,clear,4,1
+9,Creag Mhòr,PM,clear,6,5
+10,Creag Mhòr,night,clear,3,2
+11,Creag Mhòr,AM,some clouds,5,4
+12,Creag Mhòr,PM,cloudy,6,5
+13,Creag Mhòr,night,light rain,6,4
+14,Creag Mhòr,AM,light rain,7,6
+15,Creag Mhòr,PM,rain shwrs,4,3
+16,Creag Mhòr,night,rain shwrs,2,1
+0,Creise,PM,cloudy,7,7
+1,Creise,night,rain shwrs,6,5
+2,Creise,AM,some clouds,9,7
+3,Creise,PM,some clouds,10,9
+4,Creise,night,clear,8,7
+5,Creise,AM,clear,9,8
+6,Creise,PM,clear,11,9
+7,Creise,night,clear,6,2
+8,Creise,AM,clear,3,1
+9,Creise,PM,some clouds,5,5
+10,Creise,night,clear,3,2
+11,Creise,AM,some clouds,5,4
+12,Creise,PM,cloudy,5,5
+13,Creise,night,mod. rain,6,4
+14,Creise,AM,light rain,6,5
+15,Creise,PM,rain shwrs,3,3
+16,Creise,night,some clouds,2,0
+0,Cruach Ardrain,PM,some clouds,7,7
+1,Cruach Ardrain,night,clear,6,5
+2,Cruach Ardrain,AM,some clouds,9,7
+3,Cruach Ardrain,PM,some clouds,10,10
+4,Cruach Ardrain,night,some clouds,8,7
+5,Cruach Ardrain,AM,clear,10,9
+6,Cruach Ardrain,PM,clear,11,10
+7,Cruach Ardrain,night,clear,7,2
+8,Cruach Ardrain,AM,clear,4,2
+9,Cruach Ardrain,PM,some clouds,6,6
+10,Cruach Ardrain,night,clear,3,2
+11,Cruach Ardrain,AM,some clouds,5,4
+12,Cruach Ardrain,PM,cloudy,6,6
+13,Cruach Ardrain,night,light rain,7,4
+14,Cruach Ardrain,AM,light rain,7,7
+15,Cruach Ardrain,PM,rain shwrs,5,4
+16,Cruach Ardrain,night,some clouds,2,1
+0,Derry Cairngorm,PM,cloudy,7,7
+1,Derry Cairngorm,night,cloudy,6,6
+2,Derry Cairngorm,AM,clear,9,7
+3,Derry Cairngorm,PM,some clouds,10,9
+4,Derry Cairngorm,night,some clouds,7,6
+5,Derry Cairngorm,AM,some clouds,9,7
+6,Derry Cairngorm,PM,clear,9,5
+7,Derry Cairngorm,night,some clouds,2,-2
+8,Derry Cairngorm,AM,some clouds,0,-2
+9,Derry Cairngorm,PM,clear,2,1
+10,Derry Cairngorm,night,clear,0,-1
+11,Derry Cairngorm,AM,clear,5,1
+12,Derry Cairngorm,PM,some clouds,7,6
+13,Derry Cairngorm,night,light rain,6,4
+14,Derry Cairngorm,AM,light rain,6,6
+15,Derry Cairngorm,PM,rain shwrs,5,3
+16,Derry Cairngorm,night,some clouds,2,0
+0,Driesh,PM,cloudy,8,8
+1,Driesh,night,some clouds,7,6
+2,Driesh,AM,some clouds,11,9
+3,Driesh,PM,some clouds,12,10
+4,Driesh,night,some clouds,8,6
+5,Driesh,AM,some clouds,11,9
+6,Driesh,PM,clear,12,9
+7,Driesh,night,some clouds,4,0
+8,Driesh,AM,some clouds,2,1
+9,Driesh,PM,clear,4,3
+10,Driesh,night,clear,1,0
+11,Driesh,AM,clear,6,3
+12,Driesh,PM,some clouds,8,8
+13,Driesh,night,light rain,7,5
+14,Driesh,AM,rain shwrs,8,8
+15,Driesh,PM,rain shwrs,7,6
+16,Driesh,night,clear,4,2
+0,Geal-Chàrn,PM,cloudy,8,7
+1,Geal-Chàrn,night,some clouds,6,5
+2,Geal-Chàrn,AM,some clouds,9,7
+3,Geal-Chàrn,PM,some clouds,10,10
+4,Geal-Chàrn,night,some clouds,8,6
+5,Geal-Chàrn,AM,clear,9,8
+6,Geal-Chàrn,PM,clear,10,8
+7,Geal-Chàrn,night,clear,4,0
+8,Geal-Chàrn,AM,clear,2,0
+9,Geal-Chàrn,PM,clear,4,3
+10,Geal-Chàrn,night,clear,2,1
+11,Geal-Chàrn,AM,some clouds,5,3
+12,Geal-Chàrn,PM,cloudy,6,5
+13,Geal-Chàrn,night,light rain,6,4
+14,Geal-Chàrn,AM,light rain,6,5
+15,Geal-Chàrn,PM,rain shwrs,4,3
+16,Geal-Chàrn,night,some clouds,2,0
+0,Glas Maol,PM,cloudy,8,7
+1,Glas Maol,night,some clouds,6,6
+2,Glas Maol,AM,some clouds,10,8
+3,Glas Maol,PM,some clouds,11,9
+4,Glas Maol,night,some clouds,7,6
+5,Glas Maol,AM,some clouds,10,8
+6,Glas Maol,PM,clear,11,7
+7,Glas Maol,night,some clouds,3,-1
+8,Glas Maol,AM,some clouds,1,0
+9,Glas Maol,PM,clear,3,2
+10,Glas Maol,night,clear,1,0
+11,Glas Maol,AM,clear,5,2
+12,Glas Maol,PM,some clouds,7,7
+13,Glas Maol,night,light rain,6,5
+14,Glas Maol,AM,rain shwrs,7,7
+15,Glas Maol,PM,rain shwrs,6,5
+16,Glas Maol,night,clear,3,1
+0,Glas Tulaichean,PM,cloudy,8,8
+1,Glas Tulaichean,night,cloudy,7,6
+2,Glas Tulaichean,AM,clear,10,8
+3,Glas Tulaichean,PM,some clouds,11,10
+4,Glas Tulaichean,night,some clouds,7,6
+5,Glas Tulaichean,AM,some clouds,10,8
+6,Glas Tulaichean,PM,clear,11,8
+7,Glas Tulaichean,night,some clouds,3,-1
+8,Glas Tulaichean,AM,some clouds,1,0
+9,Glas Tulaichean,PM,clear,3,2
+10,Glas Tulaichean,night,clear,1,0
+11,Glas Tulaichean,AM,clear,6,2
+12,Glas Tulaichean,PM,some clouds,8,8
+13,Glas Tulaichean,night,light rain,6,5
+14,Glas Tulaichean,AM,light rain,7,7
+15,Glas Tulaichean,PM,rain shwrs,6,5
+16,Glas Tulaichean,night,some clouds,3,1
+0,Glenshee,PM,cloudy,8,8
+1,Glenshee,night,cloudy,7,6
+2,Glenshee,AM,clear,10,8
+3,Glenshee,PM,some clouds,11,10
+4,Glenshee,night,some clouds,8,6
+5,Glenshee,AM,some clouds,10,9
+6,Glenshee,PM,clear,11,8
+7,Glenshee,night,some clouds,3,-1
+8,Glenshee,AM,some clouds,2,0
+9,Glenshee,PM,clear,3,3
+10,Glenshee,night,clear,1,0
+11,Glenshee,AM,clear,6,2
+12,Glenshee,PM,some clouds,8,8
+13,Glenshee,night,light rain,6,5
+14,Glenshee,AM,light rain,7,7
+15,Glenshee,PM,rain shwrs,6,5
+16,Glenshee,night,some clouds,3,1
+0,Lochnagar,PM,cloudy,7,7
+1,Lochnagar,night,cloudy,6,6
+2,Lochnagar,AM,clear,9,7
+3,Lochnagar,PM,clear,10,9
+4,Lochnagar,night,some clouds,7,6
+5,Lochnagar,AM,some clouds,9,7
+6,Lochnagar,PM,clear,10,6
+7,Lochnagar,night,some clouds,2,-2
+8,Lochnagar,AM,cloudy,0,-1
+9,Lochnagar,PM,clear,2,1
+10,Lochnagar,night,clear,0,-1
+11,Lochnagar,AM,clear,5,1
+12,Lochnagar,PM,some clouds,7,7
+13,Lochnagar,night,light rain,6,4
+14,Lochnagar,AM,light rain,6,6
+15,Lochnagar,PM,rain shwrs,5,4
+16,Lochnagar,night,some clouds,2,0
+0,Meall a' Bhuiridh,PM,cloudy,7,7
+1,Meall a' Bhuiridh,night,rain shwrs,6,5
+2,Meall a' Bhuiridh,AM,some clouds,8,7
+3,Meall a' Bhuiridh,PM,some clouds,10,9
+4,Meall a' Bhuiridh,night,clear,8,7
+5,Meall a' Bhuiridh,AM,clear,9,8
+6,Meall a' Bhuiridh,PM,clear,11,9
+7,Meall a' Bhuiridh,night,clear,6,2
+8,Meall a' Bhuiridh,AM,clear,3,1
+9,Meall a' Bhuiridh,PM,some clouds,5,5
+10,Meall a' Bhuiridh,night,clear,3,2
+11,Meall a' Bhuiridh,AM,some clouds,5,4
+12,Meall a' Bhuiridh,PM,cloudy,5,5
+13,Meall a' Bhuiridh,night,mod. rain,6,4
+14,Meall a' Bhuiridh,AM,light rain,6,5
+15,Meall a' Bhuiridh,PM,rain shwrs,3,3
+16,Meall a' Bhuiridh,night,some clouds,2,0
+0,"Meall Buidhe, Glen Lyon",PM,cloudy,9,9
+1,"Meall Buidhe, Glen Lyon",night,some clouds,7,5
+2,"Meall Buidhe, Glen Lyon",AM,some clouds,10,9
+3,"Meall Buidhe, Glen Lyon",PM,some clouds,12,11
+4,"Meall Buidhe, Glen Lyon",night,clear,9,7
+5,"Meall Buidhe, Glen Lyon",AM,some clouds,11,9
+6,"Meall Buidhe, Glen Lyon",PM,clear,13,10
+7,"Meall Buidhe, Glen Lyon",night,clear,6,2
+8,"Meall Buidhe, Glen Lyon",AM,clear,4,2
+9,"Meall Buidhe, Glen Lyon",PM,clear,6,6
+10,"Meall Buidhe, Glen Lyon",night,clear,3,2
+11,"Meall Buidhe, Glen Lyon",AM,some clouds,6,4
+12,"Meall Buidhe, Glen Lyon",PM,cloudy,8,7
+13,"Meall Buidhe, Glen Lyon",night,light rain,7,5
+14,"Meall Buidhe, Glen Lyon",AM,light rain,7,7
+15,"Meall Buidhe, Glen Lyon",PM,rain shwrs,6,4
+16,"Meall Buidhe, Glen Lyon",night,rain shwrs,3,2
+0,Meall Garbh (Càrn Mairg Group),PM,cloudy,9,8
+1,Meall Garbh (Càrn Mairg Group),night,some clouds,6,5
+2,Meall Garbh (Càrn Mairg Group),AM,some clouds,10,8
+3,Meall Garbh (Càrn Mairg Group),PM,some clouds,12,11
+4,Meall Garbh (Càrn Mairg Group),night,some clouds,9,7
+5,Meall Garbh (Càrn Mairg Group),AM,clear,11,9
+6,Meall Garbh (Càrn Mairg Group),PM,clear,12,10
+7,Meall Garbh (Càrn Mairg Group),night,clear,6,1
+8,Meall Garbh (Càrn Mairg Group),AM,clear,4,2
+9,Meall Garbh (Càrn Mairg Group),PM,clear,6,5
+10,Meall Garbh (Càrn Mairg Group),night,clear,3,1
+11,Meall Garbh (Càrn Mairg Group),AM,some clouds,6,4
+12,Meall Garbh (Càrn Mairg Group),PM,cloudy,8,7
+13,Meall Garbh (Càrn Mairg Group),night,light rain,7,5
+14,Meall Garbh (Càrn Mairg Group),AM,light rain,7,7
+15,Meall Garbh (Càrn Mairg Group),PM,rain shwrs,6,4
+16,Meall Garbh (Càrn Mairg Group),night,rain shwrs,3,2
+0,Meall Garbh (Lawers Group),PM,cloudy,7,7
+1,Meall Garbh (Lawers Group),night,some clouds,6,5
+2,Meall Garbh (Lawers Group),AM,cloudy,9,7
+3,Meall Garbh (Lawers Group),PM,some clouds,10,10
+4,Meall Garbh (Lawers Group),night,rain shwrs,8,6
+5,Meall Garbh (Lawers Group),AM,some clouds,9,8
+6,Meall Garbh (Lawers Group),PM,clear,11,9
+7,Meall Garbh (Lawers Group),night,clear,5,1
+8,Meall Garbh (Lawers Group),AM,clear,3,0
+9,Meall Garbh (Lawers Group),PM,clear,4,4
+10,Meall Garbh (Lawers Group),night,clear,2,1
+11,Meall Garbh (Lawers Group),AM,some clouds,5,3
+12,Meall Garbh (Lawers Group),PM,cloudy,6,5
+13,Meall Garbh (Lawers Group),night,light rain,6,4
+14,Meall Garbh (Lawers Group),AM,light rain,6,6
+15,Meall Garbh (Lawers Group),PM,rain shwrs,5,3
+16,Meall Garbh (Lawers Group),night,some clouds,2,0
+0,Meall Ghaordaidh,PM,cloudy,8,8
+1,Meall Ghaordaidh,night,some clouds,6,5
+2,Meall Ghaordaidh,AM,some clouds,9,8
+3,Meall Ghaordaidh,PM,some clouds,11,10
+4,Meall Ghaordaidh,night,clear,8,7
+5,Meall Ghaordaidh,AM,some clouds,10,9
+6,Meall Ghaordaidh,PM,clear,12,10
+7,Meall Ghaordaidh,night,clear,6,2
+8,Meall Ghaordaidh,AM,clear,4,1
+9,Meall Ghaordaidh,PM,clear,5,5
+10,Meall Ghaordaidh,night,clear,3,2
+11,Meall Ghaordaidh,AM,some clouds,5,4
+12,Meall Ghaordaidh,PM,cloudy,7,6
+13,Meall Ghaordaidh,night,light rain,6,4
+14,Meall Ghaordaidh,AM,light rain,7,7
+15,Meall Ghaordaidh,PM,rain shwrs,5,3
+16,Meall Ghaordaidh,night,some clouds,2,1
+0,Meall Glas,PM,cloudy,8,8
+1,Meall Glas,night,some clouds,7,5
+2,Meall Glas,AM,some clouds,10,8
+3,Meall Glas,PM,some clouds,11,11
+4,Meall Glas,night,clear,8,7
+5,Meall Glas,AM,some clouds,11,9
+6,Meall Glas,PM,clear,12,11
+7,Meall Glas,night,clear,7,2
+8,Meall Glas,AM,clear,5,2
+9,Meall Glas,PM,clear,7,6
+10,Meall Glas,night,clear,4,2
+11,Meall Glas,AM,some clouds,6,4
+12,Meall Glas,PM,cloudy,7,6
+13,Meall Glas,night,light rain,7,5
+14,Meall Glas,AM,light rain,7,7
+15,Meall Glas,PM,rain shwrs,5,4
+16,Meall Glas,night,rain shwrs,3,2
+0,Meall Greigh,PM,cloudy,8,8
+1,Meall Greigh,night,some clouds,6,5
+2,Meall Greigh,AM,cloudy,10,8
+3,Meall Greigh,PM,some clouds,11,11
+4,Meall Greigh,night,rain shwrs,9,7
+5,Meall Greigh,AM,some clouds,11,9
+6,Meall Greigh,PM,clear,12,10
+7,Meall Greigh,night,clear,6,1
+8,Meall Greigh,AM,clear,4,1
+9,Meall Greigh,PM,clear,5,5
+10,Meall Greigh,night,clear,3,1
+11,Meall Greigh,AM,some clouds,6,4
+12,Meall Greigh,PM,cloudy,7,6
+13,Meall Greigh,night,light rain,7,5
+14,Meall Greigh,AM,light rain,7,7
+15,Meall Greigh,PM,rain shwrs,6,4
+16,Meall Greigh,night,some clouds,3,1
+0,Meall nan Tarmachan,PM,cloudy,7,7
+1,Meall nan Tarmachan,night,some clouds,6,5
+2,Meall nan Tarmachan,AM,cloudy,9,8
+3,Meall nan Tarmachan,PM,some clouds,11,10
+4,Meall nan Tarmachan,night,some clouds,8,7
+5,Meall nan Tarmachan,AM,some clouds,10,8
+6,Meall nan Tarmachan,PM,clear,12,10
+7,Meall nan Tarmachan,night,clear,6,1
+8,Meall nan Tarmachan,AM,clear,3,1
+9,Meall nan Tarmachan,PM,clear,5,5
+10,Meall nan Tarmachan,night,clear,3,1
+11,Meall nan Tarmachan,AM,some clouds,5,3
+12,Meall nan Tarmachan,PM,cloudy,7,6
+13,Meall nan Tarmachan,night,light rain,6,5
+14,Meall nan Tarmachan,AM,light rain,7,7
+15,Meall nan Tarmachan,PM,rain shwrs,5,4
+16,Meall nan Tarmachan,night,some clouds,2,1
+0,Mount Keen,PM,cloudy,8,8
+1,Mount Keen,night,cloudy,7,6
+2,Mount Keen,AM,clear,10,9
+3,Mount Keen,PM,clear,11,10
+4,Mount Keen,night,some clouds,7,6
+5,Mount Keen,AM,some clouds,11,9
+6,Mount Keen,PM,clear,11,7
+7,Mount Keen,night,rain shwrs,3,0
+8,Mount Keen,AM,cloudy,1,1
+9,Mount Keen,PM,clear,3,2
+10,Mount Keen,night,clear,1,-1
+11,Mount Keen,AM,clear,6,2
+12,Mount Keen,PM,some clouds,8,7
+13,Mount Keen,night,mod. rain,7,5
+14,Mount Keen,AM,light rain,8,8
+15,Mount Keen,PM,rain shwrs,7,6
+16,Mount Keen,night,some clouds,4,2
+0,Mullach nan Coirean,PM,cloudy,9,9
+1,Mullach nan Coirean,night,some clouds,7,5
+2,Mullach nan Coirean,AM,some clouds,10,9
+3,Mullach nan Coirean,PM,some clouds,12,11
+4,Mullach nan Coirean,night,clear,9,7
+5,Mullach nan Coirean,AM,clear,11,9
+6,Mullach nan Coirean,PM,clear,12,10
+7,Mullach nan Coirean,night,clear,7,3
+8,Mullach nan Coirean,AM,clear,5,2
+9,Mullach nan Coirean,PM,clear,7,7
+10,Mullach nan Coirean,night,clear,4,2
+11,Mullach nan Coirean,AM,cloudy,6,5
+12,Mullach nan Coirean,PM,cloudy,6,5
+13,Mullach nan Coirean,night,mod. rain,7,5
+14,Mullach nan Coirean,AM,light rain,7,6
+15,Mullach nan Coirean,PM,rain shwrs,4,4
+16,Mullach nan Coirean,night,rain shwrs,3,1
+0,Na Gruagaichean,PM,cloudy,8,8
+1,Na Gruagaichean,night,rain shwrs,6,5
+2,Na Gruagaichean,AM,some clouds,9,8
+3,Na Gruagaichean,PM,some clouds,11,10
+4,Na Gruagaichean,night,clear,8,7
+5,Na Gruagaichean,AM,clear,10,8
+6,Na Gruagaichean,PM,clear,11,9
+7,Na Gruagaichean,night,clear,6,2
+8,Na Gruagaichean,AM,clear,4,1
+9,Na Gruagaichean,PM,clear,6,6
+10,Na Gruagaichean,night,clear,3,2
+11,Na Gruagaichean,AM,cloudy,5,4
+12,Na Gruagaichean,PM,cloudy,5,5
+13,Na Gruagaichean,night,mod. rain,6,4
+14,Na Gruagaichean,AM,light rain,6,5
+15,Na Gruagaichean,PM,rain shwrs,4,3
+16,Na Gruagaichean,night,rain shwrs,2,1
+0,Schiehallion,PM,cloudy,8,7
+1,Schiehallion,night,some clouds,6,5
+2,Schiehallion,AM,some clouds,9,8
+3,Schiehallion,PM,some clouds,11,10
+4,Schiehallion,night,rain shwrs,8,6
+5,Schiehallion,AM,clear,10,8
+6,Schiehallion,PM,clear,11,9
+7,Schiehallion,night,clear,5,1
+8,Schiehallion,AM,clear,3,0
+9,Schiehallion,PM,clear,4,4
+10,Schiehallion,night,clear,2,1
+11,Schiehallion,AM,some clouds,5,3
+12,Schiehallion,PM,cloudy,7,6
+13,Schiehallion,night,light rain,6,4
+14,Schiehallion,AM,light rain,6,6
+15,Schiehallion,PM,rain shwrs,6,4
+16,Schiehallion,night,some clouds,2,1
+0,Sgairneach Mhòr,PM,cloudy,9,9
+1,Sgairneach Mhòr,night,some clouds,7,6
+2,Sgairneach Mhòr,AM,some clouds,10,8
+3,Sgairneach Mhòr,PM,some clouds,12,11
+4,Sgairneach Mhòr,night,some clouds,9,7
+5,Sgairneach Mhòr,AM,clear,11,9
+6,Sgairneach Mhòr,PM,clear,12,9
+7,Sgairneach Mhòr,night,clear,5,1
+8,Sgairneach Mhòr,AM,clear,3,1
+9,Sgairneach Mhòr,PM,clear,5,4
+10,Sgairneach Mhòr,night,clear,2,1
+11,Sgairneach Mhòr,AM,some clouds,6,4
+12,Sgairneach Mhòr,PM,cloudy,8,6
+13,Sgairneach Mhòr,night,light rain,6,5
+14,Sgairneach Mhòr,AM,light rain,7,7
+15,Sgairneach Mhòr,PM,rain shwrs,6,4
+16,Sgairneach Mhòr,night,some clouds,3,1
+0,Sgiath Chuil,PM,cloudy,9,8
+1,Sgiath Chuil,night,some clouds,7,5
+2,Sgiath Chuil,AM,some clouds,10,9
+3,Sgiath Chuil,PM,some clouds,12,11
+4,Sgiath Chuil,night,clear,9,7
+5,Sgiath Chuil,AM,some clouds,11,9
+6,Sgiath Chuil,PM,clear,13,11
+7,Sgiath Chuil,night,clear,7,3
+8,Sgiath Chuil,AM,clear,5,2
+9,Sgiath Chuil,PM,clear,7,7
+10,Sgiath Chuil,night,clear,4,2
+11,Sgiath Chuil,AM,some clouds,7,5
+12,Sgiath Chuil,PM,cloudy,8,7
+13,Sgiath Chuil,night,light rain,7,5
+14,Sgiath Chuil,AM,light rain,7,7
+15,Sgiath Chuil,PM,rain shwrs,6,4
+16,Sgiath Chuil,night,rain shwrs,3,2
+0,Sgor an Lochain Uaine,PM,cloudy,7,6
+1,Sgor an Lochain Uaine,night,cloudy,5,5
+2,Sgor an Lochain Uaine,AM,clear,8,6
+3,Sgor an Lochain Uaine,PM,some clouds,9,8
+4,Sgor an Lochain Uaine,night,some clouds,6,5
+5,Sgor an Lochain Uaine,AM,some clouds,8,7
+6,Sgor an Lochain Uaine,PM,clear,9,5
+7,Sgor an Lochain Uaine,night,some clouds,1,-3
+8,Sgor an Lochain Uaine,AM,some clouds,0,-3
+9,Sgor an Lochain Uaine,PM,clear,1,0
+10,Sgor an Lochain Uaine,night,clear,0,-1
+11,Sgor an Lochain Uaine,AM,clear,4,1
+12,Sgor an Lochain Uaine,PM,cloudy,6,6
+13,Sgor an Lochain Uaine,night,light rain,5,4
+14,Sgor an Lochain Uaine,AM,light rain,5,5
+15,Sgor an Lochain Uaine,PM,rain shwrs,5,2
+16,Sgor an Lochain Uaine,night,some clouds,1,0
+0,Sgor Gaoith,PM,cloudy,8,7
+1,Sgor Gaoith,night,cloudy,6,6
+2,Sgor Gaoith,AM,clear,9,7
+3,Sgor Gaoith,PM,some clouds,11,9
+4,Sgor Gaoith,night,some clouds,7,6
+5,Sgor Gaoith,AM,some clouds,9,8
+6,Sgor Gaoith,PM,clear,10,6
+7,Sgor Gaoith,night,some clouds,2,-2
+8,Sgor Gaoith,AM,some clouds,1,-1
+9,Sgor Gaoith,PM,clear,3,2
+10,Sgor Gaoith,night,clear,1,0
+11,Sgor Gaoith,AM,clear,5,2
+12,Sgor Gaoith,PM,cloudy,7,7
+13,Sgor Gaoith,night,light rain,6,5
+14,Sgor Gaoith,AM,light rain,6,6
+15,Sgor Gaoith,PM,rain shwrs,6,4
+16,Sgor Gaoith,night,rain shwrs,2,1
+0,Sgurr a' Mhaim,PM,cloudy,8,8
+1,Sgurr a' Mhaim,night,rain shwrs,6,5
+2,Sgurr a' Mhaim,AM,some clouds,9,7
+3,Sgurr a' Mhaim,PM,some clouds,10,9
+4,Sgurr a' Mhaim,night,clear,8,6
+5,Sgurr a' Mhaim,AM,clear,9,8
+6,Sgurr a' Mhaim,PM,clear,11,9
+7,Sgurr a' Mhaim,night,clear,6,2
+8,Sgurr a' Mhaim,AM,clear,3,1
+9,Sgurr a' Mhaim,PM,clear,5,5
+10,Sgurr a' Mhaim,night,clear,3,2
+11,Sgurr a' Mhaim,AM,cloudy,5,4
+12,Sgurr a' Mhaim,PM,cloudy,5,4
+13,Sgurr a' Mhaim,night,mod. rain,6,4
+14,Sgurr a' Mhaim,AM,light rain,6,5
+15,Sgurr a' Mhaim,PM,rain shwrs,3,2
+16,Sgurr a' Mhaim,night,some clouds,2,0
+0,Sgurr Eilde Mòr,PM,cloudy,9,8
+1,Sgurr Eilde Mòr,night,rain shwrs,7,5
+2,Sgurr Eilde Mòr,AM,some clouds,9,8
+3,Sgurr Eilde Mòr,PM,some clouds,11,10
+4,Sgurr Eilde Mòr,night,clear,8,7
+5,Sgurr Eilde Mòr,AM,clear,10,9
+6,Sgurr Eilde Mòr,PM,clear,12,10
+7,Sgurr Eilde Mòr,night,clear,6,2
+8,Sgurr Eilde Mòr,AM,clear,4,1
+9,Sgurr Eilde Mòr,PM,clear,6,6
+10,Sgurr Eilde Mòr,night,clear,3,2
+11,Sgurr Eilde Mòr,AM,cloudy,6,4
+12,Sgurr Eilde Mòr,PM,cloudy,6,5
+13,Sgurr Eilde Mòr,night,mod. rain,6,4
+14,Sgurr Eilde Mòr,AM,light rain,6,5
+15,Sgurr Eilde Mòr,PM,rain shwrs,4,3
+16,Sgurr Eilde Mòr,night,rain shwrs,2,1
+0,Stob a' Choire Mheadhoin,PM,cloudy,8,8
+1,Stob a' Choire Mheadhoin,night,some clouds,6,5
+2,Stob a' Choire Mheadhoin,AM,some clouds,9,7
+3,Stob a' Choire Mheadhoin,PM,some clouds,11,10
+4,Stob a' Choire Mheadhoin,night,some clouds,8,6
+5,Stob a' Choire Mheadhoin,AM,clear,9,8
+6,Stob a' Choire Mheadhoin,PM,clear,11,9
+7,Stob a' Choire Mheadhoin,night,clear,5,1
+8,Stob a' Choire Mheadhoin,AM,clear,3,0
+9,Stob a' Choire Mheadhoin,PM,clear,5,4
+10,Stob a' Choire Mheadhoin,night,clear,2,1
+11,Stob a' Choire Mheadhoin,AM,some clouds,5,3
+12,Stob a' Choire Mheadhoin,PM,cloudy,6,5
+13,Stob a' Choire Mheadhoin,night,light rain,6,4
+14,Stob a' Choire Mheadhoin,AM,light rain,6,5
+15,Stob a' Choire Mheadhoin,PM,rain shwrs,4,2
+16,Stob a' Choire Mheadhoin,night,some clouds,2,0
+0,Stob a' Choire Odhair,PM,cloudy,9,9
+1,Stob a' Choire Odhair,night,rain shwrs,7,5
+2,Stob a' Choire Odhair,AM,some clouds,10,8
+3,Stob a' Choire Odhair,PM,some clouds,11,10
+4,Stob a' Choire Odhair,night,clear,9,7
+5,Stob a' Choire Odhair,AM,clear,11,9
+6,Stob a' Choire Odhair,PM,clear,12,11
+7,Stob a' Choire Odhair,night,clear,7,3
+8,Stob a' Choire Odhair,AM,clear,5,2
+9,Stob a' Choire Odhair,PM,some clouds,7,7
+10,Stob a' Choire Odhair,night,clear,4,2
+11,Stob a' Choire Odhair,AM,some clouds,6,5
+12,Stob a' Choire Odhair,PM,cloudy,7,6
+13,Stob a' Choire Odhair,night,mod. rain,7,5
+14,Stob a' Choire Odhair,AM,light rain,7,6
+15,Stob a' Choire Odhair,PM,rain shwrs,5,4
+16,Stob a' Choire Odhair,night,rain shwrs,3,2
+0,Stob Bàn (Grey Corries),PM,cloudy,9,9
+1,Stob Bàn (Grey Corries),night,some clouds,7,6
+2,Stob Bàn (Grey Corries),AM,some clouds,10,8
+3,Stob Bàn (Grey Corries),PM,some clouds,12,11
+4,Stob Bàn (Grey Corries),night,some clouds,9,7
+5,Stob Bàn (Grey Corries),AM,clear,11,9
+6,Stob Bàn (Grey Corries),PM,clear,12,10
+7,Stob Bàn (Grey Corries),night,clear,6,2
+8,Stob Bàn (Grey Corries),AM,clear,4,1
+9,Stob Bàn (Grey Corries),PM,clear,6,6
+10,Stob Bàn (Grey Corries),night,clear,3,2
+11,Stob Bàn (Grey Corries),AM,some clouds,6,4
+12,Stob Bàn (Grey Corries),PM,cloudy,7,5
+13,Stob Bàn (Grey Corries),night,light rain,6,5
+14,Stob Bàn (Grey Corries),AM,light rain,7,6
+15,Stob Bàn (Grey Corries),PM,rain shwrs,4,4
+16,Stob Bàn (Grey Corries),night,rain shwrs,3,1
+0,Stob Bàn (Mamores),PM,cloudy,9,8
+1,Stob Bàn (Mamores),night,rain shwrs,7,5
+2,Stob Bàn (Mamores),AM,some clouds,9,8
+3,Stob Bàn (Mamores),PM,some clouds,11,10
+4,Stob Bàn (Mamores),night,clear,8,7
+5,Stob Bàn (Mamores),AM,clear,10,9
+6,Stob Bàn (Mamores),PM,clear,11,10
+7,Stob Bàn (Mamores),night,clear,6,2
+8,Stob Bàn (Mamores),AM,clear,4,2
+9,Stob Bàn (Mamores),PM,clear,6,6
+10,Stob Bàn (Mamores),night,clear,4,2
+11,Stob Bàn (Mamores),AM,cloudy,6,4
+12,Stob Bàn (Mamores),PM,cloudy,6,5
+13,Stob Bàn (Mamores),night,mod. rain,6,5
+14,Stob Bàn (Mamores),AM,light rain,6,5
+15,Stob Bàn (Mamores),PM,rain shwrs,4,3
+16,Stob Bàn (Mamores),night,rain shwrs,2,1
+0,Stob Binnein,PM,some clouds,6,6
+1,Stob Binnein,night,clear,5,4
+2,Stob Binnein,AM,some clouds,8,6
+3,Stob Binnein,PM,some clouds,9,9
+4,Stob Binnein,night,some clouds,7,6
+5,Stob Binnein,AM,clear,9,8
+6,Stob Binnein,PM,clear,10,9
+7,Stob Binnein,night,clear,6,1
+8,Stob Binnein,AM,clear,3,0
+9,Stob Binnein,PM,some clouds,5,5
+10,Stob Binnein,night,clear,2,1
+11,Stob Binnein,AM,some clouds,4,3
+12,Stob Binnein,PM,cloudy,5,5
+13,Stob Binnein,night,light rain,6,4
+14,Stob Binnein,AM,light rain,6,6
+15,Stob Binnein,PM,rain shwrs,4,3
+16,Stob Binnein,night,some clouds,2,0
+0,Stob Choire Claurigh,PM,cloudy,7,7
+1,Stob Choire Claurigh,night,some clouds,6,5
+2,Stob Choire Claurigh,AM,some clouds,8,7
+3,Stob Choire Claurigh,PM,some clouds,10,9
+4,Stob Choire Claurigh,night,some clouds,7,6
+5,Stob Choire Claurigh,AM,clear,9,7
+6,Stob Choire Claurigh,PM,clear,10,8
+7,Stob Choire Claurigh,night,clear,4,0
+8,Stob Choire Claurigh,AM,clear,2,0
+9,Stob Choire Claurigh,PM,clear,4,4
+10,Stob Choire Claurigh,night,clear,2,1
+11,Stob Choire Claurigh,AM,some clouds,4,3
+12,Stob Choire Claurigh,PM,cloudy,5,4
+13,Stob Choire Claurigh,night,mod. rain,6,4
+14,Stob Choire Claurigh,AM,light rain,6,4
+15,Stob Choire Claurigh,PM,rain shwrs,3,2
+16,Stob Choire Claurigh,night,some clouds,1,0
+0,Stob Coire a' Chàirn,PM,cloudy,9,9
+1,Stob Coire a' Chàirn,night,rain shwrs,7,5
+2,Stob Coire a' Chàirn,AM,some clouds,10,8
+3,Stob Coire a' Chàirn,PM,some clouds,12,10
+4,Stob Coire a' Chàirn,night,clear,9,7
+5,Stob Coire a' Chàirn,AM,clear,11,9
+6,Stob Coire a' Chàirn,PM,clear,12,10
+7,Stob Coire a' Chàirn,night,clear,6,2
+8,Stob Coire a' Chàirn,AM,clear,4,2
+9,Stob Coire a' Chàirn,PM,clear,6,6
+10,Stob Coire a' Chàirn,night,clear,4,2
+11,Stob Coire a' Chàirn,AM,cloudy,6,4
+12,Stob Coire a' Chàirn,PM,cloudy,6,5
+13,Stob Coire a' Chàirn,night,mod. rain,6,5
+14,Stob Coire a' Chàirn,AM,light rain,7,5
+15,Stob Coire a' Chàirn,PM,rain shwrs,4,3
+16,Stob Coire a' Chàirn,night,rain shwrs,3,1
+0,Stob Coire an Laoigh,PM,cloudy,8,7
+1,Stob Coire an Laoigh,night,some clouds,6,5
+2,Stob Coire an Laoigh,AM,some clouds,9,7
+3,Stob Coire an Laoigh,PM,some clouds,10,10
+4,Stob Coire an Laoigh,night,clear,8,6
+5,Stob Coire an Laoigh,AM,clear,9,8
+6,Stob Coire an Laoigh,PM,clear,10,8
+7,Stob Coire an Laoigh,night,clear,5,1
+8,Stob Coire an Laoigh,AM,clear,3,0
+9,Stob Coire an Laoigh,PM,clear,5,4
+10,Stob Coire an Laoigh,night,clear,2,1
+11,Stob Coire an Laoigh,AM,cloudy,5,3
+12,Stob Coire an Laoigh,PM,cloudy,5,4
+13,Stob Coire an Laoigh,night,mod. rain,6,4
+14,Stob Coire an Laoigh,AM,light rain,6,5
+15,Stob Coire an Laoigh,PM,rain shwrs,3,2
+16,Stob Coire an Laoigh,night,some clouds,2,0
+0,Stob Coire Easain,PM,cloudy,8,7
+1,Stob Coire Easain,night,some clouds,6,5
+2,Stob Coire Easain,AM,some clouds,9,7
+3,Stob Coire Easain,PM,some clouds,10,10
+4,Stob Coire Easain,night,some clouds,8,6
+5,Stob Coire Easain,AM,clear,9,8
+6,Stob Coire Easain,PM,clear,11,8
+7,Stob Coire Easain,night,clear,5,1
+8,Stob Coire Easain,AM,clear,3,0
+9,Stob Coire Easain,PM,clear,5,4
+10,Stob Coire Easain,night,clear,2,1
+11,Stob Coire Easain,AM,some clouds,5,3
+12,Stob Coire Easain,PM,cloudy,5,5
+13,Stob Coire Easain,night,light rain,6,4
+14,Stob Coire Easain,AM,light rain,6,5
+15,Stob Coire Easain,PM,rain shwrs,3,2
+16,Stob Coire Easain,night,some clouds,2,0
+0,Stob Coire Sgreamhach,PM,light rain,8,7
+1,Stob Coire Sgreamhach,night,rain shwrs,6,5
+2,Stob Coire Sgreamhach,AM,some clouds,9,7
+3,Stob Coire Sgreamhach,PM,some clouds,10,9
+4,Stob Coire Sgreamhach,night,clear,8,7
+5,Stob Coire Sgreamhach,AM,clear,10,8
+6,Stob Coire Sgreamhach,PM,clear,11,9
+7,Stob Coire Sgreamhach,night,clear,6,2
+8,Stob Coire Sgreamhach,AM,clear,4,1
+9,Stob Coire Sgreamhach,PM,clear,6,6
+10,Stob Coire Sgreamhach,night,clear,3,2
+11,Stob Coire Sgreamhach,AM,cloudy,5,4
+12,Stob Coire Sgreamhach,PM,cloudy,5,5
+13,Stob Coire Sgreamhach,night,mod. rain,6,4
+14,Stob Coire Sgreamhach,AM,light rain,6,5
+15,Stob Coire Sgreamhach,PM,rain shwrs,3,3
+16,Stob Coire Sgreamhach,night,snow shwrs,2,0
+0,Stob Garbh,PM,some clouds,8,8
+1,Stob Garbh,night,clear,6,5
+2,Stob Garbh,AM,some clouds,10,8
+3,Stob Garbh,PM,some clouds,11,10
+4,Stob Garbh,night,some clouds,8,7
+5,Stob Garbh,AM,clear,11,9
+6,Stob Garbh,PM,clear,12,11
+7,Stob Garbh,night,clear,8,2
+8,Stob Garbh,AM,clear,5,2
+9,Stob Garbh,PM,some clouds,7,7
+10,Stob Garbh,night,clear,4,2
+11,Stob Garbh,AM,some clouds,6,5
+12,Stob Garbh,PM,cloudy,7,6
+13,Stob Garbh,night,light rain,7,5
+14,Stob Garbh,AM,light rain,7,7
+15,Stob Garbh,PM,rain shwrs,5,4
+16,Stob Garbh,night,some clouds,3,2
+0,Stob Ghabhar,PM,cloudy,7,7
+1,Stob Ghabhar,night,rain shwrs,6,5
+2,Stob Ghabhar,AM,some clouds,9,7
+3,Stob Ghabhar,PM,some clouds,10,9
+4,Stob Ghabhar,night,clear,8,7
+5,Stob Ghabhar,AM,clear,9,8
+6,Stob Ghabhar,PM,clear,11,9
+7,Stob Ghabhar,night,clear,7,2
+8,Stob Ghabhar,AM,clear,3,1
+9,Stob Ghabhar,PM,clear,6,5
+10,Stob Ghabhar,night,clear,3,2
+11,Stob Ghabhar,AM,cloudy,5,4
+12,Stob Ghabhar,PM,cloudy,5,5
+13,Stob Ghabhar,night,mod. rain,6,4
+14,Stob Ghabhar,AM,light rain,6,5
+15,Stob Ghabhar,PM,rain shwrs,4,3
+16,Stob Ghabhar,night,some clouds,2,0
+0,Stùc a' Chroin,PM,some clouds,8,8
+1,Stùc a' Chroin,night,clear,6,5
+2,Stùc a' Chroin,AM,some clouds,9,8
+3,Stùc a' Chroin,PM,some clouds,11,11
+4,Stùc a' Chroin,night,some clouds,9,7
+5,Stùc a' Chroin,AM,clear,11,9
+6,Stùc a' Chroin,PM,clear,12,11
+7,Stùc a' Chroin,night,clear,7,2
+8,Stùc a' Chroin,AM,clear,5,2
+9,Stùc a' Chroin,PM,some clouds,6,6
+10,Stùc a' Chroin,night,clear,3,2
+11,Stùc a' Chroin,AM,some clouds,6,4
+12,Stùc a' Chroin,PM,cloudy,7,7
+13,Stùc a' Chroin,night,light rain,7,5
+14,Stùc a' Chroin,AM,light rain,8,7
+15,Stùc a' Chroin,PM,rain shwrs,6,4
+16,Stùc a' Chroin,night,rain shwrs,3,2
+0,Stuchd an Lochain,PM,cloudy,8,8
+1,Stuchd an Lochain,night,some clouds,7,5
+2,Stuchd an Lochain,AM,some clouds,10,8
+3,Stuchd an Lochain,PM,some clouds,11,11
+4,Stuchd an Lochain,night,clear,9,7
+5,Stuchd an Lochain,AM,some clouds,11,9
+6,Stuchd an Lochain,PM,clear,12,10
+7,Stuchd an Lochain,night,clear,6,2
+8,Stuchd an Lochain,AM,clear,4,2
+9,Stuchd an Lochain,PM,clear,6,6
+10,Stuchd an Lochain,night,clear,3,2
+11,Stuchd an Lochain,AM,some clouds,6,4
+12,Stuchd an Lochain,PM,cloudy,7,6
+13,Stuchd an Lochain,night,light rain,7,5
+14,Stuchd an Lochain,AM,light rain,7,7
+15,Stuchd an Lochain,PM,rain shwrs,6,4
+16,Stuchd an Lochain,night,some clouds,3,2
+0,The Cairnwell,PM,cloudy,9,8
+1,The Cairnwell,night,cloudy,7,6
+2,The Cairnwell,AM,clear,11,9
+3,The Cairnwell,PM,some clouds,12,11
+4,The Cairnwell,night,rain shwrs,8,6
+5,The Cairnwell,AM,some clouds,11,9
+6,The Cairnwell,PM,clear,12,9
+7,The Cairnwell,night,some clouds,4,0
+8,The Cairnwell,AM,some clouds,3,1
+9,The Cairnwell,PM,clear,4,4
+10,The Cairnwell,night,clear,2,0
+11,The Cairnwell,AM,clear,7,3
+12,The Cairnwell,PM,some clouds,9,9
+13,The Cairnwell,night,light rain,7,6
+14,The Cairnwell,AM,light rain,8,7
+15,The Cairnwell,PM,rain shwrs,7,6
+16,The Cairnwell,night,rain shwrs,3,2
+0,The Devil's Point,PM,cloudy,9,8
+1,The Devil's Point,night,cloudy,7,6
+2,The Devil's Point,AM,clear,10,8
+3,The Devil's Point,PM,some clouds,12,10
+4,The Devil's Point,night,some clouds,8,6
+5,The Devil's Point,AM,some clouds,10,8
+6,The Devil's Point,PM,clear,11,7
+7,The Devil's Point,night,some clouds,3,-1
+8,The Devil's Point,AM,some clouds,2,0
+9,The Devil's Point,PM,clear,3,2
+10,The Devil's Point,night,clear,1,0
+11,The Devil's Point,AM,clear,6,3
+12,The Devil's Point,PM,cloudy,8,8
+13,The Devil's Point,night,light rain,6,5
+14,The Devil's Point,AM,light rain,7,7
+15,The Devil's Point,PM,rain shwrs,7,5
+16,The Devil's Point,night,some clouds,3,1
+0,A' Chràlaig,PM,some clouds,8,7
+1,A' Chràlaig,night,some clouds,6,5
+2,A' Chràlaig,AM,clear,8,7
+3,A' Chràlaig,PM,some clouds,10,9
+4,A' Chràlaig,night,some clouds,7,6
+5,A' Chràlaig,AM,some clouds,9,8
+6,A' Chràlaig,PM,clear,8,7
+7,A' Chràlaig,night,some clouds,4,0
+8,A' Chràlaig,AM,clear,3,0
+9,A' Chràlaig,PM,clear,4,4
+10,A' Chràlaig,night,clear,2,1
+11,A' Chràlaig,AM,some clouds,5,3
+12,A' Chràlaig,PM,cloudy,6,4
+13,A' Chràlaig,night,mod. rain,6,5
+14,A' Chràlaig,AM,light rain,5,4
+15,A' Chràlaig,PM,light rain,3,2
+16,A' Chràlaig,night,snow shwrs,1,0
+0,A'Mhaighdean,PM,some clouds,9,9
+1,A'Mhaighdean,night,clear,8,6
+2,A'Mhaighdean,AM,clear,10,9
+3,A'Mhaighdean,PM,clear,10,10
+4,A'Mhaighdean,night,some clouds,8,7
+5,A'Mhaighdean,AM,clear,9,8
+6,A'Mhaighdean,PM,clear,7,7
+7,A'Mhaighdean,night,clear,5,2
+8,A'Mhaighdean,AM,clear,4,1
+9,A'Mhaighdean,PM,clear,4,4
+10,A'Mhaighdean,night,clear,3,2
+11,A'Mhaighdean,AM,some clouds,5,5
+12,A'Mhaighdean,PM,cloudy,6,6
+13,A'Mhaighdean,night,mod. rain,6,5
+14,A'Mhaighdean,AM,light rain,6,5
+15,A'Mhaighdean,PM,light rain,4,3
+16,A'Mhaighdean,night,rain shwrs,2,1
+0,Am Basteir,PM,some clouds,8,8
+1,Am Basteir,night,some clouds,7,7
+2,Am Basteir,AM,clear,8,8
+3,Am Basteir,PM,clear,9,9
+4,Am Basteir,night,clear,8,7
+5,Am Basteir,AM,clear,9,9
+6,Am Basteir,PM,clear,9,8
+7,Am Basteir,night,clear,7,4
+8,Am Basteir,AM,clear,4,4
+9,Am Basteir,PM,clear,5,5
+10,Am Basteir,night,clear,4,4
+11,Am Basteir,AM,cloudy,6,5
+12,Am Basteir,PM,light rain,6,6
+13,Am Basteir,night,heavy rain,7,6
+14,Am Basteir,AM,light rain,6,5
+15,Am Basteir,PM,light rain,4,4
+16,Am Basteir,night,rain shwrs,3,2
+0,An Riabhachan,PM,cloudy,7,7
+1,An Riabhachan,night,some clouds,6,5
+2,An Riabhachan,AM,clear,8,7
+3,An Riabhachan,PM,some clouds,10,9
+4,An Riabhachan,night,some clouds,7,6
+5,An Riabhachan,AM,some clouds,9,8
+6,An Riabhachan,PM,clear,8,6
+7,An Riabhachan,night,some clouds,3,0
+8,An Riabhachan,AM,clear,2,0
+9,An Riabhachan,PM,clear,4,3
+10,An Riabhachan,night,clear,2,1
+11,An Riabhachan,AM,some clouds,4,3
+12,An Riabhachan,PM,cloudy,5,5
+13,An Riabhachan,night,mod. rain,6,5
+14,An Riabhachan,AM,light rain,5,4
+15,An Riabhachan,PM,light rain,3,2
+16,An Riabhachan,night,some clouds,1,0
+0,An Teallach,PM,some clouds,9,8
+1,An Teallach,night,clear,7,6
+2,An Teallach,AM,clear,9,8
+3,An Teallach,PM,clear,9,9
+4,An Teallach,night,some clouds,8,7
+5,An Teallach,AM,clear,8,7
+6,An Teallach,PM,clear,6,6
+7,An Teallach,night,clear,4,1
+8,An Teallach,AM,clear,3,0
+9,An Teallach,PM,clear,3,3
+10,An Teallach,night,clear,2,2
+11,An Teallach,AM,some clouds,4,4
+12,An Teallach,PM,cloudy,5,5
+13,An Teallach,night,mod. rain,6,5
+14,An Teallach,AM,light rain,5,4
+15,An Teallach,PM,light rain,3,2
+16,An Teallach,night,some clouds,2,1
+0,Aonach Meadhoin,PM,some clouds,9,9
+1,Aonach Meadhoin,night,some clouds,7,6
+2,Aonach Meadhoin,AM,clear,10,8
+3,Aonach Meadhoin,PM,some clouds,11,10
+4,Aonach Meadhoin,night,some clouds,8,7
+5,Aonach Meadhoin,AM,some clouds,10,9
+6,Aonach Meadhoin,PM,clear,10,8
+7,Aonach Meadhoin,night,some clouds,5,2
+8,Aonach Meadhoin,AM,clear,4,1
+9,Aonach Meadhoin,PM,clear,6,5
+10,Aonach Meadhoin,night,clear,3,2
+11,Aonach Meadhoin,AM,some clouds,6,4
+12,Aonach Meadhoin,PM,cloudy,6,5
+13,Aonach Meadhoin,night,mod. rain,6,5
+14,Aonach Meadhoin,AM,light rain,6,5
+15,Aonach Meadhoin,PM,light rain,4,3
+16,Aonach Meadhoin,night,snow shwrs,2,1
+0,Beinn Alligin,PM,some clouds,9,8
+1,Beinn Alligin,night,some clouds,7,6
+2,Beinn Alligin,AM,clear,9,9
+3,Beinn Alligin,PM,clear,10,9
+4,Beinn Alligin,night,some clouds,7,7
+5,Beinn Alligin,AM,clear,9,9
+6,Beinn Alligin,PM,clear,7,7
+7,Beinn Alligin,night,clear,5,2
+8,Beinn Alligin,AM,clear,4,2
+9,Beinn Alligin,PM,clear,4,4
+10,Beinn Alligin,night,clear,3,2
+11,Beinn Alligin,AM,some clouds,5,5
+12,Beinn Alligin,PM,cloudy,6,5
+13,Beinn Alligin,night,heavy rain,6,5
+14,Beinn Alligin,AM,light rain,5,5
+15,Beinn Alligin,PM,light rain,4,3
+16,Beinn Alligin,night,snow shwrs,2,1
+0,Beinn Dearg (Ullapool),PM,some clouds,8,7
+1,Beinn Dearg (Ullapool),night,clear,7,6
+2,Beinn Dearg (Ullapool),AM,clear,9,8
+3,Beinn Dearg (Ullapool),PM,clear,10,9
+4,Beinn Dearg (Ullapool),night,some clouds,8,7
+5,Beinn Dearg (Ullapool),AM,clear,8,7
+6,Beinn Dearg (Ullapool),PM,clear,7,6
+7,Beinn Dearg (Ullapool),night,clear,2,-1
+8,Beinn Dearg (Ullapool),AM,clear,2,0
+9,Beinn Dearg (Ullapool),PM,clear,3,2
+10,Beinn Dearg (Ullapool),night,clear,2,1
+11,Beinn Dearg (Ullapool),AM,some clouds,4,3
+12,Beinn Dearg (Ullapool),PM,cloudy,6,5
+13,Beinn Dearg (Ullapool),night,mod. rain,6,5
+14,Beinn Dearg (Ullapool),AM,light rain,5,4
+15,Beinn Dearg (Ullapool),PM,rain shwrs,3,2
+16,Beinn Dearg (Ullapool),night,some clouds,2,0
+0,Beinn Eighe,PM,some clouds,9,8
+1,Beinn Eighe,night,some clouds,7,6
+2,Beinn Eighe,AM,clear,10,9
+3,Beinn Eighe,PM,clear,10,10
+4,Beinn Eighe,night,some clouds,8,7
+5,Beinn Eighe,AM,clear,9,9
+6,Beinn Eighe,PM,clear,7,7
+7,Beinn Eighe,night,clear,5,2
+8,Beinn Eighe,AM,clear,3,1
+9,Beinn Eighe,PM,clear,4,4
+10,Beinn Eighe,night,clear,3,2
+11,Beinn Eighe,AM,some clouds,5,4
+12,Beinn Eighe,PM,cloudy,6,5
+13,Beinn Eighe,night,mod. rain,6,5
+14,Beinn Eighe,AM,light rain,5,5
+15,Beinn Eighe,PM,light rain,3,3
+16,Beinn Eighe,night,some clouds,2,1
+0,Beinn Fhada,PM,some clouds,8,8
+1,Beinn Fhada,night,some clouds,6,6
+2,Beinn Fhada,AM,clear,9,8
+3,Beinn Fhada,PM,some clouds,11,10
+4,Beinn Fhada,night,some clouds,8,7
+5,Beinn Fhada,AM,some clouds,10,9
+6,Beinn Fhada,PM,clear,9,8
+7,Beinn Fhada,night,some clouds,5,2
+8,Beinn Fhada,AM,clear,4,1
+9,Beinn Fhada,PM,clear,5,5
+10,Beinn Fhada,night,clear,3,2
+11,Beinn Fhada,AM,some clouds,5,4
+12,Beinn Fhada,PM,cloudy,6,5
+13,Beinn Fhada,night,mod. rain,6,5
+14,Beinn Fhada,AM,light rain,5,5
+15,Beinn Fhada,PM,light rain,3,3
+16,Beinn Fhada,night,snow shwrs,2,1
+0,Beinn Fhionnlaidh (Mullardoch),PM,some clouds,8,8
+1,Beinn Fhionnlaidh (Mullardoch),night,some clouds,6,6
+2,Beinn Fhionnlaidh (Mullardoch),AM,clear,9,8
+3,Beinn Fhionnlaidh (Mullardoch),PM,some clouds,11,10
+4,Beinn Fhionnlaidh (Mullardoch),night,some clouds,8,7
+5,Beinn Fhionnlaidh (Mullardoch),AM,some clouds,10,9
+6,Beinn Fhionnlaidh (Mullardoch),PM,clear,9,8
+7,Beinn Fhionnlaidh (Mullardoch),night,some clouds,4,1
+8,Beinn Fhionnlaidh (Mullardoch),AM,clear,4,1
+9,Beinn Fhionnlaidh (Mullardoch),PM,clear,5,5
+10,Beinn Fhionnlaidh (Mullardoch),night,clear,2,2
+11,Beinn Fhionnlaidh (Mullardoch),AM,some clouds,6,4
+12,Beinn Fhionnlaidh (Mullardoch),PM,cloudy,7,5
+13,Beinn Fhionnlaidh (Mullardoch),night,mod. rain,6,5
+14,Beinn Fhionnlaidh (Mullardoch),AM,light rain,6,5
+15,Beinn Fhionnlaidh (Mullardoch),PM,light rain,4,3
+16,Beinn Fhionnlaidh (Mullardoch),night,rain shwrs,2,1
+0,Beinn Liath Mhòr,PM,some clouds,10,9
+1,Beinn Liath Mhòr,night,some clouds,8,6
+2,Beinn Liath Mhòr,AM,clear,10,9
+3,Beinn Liath Mhòr,PM,clear,11,10
+4,Beinn Liath Mhòr,night,some clouds,8,7
+5,Beinn Liath Mhòr,AM,clear,10,9
+6,Beinn Liath Mhòr,PM,clear,8,8
+7,Beinn Liath Mhòr,night,clear,5,2
+8,Beinn Liath Mhòr,AM,clear,4,2
+9,Beinn Liath Mhòr,PM,clear,6,5
+10,Beinn Liath Mhòr,night,clear,3,2
+11,Beinn Liath Mhòr,AM,some clouds,6,5
+12,Beinn Liath Mhòr,PM,cloudy,7,6
+13,Beinn Liath Mhòr,night,mod. rain,6,6
+14,Beinn Liath Mhòr,AM,light rain,6,5
+15,Beinn Liath Mhòr,PM,light rain,4,3
+16,Beinn Liath Mhòr,night,rain shwrs,3,1
+0,Beinn Sgritheall,PM,some clouds,9,9
+1,Beinn Sgritheall,night,some clouds,7,6
+2,Beinn Sgritheall,AM,clear,9,8
+3,Beinn Sgritheall,PM,some clouds,10,9
+4,Beinn Sgritheall,night,some clouds,8,7
+5,Beinn Sgritheall,AM,clear,9,9
+6,Beinn Sgritheall,PM,clear,9,8
+7,Beinn Sgritheall,night,clear,6,3
+8,Beinn Sgritheall,AM,clear,4,3
+9,Beinn Sgritheall,PM,clear,5,5
+10,Beinn Sgritheall,night,clear,4,3
+11,Beinn Sgritheall,AM,cloudy,6,5
+12,Beinn Sgritheall,PM,light rain,6,5
+13,Beinn Sgritheall,night,heavy rain,6,6
+14,Beinn Sgritheall,AM,mod. rain,6,5
+15,Beinn Sgritheall,PM,light rain,4,3
+16,Beinn Sgritheall,night,snow shwrs,2,1
+0,Ben Hope,PM,clear,7,7
+1,Ben Hope,night,clear,7,7
+2,Ben Hope,AM,clear,9,8
+3,Ben Hope,PM,clear,9,8
+4,Ben Hope,night,some clouds,7,7
+5,Ben Hope,AM,clear,8,7
+6,Ben Hope,PM,rain shwrs,6,4
+7,Ben Hope,night,rain shwrs,2,0
+8,Ben Hope,AM,some clouds,1,0
+9,Ben Hope,PM,some clouds,1,1
+10,Ben Hope,night,clear,2,1
+11,Ben Hope,AM,clear,4,3
+12,Ben Hope,PM,some clouds,5,5
+13,Ben Hope,night,mod. rain,6,5
+14,Ben Hope,AM,rain shwrs,5,5
+15,Ben Hope,PM,light rain,5,4
+16,Ben Hope,night,rain shwrs,3,2
+0,Ben Klibreck,PM,clear,8,8
+1,Ben Klibreck,night,clear,7,6
+2,Ben Klibreck,AM,clear,10,9
+3,Ben Klibreck,PM,clear,10,9
+4,Ben Klibreck,night,some clouds,7,6
+5,Ben Klibreck,AM,clear,8,8
+6,Ben Klibreck,PM,clear,7,4
+7,Ben Klibreck,night,clear,1,-1
+8,Ben Klibreck,AM,some clouds,1,1
+9,Ben Klibreck,PM,clear,1,1
+10,Ben Klibreck,night,clear,2,0
+11,Ben Klibreck,AM,some clouds,4,3
+12,Ben Klibreck,PM,cloudy,6,5
+13,Ben Klibreck,night,mod. rain,6,4
+14,Ben Klibreck,AM,light rain,5,5
+15,Ben Klibreck,PM,light rain,5,4
+16,Ben Klibreck,night,rain shwrs,3,2
+0,Ben More (Mull),PM,cloudy,7,7
+1,Ben More (Mull),night,some clouds,7,6
+2,Ben More (Mull),AM,some clouds,8,8
+3,Ben More (Mull),PM,some clouds,9,8
+4,Ben More (Mull),night,clear,8,7
+5,Ben More (Mull),AM,clear,10,9
+6,Ben More (Mull),PM,clear,10,9
+7,Ben More (Mull),night,clear,8,4
+8,Ben More (Mull),AM,clear,5,4
+9,Ben More (Mull),PM,clear,6,5
+10,Ben More (Mull),night,clear,5,4
+11,Ben More (Mull),AM,cloudy,6,6
+12,Ben More (Mull),PM,light rain,6,6
+13,Ben More (Mull),night,mod. rain,7,7
+14,Ben More (Mull),AM,mod. rain,7,5
+15,Ben More (Mull),PM,rain shwrs,4,4
+16,Ben More (Mull),night,rain shwrs,3,2
+0,Ben More Assynt,PM,clear,9,8
+1,Ben More Assynt,night,clear,7,6
+2,Ben More Assynt,AM,clear,10,9
+3,Ben More Assynt,PM,clear,11,10
+4,Ben More Assynt,night,some clouds,8,7
+5,Ben More Assynt,AM,clear,8,8
+6,Ben More Assynt,PM,clear,7,5
+7,Ben More Assynt,night,clear,2,0
+8,Ben More Assynt,AM,some clouds,2,1
+9,Ben More Assynt,PM,clear,2,1
+10,Ben More Assynt,night,clear,2,1
+11,Ben More Assynt,AM,some clouds,4,4
+12,Ben More Assynt,PM,cloudy,6,6
+13,Ben More Assynt,night,mod. rain,5,5
+14,Ben More Assynt,AM,light rain,5,5
+15,Ben More Assynt,PM,light rain,4,3
+16,Ben More Assynt,night,rain shwrs,2,1
+0,Ben Wyvis,PM,clear,8,7
+1,Ben Wyvis,night,clear,6,5
+2,Ben Wyvis,AM,clear,9,8
+3,Ben Wyvis,PM,clear,10,9
+4,Ben Wyvis,night,some clouds,7,6
+5,Ben Wyvis,AM,clear,9,8
+6,Ben Wyvis,PM,clear,8,6
+7,Ben Wyvis,night,clear,2,-1
+8,Ben Wyvis,AM,some clouds,3,0
+9,Ben Wyvis,PM,clear,3,2
+10,Ben Wyvis,night,clear,2,0
+11,Ben Wyvis,AM,some clouds,5,3
+12,Ben Wyvis,PM,cloudy,7,6
+13,Ben Wyvis,night,light rain,6,4
+14,Ben Wyvis,AM,rain shwrs,5,5
+15,Ben Wyvis,PM,rain shwrs,4,3
+16,Ben Wyvis,night,rain shwrs,2,1
+0,Bla Bheinn,PM,some clouds,8,8
+1,Bla Bheinn,night,some clouds,7,7
+2,Bla Bheinn,AM,clear,8,8
+3,Bla Bheinn,PM,clear,9,9
+4,Bla Bheinn,night,clear,8,7
+5,Bla Bheinn,AM,clear,9,8
+6,Bla Bheinn,PM,clear,8,7
+7,Bla Bheinn,night,clear,6,4
+8,Bla Bheinn,AM,clear,4,4
+9,Bla Bheinn,PM,clear,4,4
+10,Bla Bheinn,night,clear,4,4
+11,Bla Bheinn,AM,cloudy,6,5
+12,Bla Bheinn,PM,light rain,6,6
+13,Bla Bheinn,night,heavy rain,6,6
+14,Bla Bheinn,AM,light rain,6,5
+15,Bla Bheinn,PM,light rain,4,4
+16,Bla Bheinn,night,rain shwrs,3,3
+0,Blaven,PM,some clouds,8,8
+1,Blaven,night,some clouds,7,7
+2,Blaven,AM,clear,8,8
+3,Blaven,PM,clear,9,9
+4,Blaven,night,clear,8,7
+5,Blaven,AM,clear,9,8
+6,Blaven,PM,clear,8,7
+7,Blaven,night,clear,6,4
+8,Blaven,AM,clear,4,4
+9,Blaven,PM,clear,4,4
+10,Blaven,night,clear,4,4
+11,Blaven,AM,cloudy,6,5
+12,Blaven,PM,light rain,6,6
+13,Blaven,night,heavy rain,6,6
+14,Blaven,AM,light rain,6,5
+15,Blaven,PM,light rain,4,4
+16,Blaven,night,rain shwrs,3,3
+0,Bruach Na Frithe,PM,some clouds,8,8
+1,Bruach Na Frithe,night,some clouds,7,7
+2,Bruach Na Frithe,AM,clear,8,8
+3,Bruach Na Frithe,PM,clear,9,9
+4,Bruach Na Frithe,night,clear,8,7
+5,Bruach Na Frithe,AM,clear,9,8
+6,Bruach Na Frithe,PM,clear,9,8
+7,Bruach Na Frithe,night,clear,6,4
+8,Bruach Na Frithe,AM,clear,4,4
+9,Bruach Na Frithe,PM,clear,5,4
+10,Bruach Na Frithe,night,clear,4,4
+11,Bruach Na Frithe,AM,cloudy,5,5
+12,Bruach Na Frithe,PM,light rain,6,6
+13,Bruach Na Frithe,night,heavy rain,6,6
+14,Bruach Na Frithe,AM,light rain,6,5
+15,Bruach Na Frithe,PM,light rain,4,4
+16,Bruach Na Frithe,night,rain shwrs,3,2
+0,Càrn Eige,PM,cloudy,7,7
+1,Càrn Eige,night,some clouds,6,5
+2,Càrn Eige,AM,clear,8,7
+3,Càrn Eige,PM,some clouds,9,9
+4,Càrn Eige,night,some clouds,7,6
+5,Càrn Eige,AM,some clouds,8,8
+6,Càrn Eige,PM,clear,7,6
+7,Càrn Eige,night,some clouds,3,0
+8,Càrn Eige,AM,clear,2,-1
+9,Càrn Eige,PM,clear,4,3
+10,Càrn Eige,night,clear,2,1
+11,Càrn Eige,AM,some clouds,4,3
+12,Càrn Eige,PM,cloudy,5,4
+13,Càrn Eige,night,mod. rain,5,5
+14,Càrn Eige,AM,light rain,5,4
+15,Càrn Eige,PM,light rain,2,2
+16,Càrn Eige,night,snow shwrs,1,-1
+0,Càrn nan Gobhar (Mullardoch),PM,cloudy,8,8
+1,Càrn nan Gobhar (Mullardoch),night,some clouds,6,6
+2,Càrn nan Gobhar (Mullardoch),AM,clear,9,8
+3,Càrn nan Gobhar (Mullardoch),PM,some clouds,11,11
+4,Càrn nan Gobhar (Mullardoch),night,some clouds,8,7
+5,Càrn nan Gobhar (Mullardoch),AM,some clouds,10,9
+6,Càrn nan Gobhar (Mullardoch),PM,clear,9,8
+7,Càrn nan Gobhar (Mullardoch),night,some clouds,4,0
+8,Càrn nan Gobhar (Mullardoch),AM,clear,4,1
+9,Càrn nan Gobhar (Mullardoch),PM,clear,5,4
+10,Càrn nan Gobhar (Mullardoch),night,clear,2,2
+11,Càrn nan Gobhar (Mullardoch),AM,some clouds,6,4
+12,Càrn nan Gobhar (Mullardoch),PM,cloudy,7,6
+13,Càrn nan Gobhar (Mullardoch),night,mod. rain,6,5
+14,Càrn nan Gobhar (Mullardoch),AM,light rain,6,5
+15,Càrn nan Gobhar (Mullardoch),PM,light rain,4,3
+16,Càrn nan Gobhar (Mullardoch),night,rain shwrs,2,1
+0,Ciste Dhubh,PM,some clouds,9,9
+1,Ciste Dhubh,night,some clouds,7,6
+2,Ciste Dhubh,AM,clear,10,8
+3,Ciste Dhubh,PM,some clouds,11,10
+4,Ciste Dhubh,night,some clouds,8,7
+5,Ciste Dhubh,AM,some clouds,10,9
+6,Ciste Dhubh,PM,clear,10,8
+7,Ciste Dhubh,night,some clouds,5,2
+8,Ciste Dhubh,AM,clear,4,1
+9,Ciste Dhubh,PM,clear,6,5
+10,Ciste Dhubh,night,clear,3,2
+11,Ciste Dhubh,AM,some clouds,6,4
+12,Ciste Dhubh,PM,cloudy,7,5
+13,Ciste Dhubh,night,mod. rain,6,5
+14,Ciste Dhubh,AM,light rain,6,5
+15,Ciste Dhubh,PM,light rain,4,3
+16,Ciste Dhubh,night,snow shwrs,2,1
+0,Conival,PM,clear,9,8
+1,Conival,night,clear,7,6
+2,Conival,AM,clear,10,9
+3,Conival,PM,clear,11,10
+4,Conival,night,some clouds,8,7
+5,Conival,AM,clear,8,8
+6,Conival,PM,clear,7,6
+7,Conival,night,clear,3,0
+8,Conival,AM,clear,2,1
+9,Conival,PM,clear,2,2
+10,Conival,night,clear,2,1
+11,Conival,AM,some clouds,5,4
+12,Conival,PM,cloudy,6,6
+13,Conival,night,mod. rain,5,5
+14,Conival,AM,light rain,5,5
+15,Conival,PM,light rain,4,3
+16,Conival,night,rain shwrs,2,1
+0,Fionn Bheinn,PM,some clouds,10,9
+1,Fionn Bheinn,night,some clouds,7,6
+2,Fionn Bheinn,AM,clear,10,9
+3,Fionn Bheinn,PM,some clouds,11,11
+4,Fionn Bheinn,night,some clouds,8,7
+5,Fionn Bheinn,AM,clear,9,9
+6,Fionn Bheinn,PM,clear,8,7
+7,Fionn Bheinn,night,some clouds,4,1
+8,Fionn Bheinn,AM,clear,4,1
+9,Fionn Bheinn,PM,clear,5,4
+10,Fionn Bheinn,night,clear,3,2
+11,Fionn Bheinn,AM,some clouds,6,4
+12,Fionn Bheinn,PM,cloudy,7,6
+13,Fionn Bheinn,night,mod. rain,6,6
+14,Fionn Bheinn,AM,light rain,6,6
+15,Fionn Bheinn,PM,light rain,4,3
+16,Fionn Bheinn,night,rain shwrs,3,1
+0,Gairich,PM,cloudy,9,9
+1,Gairich,night,some clouds,7,6
+2,Gairich,AM,some clouds,10,9
+3,Gairich,PM,some clouds,12,11
+4,Gairich,night,some clouds,8,7
+5,Gairich,AM,some clouds,11,10
+6,Gairich,PM,clear,11,9
+7,Gairich,night,clear,6,2
+8,Gairich,AM,clear,5,2
+9,Gairich,PM,clear,7,6
+10,Gairich,night,clear,3,2
+11,Gairich,AM,cloudy,6,5
+12,Gairich,PM,light rain,7,6
+13,Gairich,night,mod. rain,6,5
+14,Gairich,AM,light rain,6,6
+15,Gairich,PM,rain shwrs,4,4
+16,Gairich,night,snow shwrs,3,1
+0,Gaor Bheinn,PM,cloudy,9,9
+1,Gaor Bheinn,night,some clouds,7,6
+2,Gaor Bheinn,AM,some clouds,10,8
+3,Gaor Bheinn,PM,some clouds,11,10
+4,Gaor Bheinn,night,some clouds,8,7
+5,Gaor Bheinn,AM,some clouds,10,9
+6,Gaor Bheinn,PM,clear,10,9
+7,Gaor Bheinn,night,clear,6,2
+8,Gaor Bheinn,AM,clear,4,2
+9,Gaor Bheinn,PM,clear,6,6
+10,Gaor Bheinn,night,clear,3,2
+11,Gaor Bheinn,AM,cloudy,6,5
+12,Gaor Bheinn,PM,light rain,6,5
+13,Gaor Bheinn,night,mod. rain,6,5
+14,Gaor Bheinn,AM,light rain,6,5
+15,Gaor Bheinn,PM,rain shwrs,4,3
+16,Gaor Bheinn,night,snow shwrs,2,1
+0,Gleouraich,PM,cloudy,8,8
+1,Gleouraich,night,some clouds,6,6
+2,Gleouraich,AM,some clouds,9,8
+3,Gleouraich,PM,some clouds,11,10
+4,Gleouraich,night,some clouds,8,7
+5,Gleouraich,AM,some clouds,10,9
+6,Gleouraich,PM,clear,9,8
+7,Gleouraich,night,clear,5,2
+8,Gleouraich,AM,clear,4,1
+9,Gleouraich,PM,clear,6,5
+10,Gleouraich,night,clear,3,2
+11,Gleouraich,AM,cloudy,5,4
+12,Gleouraich,PM,cloudy,6,5
+13,Gleouraich,night,mod. rain,6,5
+14,Gleouraich,AM,light rain,5,5
+15,Gleouraich,PM,rain shwrs,3,3
+16,Gleouraich,night,snow shwrs,2,0
+0,Ladhar Bheinn,PM,cloudy,8,8
+1,Ladhar Bheinn,night,some clouds,7,6
+2,Ladhar Bheinn,AM,some clouds,9,8
+3,Ladhar Bheinn,PM,some clouds,9,9
+4,Ladhar Bheinn,night,some clouds,8,7
+5,Ladhar Bheinn,AM,some clouds,9,9
+6,Ladhar Bheinn,PM,clear,9,8
+7,Ladhar Bheinn,night,clear,6,3
+8,Ladhar Bheinn,AM,clear,4,3
+9,Ladhar Bheinn,PM,clear,5,5
+10,Ladhar Bheinn,night,clear,3,2
+11,Ladhar Bheinn,AM,cloudy,5,5
+12,Ladhar Bheinn,PM,light rain,6,5
+13,Ladhar Bheinn,night,heavy rain,6,6
+14,Ladhar Bheinn,AM,mod. rain,5,5
+15,Ladhar Bheinn,PM,light rain,3,3
+16,Ladhar Bheinn,night,snow shwrs,2,1
+0,Liathac,PM,some clouds,9,8
+1,Liathac,night,some clouds,7,6
+2,Liathac,AM,clear,9,8
+3,Liathac,PM,clear,10,9
+4,Liathac,night,some clouds,7,7
+5,Liathac,AM,clear,8,8
+6,Liathac,PM,clear,7,7
+7,Liathac,night,clear,5,2
+8,Liathac,AM,clear,3,1
+9,Liathac,PM,clear,4,4
+10,Liathac,night,clear,3,2
+11,Liathac,AM,some clouds,5,4
+12,Liathac,PM,cloudy,6,5
+13,Liathac,night,mod. rain,6,5
+14,Liathac,AM,light rain,5,4
+15,Liathac,PM,light rain,3,2
+16,Liathac,night,some clouds,2,0
+0,Mam Sodhail,PM,cloudy,7,7
+1,Mam Sodhail,night,some clouds,6,5
+2,Mam Sodhail,AM,clear,8,7
+3,Mam Sodhail,PM,some clouds,9,9
+4,Mam Sodhail,night,some clouds,7,6
+5,Mam Sodhail,AM,some clouds,8,8
+6,Mam Sodhail,PM,clear,8,6
+7,Mam Sodhail,night,some clouds,3,0
+8,Mam Sodhail,AM,clear,2,-1
+9,Mam Sodhail,PM,clear,4,3
+10,Mam Sodhail,night,clear,2,1
+11,Mam Sodhail,AM,some clouds,4,3
+12,Mam Sodhail,PM,cloudy,5,4
+13,Mam Sodhail,night,mod. rain,5,5
+14,Mam Sodhail,AM,light rain,5,4
+15,Mam Sodhail,PM,light rain,2,2
+16,Mam Sodhail,night,snow shwrs,1,-1
+0,Maoile Lunndaidh,PM,some clouds,9,8
+1,Maoile Lunndaidh,night,some clouds,7,6
+2,Maoile Lunndaidh,AM,clear,9,8
+3,Maoile Lunndaidh,PM,some clouds,11,10
+4,Maoile Lunndaidh,night,some clouds,8,7
+5,Maoile Lunndaidh,AM,clear,9,9
+6,Maoile Lunndaidh,PM,clear,8,7
+7,Maoile Lunndaidh,night,some clouds,4,1
+8,Maoile Lunndaidh,AM,clear,3,1
+9,Maoile Lunndaidh,PM,clear,5,4
+10,Maoile Lunndaidh,night,clear,2,2
+11,Maoile Lunndaidh,AM,some clouds,5,4
+12,Maoile Lunndaidh,PM,cloudy,6,6
+13,Maoile Lunndaidh,night,mod. rain,6,5
+14,Maoile Lunndaidh,AM,light rain,5,5
+15,Maoile Lunndaidh,PM,light rain,4,3
+16,Maoile Lunndaidh,night,rain shwrs,2,1
+0,Maol Cheann-dearg,PM,some clouds,10,9
+1,Maol Cheann-dearg,night,some clouds,8,6
+2,Maol Cheann-dearg,AM,clear,11,9
+3,Maol Cheann-dearg,PM,clear,11,10
+4,Maol Cheann-dearg,night,some clouds,8,7
+5,Maol Cheann-dearg,AM,clear,10,9
+6,Maol Cheann-dearg,PM,clear,8,8
+7,Maol Cheann-dearg,night,clear,5,2
+8,Maol Cheann-dearg,AM,clear,5,2
+9,Maol Cheann-dearg,PM,clear,6,5
+10,Maol Cheann-dearg,night,clear,3,2
+11,Maol Cheann-dearg,AM,some clouds,6,5
+12,Maol Cheann-dearg,PM,cloudy,7,6
+13,Maol Cheann-dearg,night,mod. rain,6,5
+14,Maol Cheann-dearg,AM,light rain,6,5
+15,Maol Cheann-dearg,PM,light rain,4,3
+16,Maol Cheann-dearg,night,rain shwrs,2,1
+0,Meall a' Chrasgaidh,PM,some clouds,10,9
+1,Meall a' Chrasgaidh,night,clear,7,6
+2,Meall a' Chrasgaidh,AM,clear,10,9
+3,Meall a' Chrasgaidh,PM,clear,11,10
+4,Meall a' Chrasgaidh,night,some clouds,8,7
+5,Meall a' Chrasgaidh,AM,clear,9,9
+6,Meall a' Chrasgaidh,PM,clear,8,7
+7,Meall a' Chrasgaidh,night,clear,4,1
+8,Meall a' Chrasgaidh,AM,clear,4,1
+9,Meall a' Chrasgaidh,PM,clear,4,4
+10,Meall a' Chrasgaidh,night,clear,2,2
+11,Meall a' Chrasgaidh,AM,some clouds,6,4
+12,Meall a' Chrasgaidh,PM,cloudy,7,6
+13,Meall a' Chrasgaidh,night,mod. rain,6,6
+14,Meall a' Chrasgaidh,AM,light rain,6,6
+15,Meall a' Chrasgaidh,PM,rain shwrs,4,3
+16,Meall a' Chrasgaidh,night,rain shwrs,3,1
+0,Meall na Teanga,PM,cloudy,10,9
+1,Meall na Teanga,night,cloudy,7,6
+2,Meall na Teanga,AM,some clouds,11,9
+3,Meall na Teanga,PM,some clouds,12,12
+4,Meall na Teanga,night,some clouds,8,7
+5,Meall na Teanga,AM,some clouds,11,9
+6,Meall na Teanga,PM,clear,12,10
+7,Meall na Teanga,night,clear,5,1
+8,Meall na Teanga,AM,clear,5,2
+9,Meall na Teanga,PM,clear,7,6
+10,Meall na Teanga,night,clear,3,2
+11,Meall na Teanga,AM,some clouds,7,5
+12,Meall na Teanga,PM,cloudy,8,6
+13,Meall na Teanga,night,mod. rain,6,5
+14,Meall na Teanga,AM,light rain,7,6
+15,Meall na Teanga,PM,rain shwrs,5,4
+16,Meall na Teanga,night,snow shwrs,3,1
+0,Mòruisg,PM,some clouds,9,9
+1,Mòruisg,night,some clouds,7,6
+2,Mòruisg,AM,clear,10,9
+3,Mòruisg,PM,some clouds,12,11
+4,Mòruisg,night,some clouds,8,7
+5,Mòruisg,AM,clear,10,9
+6,Mòruisg,PM,clear,8,8
+7,Mòruisg,night,clear,5,1
+8,Mòruisg,AM,clear,4,2
+9,Mòruisg,PM,clear,6,5
+10,Mòruisg,night,clear,3,2
+11,Mòruisg,AM,some clouds,6,5
+12,Mòruisg,PM,cloudy,7,6
+13,Mòruisg,night,mod. rain,6,6
+14,Mòruisg,AM,light rain,6,6
+15,Mòruisg,PM,light rain,4,3
+16,Mòruisg,night,rain shwrs,3,1
+0,Sàileag,PM,some clouds,9,9
+1,Sàileag,night,some clouds,7,6
+2,Sàileag,AM,clear,10,8
+3,Sàileag,PM,some clouds,11,10
+4,Sàileag,night,some clouds,8,7
+5,Sàileag,AM,some clouds,10,9
+6,Sàileag,PM,clear,10,8
+7,Sàileag,night,some clouds,5,2
+8,Sàileag,AM,clear,4,1
+9,Sàileag,PM,clear,6,5
+10,Sàileag,night,clear,3,2
+11,Sàileag,AM,some clouds,6,4
+12,Sàileag,PM,cloudy,6,5
+13,Sàileag,night,mod. rain,6,5
+14,Sàileag,AM,light rain,6,5
+15,Sàileag,PM,light rain,4,3
+16,Sàileag,night,snow shwrs,2,1
+0,Seana Bhràigh,PM,clear,10,9
+1,Seana Bhràigh,night,clear,7,6
+2,Seana Bhràigh,AM,clear,10,9
+3,Seana Bhràigh,PM,clear,12,10
+4,Seana Bhràigh,night,some clouds,8,7
+5,Seana Bhràigh,AM,clear,9,9
+6,Seana Bhràigh,PM,clear,8,6
+7,Seana Bhràigh,night,clear,3,0
+8,Seana Bhràigh,AM,some clouds,3,1
+9,Seana Bhràigh,PM,clear,4,3
+10,Seana Bhràigh,night,clear,2,1
+11,Seana Bhràigh,AM,some clouds,5,4
+12,Seana Bhràigh,PM,cloudy,7,7
+13,Seana Bhràigh,night,mod. rain,6,5
+14,Seana Bhràigh,AM,rain shwrs,6,6
+15,Seana Bhràigh,PM,rain shwrs,4,4
+16,Seana Bhràigh,night,rain shwrs,3,2
+0,Sgorr Ruadh,PM,some clouds,10,9
+1,Sgorr Ruadh,night,some clouds,7,6
+2,Sgorr Ruadh,AM,clear,10,9
+3,Sgorr Ruadh,PM,clear,11,10
+4,Sgorr Ruadh,night,some clouds,8,7
+5,Sgorr Ruadh,AM,clear,10,9
+6,Sgorr Ruadh,PM,clear,8,7
+7,Sgorr Ruadh,night,clear,5,2
+8,Sgorr Ruadh,AM,clear,4,2
+9,Sgorr Ruadh,PM,clear,6,5
+10,Sgorr Ruadh,night,clear,3,2
+11,Sgorr Ruadh,AM,some clouds,6,5
+12,Sgorr Ruadh,PM,cloudy,6,6
+13,Sgorr Ruadh,night,mod. rain,6,5
+14,Sgorr Ruadh,AM,light rain,6,5
+15,Sgorr Ruadh,PM,light rain,4,3
+16,Sgorr Ruadh,night,rain shwrs,2,1
+0,Sgurr a' Bhealaich Dheirg,PM,some clouds,8,8
+1,Sgurr a' Bhealaich Dheirg,night,some clouds,6,6
+2,Sgurr a' Bhealaich Dheirg,AM,clear,9,8
+3,Sgurr a' Bhealaich Dheirg,PM,some clouds,11,10
+4,Sgurr a' Bhealaich Dheirg,night,some clouds,8,7
+5,Sgurr a' Bhealaich Dheirg,AM,some clouds,10,9
+6,Sgurr a' Bhealaich Dheirg,PM,clear,9,8
+7,Sgurr a' Bhealaich Dheirg,night,some clouds,5,1
+8,Sgurr a' Bhealaich Dheirg,AM,clear,4,1
+9,Sgurr a' Bhealaich Dheirg,PM,clear,6,5
+10,Sgurr a' Bhealaich Dheirg,night,clear,2,2
+11,Sgurr a' Bhealaich Dheirg,AM,some clouds,5,4
+12,Sgurr a' Bhealaich Dheirg,PM,cloudy,6,5
+13,Sgurr a' Bhealaich Dheirg,night,mod. rain,6,5
+14,Sgurr a' Bhealaich Dheirg,AM,light rain,5,5
+15,Sgurr a' Bhealaich Dheirg,PM,light rain,3,3
+16,Sgurr a' Bhealaich Dheirg,night,snow shwrs,2,0
+0,Sgùrr a' Choire Ghlais,PM,some clouds,8,7
+1,Sgùrr a' Choire Ghlais,night,some clouds,6,5
+2,Sgùrr a' Choire Ghlais,AM,clear,9,8
+3,Sgùrr a' Choire Ghlais,PM,some clouds,10,10
+4,Sgùrr a' Choire Ghlais,night,some clouds,7,6
+5,Sgùrr a' Choire Ghlais,AM,clear,9,8
+6,Sgùrr a' Choire Ghlais,PM,clear,8,7
+7,Sgùrr a' Choire Ghlais,night,some clouds,3,0
+8,Sgùrr a' Choire Ghlais,AM,clear,3,0
+9,Sgùrr a' Choire Ghlais,PM,clear,4,3
+10,Sgùrr a' Choire Ghlais,night,clear,2,1
+11,Sgùrr a' Choire Ghlais,AM,some clouds,5,3
+12,Sgùrr a' Choire Ghlais,PM,cloudy,6,5
+13,Sgùrr a' Choire Ghlais,night,mod. rain,6,5
+14,Sgùrr a' Choire Ghlais,AM,light rain,5,5
+15,Sgùrr a' Choire Ghlais,PM,light rain,4,2
+16,Sgùrr a' Choire Ghlais,night,some clouds,2,0
+0,Sgurr a' Ghreadaidh,PM,some clouds,8,8
+1,Sgurr a' Ghreadaidh,night,some clouds,7,7
+2,Sgurr a' Ghreadaidh,AM,clear,8,8
+3,Sgurr a' Ghreadaidh,PM,clear,9,9
+4,Sgurr a' Ghreadaidh,night,clear,8,7
+5,Sgurr a' Ghreadaidh,AM,clear,9,8
+6,Sgurr a' Ghreadaidh,PM,clear,9,8
+7,Sgurr a' Ghreadaidh,night,clear,7,4
+8,Sgurr a' Ghreadaidh,AM,clear,4,4
+9,Sgurr a' Ghreadaidh,PM,clear,4,4
+10,Sgurr a' Ghreadaidh,night,clear,4,4
+11,Sgurr a' Ghreadaidh,AM,cloudy,5,5
+12,Sgurr a' Ghreadaidh,PM,light rain,6,6
+13,Sgurr a' Ghreadaidh,night,heavy rain,7,6
+14,Sgurr a' Ghreadaidh,AM,light rain,6,4
+15,Sgurr a' Ghreadaidh,PM,light rain,4,3
+16,Sgurr a' Ghreadaidh,night,rain shwrs,3,2
+0,Sgurr a' Mhadaidh,PM,some clouds,9,9
+1,Sgurr a' Mhadaidh,night,some clouds,8,7
+2,Sgurr a' Mhadaidh,AM,clear,8,8
+3,Sgurr a' Mhadaidh,PM,clear,9,9
+4,Sgurr a' Mhadaidh,night,clear,8,7
+5,Sgurr a' Mhadaidh,AM,clear,9,9
+6,Sgurr a' Mhadaidh,PM,clear,9,8
+7,Sgurr a' Mhadaidh,night,clear,7,4
+8,Sgurr a' Mhadaidh,AM,clear,5,4
+9,Sgurr a' Mhadaidh,PM,clear,5,5
+10,Sgurr a' Mhadaidh,night,clear,4,4
+11,Sgurr a' Mhadaidh,AM,cloudy,6,5
+12,Sgurr a' Mhadaidh,PM,light rain,6,6
+13,Sgurr a' Mhadaidh,night,heavy rain,7,6
+14,Sgurr a' Mhadaidh,AM,light rain,6,5
+15,Sgurr a' Mhadaidh,PM,light rain,4,4
+16,Sgurr a' Mhadaidh,night,rain shwrs,3,3
+0,Sgurr a' Mhaoraich,PM,cloudy,8,8
+1,Sgurr a' Mhaoraich,night,some clouds,7,6
+2,Sgurr a' Mhaoraich,AM,some clouds,9,8
+3,Sgurr a' Mhaoraich,PM,some clouds,10,10
+4,Sgurr a' Mhaoraich,night,some clouds,8,7
+5,Sgurr a' Mhaoraich,AM,some clouds,10,9
+6,Sgurr a' Mhaoraich,PM,clear,9,8
+7,Sgurr a' Mhaoraich,night,clear,5,2
+8,Sgurr a' Mhaoraich,AM,clear,4,1
+9,Sgurr a' Mhaoraich,PM,clear,6,5
+10,Sgurr a' Mhaoraich,night,clear,3,2
+11,Sgurr a' Mhaoraich,AM,cloudy,5,4
+12,Sgurr a' Mhaoraich,PM,light rain,6,5
+13,Sgurr a' Mhaoraich,night,mod. rain,6,5
+14,Sgurr a' Mhaoraich,AM,light rain,5,5
+15,Sgurr a' Mhaoraich,PM,rain shwrs,3,3
+16,Sgurr a' Mhaoraich,night,snow shwrs,2,1
+0,Sgurr Alasdair,PM,some clouds,8,8
+1,Sgurr Alasdair,night,some clouds,7,7
+2,Sgurr Alasdair,AM,clear,8,8
+3,Sgurr Alasdair,PM,clear,9,8
+4,Sgurr Alasdair,night,clear,8,7
+5,Sgurr Alasdair,AM,clear,9,8
+6,Sgurr Alasdair,PM,clear,9,8
+7,Sgurr Alasdair,night,clear,6,4
+8,Sgurr Alasdair,AM,clear,4,4
+9,Sgurr Alasdair,PM,clear,4,4
+10,Sgurr Alasdair,night,clear,4,3
+11,Sgurr Alasdair,AM,cloudy,5,5
+12,Sgurr Alasdair,PM,light rain,6,5
+13,Sgurr Alasdair,night,heavy rain,7,6
+14,Sgurr Alasdair,AM,light rain,6,4
+15,Sgurr Alasdair,PM,light rain,4,3
+16,Sgurr Alasdair,night,rain shwrs,3,2
+0,Sgurr Choinnich,PM,some clouds,9,8
+1,Sgurr Choinnich,night,some clouds,7,6
+2,Sgurr Choinnich,AM,clear,10,8
+3,Sgurr Choinnich,PM,some clouds,11,10
+4,Sgurr Choinnich,night,some clouds,8,7
+5,Sgurr Choinnich,AM,clear,9,9
+6,Sgurr Choinnich,PM,clear,8,7
+7,Sgurr Choinnich,night,clear,5,1
+8,Sgurr Choinnich,AM,clear,4,1
+9,Sgurr Choinnich,PM,clear,5,5
+10,Sgurr Choinnich,night,clear,2,2
+11,Sgurr Choinnich,AM,some clouds,5,4
+12,Sgurr Choinnich,PM,cloudy,6,5
+13,Sgurr Choinnich,night,mod. rain,6,5
+14,Sgurr Choinnich,AM,light rain,5,5
+15,Sgurr Choinnich,PM,light rain,4,3
+16,Sgurr Choinnich,night,rain shwrs,2,1
+0,Sgurr Dearg,PM,some clouds,8,8
+1,Sgurr Dearg,night,some clouds,7,7
+2,Sgurr Dearg,AM,clear,8,8
+3,Sgurr Dearg,PM,clear,9,8
+4,Sgurr Dearg,night,clear,8,7
+5,Sgurr Dearg,AM,clear,9,8
+6,Sgurr Dearg,PM,clear,9,8
+7,Sgurr Dearg,night,clear,6,4
+8,Sgurr Dearg,AM,clear,4,4
+9,Sgurr Dearg,PM,clear,4,4
+10,Sgurr Dearg,night,clear,4,3
+11,Sgurr Dearg,AM,cloudy,5,5
+12,Sgurr Dearg,PM,light rain,6,5
+13,Sgurr Dearg,night,heavy rain,7,6
+14,Sgurr Dearg,AM,light rain,6,4
+15,Sgurr Dearg,PM,light rain,4,3
+16,Sgurr Dearg,night,rain shwrs,3,2
+0,Sgùrr Fhuaran,PM,some clouds,8,8
+1,Sgùrr Fhuaran,night,some clouds,6,6
+2,Sgùrr Fhuaran,AM,clear,9,8
+3,Sgùrr Fhuaran,PM,some clouds,10,9
+4,Sgùrr Fhuaran,night,some clouds,7,7
+5,Sgùrr Fhuaran,AM,some clouds,9,8
+6,Sgùrr Fhuaran,PM,clear,9,7
+7,Sgùrr Fhuaran,night,some clouds,5,2
+8,Sgùrr Fhuaran,AM,clear,3,1
+9,Sgùrr Fhuaran,PM,clear,5,5
+10,Sgùrr Fhuaran,night,clear,2,2
+11,Sgùrr Fhuaran,AM,some clouds,5,4
+12,Sgùrr Fhuaran,PM,cloudy,6,5
+13,Sgùrr Fhuaran,night,heavy rain,6,5
+14,Sgùrr Fhuaran,AM,light rain,5,5
+15,Sgùrr Fhuaran,PM,light rain,3,2
+16,Sgùrr Fhuaran,night,snow shwrs,2,0
+0,Sgurr Mhic Choinnich,PM,some clouds,8,8
+1,Sgurr Mhic Choinnich,night,some clouds,7,7
+2,Sgurr Mhic Choinnich,AM,clear,8,8
+3,Sgurr Mhic Choinnich,PM,clear,9,9
+4,Sgurr Mhic Choinnich,night,clear,8,7
+5,Sgurr Mhic Choinnich,AM,clear,9,8
+6,Sgurr Mhic Choinnich,PM,clear,9,8
+7,Sgurr Mhic Choinnich,night,clear,7,4
+8,Sgurr Mhic Choinnich,AM,clear,4,4
+9,Sgurr Mhic Choinnich,PM,clear,5,5
+10,Sgurr Mhic Choinnich,night,clear,4,4
+11,Sgurr Mhic Choinnich,AM,cloudy,5,5
+12,Sgurr Mhic Choinnich,PM,light rain,6,6
+13,Sgurr Mhic Choinnich,night,heavy rain,7,6
+14,Sgurr Mhic Choinnich,AM,light rain,6,5
+15,Sgurr Mhic Choinnich,PM,light rain,4,4
+16,Sgurr Mhic Choinnich,night,rain shwrs,3,2
+0,Sgùrr Mòr (Fannichs),PM,some clouds,8,7
+1,Sgùrr Mòr (Fannichs),night,clear,6,6
+2,Sgùrr Mòr (Fannichs),AM,clear,9,8
+3,Sgùrr Mòr (Fannichs),PM,clear,10,9
+4,Sgùrr Mòr (Fannichs),night,some clouds,7,6
+5,Sgùrr Mòr (Fannichs),AM,clear,8,7
+6,Sgùrr Mòr (Fannichs),PM,clear,7,6
+7,Sgùrr Mòr (Fannichs),night,clear,3,-1
+8,Sgùrr Mòr (Fannichs),AM,clear,2,0
+9,Sgùrr Mòr (Fannichs),PM,clear,3,2
+10,Sgùrr Mòr (Fannichs),night,clear,2,1
+11,Sgùrr Mòr (Fannichs),AM,some clouds,4,3
+12,Sgùrr Mòr (Fannichs),PM,cloudy,5,5
+13,Sgùrr Mòr (Fannichs),night,mod. rain,5,5
+14,Sgùrr Mòr (Fannichs),AM,light rain,5,4
+15,Sgùrr Mòr (Fannichs),PM,rain shwrs,3,2
+16,Sgùrr Mòr (Fannichs),night,some clouds,1,0
+0,Sgurr na Banachdich,PM,some clouds,8,8
+1,Sgurr na Banachdich,night,some clouds,7,7
+2,Sgurr na Banachdich,AM,clear,8,8
+3,Sgurr na Banachdich,PM,clear,9,9
+4,Sgurr na Banachdich,night,clear,8,7
+5,Sgurr na Banachdich,AM,clear,9,8
+6,Sgurr na Banachdich,PM,clear,9,8
+7,Sgurr na Banachdich,night,clear,7,4
+8,Sgurr na Banachdich,AM,clear,4,4
+9,Sgurr na Banachdich,PM,clear,5,4
+10,Sgurr na Banachdich,night,clear,4,4
+11,Sgurr na Banachdich,AM,cloudy,5,5
+12,Sgurr na Banachdich,PM,light rain,6,6
+13,Sgurr na Banachdich,night,heavy rain,7,6
+14,Sgurr na Banachdich,AM,light rain,6,5
+15,Sgurr na Banachdich,PM,light rain,4,3
+16,Sgurr na Banachdich,night,rain shwrs,3,2
+0,Sgùrr na Càrnach,PM,some clouds,9,9
+1,Sgùrr na Càrnach,night,some clouds,7,6
+2,Sgùrr na Càrnach,AM,clear,10,8
+3,Sgùrr na Càrnach,PM,some clouds,11,10
+4,Sgùrr na Càrnach,night,some clouds,8,7
+5,Sgùrr na Càrnach,AM,some clouds,10,9
+6,Sgùrr na Càrnach,PM,clear,9,8
+7,Sgùrr na Càrnach,night,some clouds,5,2
+8,Sgùrr na Càrnach,AM,clear,4,2
+9,Sgùrr na Càrnach,PM,clear,6,5
+10,Sgùrr na Càrnach,night,clear,3,2
+11,Sgùrr na Càrnach,AM,some clouds,5,4
+12,Sgùrr na Càrnach,PM,cloudy,6,5
+13,Sgùrr na Càrnach,night,heavy rain,6,5
+14,Sgùrr na Càrnach,AM,light rain,6,5
+15,Sgùrr na Càrnach,PM,light rain,3,3
+16,Sgùrr na Càrnach,night,snow shwrs,2,1
+0,Sgùrr na Cìche,PM,cloudy,8,8
+1,Sgùrr na Cìche,night,some clouds,7,6
+2,Sgùrr na Cìche,AM,some clouds,9,8
+3,Sgùrr na Cìche,PM,some clouds,10,9
+4,Sgùrr na Cìche,night,some clouds,8,7
+5,Sgùrr na Cìche,AM,some clouds,9,9
+6,Sgùrr na Cìche,PM,clear,9,8
+7,Sgùrr na Cìche,night,clear,6,3
+8,Sgùrr na Cìche,AM,clear,4,2
+9,Sgùrr na Cìche,PM,clear,5,5
+10,Sgùrr na Cìche,night,clear,3,2
+11,Sgùrr na Cìche,AM,cloudy,5,4
+12,Sgùrr na Cìche,PM,light rain,6,5
+13,Sgùrr na Cìche,night,heavy rain,6,5
+14,Sgùrr na Cìche,AM,mod. rain,5,4
+15,Sgùrr na Cìche,PM,light rain,3,3
+16,Sgùrr na Cìche,night,snow shwrs,2,1
+0,Sgùrr na Ciste Duibhe,PM,some clouds,8,8
+1,Sgùrr na Ciste Duibhe,night,some clouds,7,6
+2,Sgùrr na Ciste Duibhe,AM,clear,9,8
+3,Sgùrr na Ciste Duibhe,PM,some clouds,10,10
+4,Sgùrr na Ciste Duibhe,night,some clouds,8,7
+5,Sgùrr na Ciste Duibhe,AM,some clouds,10,9
+6,Sgùrr na Ciste Duibhe,PM,clear,9,8
+7,Sgùrr na Ciste Duibhe,night,some clouds,5,2
+8,Sgùrr na Ciste Duibhe,AM,clear,4,1
+9,Sgùrr na Ciste Duibhe,PM,clear,6,5
+10,Sgùrr na Ciste Duibhe,night,clear,3,2
+11,Sgùrr na Ciste Duibhe,AM,some clouds,5,4
+12,Sgùrr na Ciste Duibhe,PM,cloudy,6,5
+13,Sgùrr na Ciste Duibhe,night,mod. rain,6,5
+14,Sgùrr na Ciste Duibhe,AM,light rain,5,5
+15,Sgùrr na Ciste Duibhe,PM,light rain,3,3
+16,Sgùrr na Ciste Duibhe,night,snow shwrs,2,1
+0,Sgùrr na Lapaich,PM,cloudy,7,7
+1,Sgùrr na Lapaich,night,some clouds,6,5
+2,Sgùrr na Lapaich,AM,clear,8,7
+3,Sgùrr na Lapaich,PM,some clouds,10,9
+4,Sgùrr na Lapaich,night,some clouds,7,6
+5,Sgùrr na Lapaich,AM,some clouds,8,8
+6,Sgùrr na Lapaich,PM,clear,7,6
+7,Sgùrr na Lapaich,night,some clouds,3,0
+8,Sgùrr na Lapaich,AM,clear,2,-1
+9,Sgùrr na Lapaich,PM,clear,4,3
+10,Sgùrr na Lapaich,night,clear,2,1
+11,Sgùrr na Lapaich,AM,some clouds,4,3
+12,Sgùrr na Lapaich,PM,cloudy,5,4
+13,Sgùrr na Lapaich,night,mod. rain,5,5
+14,Sgùrr na Lapaich,AM,light rain,5,4
+15,Sgùrr na Lapaich,PM,light rain,3,2
+16,Sgùrr na Lapaich,night,some clouds,1,0
+0,Sgurr na Sgine,PM,some clouds,9,9
+1,Sgurr na Sgine,night,some clouds,7,6
+2,Sgurr na Sgine,AM,clear,10,9
+3,Sgurr na Sgine,PM,some clouds,11,10
+4,Sgurr na Sgine,night,some clouds,8,7
+5,Sgurr na Sgine,AM,clear,10,9
+6,Sgurr na Sgine,PM,clear,10,8
+7,Sgurr na Sgine,night,clear,6,3
+8,Sgurr na Sgine,AM,clear,5,2
+9,Sgurr na Sgine,PM,clear,6,6
+10,Sgurr na Sgine,night,clear,3,2
+11,Sgurr na Sgine,AM,cloudy,6,5
+12,Sgurr na Sgine,PM,light rain,7,5
+13,Sgurr na Sgine,night,heavy rain,6,5
+14,Sgurr na Sgine,AM,light rain,6,5
+15,Sgurr na Sgine,PM,light rain,4,3
+16,Sgurr na Sgine,night,snow shwrs,2,1
+0,Sgùrr nan Ceathramhnan,PM,some clouds,7,7
+1,Sgùrr nan Ceathramhnan,night,some clouds,6,5
+2,Sgùrr nan Ceathramhnan,AM,clear,8,7
+3,Sgùrr nan Ceathramhnan,PM,some clouds,10,9
+4,Sgùrr nan Ceathramhnan,night,some clouds,7,6
+5,Sgùrr nan Ceathramhnan,AM,some clouds,9,8
+6,Sgùrr nan Ceathramhnan,PM,clear,8,6
+7,Sgùrr nan Ceathramhnan,night,some clouds,4,0
+8,Sgùrr nan Ceathramhnan,AM,clear,3,0
+9,Sgùrr nan Ceathramhnan,PM,clear,4,4
+10,Sgùrr nan Ceathramhnan,night,clear,2,1
+11,Sgùrr nan Ceathramhnan,AM,some clouds,4,3
+12,Sgùrr nan Ceathramhnan,PM,cloudy,5,4
+13,Sgùrr nan Ceathramhnan,night,mod. rain,5,5
+14,Sgùrr nan Ceathramhnan,AM,light rain,5,4
+15,Sgùrr nan Ceathramhnan,PM,light rain,2,2
+16,Sgùrr nan Ceathramhnan,night,snow shwrs,1,0
+0,Sgùrr nan Ceathramhnan,PM,some clouds,7,7
+1,Sgùrr nan Ceathramhnan,night,some clouds,6,5
+2,Sgùrr nan Ceathramhnan,AM,clear,8,7
+3,Sgùrr nan Ceathramhnan,PM,some clouds,10,9
+4,Sgùrr nan Ceathramhnan,night,some clouds,7,6
+5,Sgùrr nan Ceathramhnan,AM,some clouds,9,8
+6,Sgùrr nan Ceathramhnan,PM,clear,8,6
+7,Sgùrr nan Ceathramhnan,night,some clouds,4,0
+8,Sgùrr nan Ceathramhnan,AM,clear,3,0
+9,Sgùrr nan Ceathramhnan,PM,clear,4,4
+10,Sgùrr nan Ceathramhnan,night,clear,2,1
+11,Sgùrr nan Ceathramhnan,AM,some clouds,4,3
+12,Sgùrr nan Ceathramhnan,PM,cloudy,5,4
+13,Sgùrr nan Ceathramhnan,night,mod. rain,5,5
+14,Sgùrr nan Ceathramhnan,AM,light rain,5,4
+15,Sgùrr nan Ceathramhnan,PM,light rain,2,2
+16,Sgùrr nan Ceathramhnan,night,snow shwrs,1,0
+0,Sgurr nan Clach Geala,PM,some clouds,8,7
+1,Sgurr nan Clach Geala,night,clear,6,6
+2,Sgurr nan Clach Geala,AM,clear,9,8
+3,Sgurr nan Clach Geala,PM,clear,10,9
+4,Sgurr nan Clach Geala,night,some clouds,7,7
+5,Sgurr nan Clach Geala,AM,clear,8,8
+6,Sgurr nan Clach Geala,PM,clear,7,6
+7,Sgurr nan Clach Geala,night,clear,3,0
+8,Sgurr nan Clach Geala,AM,clear,2,0
+9,Sgurr nan Clach Geala,PM,clear,3,2
+10,Sgurr nan Clach Geala,night,clear,2,1
+11,Sgurr nan Clach Geala,AM,some clouds,4,3
+12,Sgurr nan Clach Geala,PM,cloudy,6,5
+13,Sgurr nan Clach Geala,night,mod. rain,5,5
+14,Sgurr nan Clach Geala,AM,light rain,5,4
+15,Sgurr nan Clach Geala,PM,rain shwrs,3,2
+16,Sgurr nan Clach Geala,night,some clouds,1,0
+0,Sgurr nan Each,PM,some clouds,10,9
+1,Sgurr nan Each,night,clear,7,6
+2,Sgurr nan Each,AM,clear,10,9
+3,Sgurr nan Each,PM,clear,11,11
+4,Sgurr nan Each,night,some clouds,8,7
+5,Sgurr nan Each,AM,clear,9,9
+6,Sgurr nan Each,PM,clear,8,7
+7,Sgurr nan Each,night,clear,4,1
+8,Sgurr nan Each,AM,clear,4,1
+9,Sgurr nan Each,PM,clear,5,4
+10,Sgurr nan Each,night,clear,3,2
+11,Sgurr nan Each,AM,some clouds,6,4
+12,Sgurr nan Each,PM,cloudy,7,6
+13,Sgurr nan Each,night,mod. rain,6,6
+14,Sgurr nan Each,AM,light rain,6,6
+15,Sgurr nan Each,PM,rain shwrs,4,4
+16,Sgurr nan Each,night,rain shwrs,3,1
+0,Sgurr nan Gillean,PM,some clouds,8,8
+1,Sgurr nan Gillean,night,some clouds,7,7
+2,Sgurr nan Gillean,AM,clear,8,8
+3,Sgurr nan Gillean,PM,clear,9,9
+4,Sgurr nan Gillean,night,clear,8,7
+5,Sgurr nan Gillean,AM,clear,9,8
+6,Sgurr nan Gillean,PM,clear,9,8
+7,Sgurr nan Gillean,night,clear,6,4
+8,Sgurr nan Gillean,AM,clear,4,4
+9,Sgurr nan Gillean,PM,clear,4,4
+10,Sgurr nan Gillean,night,clear,4,4
+11,Sgurr nan Gillean,AM,cloudy,5,5
+12,Sgurr nan Gillean,PM,light rain,6,6
+13,Sgurr nan Gillean,night,heavy rain,6,6
+14,Sgurr nan Gillean,AM,light rain,6,5
+15,Sgurr nan Gillean,PM,light rain,4,3
+16,Sgurr nan Gillean,night,rain shwrs,3,2
+0,Sgurr Thearlaich,PM,some clouds,8,8
+1,Sgurr Thearlaich,night,some clouds,7,7
+2,Sgurr Thearlaich,AM,clear,8,8
+3,Sgurr Thearlaich,PM,clear,9,8
+4,Sgurr Thearlaich,night,clear,8,7
+5,Sgurr Thearlaich,AM,clear,9,8
+6,Sgurr Thearlaich,PM,clear,9,8
+7,Sgurr Thearlaich,night,clear,6,4
+8,Sgurr Thearlaich,AM,clear,4,4
+9,Sgurr Thearlaich,PM,clear,4,4
+10,Sgurr Thearlaich,night,clear,4,4
+11,Sgurr Thearlaich,AM,cloudy,5,5
+12,Sgurr Thearlaich,PM,light rain,6,5
+13,Sgurr Thearlaich,night,heavy rain,7,6
+14,Sgurr Thearlaich,AM,light rain,6,4
+15,Sgurr Thearlaich,PM,light rain,4,3
+16,Sgurr Thearlaich,night,rain shwrs,3,2
+0,Sgurr Thuilm,PM,cloudy,9,9
+1,Sgurr Thuilm,night,some clouds,7,6
+2,Sgurr Thuilm,AM,some clouds,10,8
+3,Sgurr Thuilm,PM,some clouds,11,10
+4,Sgurr Thuilm,night,some clouds,8,7
+5,Sgurr Thuilm,AM,some clouds,10,9
+6,Sgurr Thuilm,PM,clear,10,9
+7,Sgurr Thuilm,night,clear,6,3
+8,Sgurr Thuilm,AM,clear,4,3
+9,Sgurr Thuilm,PM,clear,6,6
+10,Sgurr Thuilm,night,clear,4,2
+11,Sgurr Thuilm,AM,cloudy,6,5
+12,Sgurr Thuilm,PM,light rain,6,5
+13,Sgurr Thuilm,night,mod. rain,6,5
+14,Sgurr Thuilm,AM,mod. rain,6,5
+15,Sgurr Thuilm,PM,light rain,4,3
+16,Sgurr Thuilm,night,snow shwrs,2,1
+0,Slioch,PM,some clouds,9,8
+1,Slioch,night,clear,7,6
+2,Slioch,AM,clear,10,9
+3,Slioch,PM,clear,10,10
+4,Slioch,night,some clouds,8,7
+5,Slioch,AM,clear,9,9
+6,Slioch,PM,clear,7,7
+7,Slioch,night,clear,5,2
+8,Slioch,AM,clear,4,1
+9,Slioch,PM,clear,4,4
+10,Slioch,night,clear,3,2
+11,Slioch,AM,some clouds,5,4
+12,Slioch,PM,cloudy,6,6
+13,Slioch,night,mod. rain,6,5
+14,Slioch,AM,light rain,6,5
+15,Slioch,PM,light rain,4,3
+16,Slioch,night,rain shwrs,2,1
+0,Sròn a' Choire Ghairbh,PM,cloudy,9,9
+1,Sròn a' Choire Ghairbh,night,cloudy,7,5
+2,Sròn a' Choire Ghairbh,AM,some clouds,10,9
+3,Sròn a' Choire Ghairbh,PM,some clouds,12,12
+4,Sròn a' Choire Ghairbh,night,some clouds,8,7
+5,Sròn a' Choire Ghairbh,AM,some clouds,11,9
+6,Sròn a' Choire Ghairbh,PM,clear,11,9
+7,Sròn a' Choire Ghairbh,night,clear,5,1
+8,Sròn a' Choire Ghairbh,AM,clear,4,2
+9,Sròn a' Choire Ghairbh,PM,clear,7,5
+10,Sròn a' Choire Ghairbh,night,clear,3,2
+11,Sròn a' Choire Ghairbh,AM,some clouds,6,5
+12,Sròn a' Choire Ghairbh,PM,cloudy,7,6
+13,Sròn a' Choire Ghairbh,night,mod. rain,6,5
+14,Sròn a' Choire Ghairbh,AM,light rain,6,6
+15,Sròn a' Choire Ghairbh,PM,rain shwrs,5,4
+16,Sròn a' Choire Ghairbh,night,snow shwrs,3,1
+0,The Saddle,PM,some clouds,9,9
+1,The Saddle,night,some clouds,7,6
+2,The Saddle,AM,clear,10,8
+3,The Saddle,PM,some clouds,10,10
+4,The Saddle,night,some clouds,8,7
+5,The Saddle,AM,clear,9,9
+6,The Saddle,PM,clear,9,8
+7,The Saddle,night,clear,6,3
+8,The Saddle,AM,clear,4,2
+9,The Saddle,PM,clear,6,5
+10,The Saddle,night,clear,3,2
+11,The Saddle,AM,cloudy,5,5
+12,The Saddle,PM,light rain,6,5
+13,The Saddle,night,heavy rain,6,5
+14,The Saddle,AM,light rain,5,5
+15,The Saddle,PM,light rain,3,3
+16,The Saddle,night,snow shwrs,2,1
