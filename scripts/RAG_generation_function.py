@@ -29,3 +29,26 @@ munro['Cloud Cover'].unique()
 cloud_score_dictionary = {'light rain': 0, 'rain shwrs': 0, 'mod. rain' : 0, 'cloudy': 1, 'clear': 2, 'some clouds': 3}
 
 munro['cloud_score'] = munro['Cloud Cover'].apply(lambda x: cloud_score_dictionary[x])
+
+###########
+
+# Get today's date
+current_date = pd.to_datetime('today')  
+
+# Create an empty list to store the dates
+dates = []
+
+# Iterate through the 'Time' column and update the date accordingly
+for i, time_period in enumerate(munro['Time']):
+    if i == 0:
+        dates.append(current_date)
+    elif time_period == 'AM':
+        current_date += pd.Timedelta(days=1)
+        dates.append(current_date)
+    else:  # For 'PM' and any other case after the first row
+        dates.append(current_date)
+
+munro['Pull Date'] = dates        
+        
+            
+        
