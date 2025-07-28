@@ -7,28 +7,23 @@ Created on Thu May  8 20:48:01 2025
 """
 
 import pandas as pd
+cloud_score_dictionary = {'light rain': 0, 'rain shwrs': 0, 'mod. rain' : 0, 'heavy rain': 0, 'cloudy': 1, 'clear': 2, 'some clouds': 3}
 
-munro = pd.read_csv('../outputs/munro_weather.csv', index_col = 0)
 
-munro.head()
-munro.dtypes
-
-##########################
-
-#remove night
-
-munro = munro[munro['Time'] != 'night']
-
-#create an average temperature at the top!
-
-munro['average_temp_top'] = munro[['Max Temperature (°C)', 'Min Temperature (°C)']].mean(axis = 1)
-
-##############
-munro['Cloud Cover'].unique()
-
-cloud_score_dictionary = {'light rain': 0, 'rain shwrs': 0, 'mod. rain' : 0, 'cloudy': 1, 'clear': 2, 'some clouds': 3}
-
-munro['cloud_score'] = munro['Cloud Cover'].apply(lambda x: cloud_score_dictionary[x])
+def rag_creation(i):
+    '''this function takes the output raw weather pulls and starts to collate a RAG rating based on wind speed, temperatures and cloud cover'''
+    munro = pd.read_csv(i, index_col = 0)
+    munro = munro[munro['Time'] != 'night'] #remove night
+    munro['average_temp_top'] = munro[['Max Temperature (°C)', 'Min Temperature (°C)']].mean(axis = 1) #average temp at top
+    munro['average_temp_bottom'] = munro[['Base Max Temperature (°C)', 'Base Min Temperature (°C)']].mean(axis = 1) #avg temp at bottom
+    munro['cloud_score'] = munro['Cloud Cover'].apply(lambda x: cloud_score_dictionary[x])
+    for index, row in munro.iterrows():
+        if row['average_temp_top'] > row['average_temp_bottom']:
+            munro.loc[index, 'temp_score'] = 5
+        else: 
+            munro.loc[index, 'temp_score'] = 0
+    munro['RAG rating'] = munro['average_temp_top'] + munro['average_temp_bottom']        
+            
 
 ###########
 
@@ -49,6 +44,10 @@ for i, time_period in enumerate(munro['Time']):
         dates.append(current_date)
 
 munro['Pull Date'] = dates        
+
+################
+
+
         
             
         

@@ -54,4 +54,30 @@ def get_mountain_url(url):
         else:
             print("no mountain url found")
     return mountain_url_list
+
+def get_mountain_base(url):
+    '''this function returns the mountain base in meters'''
+    region = requests.get(url)
+    region_soup = BeautifulSoup(region.content, 'html.parser')
+    base_link = region_soup.find('a', attrs = {'data-elevation-group': 'bot'})
+    mountain_base = base_link.find('span', class_='height')
+    if mountain_base:
+        return mountain_base.text.strip()
+    else:
+        print("no mountain base found")
+
+def get_mountain_base_url(url):
+    '''this function returns the mountain url reporting the weather data at the bottom of the mountain '''
+    region = requests.get(url)
+    region_soup = BeautifulSoup(region.content, 'html.parser')
+    base_link = region_soup.find('a', attrs = {'data-elevation-group': 'bot'})
+    relative_mountain_base_url = base_link.get('href')
+    mountain_base_url = requests.compat.urljoin(url, relative_mountain_base_url)
+    return mountain_base_url
+    
+     
+
+
+
+    
             
