@@ -98,4 +98,16 @@ def min_temperature(url):
         
      ##
 
-
+def mountain_wind(url):
+    '''this function returns the wind speed in km per hour at the mountain'''
+    region = requests.get(url)
+    region_soup = BeautifulSoup(region.content, 'html.parser')
+    wind_speed_hold = region_soup.find_all('div', class_ = 'wind-icon')
+    wind_speed_list = []
+    for i in wind_speed_hold:
+        wind_speed = i.get('data-speed')
+        if wind_speed:
+            wind_speed_list.append(wind_speed)
+        else:
+            wind_speed_list.append(None)
+    return wind_speed_list    

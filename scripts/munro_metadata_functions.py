@@ -74,10 +74,7 @@ def get_mountain_base_url(url):
     relative_mountain_base_url = base_link.get('href')
     mountain_base_url = requests.compat.urljoin(url, relative_mountain_base_url)
     return mountain_base_url
+
+
     
      
-
-
-
-    
-            

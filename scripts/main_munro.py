@@ -12,7 +12,7 @@ import pandas as pd
                
 ####### Step 1 Import the Munro names and Heights  #########
 
-from munro_metadata_functions import get_mountain_height, get_mountain_name, get_mountain_url, get_mountain_base
+from munro_metadata_functions import get_mountain_height, get_mountain_name, get_mountain_url, get_mountain_base, get_mountain_base_url
 region_list =['grampians', 'northwest-highlands']
 
 all_mountain_names = []
@@ -38,22 +38,23 @@ munro_data['munro height (m)'] = munro_data['munro height (m)'].astype('int')
 munro_data = munro_data[munro_data['munro height (m)'] > 914.4]
 
 munro_data['munro base height (m)'] = munro_data['height_URL'].apply(get_mountain_base)
+munro_data['base_URL'] = munro_data['height_URL'].apply(get_mountain_base_url)
 
 munro_data.to_csv('../outputs/munro_data.csv')
 
-######## Step 2 Find the Base of the Munro ###################
 
 
 
-####### Step 3 Import the Weather data#########
+####### Step 2 Import the Weather data#########
 
-from weather_scrape_function import time_periods, cloud_cover, max_temperature, min_temperature
+from weather_scrape_function import time_periods, cloud_cover, max_temperature, min_temperature, mountain_wind
 
 list_of_munro_weather_dfs = []
 
 for index, row in munro_data.iterrows():
     munro_name = row['munro name']
-    i = row['URL']
+    i = row['height_URL']
+    j = row['base_URL']
     
     
   
@@ -61,6 +62,10 @@ for index, row in munro_data.iterrows():
     cc = cloud_cover(i)
     maxt = max_temperature(i)
     mint = min_temperature(i)
+    wind = mountain_wind(i)
+    bmaxt = max_temperature(j)
+    bmint = min_temperature(j)
+    windb = mountain_wind(j)
     
     
     
@@ -71,6 +76,10 @@ for index, row in munro_data.iterrows():
         'Cloud Cover': cc,
         'Max Temperature (°C)': maxt,
         'Min Temperature (°C)': mint,
+        'Base Max Temperature (°C)': bmaxt,
+        'Base Min Temperature (°C)': bmint,
+        'Wind at Top (km/h)': wind,
+        'Wind at Base (km/h)': windb
         }
     
     # Create the Pandas DataFrame
@@ -79,7 +88,15 @@ for index, row in munro_data.iterrows():
     
 all_weather_df = pd.concat(list_of_munro_weather_dfs) 
 
+
+
 all_weather_df.to_csv('../outputs/munro_weather.csv')
 
 
-  
+########### Step 3 RAG cloud inversion creation ###############
+from RAG_generation_function import rag_creation, create_datetime
+
+RAG_df = rag_creation(all_weather_df)
+RAG_df = create_datetime(RAG_df)
+
+RAG_df.to_csv('../outputs/RAG_weather.csv') 
