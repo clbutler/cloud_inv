@@ -15,7 +15,7 @@ cloud_score_dictionary = {'light rain': 0, 'rain shwrs': 0, 'mod. rain' : 0, 'he
 def rag_creation(i):
     '''this function takes the output raw weather pulls and starts to collate a RAG rating based on wind speed, temperatures and cloud cover'''
     munro = i[i['Time'] != 'night'].copy() #remove night
-    columns_numeric = ['Max Temperature (°C)', 'Min Temperature (°C)', 'Base Max Temperature (°C)', 'Base Min Temperature (°C)' ]
+    columns_numeric = ['Max Temperature (°C)', 'Min Temperature (°C)', 'Base Max Temperature (°C)', 'Base Min Temperature (°C)', 'Wind at Top (km/h)', 'Wind at Base (km/h)' ]
     for c in columns_numeric:
         munro[c] = pd.to_numeric(munro[c], errors = 'coerce')
     munro['average_temp_top'] = munro[['Max Temperature (°C)', 'Min Temperature (°C)']].mean(axis = 1) #average temp at top
@@ -26,7 +26,13 @@ def rag_creation(i):
             munro.loc[index, 'temp_score'] = 5
         else: 
             munro.loc[index, 'temp_score'] = 0
-    munro['RAG rating'] = munro['temp_score'] + munro['cloud_score']  
+    for index, row in munro.iterrows():
+        if row['Wind at Base (km/h)']  <=  10:
+            munro.loc[index, 'wind_score'] = 5
+        else:
+            munro.loc[index, 'wind_score'] = 0
+    munro['RAG rating'] = munro['temp_score'] + munro['cloud_score']  + munro['wind_score']
+    
     return munro      
             
 

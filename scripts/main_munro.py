@@ -67,6 +67,10 @@ for index, row in munro_data.iterrows():
     bmint = min_temperature(j)
     windb = mountain_wind(j)
     
+    l = len(maxt) #for some strange reason (I think its a bug on the mountain forecast website - wind values extend into the pro license future, whereas temps do not - cutting it down to the same size.
+    wind = wind[:l]
+    windb = windb[:l]
+    
     
     
     # Create the dictionary for the DataFrame
