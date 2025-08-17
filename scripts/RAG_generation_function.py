@@ -9,7 +9,7 @@ Created on Thu May  8 20:48:01 2025
 import pandas as pd
 
 #cloud dictionary score
-cloud_score_dictionary = {'light rain': 0, 'rain shwrs': 0, 'mod. rain' : 0, 'heavy rain': 0, 'cloudy': 1, 'clear': 2, 'some clouds': 3}
+cloud_score_dictionary = {'risk tstorm': 0, 'light rain': 0, 'rain shwrs': 0, 'mod. rain' : 0, 'heavy rain': 0, 'cloudy': 1, 'clear': 2, 'some clouds': 3}
 
 
 def rag_creation(i):
@@ -21,11 +21,7 @@ def rag_creation(i):
     munro['average_temp_top'] = munro[['Max Temperature (°C)', 'Min Temperature (°C)']].mean(axis = 1) #average temp at top
     munro['average_temp_bottom'] = munro[['Base Max Temperature (°C)', 'Base Min Temperature (°C)']].mean(axis = 1) #avg temp at bottom
     munro['cloud_score'] = munro['Cloud Cover'].apply(lambda x: cloud_score_dictionary[x])
-    for index, row in munro.iterrows():
-        if row['average_temp_top'] > row['average_temp_bottom']:
-            munro.loc[index, 'temp_score'] = 5
-        else: 
-            munro.loc[index, 'temp_score'] = 0
+    munro['temp_score'] = munro['average_temp_top'] - munro['average_temp_bottom']
     for index, row in munro.iterrows():
         if row['Wind at Base (km/h)']  <=  10:
             munro.loc[index, 'wind_score'] = 5
@@ -34,7 +30,9 @@ def rag_creation(i):
     munro['RAG rating'] = munro['temp_score'] + munro['cloud_score']  + munro['wind_score']
     
     return munro      
-            
+      
+
+      
 
 def create_datetime(j):
     current_date = pd.to_datetime('today') 

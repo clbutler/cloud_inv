@@ -9,8 +9,16 @@ Created on Thu May 15 21:04:29 2025
 
 import pandas as pd
 
+####### PreStep 1 Create the munro shapefile  #########
+
+from shapefile_create_function import shapefile_create
+
+STARTING_FILE = '../data/munrotab_v8.0.1.csv'
+munro_shapefile = shapefile_create(STARTING_FILE)
+munro_shapefile.to_file('../outputs/munro.shp')
+
                
-####### Step 1 Import the Munro names and Heights  #########
+####### PreStep 2 Import the Munro names and Heights  #########
 
 from munro_metadata_functions import get_mountain_height, get_mountain_name, get_mountain_url, get_mountain_base, get_mountain_base_url
 region_list =['grampians', 'northwest-highlands']
@@ -104,3 +112,9 @@ RAG_df = rag_creation(all_weather_df)
 RAG_df = create_datetime(RAG_df)
 
 RAG_df.to_csv('../outputs/RAG_weather.csv') 
+
+######### Step 4 Mapping HTML creation ##############
+from munro_map_functions import munro_join
+
+shapefile = '../outputs/munro.shp'
+mapping = munro_join(shapefile, RAG_df)

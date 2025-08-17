@@ -10,12 +10,25 @@ Created on Mon Jan 27 21:59:03 2025
 import folium 
 import os
 import geopandas as gpd
+import pandas as pd
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
 
-munros_input = '../outputs/munro.shp'
-munros_output = '../outputs/munros.html'
+#munros_input = '../outputs/munro.shp'
+#munros_output = '../outputs/munros.html'
+
+def munro_join(shapefile, rag_file):
+    '''combines the RAG rating with the coordinate data'''
+    munro_map = gpd.read_file(shapefile)
+    munro_map = munro_map.to_crs(epsg = 4326)
+    joined = munro_map.merge(rag_file, how = 'left', left_on = 'Name', right_on = 'Munro Name')
+    return joined
+
+  
+    
+    
+
 
 def munro_map(input_file, output_file):
     '''creates a folium map of the munros and outputs it as a html'''
