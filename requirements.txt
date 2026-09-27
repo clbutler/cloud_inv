@@ -1,0 +1,8 @@
+# Python 3.12. Install with: python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt
+beautifulsoup4==4.15.0
+folium==0.20.0
+geopandas==1.1.4
+pandas==3.0.6
+pytest==9.1.1
+requests==2.34.2
+shapely==2.1.2

@@ -18,103 +18,29 @@ munro_shapefile = shapefile_create(STARTING_FILE)
 munro_shapefile.to_file('../outputs/munro.shp')
 
                
-####### PreStep 2 Import the Munro names and Heights  #########
+####### Step 2 Fetch the weather forecast and save it #########
 
-from munro_metadata_functions import get_mountain_height, get_mountain_name, get_mountain_url, get_mountain_base, get_mountain_base_url
-region_list =['grampians', 'northwest-highlands']
+from openmeteo_function import munro_locations, fetch_forecast, save_forecast
 
-all_mountain_names = []
-all_mountain_heights = []
-all_mountain_urls = []
-
-for i in region_list:
-    url = 'https://www.mountain-forecast.com/subranges/{}/locations'.format(i)
-    current_mountain_names = get_mountain_name(url)
-    current_mountain_heights = get_mountain_height(url)
-    current_mountain_urls = get_mountain_url(url)
-    all_mountain_names.extend(current_mountain_names)
-    all_mountain_heights.extend(current_mountain_heights)
-    all_mountain_urls.extend(current_mountain_urls)
-    
+locations = munro_locations(munro_shapefile)
+forecast_df, sunrise_df = fetch_forecast(locations) # Met Office model via Open-Meteo, 7 days hourly
+run_time = save_forecast(forecast_df, sunrise_df, locations, '../outputs/forecasts.db')
+print('Saved {} forecast rows for {} munros (run {})'.format(len(forecast_df), len(locations), run_time))
 
 
-munro_data = pd.DataFrame({'munro name': all_mountain_names, 'munro height (m)': all_mountain_heights, 'height_URL': all_mountain_urls})
+####### Step 3 Score each morning for a cloud inversion #########
 
+from inversion_score_function import score_run, save_scores
 
-munro_data['munro height (m)'] = munro_data['munro height (m)'].str.replace('m', '')
-munro_data['munro height (m)'] = munro_data['munro height (m)'].astype('int')
-munro_data = munro_data[munro_data['munro height (m)'] > 914.4]
-
-munro_data['munro base height (m)'] = munro_data['height_URL'].apply(get_mountain_base)
-munro_data['base_URL'] = munro_data['height_URL'].apply(get_mountain_base_url)
-
-munro_data.to_csv('../outputs/munro_data.csv')
+scores_df = score_run('../outputs/forecasts.db', run_time)
+save_scores(scores_df, '../outputs/forecasts.db')
+print(scores_df.pivot_table(index = 'date', columns = 'rag', values = 'munro_id', aggfunc = 'count', fill_value = 0))
 
 
 
+######### Step 4 cloudflip website data #########
 
-####### Step 2 Import the Weather data#########
+from site_export_function import export_site_data
 
-from weather_scrape_function import time_periods, cloud_cover, max_temperature, min_temperature, mountain_wind
-
-list_of_munro_weather_dfs = []
-
-for index, row in munro_data.iterrows():
-    munro_name = row['munro name']
-    i = row['height_URL']
-    j = row['base_URL']
-    
-    
-  
-    tp = time_periods(i)
-    cc = cloud_cover(i)
-    maxt = max_temperature(i)
-    mint = min_temperature(i)
-    wind = mountain_wind(i)
-    bmaxt = max_temperature(j)
-    bmint = min_temperature(j)
-    windb = mountain_wind(j)
-    
-    l = len(maxt) #for some strange reason (I think its a bug on the mountain forecast website - wind values extend into the pro license future, whereas temps do not - cutting it down to the same size.
-    wind = wind[:l]
-    windb = windb[:l]
-    
-    
-    
-    # Create the dictionary for the DataFrame
-    data = {
-        'Munro Name': munro_name,
-        'Time': tp,
-        'Cloud Cover': cc,
-        'Max Temperature (°C)': maxt,
-        'Min Temperature (°C)': mint,
-        'Base Max Temperature (°C)': bmaxt,
-        'Base Min Temperature (°C)': bmint,
-        'Wind at Top (km/h)': wind,
-        'Wind at Base (km/h)': windb
-        }
-    
-    # Create the Pandas DataFrame
-    current_weather_df = pd.DataFrame(data)
-    list_of_munro_weather_dfs.append(current_weather_df)
-    
-all_weather_df = pd.concat(list_of_munro_weather_dfs) 
-
-
-
-all_weather_df.to_csv('../outputs/munro_weather.csv')
-
-
-########### Step 3 RAG cloud inversion creation ###############
-from RAG_generation_function import rag_creation, create_datetime
-
-RAG_df = rag_creation(all_weather_df)
-RAG_df = create_datetime(RAG_df)
-
-RAG_df.to_csv('../outputs/RAG_weather.csv') 
-
-######### Step 4 Mapping HTML creation ##############
-from munro_map_functions import munro_join
-
-shapefile = '../outputs/munro.shp'
-mapping = munro_join(shapefile, RAG_df)
+export_site_data('../outputs/forecasts.db', STARTING_FILE, '../site/data/scores.js')
+print('Website data saved to site/data/scores.js; open site/index.html in a browser')
