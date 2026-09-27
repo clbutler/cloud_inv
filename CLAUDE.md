@@ -34,7 +34,7 @@ Known issue: both test files are currently broken. They import modules that no l
      - Pressure-level values are always the raw model output, and they're the main data for spotting an inversion: a higher level warmer than a lower one. At every Munro the 1000 hPa level (about 100 m) is below the model's ground (300–400 m). Open-Meteo still returns values for it, but they're extrapolated, so scoring ignores any level below `model_elevation_m`.
    - `save_forecast` writes `outputs/forecasts.db` (SQLite):
      - `munros` is replaced on each run: `munro_id` (primary key), `name`, `height_m`, `lat`, `lon`, `model_elevation_m`.
-     - `sunrise` is replaced on each run: `munro_id`, `date`, `sunrise` (UTC).
+     - `sunrise` is appended to on each run: `run_time`, `munro_id`, `date`, `sunrise` (UTC). It's keyed by run so older runs can be re-scored and re-exported; the `munros` table is still replaced each run. Older databases, which kept only the latest run, are upgraded automatically.
      - `forecasts` is appended to on each run: one row per `run_time` × `model` × `munro_id` × `valid_time` (primary key), with one column per variable. Each run adds 47,376 rows, about 12 MB.
 
 3. **Inversion score** (`inversion_score_function`): `score_run` scores every hour from 1 h before sunrise to 3 h after and keeps each day's best hour. `save_scores` writes the `scores` table: one row per `run_time` × `model` × `munro_id` × `date`, with the RAG, the four check grades and the values behind them. Each check is graded 2 (pass), 1 (partial) or 0 (fail):

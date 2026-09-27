@@ -97,7 +97,7 @@ def score_run(db_path, run_time = None, hours_before = 1, hours_after = 3):
             run_time = conn.execute('SELECT MAX(run_time) FROM forecasts').fetchone()[0]
         forecasts = pd.read_sql('SELECT * FROM forecasts WHERE run_time = ?', conn, params = (run_time,))
         munros = pd.read_sql('SELECT munro_id, height_m, model_elevation_m FROM munros', conn)
-        sunrise = pd.read_sql('SELECT * FROM sunrise', conn)
+        sunrise = pd.read_sql('SELECT munro_id, date, sunrise FROM sunrise WHERE run_time = ?', conn, params = (run_time,))
 
     forecasts['date'] = forecasts['valid_time'].str[:10]
     forecasts = forecasts.merge(munros, on = 'munro_id').merge(sunrise, on = ['munro_id', 'date'])

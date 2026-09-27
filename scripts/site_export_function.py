@@ -35,7 +35,8 @@ def export_site_data(db_path, hills_csv, output_file, run_time = None):
             run_time = conn.execute('SELECT MAX(run_time) FROM scores').fetchone()[0]
         scores = pd.read_sql('SELECT * FROM scores WHERE run_time = ?', conn, params = (run_time,))
         munros = pd.read_sql('SELECT * FROM munros', conn)
-        sunrise = pd.read_sql('SELECT date, MIN(sunrise) AS sunrise FROM sunrise GROUP BY date', conn)
+        sunrise = pd.read_sql('SELECT date, MIN(sunrise) AS sunrise FROM sunrise WHERE run_time = ? GROUP BY date', conn,
+                              params = (run_time,))
 
     links = hill_links(hills_csv)
     munro_list = [{'id': int(r['munro_id']), 'name': r['name'], 'h': clean(r['height_m'], 0),

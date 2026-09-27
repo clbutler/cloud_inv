@@ -55,7 +55,7 @@ def fetch_forecast(locations, model = 'ukmo_seamless', batch_size = 50):
             }
         for attempt in range(3): #open-meteo has a per-minute limit, and each munro counts as a call
             response = requests.get(API_URL, params = params, timeout = 60)
-            if response.status_code != 429:
+            if response.status_code != 429 or attempt == 2: #no point waiting after the last try
                 break
             print('Open-Meteo rate limit hit, waiting 60 seconds')
             time.sleep(60)
@@ -78,7 +78,7 @@ def fetch_forecast(locations, model = 'ukmo_seamless', batch_size = 50):
 
 
 def save_forecast(forecast_df, sunrise_df, locations, db_path):
-    '''saves the munros and sunrise tables (replaced each run) and appends this run's forecast to the forecasts table'''
+    '''saves the munros table (replaced each run) and appends this run's forecast and sunrise times'''
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
     elevations = forecast_df[['munro_id', 'model_elevation_m']].drop_duplicates('munro_id')
     munros = locations.merge(elevations, on = 'munro_id', how = 'left')
@@ -90,7 +90,19 @@ def save_forecast(forecast_df, sunrise_df, locations, db_path):
         conn.execute('''CREATE TABLE munros (munro_id INTEGER PRIMARY KEY, name TEXT, height_m REAL,
                         lat REAL, lon REAL, model_elevation_m REAL)''')
         munros.to_sql('munros', conn, if_exists = 'append', index = False)
-        sunrise_df.to_sql('sunrise', conn, if_exists = 'replace', index = False)
+        old_sunrise = None
+        columns = [c[1] for c in conn.execute('PRAGMA table_info(sunrise)')]
+        if columns and 'run_time' not in columns: #older databases kept only the latest run's sunrise times
+            old_sunrise = pd.read_sql('SELECT munro_id, date, sunrise FROM sunrise', conn)
+            old_sunrise.insert(0, 'run_time', conn.execute('SELECT MAX(run_time) FROM forecasts').fetchone()[0])
+            conn.execute('DROP TABLE sunrise')
+        conn.execute('''CREATE TABLE IF NOT EXISTS sunrise (run_time TEXT, munro_id INTEGER, date TEXT, sunrise TEXT,
+                        PRIMARY KEY (run_time, munro_id, date))''')
+        if old_sunrise is not None:
+            old_sunrise.to_sql('sunrise', conn, if_exists = 'append', index = False)
+        sunrise = sunrise_df.copy()
+        sunrise.insert(0, 'run_time', run_time)
+        sunrise.to_sql('sunrise', conn, if_exists = 'append', index = False)
 
         variable_columns = ', '.join('{} REAL'.format(v) for v in HOURLY_VARIABLES)
         conn.execute('''CREATE TABLE IF NOT EXISTS forecasts (run_time TEXT, munro_id INTEGER, model TEXT,

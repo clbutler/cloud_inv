@@ -51,7 +51,12 @@
     else if (s.lapse > 0) lid = 'warmer layer at ~' + s.top + ' m';
     else if (s.g[0] === 1) lid = 'weak, air barely cools with height';
     else lid = 'none, air cools with height';
-    var cloud = s.rhb === null ? 'nothing to check' : 'damp air (' + s.rhb + '% humidity)';
+    var cloud;
+    if (s.rhb === null) cloud = 'nothing to check';
+    else if (s.g[1] === 2 && s.clb >= 50) cloud = 'low cloud (' + s.clb + '% cover)';
+    else if (s.g[1] === 2) cloud = 'damp air (' + s.rhb + '% humidity)';
+    else if (s.g[1] === 1) cloud = 'borderline (' + s.rhb + '% humidity)';
+    else cloud = 'too dry (' + s.rhb + '% humidity)';
     var summit = (s.g[2] === 2 ? 'dry' : s.g[2] === 1 ? 'hazy' : 'in cloud') + ' (' + s.rhs + '% humidity)';
     var wind = s.wb + ' km/h below the top';
     return [lid, cloud, summit, wind];
