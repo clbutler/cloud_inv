@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>cloudflip</title>
+  <meta name="description" content="Cloud inversion outlook for Scotland's 282 Munros: where you might stand above a sea of cloud at sunrise.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M6 34 L16 11 L24 23 L32 11 L42 34' fill='none' stroke='%231f2a3a' stroke-width='4.5' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpath d='M3 40 a6 6 0 0 1 8.5-6.5 a7.5 7.5 0 0 1 12.5-3 a7.5 7.5 0 0 1 12.5 3 a6 6 0 0 1 8.5 6.5 z' fill='%23fff' stroke='%23f2a900' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- icons for the four checks, reused everywhere with <use href="#..."> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="icon-lid" viewBox="0 0 24 24">
+      <rect x="9" y="3" width="6" height="13" rx="3" fill="none" stroke="#e07b00" stroke-width="2"/>
+      <circle cx="12" cy="18" r="4" fill="#e07b00"/><rect x="11" y="8" width="2" height="9" fill="#e07b00"/>
+      <path d="M17 7 h5 M17 11 h4" stroke="#e07b00" stroke-width="1.6" stroke-dasharray="2 1.5"/>
+    </symbol>
+    <symbol id="icon-cloud" viewBox="0 0 24 24">
+      <path d="M6 18 a4 4 0 0 1 0-8 a5.5 5.5 0 0 1 10.5-1.5 a4 4 0 0 1 1.5 9.5 z" fill="#dfe8f2" stroke="#6f8fb3" stroke-width="1.6"/>
+    </symbol>
+    <symbol id="icon-summit" viewBox="0 0 24 24">
+      <circle cx="18" cy="6" r="3.2" fill="#f2a900"/>
+      <path d="M2 21 L10 8 L14 14 L16 11 L22 21 z" fill="#6b7f6a"/>
+    </symbol>
+    <symbol id="icon-wind" viewBox="0 0 24 24">
+      <path d="M3 8 h11 a3 3 0 1 0 -3-3 M3 13 h15 a3 3 0 1 1 -3 3 M3 18 h7" fill="none" stroke="#5a6b7b"
+            stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="logo" viewBox="0 0 48 48">
+      <path d="M6 34 L16 11 L24 23 L32 11 L42 34" fill="none" stroke="currentColor" stroke-width="4.5"
+            stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M3 40 a6 6 0 0 1 8.5-6.5 a7.5 7.5 0 0 1 12.5-3 a7.5 7.5 0 0 1 12.5 3 a6 6 0 0 1 8.5 6.5 z"
+            fill="#ffffff" stroke="#f2a900" stroke-width="2" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <!-- intro: zoom out of the cloud, the mountain draws itself above it, then the name comes in -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-stage">
+      <svg class="intro-logo" viewBox="0 0 48 48">
+        <circle class="intro-sun" cx="24" cy="16" r="4.5" fill="#f2a900"/>
+        <path class="intro-m" d="M6 34 L16 11 L24 23 L32 11 L42 34" fill="none" stroke="#ffffff" stroke-width="4.5"
+              stroke-linejoin="round" stroke-linecap="round"/>
+        <path class="intro-cloud" d="M3 40 a6 6 0 0 1 8.5-6.5 a7.5 7.5 0 0 1 12.5-3 a7.5 7.5 0 0 1 12.5 3 a6 6 0 0 1 8.5 6.5 z"
+              fill="#ffffff" stroke="#f2a900" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+      <div class="intro-words">
+        <div class="intro-name">cloudflip</div>
+        <div class="intro-tag">Above the cloud on Scotland's Munros</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () { //play once per session, never for reduced motion, and skip on any tap or key
+      var intro = document.getElementById('intro');
+      var seen = false;
+      try { seen = sessionStorage.getItem('cf-intro') === '1'; sessionStorage.setItem('cf-intro', '1'); } catch (e) {}
+      if (seen || window.matchMedia('(prefers-reduced-motion: reduce)').matches) { intro.remove(); return; }
+      function finish() {
+        if (!intro.isConnected) return;
+        intro.classList.add('intro-skip');
+        setTimeout(function () { intro.remove(); }, 300);
+      }
+      intro.addEventListener('animationend', function (e) { if (e.animationName === 'intro-out') intro.remove(); });
+      intro.addEventListener('click', finish);
+      document.addEventListener('keydown', finish, { once: true });
+      setTimeout(function () { if (intro.isConnected) intro.remove(); }, 4000); //safety net if animations don't run
+    })();
+  </script>
+
+  <div class="app">
+    <aside class="panel">
+      <header class="brand">
+        <svg class="brand-logo" aria-hidden="true"><use href="#logo"/></svg>
+        <div>
+          <h1>cloudflip</h1>
+          <p class="tagline">Will you stand above a sea of cloud at sunrise?</p>
+        </div>
+      </header>
+      <p class="trust">282 Munros &middot; free &middot; no accounts &middot; no ads</p>
+
+      <nav class="days" id="days" aria-label="Choose a morning"></nav>
+
+      <section class="headline" id="headline" aria-live="polite"></section>
+
+      <div class="finder">
+        <div class="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16 l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="search" type="search" placeholder="Find a Munro&hellip;" autocomplete="off" aria-label="Find a Munro by name">
+        </div>
+        <button class="btn" id="near-me" type="button">Near me</button>
+      </div>
+
+      <section id="list-view">
+        <h2 class="section-title" id="list-title">Best bets</h2>
+        <ol class="bets" id="bets"></ol>
+      </section>
+
+      <section id="detail-view" hidden></section>
+
+      <footer class="foot">
+        <button class="btn btn-quiet" id="how" type="button">How does this work?</button>
+        <p id="fetched"></p>
+        <p>A planning aid, not a safety forecast. Always check the
+          <a href="https://www.mwis.org.uk/forecasts/scottish" target="_blank" rel="noopener">MWIS</a> and
+          <a href="https://www.metoffice.gov.uk/weather/specialist-forecasts/mountain" target="_blank" rel="noopener">Met Office mountain</a>
+          forecasts, and <a href="https://www.sais.gov.uk/" target="_blank" rel="noopener">SAIS</a> in winter.</p>
+        <p>Developed by Dr Chris Butler. Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a>
+          (Met Office UK model). Hill data from the Database of British and Irish Hills.</p>
+      </footer>
+    </aside>
+
+    <main class="map-wrap">
+      <div id="map" aria-label="Map of the Munros"></div>
+      <div class="legend" aria-hidden="true">
+        <span><i class="dot dot-2"></i>Likely</span>
+        <span><i class="dot dot-1"></i>Possible</span>
+        <span><i class="dot dot-0"></i>Unlikely</span>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal" id="explainer" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="explainer-title">
+      <div class="modal-head">
+        <h2 id="explainer-title">What is a cloud inversion?</h2>
+        <button class="close" id="explainer-close" type="button" aria-label="Close">&times;</button>
+      </div>
+      <p>On the best mornings you climb out of the fog in the glen and stand in sunshine above a sea of cloud.
+         cloudflip checks the Met Office forecast for four things that make that happen:</p>
+      <svg viewBox="0 0 320 170" class="explainer-picture" aria-hidden="true">
+        <rect width="320" height="170" rx="10" fill="#eaf2fa"/>
+        <circle cx="272" cy="30" r="13" fill="#f2a900"/>
+        <path d="M10 160 L90 100 L120 112 L170 38 L220 106 L240 98 L310 160 Z" fill="#7b8f79"/>
+        <path d="M154 60 L170 38 L186 60 Z" fill="#a9b8a7"/>
+        <path d="M0 112 q 10 -7 20 0 q 10 7 20 0 q 10 -7 20 0 q 10 7 20 0 q 10 -7 20 0 q 10 7 20 0 q 10 -7 20 0 q 10 7 20 0 q 10 -7 20 0 q 10 7 20 0 q 10 -7 20 0 q 10 7 20 0 q 10 -7 20 0 q 10 7 20 0 q 10 -7 20 0 q 10 7 20 0 V170 H0 Z" fill="#ffffff" opacity="0.95"/>
+        <line x1="6" x2="314" y1="100" y2="100" stroke="#e07b00" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="8" y="95" font-size="10" fill="#b35f00" stroke="#eaf2fa" stroke-width="3" paint-order="stroke">warm lid: warmer air above traps the cold, damp air below</text>
+        <text x="14" y="140" font-size="10" fill="#4a6078">cloud sea: fog and low cloud filling the glens</text>
+        <text x="194" y="62" font-size="10" fill="#1f2a3a">summit in sunshine</text>
+      </svg>
+      <ul class="explainer-list">
+        <li><svg aria-hidden="true"><use href="#icon-lid"/></svg><div><b>Warm lid</b>Normally air gets colder as you climb.
+          Sometimes a layer of warmer air sits part-way up the hill, like a lid. Cold, damp air is trapped underneath it.</div></li>
+        <li><svg aria-hidden="true"><use href="#icon-cloud"/></svg><div><b>Cloud below</b>There needs to be enough moisture
+          under the lid for fog or low cloud to form in the glens (humidity of 95% or more).</div></li>
+        <li><svg aria-hidden="true"><use href="#icon-summit"/></svg><div><b>Clear summit</b>The summit has to poke out above
+          the lid into dry air, otherwise you are standing inside the cloud rather than above it.</div></li>
+        <li><svg aria-hidden="true"><use href="#icon-wind"/></svg><div><b>Still air</b>Wind in the glens stirs the layers
+          together and breaks the lid. Light winds (about 11 km/h or less) let the cloud sea settle.</div></li>
+      </ul>
+      <p><b>Colours:</b> <span class="word-2">Likely</span> means all four look good,
+         <span class="word-1">Possible</span> means all four are at least borderline, and
+         <span class="word-0">Unlikely</span> means at least one is missing. Each Munro is scored for the hours around
+         sunrise, when inversions are most common. Best bets are ranked by how many checks pass.</p>
+      <p class="muted">Inversions are hard to forecast and models often get the exact height wrong, so treat this as a
+         guide rather than a promise.</p>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="data/scores.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
