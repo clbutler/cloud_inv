@@ -6,3 +6,7 @@ __pycache__/
 outputs/forecasts.db
 # old folium map, replaced by site/
 outputs/munros.html
+
+# local log written by the Claude Code hook in .claude/settings.json
+.claude/hook-log.jsonl
+.claude/last-reviewed
