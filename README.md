@@ -2,9 +2,11 @@
 
 **Will you stand above a sea of cloud at sunrise?** cloudflip forecasts the chance of a cloud inversion at each of Scotland's 282 Munros, for every morning of the coming week.
 
+**Live site: [yourcloudflip.netlify.app](https://yourcloudflip.netlify.app)**
+
 [![Nightly forecast](https://github.com/clbutler/cloud_inv/actions/workflows/nightly.yml/badge.svg)](https://github.com/clbutler/cloud_inv/actions/workflows/nightly.yml)
 
-![cloudflip: a 7-day strip, a map of all 282 Munros and the four checks for one hill](docs/screenshot.png)
+[![cloudflip: a 7-day strip, a map of all 282 Munros and the four checks for one hill](docs/screenshot.png)](https://yourcloudflip.netlify.app)
 
 ## What is a cloud inversion?
 
@@ -27,7 +29,7 @@ flowchart LR
 2. **Score.** `scripts/inversion_score_function.py` checks every hour from one hour before sunrise to three hours after, and keeps the best hour for each Munro and day.
 3. **Store.** Every run is saved to a SQLite database (see [Data](#data)).
 4. **Publish.** `scripts/site_export_function.py` writes the latest scores for the website, a static page in `site/` that uses Leaflet.
-5. **Automate.** A [GitHub Actions workflow](.github/workflows/nightly.yml) runs the whole pipeline every day at 04:00 UTC and commits the new website data.
+5. **Automate.** A [GitHub Actions workflow](.github/workflows/nightly.yml) runs the whole pipeline every day at 04:00 UTC and commits the new website data. Netlify redeploys the site from `main` whenever that commit lands.
 
 ## How the forecast is scored
 
@@ -87,7 +89,7 @@ The original requirements (MoSCoW), and where they stand:
 | Priority | Requirement | Status |
 |---|---|---|
 | Must | Inversion likelihood for any individual Munro | ✅ Done: click any Munro on the map or in the list |
-| Must | Usable without running Python | 🔄 Website built, not yet publicly hosted |
+| Must | Usable without running Python | ✅ Done: [hosted on Netlify](https://yourcloudflip.netlify.app), updated nightly |
 | Must | Show when the data was fetched | ✅ Done: in the site footer |
 | Should | Map of all Munros | ✅ Done |
 | Should | Compare Munros | ✅ Done: "best bets" ranks every Munro for the chosen day |
