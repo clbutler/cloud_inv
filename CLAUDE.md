@@ -69,7 +69,7 @@ GitHub Actions runs the pipeline at 04:00 UTC every day; the Actions tab also ha
 
 ## Website (`site/`)
 
-Hand-written static site: `index.html`, `style.css` and `app.js`. It uses Leaflet 1.9.4 and Google Fonts from CDNs, and has no build step. Open `site/index.html` directly. It's live at https://yourcloudflip.netlify.app: Netlify publishes the `site/` folder and redeploys whenever `main` changes, so each nightly bot commit updates the live site.
+Hand-written static site: `index.html`, `style.css` and `app.js`. It uses Leaflet 1.9.4 and Google Fonts from CDNs, and has no build step. Open `site/index.html` directly. It's live at https://yourcloudflip.netlify.app: Netlify publishes the `site/` folder (set in `netlify.toml`) and redeploys whenever `main` changes, so each nightly bot commit updates the live site.
 
 - **Design ("dawn")**: slate-blue ink `#1f2a3a`, warm off-white `#f7f5f0`, sky `#eaf2fa`. Status colours are sunrise gold (Likely), apricot with an orange ring (Possible) and slate grey (Unlikely). Red/green was dropped: walkers read red as danger, and red/green is the commonest colour-blind pair. Status is also shown by marker size. Fonts: Outfit for headings and the wordmark, Inter for body text, with tabular numbers.
 - **Layout**: a 400 px side panel and a full-height map; below 800 px the map sits on top with the panel underneath. Grid/flex children need `minmax(0,1fr)` / `min-width:0`, or the 7-day strip overflows on phones.
