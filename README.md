@@ -46,15 +46,11 @@ Each Munro is graded on four checks. Each check scores pass, partial or fail.
 
 The thresholds come from the Mountain Weather Information Service (MWIS) articles on inversions, humidity thresholds for cloud from Wang & Rossow (1995, *J. Appl. Meteor.*), and radiation-fog rules from the fog-forecasting literature. Forecast models often misjudge the height of an inversion and local detail, so the score is a guide, not a guarantee.
 
-### Why the method changed
-
-The first version of this project scraped mountain-forecast.com and compared summit and base temperatures. An analysis of 2,013 forecasts from August 2025 found the summit was **never** warmer than the base. The gap averaged −6.7 °C/km, almost exactly the standard 6.5 °C/km fall in temperature with height. The "base" temperatures appear to be calculated from the summit forecast, so that method could never detect an inversion.
-
-The current version uses the model's raw pressure-level data instead. Open-Meteo is also asked for unadjusted surface values (`elevation=nan`), because its default height correction applies the same fixed 6.5 °C/km and would hide any inversion.
-
 ## Data
 
-The SQLite database (`forecasts.db`) is kept as an asset on the [`data` release](https://github.com/clbutler/cloud_inv/releases/tag/data), not in git. It's replaced every night. A backup copy, `forecasts-prev.db`, holds the previous night's version.
+The SQLite database (`forecasts.db`) isn't stored in the repo's files. It's attached to a GitHub Release named `data`: see **Releases** in the repo sidebar, or go straight to [the release page](https://github.com/clbutler/cloud_inv/releases/tag/data). The repo's `data/` folder is separate and only holds the Munro list.
+
+The nightly job downloads the database, adds that night's run and uploads it again. Before each upload, the version it downloaded is saved as `forecasts-prev.db`, a backup in case the upload fails.
 
 | Table | Contents | Kept |
 |---|---|---|
@@ -91,7 +87,7 @@ The original requirements (MoSCoW), and where they stand:
 | Priority | Requirement | Status |
 |---|---|---|
 | Must | Inversion likelihood for any individual Munro | ✅ Done: click any Munro on the map or in the list |
-| Must | Usable without running Python | 🔄 Website built; public hosting on Netlify is next |
+| Must | Usable without running Python | 🔄 Website built, not yet publicly hosted |
 | Must | Show when the data was fetched | ✅ Done: in the site footer |
 | Should | Map of all Munros | ✅ Done |
 | Should | Compare Munros | ✅ Done: "best bets" ranks every Munro for the chosen day |
@@ -99,12 +95,6 @@ The original requirements (MoSCoW), and where they stand:
 | Could | Choose future dates | ✅ Done: 7-day strip |
 | Could | Breakdown of the rating | ✅ Done: the four checks, with their values |
 | Won't | Locations other than Munros | Out of scope |
-
-**Next steps**
-- Deploy the site to Netlify.
-- A "good hill day" score for sun, wind and cloud base.
-- Check forecasts against real sightings, from user reports and webcam or satellite images.
-- A "from my town" filter based on driving time, and a chatbot that answers questions from the same forecast data.
 
 ## Credits and licences
 
