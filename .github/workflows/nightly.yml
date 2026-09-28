@@ -1,0 +1,53 @@
+# Nightly cloudflip run: fetch the forecast, score it, publish the website data.
+# The database lives on the GitHub Release "data" (see CLAUDE.md), not in git.
+name: Nightly forecast
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # 04:00 UTC; GitHub may start it a few minutes late
+  workflow_dispatch: # "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write # push site/data/scores.js and update the release
+
+concurrency:
+  group: nightly # never two runs editing the database at once
+  cancel-in-progress: false
+
+jobs:
+  forecast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Fails if the release is missing, rather than starting an empty database
+      # and overwriting the history at the end
+      - name: Download database
+        run: gh release download data --pattern forecasts.db --dir outputs
+
+      - name: Run pipeline
+        working-directory: scripts
+        run: python main_munro.py
+
+      - name: Upload database
+        run: gh release upload data outputs/forecasts.db --clobber
+
+      - name: Commit website data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/data/scores.js
+          git diff --cached --quiet || git commit -m "Update site data: nightly run $(date -u +%Y-%m-%d)"
+          git pull --rebase # in case main moved while the pipeline ran
+          git push
