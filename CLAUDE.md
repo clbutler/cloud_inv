@@ -63,6 +63,7 @@ GitHub Actions runs the pipeline at 04:00 UTC every day; the Actions tab also ha
 - `--clobber` deletes the old asset before uploading, so the job first uploads the database it downloaded as `forecasts-prev.db`. If the main upload then fails, the next run falls back to that backup.
 - The pipeline rewrites the tracked `outputs/munro.*` shapefile, and `munro.dbf` has the date in its header. Only `scores.js` is committed, and `git pull --autostash` stops the leftover change blocking the pull.
 - `concurrency: nightly` stops two runs editing the database at once.
+- Open-Meteo's free limit is per IP address, and GitHub's runners share IPs with many other users. The first two test runs (2026-09-28, 21:00 UTC) were refused on the first request and then timed out. `get_with_retries` in `openmeteo_function.py` therefore retries on 429, 5xx, timeouts and connection errors, waiting 1, 2, 5 and 5 minutes, which is why the job's timeout is 60 minutes. If that isn't enough, the fallback is a paid Open-Meteo API key.
 - GitHub emails the repo owner when a run fails, and turns off scheduled workflows after 60 days with no repo activity. The nightly commit counts as activity.
 - The Claude Code review hook is local only. The bot's commits go straight to `main`, so pull before working locally.
 
