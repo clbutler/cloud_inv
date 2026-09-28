@@ -8,7 +8,7 @@ Created on Sun Sep 27 2026
 
 import sqlite3
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 import pandas as pd
 import requests
@@ -110,3 +110,15 @@ def save_forecast(forecast_df, sunrise_df, locations, db_path):
                         PRIMARY KEY (run_time, model, munro_id, valid_time))'''.format(variable_columns))
         forecasts.to_sql('forecasts', conn, if_exists = 'append', index = False)
     return run_time
+
+
+def prune_forecasts(db_path, keep_days = 7):
+    '''deletes forecast and sunrise rows from runs older than keep_days (scores are kept forever), then shrinks the file'''
+    cutoff = (datetime.now(timezone.utc) - timedelta(days = keep_days)).strftime('%Y-%m-%dT%H:%M:%SZ')
+    with sqlite3.connect(db_path) as conn:
+        deleted = conn.execute('SELECT COUNT(DISTINCT run_time) FROM forecasts WHERE run_time < ?', (cutoff,)).fetchone()[0]
+        conn.execute('DELETE FROM forecasts WHERE run_time < ?', (cutoff,))
+        conn.execute('DELETE FROM sunrise WHERE run_time < ?', (cutoff,))
+        conn.commit()
+        conn.execute('VACUUM') #SQLite doesn't shrink the file on DELETE
+    return deleted

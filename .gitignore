@@ -2,7 +2,7 @@
 __pycache__/
 .DS_Store
 
-# grows ~12 MB per run; history will be kept another way (see CLAUDE.md roadmap)
+# about 100 MB (7 days of forecasts plus all scores); the nightly job keeps it on a GitHub Release (see CLAUDE.md)
 outputs/forecasts.db
 # old folium map, replaced by site/
 outputs/munros.html

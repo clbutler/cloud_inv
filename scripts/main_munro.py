@@ -44,3 +44,11 @@ from site_export_function import export_site_data
 
 export_site_data('../outputs/forecasts.db', STARTING_FILE, '../site/data/scores.js')
 print('Website data saved to site/data/scores.js; open site/index.html in a browser')
+
+
+######### Step 5 Keep the database small #########
+
+from openmeteo_function import prune_forecasts
+
+pruned = prune_forecasts('../outputs/forecasts.db', keep_days = 7) # scores are kept forever
+print('Pruned forecasts from {} runs older than 7 days'.format(pruned))
