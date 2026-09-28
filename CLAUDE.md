@@ -69,7 +69,7 @@ GitHub Actions runs the pipeline at 04:00 UTC every day; the Actions tab also ha
 
 ## Website (`site/`)
 
-Hand-written static site: `index.html`, `style.css` and `app.js`. It uses Leaflet 1.9.4 and Google Fonts from CDNs, and has no build step. Open `site/index.html` directly, or host the folder (Netlify, roadmap step 2).
+Hand-written static site: `index.html`, `style.css` and `app.js`. It uses Leaflet 1.9.4 and Google Fonts from CDNs, and has no build step. Open `site/index.html` directly. It's live at https://yourcloudflip.netlify.app: Netlify publishes the `site/` folder (set in `netlify.toml`) and redeploys whenever `main` changes, so each nightly bot commit updates the live site.
 
 - **Design ("dawn")**: slate-blue ink `#1f2a3a`, warm off-white `#f7f5f0`, sky `#eaf2fa`. Status colours are sunrise gold (Likely), apricot with an orange ring (Possible) and slate grey (Unlikely). Red/green was dropped: walkers read red as danger, and red/green is the commonest colour-blind pair. Status is also shown by marker size. Fonts: Outfit for headings and the wordmark, Inter for body text, with tabular numbers.
 - **Layout**: a 400 px side panel and a full-height map; below 800 px the map sits on top with the panel underneath. Grid/flex children need `minmax(0,1fr)` / `min-width:0`, or the 7-day strip overflows on phones.
@@ -91,7 +91,7 @@ The mountain-forecast.com pipeline modules `munro_metadata_functions.py` and `we
 
 **Working rule:** tackle one roadmap step at a time. Agree the scope with the user before editing anything, and don't carry out several steps in one go.
 
-**Direction:** this is a portfolio / learning project. The scope widens from "cloud inversions only" to "best Munro conditions" (sun, wind, cloud base), with inversions as the headline feature. The site will be hosted on Netlify. Money-making (ads, affiliate links) is optional and comes last.
+**Direction:** this is a portfolio / learning project. The scope widens from "cloud inversions only" to "best Munro conditions" (sun, wind, cloud base), with inversions as the headline feature. The site is hosted on Netlify. Money-making (ads, affiliate links) is optional and comes last.
 
 **Known problems with the current model** (found by analysing `outputs/RAG_weather.csv`, Aug 2025 data):
 - The summit was never warmer than the base: 0 of 2013 rows. The summit–base temperature gap averages about −6.7 °C/km, close to the standard 6.5 °C/km cooling with height. So mountain-forecast.com's "base" temperatures look calculated from the summit forecast rather than forecast independently. If so, the temperature criterion can never fire. Check this against winter data.
@@ -103,7 +103,7 @@ The mountain-forecast.com pipeline modules `munro_metadata_functions.py` and `we
 **Order of work:**
 0. Fix the bugs and tests. Replace mountain-forecast.com scraping with Open-Meteo, covering all 282 Munros. **Open-Meteo part done 2026-09-27** (Met Office model, SQLite, see the pipeline section). The broken tests are still to do. The `create_datetime` bug is in the legacy scraper, which nothing calls any more, so it's dropped. **Database retention done 2026-09-28**: forecasts are kept 7 days, and scores and sunrise times forever (see pipeline step 5).
 1. Rebuild the scoring: an inversion score (temperature at different heights, dew point, wind, low cloud) plus a general "good hill day" score. Start saving each day's forecasts so they can be checked against what actually happened. **Inversion score done 2026-09-27** (see pipeline step 3); every run and its scores are saved. **cloudflip map done 2026-09-27**, then replaced the same day by the `site/` website. Still to do: the "good hill day" score.
-2. Static Netlify site: a nightly GitHub Actions job runs the Python and writes a JSON file; the site shows a map, per-Munro RAG, when the data was pulled, a comparison view and date selection. **Site built 2026-09-27** (`site/`, see above). **Nightly job done 2026-09-28** (see above). Still to do: deploy to Netlify. Possible later additions: dark mode and a Walkhighlands route link (slugs not yet mapped).
+2. Static Netlify site: a nightly GitHub Actions job runs the Python and writes a JSON file; the site shows a map, per-Munro RAG, when the data was pulled, a comparison view and date selection. **Site built 2026-09-27** (`site/`, see above). **Nightly job done 2026-09-28** (see above). **Deployed to Netlify 2026-09-28** (https://yourcloudflip.netlify.app). Possible later additions: dark mode and a Walkhighlands route link (slugs not yet mapped).
 3. Validation: "I saw an inversion" reports from users, plus webcam and satellite (Sentinel/MODIS) checks.
 4. A "from my town" filter based on driving time, then a chatbot that looks up the same forecast data (the portfolio showcase).
 5. Optional money-making.

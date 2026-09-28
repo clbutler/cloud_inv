@@ -1,0 +1,4 @@
+# Netlify settings, kept in git so they can't drift from the dashboard.
+# The site is plain static files: no build step, just publish site/.
+[build]
+  publish = "site"
