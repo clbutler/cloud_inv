@@ -1,70 +1,118 @@
-# Cloud Inversion RAG Project
+# cloudflip
 
-This is a working project developed by Chris Butler, starting on 25/01/2025
+**Will you stand above a sea of cloud at sunrise?** cloudflip forecasts the chance of a cloud inversion at each of Scotland's 282 Munros, for every morning of the coming week.
 
-## Background:
-A cloud inversion is a meteorological event characterised by the ability to look down upon cloud formations. The phenomenon typically occurs due to temperature inversions, where higher altitudes are associated with warmer, rather than cooler, temperatures. In short, this warm 'lid' can trap colder air below, including clouds and fog. 
+[![Nightly forecast](https://github.com/clbutler/cloud_inv/actions/workflows/nightly.yml/badge.svg)](https://github.com/clbutler/cloud_inv/actions/workflows/nightly.yml)
 
-## Example of a Cloud Inversion
+![cloudflip: a 7-day strip, a map of all 282 Munros and the four checks for one hill](docs/screenshot.png)
 
-![A stunning cloud inversion](https://d3teiib5p3f439.cloudfront.net/news/wp-content/uploads/2015/10/1-3.jpg)
+## What is a cloud inversion?
 
+Normally the air gets colder with height. In a temperature inversion, a layer of warmer air sits above colder air. That warm "lid" traps cold, damp air in the glens, so cloud and fog fill the valleys while the summits stay clear. From the top of a Munro, the result is a sea of cloud below, often lit by the rising sun.
 
-## Goals:
-While observing a cloud inversion can occur at relatively low altitudes, Scotland is an excellent place to sight such weather phenomena. This is, in part, due to being the home of 282 Munros—mountains over 3,000 feet in height. Named after the explorer Sir Hugh Munro, climbing these peaks represents a popular challenge for outdoor enthusiasts. While each Munro offers its own beauty, pairing a Munro climb with observing a cloud inversion can create a potentially magical experience for those fortunate enough to witness it.
+Scotland's 282 Munros, the mountains over 3,000 ft, are among the best places in the UK to see one. Inversions are hard to predict, though, and mountain forecasts are usually given per area, not per hill. cloudflip gives a verdict for every Munro, for every morning of the next seven days.
 
-However, predicting when and where a cloud inversion is likely to occur remains something of a mystery. This software aims to address this by providing:
+## How it works
 
-1) A map of all 282 Munro locations across Scotland.
+```mermaid
+flowchart LR
+    A[Open-Meteo API<br/>Met Office UK 2 km model] --> B[Python pipeline<br/>fetch and score]
+    B --> C[(SQLite database<br/>GitHub Release)]
+    B --> D[site/data/scores.js]
+    D --> E[cloudflip website<br/>Leaflet map]
+    F[GitHub Actions<br/>daily, 04:00 UTC] -. runs .-> B
+```
 
+1. **Fetch.** `scripts/openmeteo_function.py` asks [Open-Meteo](https://open-meteo.com) for 7 days of hourly Met Office forecasts at every Munro. It gets surface weather, plus temperature, humidity, cloud and wind at six pressure levels from about 100 m to 1,500 m. The pressure levels are what make an inversion visible: a warmer layer above a colder one.
+2. **Score.** `scripts/inversion_score_function.py` checks every hour from one hour before sunrise to three hours after, and keeps the best hour for each Munro and day.
+3. **Store.** Every run is saved to a SQLite database (see [Data](#data)).
+4. **Publish.** `scripts/site_export_function.py` writes the latest scores for the website, a static page in `site/` that uses Leaflet.
+5. **Automate.** A [GitHub Actions workflow](.github/workflows/nightly.yml) runs the whole pipeline every day at 04:00 UTC and commits the new website data.
 
-2) A live RAG (Red, Amber, Green) rating indicating the likelihood of a cloud inversion on a particular date
+## How the forecast is scored
 
-## Methods:
+Each Munro is graded on four checks. Each check scores pass, partial or fail.
 
-Currently this software uses Python coding to calculate the RAG cloud inversion rating using the latest weather predictions from [Mountain Forecast](https://www.mountain-forecast.com). It does so based on the guidance provided in by [Our Sporting life](https://oursportinglife.co.uk/cloud-inversions-forecast/) which suggests cloud inversions may be likely if the following criteria are met:
+| Check | Question | Pass | Partial |
+|---|---|---|---|
+| **Warm lid** | Is there a layer below the summit where the air gets *warmer* with height? | temperature rises with height | cools slower than 3 °C/km |
+| **Cloud below** | Is there enough moisture in the glens to form cloud or fog? | cloud ≥ 50 % or humidity ≥ 95 % | humidity ≥ 87 % |
+| **Clear summit** | Will the summit itself be out of the cloud? | humidity < 84 % and little cloud above | humidity < 87 % |
+| **Still air** | Is it calm enough below the summit for the cloud to settle? | wind ≤ 11 km/h | wind ≤ 20 km/h |
 
-1) The temperature at the top of the summit is greater than that at the bottom of the summit
+- **Likely**: all four checks pass.
+- **Possible**: all four at least partly pass.
+- **Unlikely**: anything else.
 
-2) A dew point equal to or higher than the forecast temperature around ground level. The dew point is the temperature at which moisture in the air will form mist
+The thresholds come from the Mountain Weather Information Service (MWIS) articles on inversions, humidity thresholds for cloud from Wang & Rossow (1995, *J. Appl. Meteor.*), and radiation-fog rules from the fog-forecasting literature. Forecast models often misjudge the height of an inversion and local detail, so the score is a guide, not a guarantee.
 
-3) Wind speeds of less than 5mph. Higher wind speeds will cause any mist formed to dissipate.
+### Why the method changed
 
-## MoSCoW Analysis: Cloud Inversion Likelihood Application
+The first version of this project scraped mountain-forecast.com and compared summit and base temperatures. An analysis of 2,013 forecasts from August 2025 found the summit was **never** warmer than the base. The gap averaged −6.7 °C/km, almost exactly the standard 6.5 °C/km fall in temperature with height. The "base" temperatures appear to be calculated from the summit forecast, so that method could never detect an inversion.
 
+The current version uses the model's raw pressure-level data instead. Open-Meteo is also asked for unadjusted surface values (`elevation=nan`), because its default height correction applies the same fixed 6.5 °C/km and would hide any inversion.
 
-**1. Must Have (Essential Functionality):**
+## Data
 
-* **Individual Munro Cloud Inversion Likelihood:**
-    * Users must be able to select any individual Munro and retrieve its specific cloud inversion likelihood.
-    * This provides granular, mountain-specific data, differentiating it from area-based weather reports.
-* **Application-Based Interaction:**
-    * The application must be accessible without requiring users to download and execute Python scripts.
-* **Data Timestamp:**
-    * The date and time of the data retrieval must be clearly displayed to the user.
+The SQLite database (`forecasts.db`) is kept as an asset on the [`data` release](https://github.com/clbutler/cloud_inv/releases/tag/data), not in git. It's replaced every night. A backup copy, `forecasts-prev.db`, holds the previous night's version.
 
-**2. Should Have (Important Functionality):**
+| Table | Contents | Kept |
+|---|---|---|
+| `forecasts` | hourly model output, one row per run, Munro and hour | 7 days |
+| `scores` | each run's verdict, the four check grades and the values behind them | forever |
+| `sunrise` | sunrise time per run, Munro and day | forever |
+| `munros` | name, height, location and model ground height | replaced each run |
 
-* **Geographical Map Integration:**
-    * A map displaying all Munros should be incorporated, enabling users to navigate based on geographical location rather than solely relying on Munro names.
-* **Comparative Analysis:**
-    * Users should be able to compare cloud inversion likelihood across multiple Munros simultaneously, facilitating informed decision-making for climbing locations.
-* **RAG Rating System:**
-    * Cloud inversion likelihood should be presented using a Red, Amber, Green (RAG) rating system for quick and intuitive visual assessment.
+The score history is kept so forecasts can later be checked against inversions people actually saw. To download the latest copy:
 
-**3. Could Have (Desirable Functionality):**
+```bash
+gh release download data --pattern forecasts.db --dir outputs
+```
 
-* **Future Date Selection:**
-    * Users could be given the option to select various future dates and view the corresponding RAG ratings.
-* **RAG Rating Component Breakdown:**
-    * Users could access a detailed breakdown of the individual components that contribute to the RAG rating for each Munro.
+## Running it locally
 
-**4. **Would Not Have (Out of Scope):**
+Requires Python 3.12.
 
-* **Non-Munro Site Analysis:**
-    * **Users would not have the ability to view cloud inversion likelihood for locations other than Munros.**
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 
-## References:
+cd scripts            # the scripts use paths relative to this folder
+python main_munro.py  # about a minute; writes outputs/forecasts.db and site/data/scores.js
+```
 
-Geographical munro data was sourced from [The Database of British and Irish Hills v18.2](https://www.hills-database.co.uk/downloads.html) 
+Then open `site/index.html` in a browser. No server or build step is needed.
 
+## Project status
+
+The original requirements (MoSCoW), and where they stand:
+
+| Priority | Requirement | Status |
+|---|---|---|
+| Must | Inversion likelihood for any individual Munro | ✅ Done: click any Munro on the map or in the list |
+| Must | Usable without running Python | 🔄 Website built; public hosting on Netlify is next |
+| Must | Show when the data was fetched | ✅ Done: in the site footer |
+| Should | Map of all Munros | ✅ Done |
+| Should | Compare Munros | ✅ Done: "best bets" ranks every Munro for the chosen day |
+| Should | Red/Amber/Green rating | ✅ Done, as Likely/Possible/Unlikely in sunrise colours, which are easier to read than red/green for colour-blind users |
+| Could | Choose future dates | ✅ Done: 7-day strip |
+| Could | Breakdown of the rating | ✅ Done: the four checks, with their values |
+| Won't | Locations other than Munros | Out of scope |
+
+**Next steps**
+- Deploy the site to Netlify.
+- A "good hill day" score for sun, wind and cloud base.
+- Check forecasts against real sightings, from user reports and webcam or satellite images.
+- A "from my town" filter based on driving time, and a chatbot that answers questions from the same forecast data.
+
+## Credits and licences
+
+Developed by Dr Chris Butler (project started January 2025).
+
+- Forecast data: [Open-Meteo](https://open-meteo.com) (CC BY 4.0), using Met Office UKMO models. Open-Meteo's free tier is for non-commercial use.
+- Munro list and locations: [The Database of British and Irish Hills](https://www.hills-database.co.uk/downloads.html) v8.0.1.
+- Map: [Leaflet](https://leafletjs.com), with tiles © Esri.
+- Scoring research: MWIS, Wang & Rossow (1995), and published radiation-fog forecasting rules.
+
+**Safety:** cloudflip is an experimental forecast of scenery, not a safety tool. Before heading onto the hills, always check the [Mountain Weather Information Service](https://www.mwis.org.uk/forecasts/scottish), the [Met Office mountain forecast](https://www.metoffice.gov.uk/weather/specialist-forecasts/mountain) and, in winter, the [Scottish Avalanche Information Service](https://www.sais.gov.uk).
