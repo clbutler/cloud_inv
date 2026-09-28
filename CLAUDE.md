@@ -54,7 +54,17 @@ Known issue: both test files are currently broken. They import modules that no l
    - MWIS warns that models often get the inversion height and local detail wrong, so treat the score as a guide until step 3 checks it against what people actually see.
 
 4. **cloudflip website data** (`site_export_function.export_site_data`): writes `site/data/scores.js` (about 330 kB) for the latest run: `window.CLOUDFLIP = {meta, munros, days}`. Each day maps munro id to its status `r` (0–2), best hour `t` (UTC), grades `g` [lid, moisture, clear top, wind] and the values behind them. It's a script rather than JSON because browsers block `fetch()` on pages opened from disk. Hill Bagging links come from the hills CSV, whose `DoBIH Number` is read as text and has to be cast to int.
-5. **Prune** (`openmeteo_function.prune_forecasts`): deletes `forecasts` rows from runs older than `keep_days` (7), then runs `VACUUM`, because SQLite doesn't shrink the file on `DELETE`. It runs last, so the latest run is always scored and exported first. Plan for the nightly job: the database lives as a plain `.db` asset on a GitHub Release named `data`. The job downloads it, runs the pipeline and re-uploads it with `gh release upload --clobber`. The repo is public, so the database is too.
+5. **Prune** (`openmeteo_function.prune_forecasts`): deletes `forecasts` rows from runs older than `keep_days` (7), then runs `VACUUM`, because SQLite doesn't shrink the file on `DELETE`. It runs last, so the latest run is always scored and exported first. The database lives as a plain `.db` asset on the GitHub Release `data`, not in git; the repo is public, so the database is too. To get a local copy: `gh release download data --pattern forecasts.db --dir outputs --clobber`.
+
+## Nightly job (`.github/workflows/nightly.yml`)
+
+GitHub Actions runs the pipeline at 04:00 UTC every day; the Actions tab also has a "Run workflow" button. It downloads `forecasts.db` from the `data` release, runs `main_munro.py`, uploads the database again (`--clobber`), then commits `site/data/scores.js` to `main` as `github-actions[bot]`.
+- The download step fails if the release or file is missing. That's deliberate: starting from an empty database would overwrite the history.
+- `--clobber` deletes the old asset before uploading, so the job first uploads the database it downloaded as `forecasts-prev.db`. If the main upload then fails, the next run falls back to that backup.
+- The pipeline rewrites the tracked `outputs/munro.*` shapefile, and `munro.dbf` has the date in its header. Only `scores.js` is committed, and `git pull --autostash` stops the leftover change blocking the pull.
+- `concurrency: nightly` stops two runs editing the database at once.
+- GitHub emails the repo owner when a run fails, and turns off scheduled workflows after 60 days with no repo activity. The nightly commit counts as activity.
+- The Claude Code review hook is local only. The bot's commits go straight to `main`, so pull before working locally.
 
 ## Website (`site/`)
 
@@ -92,7 +102,7 @@ The mountain-forecast.com pipeline modules `munro_metadata_functions.py` and `we
 **Order of work:**
 0. Fix the bugs and tests. Replace mountain-forecast.com scraping with Open-Meteo, covering all 282 Munros. **Open-Meteo part done 2026-09-27** (Met Office model, SQLite, see the pipeline section). The broken tests are still to do. The `create_datetime` bug is in the legacy scraper, which nothing calls any more, so it's dropped. **Database retention done 2026-09-28**: forecasts are kept 7 days, and scores and sunrise times forever (see pipeline step 5).
 1. Rebuild the scoring: an inversion score (temperature at different heights, dew point, wind, low cloud) plus a general "good hill day" score. Start saving each day's forecasts so they can be checked against what actually happened. **Inversion score done 2026-09-27** (see pipeline step 3); every run and its scores are saved. **cloudflip map done 2026-09-27**, then replaced the same day by the `site/` website. Still to do: the "good hill day" score.
-2. Static Netlify site: a nightly GitHub Actions job runs the Python and writes a JSON file; the site shows a map, per-Munro RAG, when the data was pulled, a comparison view and date selection. **Site built 2026-09-27** (`site/`, see above). Still to do: deploy to Netlify and set up the nightly job. Possible later additions: dark mode and a Walkhighlands route link (slugs not yet mapped).
+2. Static Netlify site: a nightly GitHub Actions job runs the Python and writes a JSON file; the site shows a map, per-Munro RAG, when the data was pulled, a comparison view and date selection. **Site built 2026-09-27** (`site/`, see above). **Nightly job done 2026-09-28** (see above). Still to do: deploy to Netlify. Possible later additions: dark mode and a Walkhighlands route link (slugs not yet mapped).
 3. Validation: "I saw an inversion" reports from users, plus webcam and satellite (Sentinel/MODIS) checks.
 4. A "from my town" filter based on driving time, then a chatbot that looks up the same forecast data (the portfolio showcase).
 5. Optional money-making.
