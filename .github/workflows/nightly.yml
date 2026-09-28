@@ -17,7 +17,7 @@ concurrency:
 jobs:
   forecast:
     runs-on: ubuntu-latest
-    timeout-minutes: 60 # the fetch can wait up to 13 minutes per batch if Open-Meteo is busy
+    timeout-minutes: 150 # worst case: 6 batches x ~23 min of retries (waits plus 120 s timeouts)
     env:
       GH_TOKEN: ${{ github.token }}
       PYTHONUNBUFFERED: '1' # print progress as it happens, not all at the end
