@@ -20,6 +20,7 @@ SURFACE_VARIABLES = ['temperature_2m', 'dew_point_2m', 'relative_humidity_2m', '
                      'cloud_cover_high', 'wind_speed_10m', 'pressure_msl']
 LEVEL_VARIABLES = ['temperature', 'relative_humidity', 'geopotential_height', 'cloud_cover', 'wind_speed']
 HOURLY_VARIABLES = SURFACE_VARIABLES + ['{}_{}hPa'.format(v, p) for p in PRESSURE_LEVELS for v in LEVEL_VARIABLES]
+RETRY_WAITS = [60, 120, 300, 300] #seconds; the free tier's limit is per IP, and GitHub's shared runners often start over it
 
 
 def munro_locations(munro_gdf):
@@ -33,6 +34,26 @@ def munro_locations(munro_gdf):
         'lon': munros.geometry.x.round(4)
         })
     return locations.reset_index(drop = True)
+
+
+def get_with_retries(params):
+    '''requests the forecast, waiting and trying again after a rate limit, server error or timeout'''
+    for wait in RETRY_WAITS + [None]:
+        try:
+            response = requests.get(API_URL, params = params, timeout = 120)
+            if response.status_code != 429 and response.status_code < 500:
+                return response
+            problem = 'Open-Meteo returned {}'.format(response.status_code)
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as error:
+            response = None
+            problem = 'Open-Meteo request failed ({})'.format(type(error).__name__)
+        if wait is None: #no point waiting after the last try
+            break
+        print('{}, waiting {} seconds'.format(problem, wait))
+        time.sleep(wait)
+    if response is None:
+        raise RuntimeError('{} after {} tries'.format(problem, len(RETRY_WAITS) + 1))
+    return response
 
 
 def fetch_forecast(locations, model = 'ukmo_seamless', batch_size = 50):
@@ -53,12 +74,7 @@ def fetch_forecast(locations, model = 'ukmo_seamless', batch_size = 50):
             'forecast_days': 7,
             'timezone': 'GMT'
             }
-        for attempt in range(3): #open-meteo has a per-minute limit, and each munro counts as a call
-            response = requests.get(API_URL, params = params, timeout = 60)
-            if response.status_code != 429 or attempt == 2: #no point waiting after the last try
-                break
-            print('Open-Meteo rate limit hit, waiting 60 seconds')
-            time.sleep(60)
+        response = get_with_retries(params) #open-meteo has a per-minute limit, and each munro counts as a call
         response.raise_for_status()
         results = response.json()
         if isinstance(results, dict): #a single location comes back as a dict, not a list
