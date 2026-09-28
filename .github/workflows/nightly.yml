@@ -32,16 +32,24 @@ jobs:
         run: pip install -r requirements.txt
 
       # Fails if the release is missing, rather than starting an empty database
-      # and overwriting the history at the end
+      # and overwriting the history at the end. Falls back to last night's backup
+      # if an earlier upload failed halfway.
       - name: Download database
-        run: gh release download data --pattern forecasts.db --dir outputs
+        run: |
+          gh release download data --pattern forecasts.db --dir outputs ||
+            { gh release download data --pattern forecasts-prev.db --dir outputs &&
+              mv outputs/forecasts-prev.db outputs/forecasts.db; }
+          cp outputs/forecasts.db outputs/forecasts-prev.db
 
       - name: Run pipeline
         working-directory: scripts
         run: python main_munro.py
 
+      # --clobber deletes the old file before uploading, so save the backup first
       - name: Upload database
-        run: gh release upload data outputs/forecasts.db --clobber
+        run: |
+          gh release upload data outputs/forecasts-prev.db --clobber
+          gh release upload data outputs/forecasts.db --clobber
 
       - name: Commit website data
         run: |
@@ -49,5 +57,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add site/data/scores.js
           git diff --cached --quiet || git commit -m "Update site data: nightly run $(date -u +%Y-%m-%d)"
-          git pull --rebase # in case main moved while the pipeline ran
+          git pull --rebase --autostash # in case main moved; the pipeline also rewrites tracked outputs/munro.*
           git push

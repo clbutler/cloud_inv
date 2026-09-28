@@ -60,6 +60,8 @@ Known issue: both test files are currently broken. They import modules that no l
 
 GitHub Actions runs the pipeline at 04:00 UTC every day; the Actions tab also has a "Run workflow" button. It downloads `forecasts.db` from the `data` release, runs `main_munro.py`, uploads the database again (`--clobber`), then commits `site/data/scores.js` to `main` as `github-actions[bot]`.
 - The download step fails if the release or file is missing. That's deliberate: starting from an empty database would overwrite the history.
+- `--clobber` deletes the old asset before uploading, so the job first uploads the database it downloaded as `forecasts-prev.db`. If the main upload then fails, the next run falls back to that backup.
+- The pipeline rewrites the tracked `outputs/munro.*` shapefile, and `munro.dbf` has the date in its header. Only `scores.js` is committed, and `git pull --autostash` stops the leftover change blocking the pull.
 - `concurrency: nightly` stops two runs editing the database at once.
 - GitHub emails the repo owner when a run fails, and turns off scheduled workflows after 60 days with no repo activity. The nightly commit counts as activity.
 - The Claude Code review hook is local only. The bot's commits go straight to `main`, so pull before working locally.
