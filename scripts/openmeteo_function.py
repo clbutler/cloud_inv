@@ -113,12 +113,11 @@ def save_forecast(forecast_df, sunrise_df, locations, db_path):
 
 
 def prune_forecasts(db_path, keep_days = 7):
-    '''deletes forecast and sunrise rows from runs older than keep_days (scores are kept forever), then shrinks the file'''
+    '''deletes forecast rows from runs older than keep_days, then shrinks the file; scores and sunrise times are kept forever so old runs can be re-exported'''
     cutoff = (datetime.now(timezone.utc) - timedelta(days = keep_days)).strftime('%Y-%m-%dT%H:%M:%SZ')
     with sqlite3.connect(db_path) as conn:
         deleted = conn.execute('SELECT COUNT(DISTINCT run_time) FROM forecasts WHERE run_time < ?', (cutoff,)).fetchone()[0]
         conn.execute('DELETE FROM forecasts WHERE run_time < ?', (cutoff,))
-        conn.execute('DELETE FROM sunrise WHERE run_time < ?', (cutoff,))
         conn.commit()
         conn.execute('VACUUM') #SQLite doesn't shrink the file on DELETE
     return deleted

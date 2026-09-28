@@ -36,7 +36,7 @@ Known issue: both test files are currently broken. They import modules that no l
      - `munros` is replaced on each run: `munro_id` (primary key), `name`, `height_m`, `lat`, `lon`, `model_elevation_m`.
      - `sunrise` is appended to on each run: `run_time`, `munro_id`, `date`, `sunrise` (UTC). It's keyed by run so older runs can be re-scored and re-exported; the `munros` table is still replaced each run. Older databases, which kept only the latest run, are upgraded automatically.
      - `forecasts` is appended to on each run: one row per `run_time` × `model` × `munro_id` × `valid_time` (primary key), with one column per variable. Each run adds 47,376 rows, about 15 MB.
-     - **Retention**: `forecasts` and `sunrise` are kept for 7 days (pipeline step 5). `scores` and `munros` are never pruned. Scores add about 0.3 MB a run, roughly 100 MB a year.
+     - **Retention**: `forecasts` is kept for 7 days (pipeline step 5). `scores`, `sunrise` and `munros` are never pruned, so old runs can still be re-exported. Scores add about 0.3 MB a run, roughly 100 MB a year.
 
 3. **Inversion score** (`inversion_score_function`): `score_run` scores every hour from 1 h before sunrise to 3 h after and keeps each day's best hour. `save_scores` writes the `scores` table: one row per `run_time` × `model` × `munro_id` × `date`, with the RAG, the four check grades and the values behind them. Each check is graded 2 (pass), 1 (partial) or 0 (fail):
 
@@ -54,7 +54,7 @@ Known issue: both test files are currently broken. They import modules that no l
    - MWIS warns that models often get the inversion height and local detail wrong, so treat the score as a guide until step 3 checks it against what people actually see.
 
 4. **cloudflip website data** (`site_export_function.export_site_data`): writes `site/data/scores.js` (about 330 kB) for the latest run: `window.CLOUDFLIP = {meta, munros, days}`. Each day maps munro id to its status `r` (0–2), best hour `t` (UTC), grades `g` [lid, moisture, clear top, wind] and the values behind them. It's a script rather than JSON because browsers block `fetch()` on pages opened from disk. Hill Bagging links come from the hills CSV, whose `DoBIH Number` is read as text and has to be cast to int.
-5. **Prune** (`openmeteo_function.prune_forecasts`): deletes `forecasts` and `sunrise` rows from runs older than `keep_days` (7), then runs `VACUUM`, because SQLite doesn't shrink the file on `DELETE`. It runs last, so the latest run is always scored and exported first. Plan for the nightly job: the database lives as a plain `.db` asset on a GitHub Release named `data`. The job downloads it, runs the pipeline and re-uploads it with `gh release upload --clobber`. The repo is public, so the database is too.
+5. **Prune** (`openmeteo_function.prune_forecasts`): deletes `forecasts` rows from runs older than `keep_days` (7), then runs `VACUUM`, because SQLite doesn't shrink the file on `DELETE`. It runs last, so the latest run is always scored and exported first. Plan for the nightly job: the database lives as a plain `.db` asset on a GitHub Release named `data`. The job downloads it, runs the pipeline and re-uploads it with `gh release upload --clobber`. The repo is public, so the database is too.
 
 ## Website (`site/`)
 
@@ -90,7 +90,7 @@ The mountain-forecast.com pipeline modules `munro_metadata_functions.py` and `we
 - `create_datetime` never restarts the date for each Munro, so `Pull Date` runs up to 2028.
 
 **Order of work:**
-0. Fix the bugs and tests. Replace mountain-forecast.com scraping with Open-Meteo, covering all 282 Munros. **Open-Meteo part done 2026-09-27** (Met Office model, SQLite, see the pipeline section). The broken tests are still to do. The `create_datetime` bug is in the legacy scraper, which nothing calls any more, so it's dropped. **Database retention done 2026-09-28**: forecasts are kept 7 days and scores forever (see pipeline step 5).
+0. Fix the bugs and tests. Replace mountain-forecast.com scraping with Open-Meteo, covering all 282 Munros. **Open-Meteo part done 2026-09-27** (Met Office model, SQLite, see the pipeline section). The broken tests are still to do. The `create_datetime` bug is in the legacy scraper, which nothing calls any more, so it's dropped. **Database retention done 2026-09-28**: forecasts are kept 7 days, and scores and sunrise times forever (see pipeline step 5).
 1. Rebuild the scoring: an inversion score (temperature at different heights, dew point, wind, low cloud) plus a general "good hill day" score. Start saving each day's forecasts so they can be checked against what actually happened. **Inversion score done 2026-09-27** (see pipeline step 3); every run and its scores are saved. **cloudflip map done 2026-09-27**, then replaced the same day by the `site/` website. Still to do: the "good hill day" score.
 2. Static Netlify site: a nightly GitHub Actions job runs the Python and writes a JSON file; the site shows a map, per-Munro RAG, when the data was pulled, a comparison view and date selection. **Site built 2026-09-27** (`site/`, see above). Still to do: deploy to Netlify and set up the nightly job. Possible later additions: dark mode and a Walkhighlands route link (slugs not yet mapped).
 3. Validation: "I saw an inversion" reports from users, plus webcam and satellite (Sentinel/MODIS) checks.
