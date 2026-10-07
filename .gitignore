@@ -4,6 +4,11 @@ __pycache__/
 
 # about 100 MB (7 days of forecasts plus all scores); the nightly job keeps it on a GitHub Release (see CLAUDE.md)
 outputs/forecasts.db
+# satellite check (scripts/main_satellite.py); rebuilt in about a minute
+outputs/satellite.db
+outputs/satellite_vs_scores.csv
+outputs/satellite_vs_sightings.csv
+outputs/satellite_images/
 # old folium map, replaced by site/
 outputs/munros.html
 

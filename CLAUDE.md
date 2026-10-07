@@ -81,6 +81,14 @@ Hand-written static site: `index.html`, `style.css` and `app.js`. It uses Leafle
 - **Testing layouts**: headless Chrome won't lay out narrower than 500 px. To check phone width, screenshot the page inside a 400 px `<iframe>`.
 - **Competitor**: hillweather.co.uk does cloud base and inversions for the same 282 Munros from the same data. It's text and lists in an editorial serif style, with no map. cloudflip's angle is map-first, visual and focused on inversions.
 
+## Satellite check (`satellite_function.py` and the `main_satellite*.py`, `main_sightings.py`, `main_review_page.py` scripts)
+
+This isn't part of the nightly pipeline. Sentinel-2 L2A and the Copernicus DEM GLO-30 come from Microsoft Planetary Computer's STAC, with no key. Only the box around each site is read, by warping the cloud-optimised GeoTIFFs into an 8 km OS grid box at 40 m. Nothing large is stored.
+- **Labeller** (`label_box`): an inversion is 10 % or less cloud (SCL classes 8–9) on the top (within `SUMMIT_DROP_M` = 100 m of the summit height and 1 km of it) and at least `LOW_CLOUD_MIN` = 10 % cloud on the low ground (more than 300 m below the summit). For non-Munro sites, `fit_hills` takes the highest ground within 1 km as the summit, and on small hills it halves the drop to the box floor instead.
+- **Ground truth**: `data/inversion_sightings.csv` holds Geograph photos (free facetql API, no key; 2017 onwards, Britain only), hand-checked as `checked` and `inversion` Y/N. `data/satellite_image_checks.csv` holds whether an inversion is visible in each satellite pass (`visible`). Both are filled in by the user, so never overwrite their check columns; `update_sightings` keeps them on a re-run.
+- **Result (2026-10-08)**: 19/24 visible inversions found, 1/35 false positives. On the held-out images from 2022 onwards: 10/10 found, 0/21 false positives. Sentinel-2 passes at about 11:30 UTC, so dawn-only inversions can't be seen.
+- **Gotchas**: reading `outputs/munro.shp` back gives `munro_id` as text, so cast it to int. Geograph returns lat/long in radians, and some place names come back as double-encoded UTF-8. Cloud labels from Sentinel-2's SCL confuse snow and terrain shadow with cloud in winter.
+
 ## Legacy / scratch files
 
 `mountain_weather_scrape.py` (single hard-coded Ben Lomond scrape), `clean_weatherforecast_scrape.py`, `get_mf_munronames.py` (it has a `grampions` typo) and `weather_forecast_scrape.py` (empty) are earlier prototypes.
@@ -104,7 +112,7 @@ The mountain-forecast.com pipeline modules `munro_metadata_functions.py` and `we
 0. Fix the bugs and tests. Replace mountain-forecast.com scraping with Open-Meteo, covering all 282 Munros. **Open-Meteo part done 2026-09-27** (Met Office model, SQLite, see the pipeline section). The broken tests are still to do. The `create_datetime` bug is in the legacy scraper, which nothing calls any more, so it's dropped. **Database retention done 2026-09-28**: forecasts are kept 7 days, and scores and sunrise times forever (see pipeline step 5).
 1. Rebuild the scoring: an inversion score (temperature at different heights, dew point, wind, low cloud) plus a general "good hill day" score. Start saving each day's forecasts so they can be checked against what actually happened. **Inversion score done 2026-09-27** (see pipeline step 3); every run and its scores are saved. **cloudflip map done 2026-09-27**, then replaced the same day by the `site/` website. Still to do: the "good hill day" score.
 2. Static Netlify site: a nightly GitHub Actions job runs the Python and writes a JSON file; the site shows a map, per-Munro RAG, when the data was pulled, a comparison view and date selection. **Site built 2026-09-27** (`site/`, see above). **Nightly job done 2026-09-28** (see above). **Deployed to Netlify 2026-09-28** (https://yourcloudflip.netlify.app). Possible later additions: dark mode and a Walkhighlands route link (slugs not yet mapped).
-3. Validation: "I saw an inversion" reports from users, plus webcam and satellite (Sentinel/MODIS) checks.
+3. Validation: "I saw an inversion" reports from users, plus webcam and satellite (Sentinel/MODIS) checks. **Satellite labeller started 2026-10-06** on branch `satellite-validation` (see the satellite section above and the README). The next idea is to fine-tune an open Earth-observation model from Hugging Face (Prithvi, Clay or SSL4EO) on the hand-checked images, mainly to tell snow from cloud.
 4. A "from my town" filter based on driving time, then a chatbot that looks up the same forecast data (the portfolio showcase).
 5. Optional money-making.
 
