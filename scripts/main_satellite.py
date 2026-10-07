@@ -31,6 +31,8 @@ start, end = sys.argv[1:3] if len(sys.argv) >= 3 else (first, min(last, pd.Times
 ####### Step 1 Label what the satellite saw around each munro #########
 
 obs = observe(munros, start, end)
+if obs.empty:
+    sys.exit('No Sentinel-2 view of any munro from {} to {}'.format(start, end))
 save_observations(obs, SATELLITE_DB)
 print(obs.pivot_table(index = 'date', columns = 'label', values = 'munro_id', aggfunc = 'count', fill_value = 0))
 

@@ -64,7 +64,8 @@ let saved = {};
 try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
 for (const row of DATA.rows) {
   const s = saved[row.image];
-  if (s) { row.visible = s.visible; row.notes = s.notes; }
+  if (s && !row.visible) row.visible = s.visible; //the csv wins; answers saved in the browser only fill its gaps
+  if (s && !row.notes) row.notes = s.notes;
 }
 function store() {
   const out = {};

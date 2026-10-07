@@ -10,7 +10,8 @@ the true-colour image, with the line where 'low ground' starts (300 m below the 
 Run from scripts/ after main_satellite_sightings.py:
     python main_satellite_images.py            # the photo only
     python main_satellite_images.py --classes  # plus the scene classes the labeller used, to see why it got one wrong
-Images go to outputs/satellite_images/ (git-ignored), numbered, one per site-day, plus contact_sheet.png.
+Images go to outputs/satellite_images/ (git-ignored), one per site-day named date_site.png (the name
+data/satellite_image_checks.csv refers to, so it mustn't depend on the order), plus contact_sheet.png.
 """
 
 import os
@@ -62,9 +63,6 @@ results = results[results['scene_id'].notna()].sort_values(['date', 'site_id']).
 grids = munro_grids(results.drop_duplicates('site_id')[['site_id', 'lat', 'lon']])
 dem = terrain(grids, id_col = 'site_id')
 os.makedirs(IMAGE_DIR, exist_ok = True)
-for old in os.listdir(IMAGE_DIR): #images from an earlier run
-    if old.endswith('.png'):
-        os.remove(os.path.join(IMAGE_DIR, old))
 panels = 2 if '--classes' in sys.argv else 1
 columns = 4 // panels
 
@@ -72,6 +70,7 @@ rows = -(-len(results) // columns)
 sheet, axes = plt.subplots(rows, columns * panels, figsize = (4.6 * columns * panels, 4.6 * rows), squeeze = False)
 for ax in axes.flat:
     ax.axis('off')
+saved, failed = [], []
 for i, row in results.iterrows():
     grid = grids[grids['site_id'] == row['site_id']].iloc[0]
     rgb = true_colour(row['scene_id'], grid)
@@ -79,6 +78,10 @@ for i, row in results.iterrows():
     if panels == 2:
         scl = read_box(scene(row['scene_id']).assets['SCL'].href, grid['transform'], Resampling.nearest)
     number = i + 1
+    if rgb is None or (panels == 2 and scl is None):
+        print('{:3d} {} {}: could not read the image, skipped'.format(number, row['date'], row['name']))
+        failed.append(number)
+        continue
     print('{:3d} {} {}: you {}, satellite {}'.format(number, row['date'], row['name'], row['inversion'], row['label']))
     sheet_axes = axes[i // columns, (i % columns) * panels:(i % columns + 1) * panels]
     for ax in sheet_axes:
@@ -87,9 +90,17 @@ for i, row in results.iterrows():
     single, single_axes = plt.subplots(1, panels, figsize = (4.6 * panels, 4.6), squeeze = False)
     draw(single_axes[0], rgb, scl, dem[row['site_id']], row, number)
     single.tight_layout()
-    single.savefig('{}/{:03d}_{}_{}.png'.format(IMAGE_DIR, number, row['date'], row['site_id']), dpi = 110)
+    name = '{}_{}.png'.format(row['date'], row['site_id'])
+    single.savefig('{}/{}'.format(IMAGE_DIR, name), dpi = 110)
     plt.close(single)
+    saved.append(name)
 
 sheet.tight_layout()
 sheet.savefig('{}/contact_sheet.png'.format(IMAGE_DIR), dpi = 60)
-print('Saved {} images and contact_sheet.png to {}'.format(len(results), IMAGE_DIR))
+if not failed: #only tidy up after a complete run, so a failed read never leaves the folder half-empty
+    for old in set(os.listdir(IMAGE_DIR)) - set(saved) - {'contact_sheet.png'}:
+        if old.endswith('.png'):
+            os.remove(os.path.join(IMAGE_DIR, old))
+print('Saved {} images and contact_sheet.png to {}'.format(len(saved), IMAGE_DIR))
+if failed:
+    print('Could not read images {}; run again to retry'.format(failed))
