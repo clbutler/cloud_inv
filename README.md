@@ -67,6 +67,53 @@ The score history is kept so forecasts can later be checked against inversions p
 gh release download data --pattern forecasts.db --dir outputs
 ```
 
+## Checking against satellite images
+
+Work in progress, on the `satellite-validation` branch. The aim is to check the forecast against what actually happened and, later, to collect labelled images for training a model.
+
+From above, an inversion looks like a sea of cloud filling the low ground, with the hilltops clear. [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) photographs Britain every 2 to 5 days at 10 m resolution, so a script can look for that pattern.
+
+```mermaid
+flowchart LR
+    A[Geograph photos<br/>'inversion', since 2017] --> B[Hand check<br/>was it an inversion?]
+    B --> C[Satellite labeller<br/>Sentinel-2 + terrain]
+    C --> D[Images + review page]
+    D --> E[Hand check<br/>visible from space?]
+    E --> F[Score the labeller]
+```
+
+1. **Sightings.** `main_sightings.py` searches [Geograph](https://www.geograph.org.uk) for photos taken in Britain since 2017 that mention an inversion or a sea of cloud. It needs no API key. Each photo was checked by hand; 226 of 326 showed an inversion.
+2. **Labeller.** `satellite_function.py` reads Sentinel-2's scene classification (cloud, shadow, land, water and so on) in an 8 km box around each Munro or photo spot, at 40 m. It overlays the [Copernicus 30 m terrain model](https://planetarycomputer.microsoft.com/dataset/cop-dem-glo-30). Both come free from [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com), and only the small box is downloaded. The labeller then compares two areas:
+   - **the top**: ground within 100 m of the summit height and within 1 km of it;
+   - **the low ground**: more than 300 m below the summit, or halfway down to the valley floor on hills too small for that.
+
+   It labels the pass **inversion** (10 % or less cloud on the top and at least 10 % on the low ground), **summit in cloud**, **clear**, **mixed** or **no data**. Away from the Munros, the "summit" is the highest ground within 1 km of where the photo was taken.
+3. **Images and review.** `main_satellite_sightings.py` runs the labeller on each checked sighting. `main_satellite_images.py` draws the true-colour image of each pass, and `main_review_page.py` builds a local page for marking whether an inversion is visible in each one.
+4. **Forecast check.** `main_satellite.py` labels every Munro on each day with saved scores and compares the labels with the forecast made before the pass.
+
+**Results so far.** On 59 hand-checked Sentinel-2 images, the labeller found 79 % (19/24) of the visible cloud inversions, with a 3 % (1/35) false-positive rate. When it said "inversion" it was right 19 times in 20. The low-cloud threshold was chosen on the images from before 2022. On the held-out images from 2022 onwards, it found 10/10 with no false positives.
+
+**Limits.**
+- Sentinel-2 passes at about 11:30 UTC, so the labeller only sees inversions that last until then. Of 93 photo-confirmed inversion days, 53 had no pass over that spot at all.
+- The numbers are small, and nearly every test image comes from a day when someone photographed an inversion. On ordinary showery days the false-positive rate may be higher.
+- In winter, snow and long shadows can confuse Sentinel-2's cloud classification.
+
+| File | What it holds |
+|---|---|
+| `data/inversion_sightings.csv` | Geograph sightings: date, place, nearest Munro, link, and the hand checks `checked` and `inversion` (Y/N) |
+| `data/satellite_image_checks.csv` | one row per satellite pass over a sighting: the labeller's verdict and the hand check `visible` (is an inversion visible in the image: Y, N, maybe or unclear) |
+| `outputs/satellite_vs_sightings.csv`, `outputs/satellite_images/` | the labeller's results, images and review page (not in git, rebuilt by the scripts) |
+| `outputs/satellite.db`, `outputs/satellite_vs_scores.csv` | Munro labels for the days with saved scores, and the comparison with the forecast (not in git) |
+
+```bash
+cd scripts
+python main_sightings.py            # update the sightings csv; keeps the hand checks
+python main_satellite_sightings.py  # run the labeller on the checked sightings, about 2 minutes
+python main_satellite_images.py     # true-colour image of each pass (--classes adds the cloud classes)
+python main_review_page.py          # then open ../outputs/satellite_images/review.html
+python main_satellite.py            # label the Munros and compare with the forecast (needs forecasts.db)
+```
+
 ## Running it locally
 
 Requires Python 3.12.
@@ -106,5 +153,7 @@ Developed by Dr Chris Butler (project started January 2025).
 - Munro list and locations: [The Database of British and Irish Hills](https://www.hills-database.co.uk/downloads.html) v8.0.1.
 - Map: [Leaflet](https://leafletjs.com), with tiles © Esri.
 - Scoring research: MWIS, Wang & Rossow (1995), and published radiation-fog forecasting rules.
+- Satellite images: Copernicus Sentinel-2 data and the Copernicus DEM GLO-30 (© DLR e.V. 2010–2014 and © Airbus Defence and Space GmbH 2014–2018, provided under COPERNICUS by the European Union and ESA), accessed through Microsoft Planetary Computer.
+- Sightings: photos on [Geograph Britain and Ireland](https://www.geograph.org.uk), © their photographers, licensed CC BY-SA 2.0. The repo stores only the date, place, title, photographer and link, not the photos.
 
 **Safety:** cloudflip is an experimental forecast of scenery, not a safety tool. Before heading onto the hills, always check the [Mountain Weather Information Service](https://www.mwis.org.uk/forecasts/scottish), the [Met Office mountain forecast](https://www.metoffice.gov.uk/weather/specialist-forecasts/mountain) and, in winter, the [Scottish Avalanche Information Service](https://www.sais.gov.uk).
