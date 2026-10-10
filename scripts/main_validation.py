@@ -159,3 +159,18 @@ for rag in ['Green', 'Amber', 'Red']:
                                                  for h in (True, False)]
     print('| {} | {} | {} | {} |'.format(RAG_WORDS[rag], *['{}/{} ({:.1%})'.format(
         (c['label'] == 'inversion').sum(), len(c), (c['label'] == 'inversion').mean()) for c in cells]))
+
+flagged, seen = backcast['rag'].isin(['Green', 'Amber']), backcast['label'] == 'inversion'
+tp, fp, fn, tn = (flagged & seen).sum(), (flagged & ~seen).sum(), (~flagged & seen).sum(), (~flagged & ~seen).sum()
+print('\nConfusion matrix (Likely or Possible counts as yes):\n')
+print('| | labeller saw an inversion | labeller saw none |\n|---|---|---|')
+print('| cloudflip said Likely or Possible | {} (caught) | {} (false alarm) |'.format(tp, fp))
+print('| cloudflip said Unlikely | {} (missed) | {} (correctly ruled out) |'.format(fn, tn))
+print('\n- all months: ' + rates(backcast, flagged, seen))
+for h, idx in backcast.groupby('held_out').groups.items():
+    print('- {}: '.format('held-out months' if h else 'other months') + rates(backcast.loc[idx], flagged[idx], seen[idx]))
+print('- accuracy {:.1%}; saying Unlikely every day would score {:.1%}'.format((tp + tn) / max(len(backcast), 1),
+      1 - seen.mean()))
+print('- inversions on {:.2%} of mornings; Likely or Possible makes one {:.1f} times as likely'.format(
+    seen.mean(), tp / max(tp + fp, 1) / max(seen.mean(), 1e-9)))
+print('- Likely on its own: ' + share((backcast['rag'] == 'Green').where(seen, False).sum(), (backcast['rag'] == 'Green').sum()))
