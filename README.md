@@ -4,7 +4,7 @@
 
 **Live site: [yourcloudflip.netlify.app](https://yourcloudflip.netlify.app)**
 
-**How good is it?** Checked against satellite views of 7,814 past Munro mornings, a morning cloudflip rated Likely or Possible was about 5 times as likely as the average morning to have an inversion. But it flagged only about 1 in 7 of the inversions seen. [More below](#how-accurate-is-it).
+**How good is it?** Tested on 7,814 past mornings: when cloudflip says Likely or Possible, an inversion is about 5 times as likely as usual. But it catches only about 1 in 7. [Details](#how-accurate-is-it).
 
 [![Nightly forecast](https://github.com/clbutler/cloud_inv/actions/workflows/nightly.yml/badge.svg)](https://github.com/clbutler/cloud_inv/actions/workflows/nightly.yml)
 
@@ -12,91 +12,73 @@
 
 ## What is a cloud inversion?
 
-Normally the air gets colder with height. In a temperature inversion, a layer of warmer air sits above colder air. That warm "lid" traps cold, damp air in the glens, so cloud and fog fill the valleys while the summits stay clear. From the top of a Munro, the result is a sea of cloud below, often lit by the rising sun.
+Normally air gets colder with height. In an inversion, a layer of warm air sits on top of cold air like a lid, trapping cloud and fog in the glens while the summits stay clear. From the top you look down on a sea of cloud, often lit by the rising sun.
 
-Scotland's 282 Munros, the mountains over 3,000 ft, are among the best places in the UK to see one. Inversions are hard to predict, though, and mountain forecasts are usually given per area, not per hill. cloudflip gives a verdict for every Munro, for every morning of the next seven days.
+Scotland's 282 Munros (hills over 3,000 ft) are among the best places in the UK to see one. But inversions are hard to predict, and mountain forecasts cover areas, not single hills. cloudflip gives a verdict for every Munro, every morning, a week ahead.
 
 ## How accurate is it?
 
-cloudflip gives each Munro one of three verdicts every morning: **Likely**, **Possible** or **Unlikely**, built from four checks on the forecast (see [How the forecast is scored](#how-the-forecast-is-scored)).
+Each morning, each Munro gets **Likely**, **Possible** or **Unlikely**, from [four checks](#how-the-forecast-is-scored) on the forecast. To test them, the scoring was rerun on [archived Met Office forecasts](https://open-meteo.com/en/docs/historical-forecast-api) for 40 Munros, August 2024 to June 2026, and each morning was compared with a satellite view of the same day.
 
-**Headlines**, from 7,814 past mornings at 40 Munros (August 2024 to June 2026), each set against an automatic reading of a satellite view of the same morning:
+**Headlines** (7,814 mornings):
 
-- **Inversions are rare.** On the average Munro morning, only about 1 in 65 (1.5 %) still has one visible from space at 11:30 UTC.
-- **Likely or Possible makes an inversion about 5 times as likely** as the average morning: about 1 in 13 (8 %). Likely on its own did better, 3 of 19 mornings (16 %), but with so few mornings the true figure could be anywhere from about 6 % to 38 %.
-- **It misses most inversions.** Only about 1 in 7 (15 %) of the inversions seen had been rated Likely or Possible.
-- **Treat these as rough.** The automatic reading is itself wrong about 4 times in 10 when it says "inversion", which could push the figures either way. And cloudflip forecasts sunrise while the satellite looks at about 11:30 UTC, after many inversions have cleared, which probably makes the forecast look worse than it is at dawn.
-
-The forecast is judged by an automatic labeller reading satellite views, explained in [How the satellite check works](#how-the-satellite-check-works). The forecast figures come first below, then the two checks they rest on: that an inversion can be recognised from space at all, and that the labeller recognises it.
+- **Inversions are rare:** about 1 morning in 65 (1.5 %).
+- **Likely or Possible makes one about 5 times as likely:** 1 in 13 (8 %). Likely alone scored 3 of 19 (16 %), too few to be sure.
+- **It misses most:** it flagged only about 1 in 7 inversions (15 %).
+- **Treat these as rough.** The satellite views are read by an [automatic labeller](#how-the-satellite-check-works) that is wrong about 4 times in 10 when it says "inversion". And the satellite passes at about 11:30 UTC, after many dawn inversions have gone, so the forecast is probably better at sunrise than this shows.
 
 ### Does the forecast work?
 
-The site's scoring was run on [archived Met Office forecasts](https://open-meteo.com/en/docs/historical-forecast-api) for 40 Munros spread across Scotland, from August 2024 to June 2026. Each morning's verdict was then set against the labeller's reading of that day's satellite view: 7,814 Munro-mornings from 445 days with a usable view, snowy views left out.
-
-**The confusion matrix.** This counts every morning by what cloudflip said and what the labeller read in that morning's satellite view. "Likely" and "Possible" both count as cloudflip saying yes.
+**Confusion matrix.** Likely or Possible counts as a "yes"; snowy views are left out.
 
 | | **Actual positive**<br/>labeller saw an inversion | **Actual negative**<br/>labeller saw none |
 |---|---|---|
-| **Predicted positive**<br/>cloudflip said Likely or Possible | **True positive**<br/>18 | **False positive**<br/>211 |
-| **Predicted negative**<br/>cloudflip said Unlikely | **False negative**<br/>101 | **True negative**<br/>7,484 |
+| **Predicted positive**<br/>cloudflip said Likely or Possible | **True positive**<br/>18 caught | **False positive**<br/>211 false alarms |
+| **Predicted negative**<br/>cloudflip said Unlikely | **False negative**<br/>101 missed | **True negative**<br/>7,484 correctly ruled out |
 
-- **True positive**: cloudflip said yes and there was an inversion (caught).
-- **False positive**: cloudflip said yes but there was none (a false alarm).
-- **False negative**: cloudflip said no but there was one (missed).
-- **True negative**: cloudflip said no and there was none (correctly ruled out).
+- **Precision = TP ÷ (TP + FP) = 18 ÷ 229 = 7.9 %.** When the site says yes, how often is there an inversion? Low on its face, but 5 times the 1.5 % base rate.
+- **Recall = TP ÷ (TP + FN) = 18 ÷ 119 = 15 %.** Of the inversions that happened, how many did the site flag?
 
-Two figures come from it:
+Plain accuracy (96 %) is misleading here: inversions are so rare that saying "Unlikely" every day would score 98.5 %.
 
-- **Precision: 7.9 %**, true positives ÷ (true positives + false positives) = 18 ÷ 229. This answers "if the site says Likely or Possible, how often is it right?" On its own 7.9 % sounds low, but only 1.5 % of all mornings had an inversion, so a flagged morning is about 5 times as likely as the average one.
-- **Recall: 15 %**, true positives ÷ (true positives + false negatives) = 18 ÷ 119. This answers "of the inversions that happened, how many did the site see coming?"
-
-Plain accuracy (the share of all mornings called correctly) is 96 %, but it isn't a useful measure here: inversions are so rare that a site saying "Unlikely" every single day would score 98.5 %. For the same reason, "Unlikely" being right 98.7 % of the time says little on its own. Precision and recall are what show whether the forecast actually finds inversions.
-
-Broken down by verdict:
-
-| cloudflip's verdict | inversion still visible at 11:30 UTC |
+| Verdict | Inversion seen at 11:30 UTC |
 |---|---|
-| Likely | **16 %** (3 of 19 mornings, so very uncertain) |
+| Likely | **16 %** (3 of 19, very uncertain) |
 | Possible | **7 %** (1 in 14) |
 | Unlikely | **1.3 %** (1 in 75) |
 
-The held-back months (March, June, September and December) look similar: precision 9 % and recall 13 %, against 7 % and 16 % in the other months. But that rests on only 6 caught inversions, so it's a rough check rather than a confirmation.
+Held-back months (March, June, September, December) look similar, with precision 9 % and recall 13 %, but that rests on just 6 inversions.
 
-Of the Possible mornings checked by eye, none where the satellite showed the summit in cloud was an inversion. Either the [clear-summit check](#how-the-forecast-is-scored) is too lenient, or the cloud lifted over the summit after dawn. A late-morning picture can't tell those apart.
+One pattern stands out: on Possible mornings where the satellite showed the summit in cloud, there was never an inversion. Either the [clear-summit check](#how-the-forecast-is-scored) is too lenient, or the cloud rose after dawn.
 
 ### Can you tell an inversion from space?
 
-Each satellite view was judged by eye. Where a [Geograph](https://www.geograph.org.uk) photo had been taken near the same hill on the same day, the photo was judged separately. Based on 68 pairs from 48 days:
+Where a [Geograph](https://www.geograph.org.uk) ground photo was taken near the same hill on the same day, the photo and the satellite view were judged separately (68 pairs, 48 days):
 
 | | |
 |---|---|
-| When the satellite view shows an inversion, the ground photo agrees | **88 %** |
-| When the ground photo shows no inversion, the satellite view agrees | **91 %** |
-| When the ground photo shows an inversion, the satellite view shows it too | **60 %** |
+| Satellite view shows an inversion: the photo agrees | **88 %** |
+| Photo shows none: the satellite view agrees | **91 %** |
+| Photo shows one: the satellite view shows it too | **60 %** |
 
-So an inversion seen from space is almost always real, but the satellite misses some that people photographed. Sentinel-2 passes at about 11:30 UTC, and Geograph records the day a photo was taken but not the time, so most of the misses are probably dawn inversions that had cleared by late morning.
+An inversion seen from space is almost always real. The misses are probably dawn inversions that cleared before the 11:30 pass (Geograph has the day, not the time).
 
-One caution: 59 of these pairs come from an earlier review page that showed the photo verdict and the labeller's verdict beside each satellite view, so they weren't judged blind. The newer review pages hide both and reveal the photo only after the satellite view has been answered. The 9 blind pairs so far all agree, but they're all days with no inversion, so more blind pairs with an inversion are needed before this table can be called independent.
+Caveat: 59 of the 68 pairs were judged on an older page that showed the photo verdict alongside, so they weren't blind. The 9 blind pairs all agree, but none has an inversion, so more are needed.
 
 ### How good is the automatic labeller?
 
-The labeller is the program that looks at each satellite view and decides whether it shows an inversion ([how it works](#how-the-satellite-check-works)). To grade it, each view needs a "right answer", and there are two sources of one:
-
-- **A person's verdict on the same satellite view.** 557 views from 263 days: the two review batches described below, plus 59 views of days with a Geograph inversion photo.
-- **A person's verdict on a ground photo taken near the same hill that day.** 72 views. This comes from a different picture, so it's a separate check, though a dawn ground photo can show an inversion that had gone by the time the satellite passed.
-
-Two questions matter:
+The labeller decides whether each satellite view shows an inversion ([how](#how-the-satellite-check-works)). It was graded against two kinds of right answer, both judged by a person: the same satellite view (557 views, 263 days) and a ground photo from that day (72 views).
 
 | | judged from the satellite view | judged from a ground photo |
 |---|---|---|
 | **When it says "inversion", how often is it right?** | **57 %** | **93 %** |
 | **Of the real inversions, how many does it spot?** | **67 %** | **35 %** |
 
-In plain words: against the satellite views, about 6 in 10 of its "inversion" calls are right, and it spots about 2 in 3 of the inversions a person can see. Against the ground photos its "inversion" calls are nearly always right, but that flatters it: 40 of the 72 ground photos show an inversion, so a "yes" is likely to be right there anyway. It spots only about 1 in 3 of the inversions in the ground photos. Some of those had probably cleared before the satellite passed at about 11:30 UTC, but not all: judged by eye, the satellite view still shows 60 % of them, so the labeller misses some inversions that were there to be seen.
+Against the satellite views, about 6 in 10 of its calls are right and it spots 2 in 3 inversions. The 93 % is flattering: most of the ground photos (40 of 72) show an inversion, so "yes" is usually right there. It spots only 1 in 3 photographed inversions. Some had cleared by 11:30, but by eye the satellite still shows 60 % of them, so the labeller misses some it could have seen.
 
-Some views were held back as a check: March, June, September and December for the forecast mornings, and every day from 2022 onwards for the rest. On those it was right 58 % of the time and found 76 % of inversions, about the same as on the other views. The contour threshold was chosen from a few round numbers while looking at all the views, though, so that's a consistency check rather than a clean test on unseen data.
+On held-back views (March, June, September and December for the forecast mornings; 2022 onwards for the rest) it scored much the same: 58 % right, 76 % found. The contour threshold was picked with all views in sight, so that's a sanity check, not a clean test.
 
-**Limits.** The 60 inversions checked by eye come from 32 separate days, many from a few settled spells, so the percentages are still rough. Sentinel-2 passes each place only every 2 to 5 days. The labeller can't judge snowy hills, because Sentinel-2's own classes mix up snow and cloud tops.
+**Limits.** The 60 inversions judged by eye come from just 32 days, many in a few settled spells. Sentinel-2 passes each spot only every 2 to 5 days. Snowy hills can't be judged.
 
 ## How it works
 
@@ -109,15 +91,15 @@ flowchart LR
     F[GitHub Actions<br/>daily, 04:00 UTC] -. runs .-> B
 ```
 
-1. **Fetch.** `scripts/openmeteo_function.py` asks [Open-Meteo](https://open-meteo.com) for 7 days of hourly Met Office forecasts at every Munro. It gets surface weather, plus temperature, humidity, cloud and wind at six pressure levels from about 100 m to 1,500 m. The pressure levels are what make an inversion visible: a warmer layer above a colder one.
-2. **Score.** `scripts/inversion_score_function.py` checks every hour from one hour before sunrise to three hours after, and keeps the best hour for each Munro and day.
-3. **Store.** Every run is saved to a SQLite database (see [The forecast database](#for-developers)).
-4. **Publish.** `scripts/site_export_function.py` writes the latest scores for the website, a static page in `site/` that uses Leaflet.
-5. **Automate.** A [GitHub Actions workflow](.github/workflows/nightly.yml) runs the whole pipeline every day at 04:00 UTC and commits the new website data. Netlify redeploys the site from `main` whenever that commit lands.
+1. **Fetch.** `scripts/openmeteo_function.py` gets 7 days of hourly Met Office forecasts for every Munro from [Open-Meteo](https://open-meteo.com), including temperature, humidity, cloud and wind at six heights from about 100 m to 1,500 m. Those heights are what reveal an inversion: warm air above cold.
+2. **Score.** `scripts/inversion_score_function.py` scores every hour from 1 hour before sunrise to 3 after, and keeps each morning's best.
+3. **Store.** Every run goes into a SQLite database ([details](#for-developers)).
+4. **Publish.** `scripts/site_export_function.py` writes the scores for the static Leaflet site in `site/`.
+5. **Automate.** A [GitHub Actions workflow](.github/workflows/nightly.yml) runs it all at 04:00 UTC daily; Netlify redeploys when the new data lands on `main`.
 
 ## How the forecast is scored
 
-Each Munro is graded on four checks. Each check scores pass, partial or fail.
+Four checks, each pass, partial or fail:
 
 | Check | Question | Pass | Partial |
 |---|---|---|---|
@@ -130,24 +112,22 @@ Each Munro is graded on four checks. Each check scores pass, partial or fail.
 - **Possible**: all four at least partly pass.
 - **Unlikely**: anything else.
 
-The thresholds come from the Mountain Weather Information Service (MWIS) articles on inversions, humidity thresholds for cloud from Wang & Rossow (1995, *J. Appl. Meteor.*), and radiation-fog rules from the fog-forecasting literature. Forecast models often misjudge the height of an inversion and local detail, so the score is a guide, not a guarantee.
+Thresholds come from the Mountain Weather Information Service (MWIS), Wang & Rossow (1995, *J. Appl. Meteor.*) on humidity and cloud, and radiation-fog forecasting rules. Models often misjudge an inversion's height, so treat the score as a guide.
 
 ## How the satellite check works
 
-[Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) photographs Britain every 2 to 5 days, at about 11:30 UTC, at 10 m resolution. From above, an inversion has a distinctive look: a flat sea of cloud filling the glens and stopping along the contours, with the high ground clear. Ordinary cloud doesn't care about height.
+[Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) photographs Britain every 2 to 5 days at about 11:30 UTC. From above, an inversion is distinctive: a flat sea of cloud filling the glens and stopping at a contour, the high ground clear. Ordinary cloud ignores height.
 
 ![A cloud inversion beside scattered cumulus, as Sentinel-2 sees them](docs/satellite_example.png)
 
-The labeller (`label_box` in `scripts/satellite_function.py`) turns that idea into rules. For each Munro and each satellite pass:
+The labeller (`label_box` in `scripts/satellite_function.py`) turns that into rules. For each Munro and pass:
 
-1. **Read a small square.** It reads an 8 km square centred on the summit, at 40 m per pixel, from [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com). That's free, needs no key, and only downloads the square, not the whole picture.
-2. **Classify every pixel.** Sentinel-2 comes with ESA's scene classification, which marks each pixel as cloud, snow, cloud shadow, vegetation, bare ground, water and so on. The labeller uses that, not the colours.
-3. **Add the terrain.** The [Copernicus 30 m height model](https://planetarycomputer.microsoft.com/dataset/cop-dem-glo-30) gives the height of every pixel. That splits the square into:
-   - **the top**: ground within 100 m of the summit's height and within 1 km of it;
-   - **the low ground**: more than 300 m below the summit (the gold line in the pictures).
-
-   On hills too small for that, such as photo spots away from the Munros, the low ground starts halfway down to the valley floor, and the top shrinks to match.
-4. **Decide.** It works down these questions and stops at the first "yes":
+1. **Read a small square:** 8 km around the summit at 40 m per pixel, from [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com) (free, no key, only the square is downloaded).
+2. **Classify every pixel** using ESA's scene classification (cloud, snow, shadow, vegetation, water and so on), not the colours.
+3. **Add the terrain** from the [Copernicus 30 m height model](https://planetarycomputer.microsoft.com/dataset/cop-dem-glo-30), splitting the square into:
+   - **the top**: within 100 m of the summit's height and 1 km of it;
+   - **the low ground**: more than 300 m below the summit (the gold line above). On smaller hills, halfway down to the valley floor.
+4. **Decide**, working down these questions and stopping at the first "yes":
 
 ```mermaid
 flowchart TD
@@ -163,18 +143,18 @@ flowchart TD
     E -- no --> M[mixed]
 ```
 
-The numbers behind those questions:
+The thresholds:
 
 | Rule | Threshold | Why |
 |---|---|---|
-| Top almost clear | 10 % cloud or less | a few wisps on the summit are allowed |
-| Some cloud on the low ground | 10 % or more | a cloud sea filling only the glen floors covers little of an 8 km square |
-| Low ground clearly whiter than the ground above | at least 20 percentage points more white (cloud or snow class) | a cloud sea follows the contours; cumulus covers high and low ground alike, so this rule removes most false alarms |
-| Any snow | more than 1 % of the land in the square | a snowy summit is classed "not cloud", so it would pass as clear, and bright cloud is sometimes classed as snow |
+| Top almost clear | ≤ 10 % cloud | allows a few wisps |
+| Some cloud on the low ground | ≥ 10 % | a glen-floor cloud sea covers little of an 8 km square |
+| Low ground clearly whiter than above | ≥ 20 points more white (cloud or snow) | a cloud sea follows the contours; cumulus whitens high and low alike. This removes most false alarms |
+| Any snow | > 1 % of the land | a snowy top reads as "not cloud", and bright cloud is sometimes classed as snow |
 
-**How the views were judged by eye.** `main_review_batch.py` builds a review page of satellite views. The page shows neither the labeller's verdict nor the forecast, and the cards are shuffled, so neither can sway the answer. Where a Geograph photo exists, it's revealed only after the satellite view has been answered. There are two batches so far:
-- **Batch 1**: 67 views from 54 random days since 2017 (`main_satellite_scan.py`). The days were random, but the labeller picked which views to show: mostly ones it called an inversion, plus some near misses and clear or cloudy ones.
-- **Batch 2**: 431 mornings the site had scored (`main_backcast.py`). These were every Likely and Possible morning, plus some Unlikely ones, chosen at random or because the labeller saw an inversion.
+**How the views were judged by eye.** `main_review_batch.py` builds a review page that hides the labeller's and the forecast's verdicts and shuffles the cards. A ground photo, where there is one, appears only after the satellite view is answered. Two batches so far:
+- **Batch 1:** 67 views from 54 random days since 2017 (`main_satellite_scan.py`), mostly ones the labeller had called an inversion, plus near misses and clear or cloudy ones.
+- **Batch 2:** 431 past mornings the site scored (`main_backcast.py`): every Likely and Possible, plus some Unlikely.
 
 ## Project status
 
