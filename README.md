@@ -4,7 +4,7 @@
 
 **Live site: [yourcloudflip.netlify.app](https://yourcloudflip.netlify.app)**
 
-**How good is cloudflip?** Tested against satellite views of 7,814 past mornings at 40 Munros: when cloudflip says Likely or Possible, an inversion is about 5 times as likely as usual. But cloudflip catches only about 1 in 7 inversions. [Details](#how-accurate-is-cloudflip).
+**How good is cloudflip?** Tested against satellite views of 7,814 past mornings at 40 Munros: when cloudflip says Likely or Possible, an inversion is about 5 times as likely as usual. But cloudflip flagged only about 1 in 7 of the inversions still visible at 11:30 UTC. [Details](#how-accurate-is-cloudflip).
 
 [![Nightly forecast](https://github.com/clbutler/cloud_inv/actions/workflows/nightly.yml/badge.svg)](https://github.com/clbutler/cloud_inv/actions/workflows/nightly.yml)
 
@@ -24,7 +24,7 @@ Each morning, each Munro gets **Likely**, **Possible** or **Unlikely**, from [fo
 
 - **Inversions are rare:** about 1 morning in 65 (1.5 %) still has one visible at 11:30 UTC.
 - **Likely or Possible makes one about 5 times as likely:** 1 in 13 (8 %). Likely alone scored 3 of 19 (16 %), too few to be sure.
-- **cloudflip misses most inversions:** the site flagged only about 1 in 7 (15 %).
+- **cloudflip misses most inversions:** the forecast flagged only about 1 in 7 (15 %).
 - **Treat these as rough.** The satellite views are read by an [automatic labeller](#how-the-satellite-check-works) whose "inversion" calls are wrong about 4 times in 10. And the satellite passes at about 11:30 UTC, after many dawn inversions have gone, so the forecast is probably better at sunrise than these figures show.
 
 ### Does the forecast work?
@@ -63,7 +63,7 @@ Where a [Geograph](https://www.geograph.org.uk) ground photo was taken near the 
 
 An inversion seen from space is almost always real. Most misses are probably dawn inversions that cleared before the 11:30 pass (Geograph has the day, not the time).
 
-Caveat: 59 of the 68 pairs were judged on an older page that showed the photo verdict alongside, so they weren't blind. The 9 blind pairs all agree, but none has an inversion, so more are needed.
+Caveat: 59 of the 68 pairs were judged on an older page that showed the photo verdict alongside, so those 59 weren't judged blind. The 9 blind pairs all agree, but none of the 9 shows an inversion, so blind pairs that show an inversion are still needed.
 
 ### How good is the automatic labeller?
 
@@ -74,7 +74,7 @@ The labeller decides whether each satellite view shows an inversion ([how](#how-
 | **When the labeller says "inversion", how often is that right?** | **57 %** | **93 %** |
 | **Of the real inversions, how many does the labeller spot?** | **67 %** | **35 %** |
 
-Against the satellite views, about 6 in 10 of the labeller's calls are right and the labeller spots 2 in 3 inversions. The 93 % is flattering: most of the ground photos (40 of 72) show an inversion, so "yes" is usually right there. The labeller spots only 1 in 3 photographed inversions. Some had cleared by 11:30, but by eye the satellite still shows 60 % of them, so the labeller misses some inversions that were there to see.
+Against the satellite views, about 6 in 10 of the labeller's calls are right and the labeller spots 2 in 3 inversions. The 93 % is flattering: most of the ground photos (40 of 72) show an inversion, so "yes" is usually right there. The labeller spots only 1 in 3 photographed inversions. Some had cleared by 11:30, but by eye the satellite still shows 60 % of them, so the labeller misses some inversions a person can see in the same satellite view.
 
 On held-back views (March, June, September and December for the forecast mornings; 2022 onwards for the rest) the labeller scored much the same: 58 % right, 76 % found. The contour threshold was picked with all views in sight, so the held-back result is a sanity check, not a clean test.
 
@@ -239,7 +239,7 @@ Developed by Dr Chris Butler (project started January 2025).
 - Munro list and locations: [The Database of British and Irish Hills](https://www.hills-database.co.uk/downloads.html) v8.0.1.
 - Map: [Leaflet](https://leafletjs.com), with tiles © Esri.
 - Scoring research: MWIS, Wang & Rossow (1995), and published radiation-fog forecasting rules.
-- Satellite images: Copernicus Sentinel-2 data and the Copernicus DEM GLO-30 (© DLR e.V. 2010–2014 and © Airbus Defence and Space GmbH 2014–2018, provided under COPERNICUS by the European Union and ESA), accessed through Microsoft Planetary Computer.
+- Satellite views: Copernicus Sentinel-2 data and the Copernicus DEM GLO-30 (© DLR e.V. 2010–2014 and © Airbus Defence and Space GmbH 2014–2018, provided under COPERNICUS by the European Union and ESA), accessed through Microsoft Planetary Computer.
 - Sightings: photos on [Geograph Britain and Ireland](https://www.geograph.org.uk), © their photographers, licensed CC BY-SA 2.0. The repo stores only the date, place, title, photographer and link, not the photos.
 
 **Safety:** cloudflip is an experimental forecast of scenery, not a safety tool. Before heading onto the hills, always check the [Mountain Weather Information Service](https://www.mwis.org.uk/forecasts/scottish), the [Met Office mountain forecast](https://www.metoffice.gov.uk/weather/specialist-forecasts/mountain) and, in winter, the [Scottish Avalanche Information Service](https://www.sais.gov.uk).
