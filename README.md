@@ -4,7 +4,7 @@
 
 **Live site: [yourcloudflip.netlify.app](https://yourcloudflip.netlify.app)**
 
-**How good is it?** Tested on 7,814 past mornings: when cloudflip says Likely or Possible, an inversion is about 5 times as likely as usual. But it catches only about 1 in 7. [Details](#how-accurate-is-it).
+**How good is it?** Tested against satellite views of 7,814 past mornings at 40 Munros: when cloudflip says Likely or Possible, an inversion is about 5 times as likely as usual. But it catches only about 1 in 7. [Details](#how-accurate-is-it).
 
 [![Nightly forecast](https://github.com/clbutler/cloud_inv/actions/workflows/nightly.yml/badge.svg)](https://github.com/clbutler/cloud_inv/actions/workflows/nightly.yml)
 
@@ -20,9 +20,9 @@ Scotland's 282 Munros (hills over 3,000 ft) are among the best places in the UK 
 
 Each morning, each Munro gets **Likely**, **Possible** or **Unlikely**, from [four checks](#how-the-forecast-is-scored) on the forecast. To test them, the scoring was rerun on [archived Met Office forecasts](https://open-meteo.com/en/docs/historical-forecast-api) for 40 Munros, August 2024 to June 2026, and each morning was compared with a satellite view of the same day.
 
-**Headlines** (7,814 mornings):
+**Headlines** (7,814 mornings, 445 days):
 
-- **Inversions are rare:** about 1 morning in 65 (1.5 %).
+- **Inversions are rare:** about 1 morning in 65 (1.5 %) still has one visible at 11:30 UTC.
 - **Likely or Possible makes one about 5 times as likely:** 1 in 13 (8 %). Likely alone scored 3 of 19 (16 %), too few to be sure.
 - **It misses most:** it flagged only about 1 in 7 inversions (15 %).
 - **Treat these as rough.** The satellite views are read by an [automatic labeller](#how-the-satellite-check-works) that is wrong about 4 times in 10 when it says "inversion". And the satellite passes at about 11:30 UTC, after many dawn inversions have gone, so the forecast is probably better at sunrise than this shows.
@@ -49,7 +49,7 @@ Plain accuracy (96 %) is misleading here: inversions are so rare that saying "Un
 
 Held-back months (March, June, September, December) look similar, with precision 9 % and recall 13 %, but that rests on just 6 inversions.
 
-One pattern stands out: on Possible mornings where the satellite showed the summit in cloud, there was never an inversion. Either the [clear-summit check](#how-the-forecast-is-scored) is too lenient, or the cloud rose after dawn.
+One pattern stands out: on the Possible mornings checked by eye where the satellite showed the summit in cloud, there was never an inversion. Either the [clear-summit check](#how-the-forecast-is-scored) is too lenient, or the cloud rose after dawn.
 
 ### Can you tell an inversion from space?
 
@@ -61,7 +61,7 @@ Where a [Geograph](https://www.geograph.org.uk) ground photo was taken near the 
 | Photo shows none: the satellite view agrees | **91 %** |
 | Photo shows one: the satellite view shows it too | **60 %** |
 
-An inversion seen from space is almost always real. The misses are probably dawn inversions that cleared before the 11:30 pass (Geograph has the day, not the time).
+An inversion seen from space is almost always real. Most misses are probably dawn inversions that cleared before the 11:30 pass (Geograph has the day, not the time).
 
 Caveat: 59 of the 68 pairs were judged on an older page that showed the photo verdict alongside, so they weren't blind. The 9 blind pairs all agree, but none has an inversion, so more are needed.
 
@@ -126,7 +126,7 @@ The labeller (`label_box` in `scripts/satellite_function.py`) turns that into ru
 2. **Classify every pixel** using ESA's scene classification (cloud, snow, shadow, vegetation, water and so on), not the colours.
 3. **Add the terrain** from the [Copernicus 30 m height model](https://planetarycomputer.microsoft.com/dataset/cop-dem-glo-30), splitting the square into:
    - **the top**: within 100 m of the summit's height and 1 km of it;
-   - **the low ground**: more than 300 m below the summit (the gold line above). On smaller hills, halfway down to the valley floor.
+   - **the low ground**: more than 300 m below the summit (the gold line above). On smaller hills, halfway down to the valley floor, with the top scaled to match.
 4. **Decide**, working down these questions and stopping at the first "yes":
 
 ```mermaid
@@ -154,7 +154,7 @@ The thresholds:
 
 **How the views were judged by eye.** `main_review_batch.py` builds a review page that hides the labeller's and the forecast's verdicts and shuffles the cards. A ground photo, where there is one, appears only after the satellite view is answered. Two batches so far:
 - **Batch 1:** 67 views from 54 random days since 2017 (`main_satellite_scan.py`), mostly ones the labeller had called an inversion, plus near misses and clear or cloudy ones.
-- **Batch 2:** 431 past mornings the site scored (`main_backcast.py`): every Likely and Possible, plus some Unlikely.
+- **Batch 2:** 431 past mornings the site scored (`main_backcast.py`): every Likely and Possible, plus some Unlikely, picked at random or because the labeller saw an inversion.
 
 ## Project status
 

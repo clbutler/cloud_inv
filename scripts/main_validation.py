@@ -158,19 +158,18 @@ backcast = pd.read_csv('../outputs/backcast_vs_satellite.csv')
 backcast = backcast[backcast['label'] != 'snow'] #no verdict on a snowy view
 print('\n### 4. The site\'s morning verdict against the labeller ({} munro-days, {} days)\n'.format(
     len(backcast), backcast['date'].nunique()))
-print('| site\'s verdict | labeller saw an inversion | held-out months | other months |\n|---|---|---|---|')
+print('| Verdict | Inversion seen at 11:30 UTC |\n|---|---|')
 for rag in ['Green', 'Amber', 'Red']:
-    cells = [backcast[backcast['rag'] == rag]] + [backcast[(backcast['rag'] == rag) & (backcast['held_out'] == h)]
-                                                 for h in (True, False)]
-    print('| {} | {} | {} | {} |'.format(RAG_WORDS[rag], *['{}/{} ({:.1%})'.format(
-        (c['label'] == 'inversion').sum(), len(c), (c['label'] == 'inversion').mean()) for c in cells]))
+    part = backcast[backcast['rag'] == rag]
+    print('| {} | **{:.1%}** ({} of {}) |'.format(RAG_WORDS[rag], (part['label'] == 'inversion').mean(),
+          (part['label'] == 'inversion').sum(), len(part)))
 
 flagged, seen = backcast['rag'].isin(['Green', 'Amber']), backcast['label'] == 'inversion'
 tp, fp, fn, tn = counts(flagged, seen)
 print('\nConfusion matrix (Likely or Possible counts as yes):\n')
 print('| | **Actual positive**<br/>labeller saw an inversion | **Actual negative**<br/>labeller saw none |\n|---|---|---|')
-print('| **Predicted positive**<br/>cloudflip said Likely or Possible | **True positive**<br/>{} caught | **False positive**<br/>{} false alarms |'.format(tp, fp))
-print('| **Predicted negative**<br/>cloudflip said Unlikely | **False negative**<br/>{} missed | **True negative**<br/>{:,} correctly ruled out |'.format(fn, tn))
+print('| **Predicted positive**<br/>cloudflip said Likely or Possible | **True positive**<br/>{:,} caught | **False positive**<br/>{:,} false alarms |'.format(tp, fp))
+print('| **Predicted negative**<br/>cloudflip said Unlikely | **False negative**<br/>{:,} missed | **True negative**<br/>{:,} correctly ruled out |'.format(fn, tn))
 print('\n- all months: ' + rates(backcast, flagged, seen))
 for h, idx in backcast.groupby('held_out').groups.items():
     print('- {}: '.format('held-out months' if h else 'other months') + rates(backcast.loc[idx], flagged[idx], seen[idx]))
