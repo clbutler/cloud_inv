@@ -41,6 +41,8 @@ def table(df, rows, columns, row_order, column_order):
 
 def share(k, n, z = 1.96):
     '''k/n as a percentage with its 95 % (Wilson) range, which is honest about small counts'''
+    if n == 0:
+        return 'none to count'
     p = k / n
     centre = (p + z * z / (2 * n)) / (1 + z * z / n)
     half = z * np.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / (1 + z * z / n)

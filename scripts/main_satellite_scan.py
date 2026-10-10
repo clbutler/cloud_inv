@@ -22,7 +22,7 @@ import numpy as np
 import pandas as pd
 
 from openmeteo_function import munro_locations
-from satellite_function import munro_grids, observe, search, terrain
+from satellite_function import USABLE_SCENES, munro_grids, observe, search, terrain
 
 SCAN_CSV = '../outputs/satellite_scan.csv'
 SCENES_CSV = '../outputs/satellite_scan_scenes.csv'
@@ -32,8 +32,6 @@ FIRST_YEAR, LAST_YEAR = 2017, 2026
 HELD_OUT_FROM = '2022-01-01' #days from here on are kept for the fair test, every site on them together
 MUNROS_PER_SCENE = 2 #random munros checked in each scene of a sampled day...
 SCENES_PER_DAY = 2 #...and at most this many scenes (tiles) a day, so no one morning dominates
-USABLE = {'eo:cloud_cover': {'gte': 5, 'lte': 95}, 's2:nodata_pixel_percentage': {'lte': 50}} #no cloud can't be an
-                                                                  #inversion, all cloud can't show one; half-empty tiles waste reads
 
 days_per_month = int(sys.argv[1]) if len(sys.argv) > 1 else 40
 rng = np.random.default_rng(10)
@@ -47,7 +45,7 @@ if os.path.exists(SCENES_CSV): #kept so a re-run samples the same days, and skip
 else:
     scenes = []
     for year in range(FIRST_YEAR, LAST_YEAR + 1):
-        items = search('sentinel-2-l2a', '{}-01-01/{}-12-31'.format(year, year), query = USABLE)
+        items = search('sentinel-2-l2a', '{}-01-01/{}-12-31'.format(year, year), query = USABLE_SCENES)
         scenes += [dict(zip(['date', 'west', 'south', 'east', 'north'], [i.datetime.strftime('%Y-%m-%d'), *i.bbox]))
                    for i in items]
         print('{}: {} usable scenes'.format(year, len(items)))

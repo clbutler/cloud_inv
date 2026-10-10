@@ -35,6 +35,8 @@ SUMMIT_RADIUS_M = 1000 #...and this close to it. A cloud sea laps up the slopes 
 LOW_CLOUD_MIN = 0.1 #share of the low ground that must be cloud for an inversion. A cloud sea filling only the
                     #valley floors covers little of an 8 km box: chosen on the hand-checked images before 2022
                     #(0.07-0.2 all equal there), then 10 of 10 found and 0 of 21 false alarms on those since
+USABLE_SCENES = {'eo:cloud_cover': {'gte': 5, 'lte': 95}, 's2:nodata_pixel_percentage': {'lte': 50}} #a scene with no
+                 #cloud can't show an inversion, an all-cloud one can't show one either, and half-empty tiles waste reads
 SCL_NODATA = [0, 1] #no data, saturated or defective
 SCL_CLOUD = [8, 9] #cloud medium and high probability; fog and stratus tops land here
 SCL_CIRRUS = 10

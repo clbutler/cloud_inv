@@ -13,7 +13,7 @@ start 2024-08-13), and lines them up with what Sentinel-2 saw on the same days. 
     python main_backcast.py compare     # the site's verdict against the satellite's
 The two fetches can run at the same time, and each carries on where it left off if stopped.
 Uses a spread of SITES munros rather than all 282: the archive counts every day of every munro against the
-free daily limit. Months where (year * 12 + month) % 3 == 0 are held out for the fair test.
+free daily limit. March, June, September and December are held out for the fair test, so each season is on both sides.
 """
 
 import sqlite3
@@ -27,14 +27,13 @@ import requests
 
 from inversion_score_function import save_scores, score_run
 from openmeteo_function import HISTORICAL_URL, fetch_forecast, munro_locations, save_forecast
-from satellite_function import munro_grids, observe, save_observations, terrain
+from satellite_function import USABLE_SCENES, munro_grids, observe, save_observations, terrain
 
 BACKCAST_DB = '../outputs/backcast.db'
 SATELLITE_DB = '../outputs/satellite.db'
 FIRST_DAY = '2024-08-13'
 SITES = 40
 CHUNK_WAIT = 12 * 60 #seconds between quarters; a quarter of 40 munros is about a fifth of the free hourly limit
-USABLE = {'eo:cloud_cover': {'gte': 5, 'lte': 95}, 's2:nodata_pixel_percentage': {'lte': 50}}
 
 
 def spread(munros, n):
@@ -50,9 +49,8 @@ def spread(munros, n):
 
 
 def held_out(dates):
-    '''true for days in every third month'''
-    d = pd.to_datetime(dates)
-    return (d.dt.year * 12 + d.dt.month) % 3 == 0
+    '''true for days in march, june, september and december'''
+    return pd.to_datetime(dates).dt.month % 3 == 0
 
 
 step = sys.argv[1] if len(sys.argv) > 1 else 'compare'
@@ -69,10 +67,12 @@ chunks = list(zip([FIRST_DAY] + quarters, [(pd.Timestamp(q) - pd.Timedelta(days 
 if step == 'forecast':
     for n, (start, end) in enumerate(chunks):
         with sqlite3.connect(BACKCAST_DB) as conn:
-            have = conn.execute("SELECT name FROM sqlite_master WHERE name = 'scores'").fetchone() and \
-                   conn.execute('SELECT COUNT(*) FROM scores WHERE date BETWEEN ? AND ?', (start, end)).fetchone()[0]
-        if have:
+            last = conn.execute("SELECT name FROM sqlite_master WHERE name = 'scores'").fetchone() and \
+                   conn.execute('SELECT MAX(date) FROM scores WHERE date BETWEEN ? AND ?', (start, end)).fetchone()[0]
+        if last and last >= end:
             continue
+        if last: #the latest chunk ends yesterday, so a later run has new days to add to it
+            start = (pd.Timestamp(last) + pd.Timedelta(days = 1)).strftime('%Y-%m-%d')
         print('Fetching {} to {}'.format(start, end))
         for attempt in range(3): #a quarter's reply is tens of MB, and a dropped connection cuts it short
             try:
@@ -94,23 +94,26 @@ if step == 'forecast':
 ####### What the satellite saw on the same days #########
 
 if step == 'satellite':
-    if 'redo' in sys.argv:
-        with sqlite3.connect(SATELLITE_DB) as conn:
-            conn.execute('DELETE FROM satellite_obs WHERE munro_id IN ({}) AND date >= ?'
-                         .format(','.join(map(str, sites['munro_id']))), (FIRST_DAY,))
+    with sqlite3.connect(SATELLITE_DB) as conn: #which months are labelled, and up to which day
+        conn.execute('CREATE TABLE IF NOT EXISTS backcast_months (month TEXT PRIMARY KEY, through TEXT)')
+        if 'redo' in sys.argv:
+            conn.execute('DELETE FROM backcast_months')
+            if conn.execute("SELECT name FROM sqlite_master WHERE name = 'satellite_obs'").fetchone():
+                conn.execute('DELETE FROM satellite_obs WHERE munro_id IN ({}) AND date >= ?'
+                             .format(','.join(map(str, sites['munro_id']))), (FIRST_DAY,))
+        done = dict(conn.execute('SELECT month, through FROM backcast_months').fetchall())
     dem = terrain(munro_grids(sites))
     for start in pd.date_range(FIRST_DAY, yesterday, freq = 'MS').union([pd.Timestamp(FIRST_DAY)]):
-        end = min(start + pd.offsets.MonthEnd(0), pd.Timestamp(yesterday))
-        with sqlite3.connect(SATELLITE_DB) as conn:
-            done = conn.execute("SELECT name FROM sqlite_master WHERE name = 'satellite_obs'").fetchone() and \
-                   conn.execute('SELECT COUNT(*) FROM satellite_obs WHERE munro_id IN ({}) AND date BETWEEN ? AND ?'
-                                .format(','.join(map(str, sites['munro_id']))),
-                                (start.strftime('%Y-%m-%d'), end.strftime('%Y-%m-%d'))).fetchone()[0]
-        if done:
+        start = max(start, pd.Timestamp(FIRST_DAY))
+        month = start.strftime('%Y-%m')
+        end = min(start + pd.offsets.MonthEnd(0), pd.Timestamp(yesterday)).strftime('%Y-%m-%d')
+        if done.get(month, '') >= end:
             continue
-        obs = observe(sites, start.strftime('%Y-%m-%d'), end.strftime('%Y-%m-%d'), dem = dem, query = USABLE)
+        obs = observe(sites, start.strftime('%Y-%m-%d'), end, dem = dem, query = USABLE_SCENES)
         if len(obs):
-            save_observations(obs, SATELLITE_DB)
+            save_observations(obs, SATELLITE_DB) #replaces any earlier rows for the same munro and day
+        with sqlite3.connect(SATELLITE_DB) as conn: #a month with nothing usable is marked too, so it isn't searched again
+            conn.execute('INSERT OR REPLACE INTO backcast_months VALUES (?, ?)', (month, end))
 
 
 ####### The site's verdict against the satellite's #########

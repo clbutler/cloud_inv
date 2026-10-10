@@ -15,8 +15,8 @@ Batch 2: every day the site rated Likely or Possible, a share of those the rule 
 didn't, and a small random share of the rest. Each is picked by a hash of its date and munro, so re-running after
 main_backcast.py has added more days only adds cards. The page never shows the site's or the rule's verdict, and
 the cards are shuffled, so neither can sway your answer. Where Geograph has a photo taken near the
-munro that day, about 1 card in 5 gets a second step: the photo is only revealed after you answer from the
-satellite view. held_out marks the days kept for the fair test: from 2022 in batch 1, every third month in batch 2.
+munro that day (rare on an ordinary day), the card gets a second step: the photo is only revealed after you
+answer from the satellite view. held_out marks the days kept for the fair test: from 2022 in batch 1, every third month in batch 2.
 Re-running keeps the answers already in the checks csv.
 """
 
@@ -46,7 +46,6 @@ BATCH_DIR = '../outputs/satellite_{}'.format(BATCH)
 MIX = {'inversion': 40, 'mixed': 17, 'clear': 5, 'summit_cloud': 5} #batch 1: 60 / 25 / 15 %, scaled to the 40 inversions found
 MISSED_SHARE = 0.25 #batch 2: share of 'rule says inversion, site says Unlikely' days to check
 RANDOM_SHARE = 0.015 #batch 2: share of all other days, so about 1 card in 5 is a random one
-PHOTO_SHARE = 0.2 #share of cards that get the ground photo step
 PHOTO_KM = 10 #a photo counts if it was taken this close to the summit
 PHOTO_CACHE = '../outputs/geograph_days' #each day's geograph photos, so a rebuild only asks about new days
 ANSWER_COLUMNS = ['visible', 'photo_shows', 'notes'] #filled in on the review page
@@ -109,21 +108,20 @@ for date in sorted(cards['date'].unique()):
         km = np.hypot(px - grids.at[i, 'easting'], py - grids.at[i, 'northing']) / 1000
         near = photos.assign(km = km)[km <= PHOTO_KM].sort_values('km').head(3) #the closest three are plenty
         cards.at[i, 'photo_links'] = ' '.join('https://www.geograph.org.uk/photo/' + near['id'].astype(str))
-has_photo = cards.index[cards['photo_links'] != '']
-show = rng.choice(has_photo, size = min(len(has_photo), round(PHOTO_SHARE * len(cards))), replace = False)
-cards['photo_step'] = cards.index.isin(show)
-print('{} cards have a Geograph photo within {} km; {} get the photo step'.format(len(has_photo), PHOTO_KM, len(show)))
+cards['photo_step'] = cards['photo_links'] != '' #every card with a photo: they're too rare to leave any out
+old = pd.read_csv(CHECKS_CSV, dtype = str, keep_default_na = False) if os.path.exists(CHECKS_CSV) else None
+print('{} cards have a Geograph photo within {} km for the photo step'.format(cards['photo_step'].sum(), PHOTO_KM))
 
 
 ####### Step 3 Draw each satellite view, with nothing that gives the rule's verdict away #########
 
 os.makedirs(BATCH_DIR, exist_ok = True)
-dem = terrain(grids)
+drawn = lambda image: os.path.exists(os.path.join(BATCH_DIR, image))
+to_draw = grids[~grids['image'].map(drawn)]
+dem = terrain(to_draw) if len(to_draw) else {}
 extent = [-RADIUS_M / 1000, RADIUS_M / 1000] * 2 #km from the summit
-for i, row in grids.iterrows():
+for i, row in to_draw.iterrows():
     path = os.path.join(BATCH_DIR, row['image'])
-    if os.path.exists(path):
-        continue
     rgb = true_colour(row['scene_id'], row)
     if rgb is None:
         print('Could not read {}; run again to retry'.format(row['image']))
@@ -141,12 +139,15 @@ for i, row in grids.iterrows():
 
 ####### Step 4 The checks csv, keeping any answers already given #########
 
+missing = ~cards['image'].map(drawn)
+if missing.any(): #left off the page until a re-run draws them, rather than shown as a broken image
+    print('{} cards left out until their image can be read'.format(missing.sum()))
 columns = ['image', 'date', 'munro_id', 'name', 'height_m', 'scene_id', 'overpass_time', 'held_out', 'label',
            'summit_cloud', 'low_cloud', 'photo_step', 'photo_links'] + (['rag'] if 'rag' in cards else []) + ANSWER_COLUMNS
-checks = cards.reindex(columns = columns)
-if os.path.exists(CHECKS_CSV):
-    old = pd.read_csv(CHECKS_CSV, dtype = str, keep_default_na = False).set_index('image')[ANSWER_COLUMNS]
-    checks = checks.set_index('image').drop(columns = ANSWER_COLUMNS).join(old).reset_index()[columns]
+checks = cards[~missing].reindex(columns = columns).fillna('').astype(str)
+if old is not None: #a card already in the csv keeps its row as it was when picked, answers and all, even if it
+                    #would no longer be picked (the labeller changed, or the scan grew); new cards are added after it
+    checks = pd.concat([old.reindex(columns = columns), checks[~checks['image'].isin(old['image'])]], ignore_index = True)
 checks = checks.fillna('')
 checks.to_csv(CHECKS_CSV, index = False)
 
