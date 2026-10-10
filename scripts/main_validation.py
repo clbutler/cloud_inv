@@ -49,11 +49,16 @@ def share(k, n, z = 1.96):
     return '{}/{} = {:.0%} (95 % range {:.0%}–{:.0%})'.format(k, n, p, centre - half, centre + half)
 
 
+def counts(said, truth):
+    '''true positives, false positives, false negatives and true negatives of a yes/no call'''
+    return (said & truth).sum(), (said & ~truth).sum(), (~said & truth).sum(), (~said & ~truth).sum()
+
+
 def rates(df, said, truth):
     '''precision and recall of a yes/no call against the hand check'''
-    tp, fp, fn = (said & truth).sum(), (said & ~truth).sum(), (~said & truth).sum()
-    return 'right when it says inversion {}/{} ({:.0%}); finds {}/{} ({:.0%})'.format(
-        tp, tp + fp, tp / max(tp + fp, 1), tp, tp + fn, tp / max(tp + fn, 1))
+    tp, fp, fn, _ = counts(said, truth)
+    return 'precision {:.1%} ({}/{}), recall {:.1%} ({}/{})'.format(
+        tp / max(tp + fp, 1), tp, tp + fp, tp / max(tp + fn, 1), tp, tp + fn)
 
 
 ####### The hand-checked views #########
@@ -161,11 +166,11 @@ for rag in ['Green', 'Amber', 'Red']:
         (c['label'] == 'inversion').sum(), len(c), (c['label'] == 'inversion').mean()) for c in cells]))
 
 flagged, seen = backcast['rag'].isin(['Green', 'Amber']), backcast['label'] == 'inversion'
-tp, fp, fn, tn = (flagged & seen).sum(), (flagged & ~seen).sum(), (~flagged & seen).sum(), (~flagged & ~seen).sum()
+tp, fp, fn, tn = counts(flagged, seen)
 print('\nConfusion matrix (Likely or Possible counts as yes):\n')
 print('| | labeller saw an inversion | labeller saw none |\n|---|---|---|')
-print('| cloudflip said Likely or Possible | {} true positives | {} false positives |'.format(tp, fp))
-print('| cloudflip said Unlikely | {} false negatives | {} true negatives |'.format(fn, tn))
+print('| **cloudflip said Likely or Possible** | **{}** true positives | **{}** false positives |'.format(tp, fp))
+print('| **cloudflip said Unlikely** | **{}** false negatives | **{:,}** true negatives |'.format(fn, tn))
 print('\n- all months: ' + rates(backcast, flagged, seen))
 for h, idx in backcast.groupby('held_out').groups.items():
     print('- {}: '.format('held-out months' if h else 'other months') + rates(backcast.loc[idx], flagged[idx], seen[idx]))

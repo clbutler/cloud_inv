@@ -18,6 +18,8 @@ Scotland's 282 Munros, the mountains over 3,000 ft, are among the best places in
 
 ## How accurate is it?
 
+cloudflip gives each Munro one of three verdicts every morning: **Likely**, **Possible** or **Unlikely**, built from four checks on the forecast (see [How the forecast is scored](#how-the-forecast-is-scored)).
+
 **Headlines**, from 7,814 past mornings at 40 Munros (August 2024 to June 2026), each set against an automatic reading of a satellite view of the same morning:
 
 - **Inversions are rare.** On the average Munro morning, only about 1 in 65 (1.5 %) still has one visible from space at 11:30 UTC.
@@ -25,7 +27,7 @@ Scotland's 282 Munros, the mountains over 3,000 ft, are among the best places in
 - **It misses most inversions.** Only about 1 in 7 (15 %) of the inversions seen had been rated Likely or Possible.
 - **Treat these as rough.** The automatic reading is itself wrong about 4 times in 10 when it says "inversion", which could push the figures either way. And cloudflip forecasts sunrise while the satellite looks at about 11:30 UTC, after many inversions have cleared, which probably makes the forecast look worse than it is at dawn.
 
-The forecast is judged by an automatic labeller reading satellite views (see [How the satellite check works](#how-the-satellite-check-works)). The forecast figures come first below, then the two checks they rest on: that an inversion can be recognised from space at all, and that the labeller recognises it.
+The forecast is judged by an automatic labeller reading satellite views, explained in [How the satellite check works](#how-the-satellite-check-works). The forecast figures come first below, then the two checks they rest on: that an inversion can be recognised from space at all, and that the labeller recognises it.
 
 ### Does the forecast work?
 
@@ -60,7 +62,7 @@ Broken down by verdict:
 
 The held-back months (March, June, September and December) look similar: precision 9 % and recall 13 %, against 7 % and 16 % in the other months. But that rests on only 6 caught inversions, so it's a rough check rather than a confirmation.
 
-Two things to bear in mind. The labeller that stands in for the truth is itself right only about 6 times in 10 when it says "inversion" (see below), so some of the true positives and false negatives are wrong. And cloudflip forecasts sunrise while the satellite sees 11:30 UTC, so the forecast is probably better at dawn than these figures show. Of the Possible mornings checked by eye, none where the satellite showed the summit in cloud was an inversion. Either the clear-summit check is too lenient, or the cloud lifted over the summit after dawn. A late-morning picture can't tell those apart.
+Of the Possible mornings checked by eye, none where the satellite showed the summit in cloud was an inversion. Either the [clear-summit check](#how-the-forecast-is-scored) is too lenient, or the cloud lifted over the summit after dawn. A late-morning picture can't tell those apart.
 
 ### Can you tell an inversion from space?
 
