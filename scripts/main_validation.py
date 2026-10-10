@@ -168,9 +168,9 @@ for rag in ['Green', 'Amber', 'Red']:
 flagged, seen = backcast['rag'].isin(['Green', 'Amber']), backcast['label'] == 'inversion'
 tp, fp, fn, tn = counts(flagged, seen)
 print('\nConfusion matrix (Likely or Possible counts as yes):\n')
-print('| | labeller saw an inversion | labeller saw none |\n|---|---|---|')
-print('| **cloudflip said Likely or Possible** | **{}** true positives | **{}** false positives |'.format(tp, fp))
-print('| **cloudflip said Unlikely** | **{}** false negatives | **{:,}** true negatives |'.format(fn, tn))
+print('| | **Actual positive**<br/>labeller saw an inversion | **Actual negative**<br/>labeller saw none |\n|---|---|---|')
+print('| **Predicted positive**<br/>cloudflip said Likely or Possible | **True positive**<br/>{} | **False positive**<br/>{} |'.format(tp, fp))
+print('| **Predicted negative**<br/>cloudflip said Unlikely | **False negative**<br/>{} | **True negative**<br/>{:,} |'.format(fn, tn))
 print('\n- all months: ' + rates(backcast, flagged, seen))
 for h, idx in backcast.groupby('held_out').groups.items():
     print('- {}: '.format('held-out months' if h else 'other months') + rates(backcast.loc[idx], flagged[idx], seen[idx]))

@@ -35,10 +35,10 @@ The site's scoring was run on [archived Met Office forecasts](https://open-meteo
 
 **The confusion matrix.** This counts every morning by what cloudflip said and what the labeller read in that morning's satellite view. "Likely" and "Possible" both count as cloudflip saying yes.
 
-| | labeller saw an inversion | labeller saw none |
+| | **Actual positive**<br/>labeller saw an inversion | **Actual negative**<br/>labeller saw none |
 |---|---|---|
-| **cloudflip said Likely or Possible** | **18** true positives | **211** false positives |
-| **cloudflip said Unlikely** | **101** false negatives | **7,484** true negatives |
+| **Predicted positive**<br/>cloudflip said Likely or Possible | **True positive**<br/>18 | **False positive**<br/>211 |
+| **Predicted negative**<br/>cloudflip said Unlikely | **False negative**<br/>101 | **True negative**<br/>7,484 |
 
 - **True positive**: cloudflip said yes and there was an inversion (caught).
 - **False positive**: cloudflip said yes but there was none (a false alarm).
