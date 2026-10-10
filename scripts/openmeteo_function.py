@@ -15,6 +15,8 @@ import requests
 
 
 API_URL = 'https://api.open-meteo.com/v1/forecast'
+HISTORICAL_URL = 'https://historical-forecast-api.open-meteo.com/v1/forecast' #past forecasts; the met office
+                                                                             #pressure levels start 2024-08-13
 PRESSURE_LEVELS = [1000, 975, 950, 925, 900, 850] #hPa, roughly 100 m to 1500 m
 SURFACE_VARIABLES = ['temperature_2m', 'dew_point_2m', 'relative_humidity_2m', 'cloud_cover_low', 'cloud_cover_mid',
                      'cloud_cover_high', 'wind_speed_10m', 'pressure_msl']
@@ -36,11 +38,11 @@ def munro_locations(munro_gdf):
     return locations.reset_index(drop = True)
 
 
-def get_with_retries(params):
+def get_with_retries(params, api_url = API_URL):
     '''requests the forecast, waiting and trying again after a rate limit, server error or timeout'''
     for wait in RETRY_WAITS + [None]:
         try:
-            response = requests.get(API_URL, params = params, timeout = 120)
+            response = requests.get(api_url, params = params, timeout = 120)
             if response.status_code != 429 and response.status_code < 500:
                 return response
             problem = 'Open-Meteo returned {}'.format(response.status_code)
@@ -56,10 +58,12 @@ def get_with_retries(params):
     return response
 
 
-def fetch_forecast(locations, model = 'ukmo_seamless', batch_size = 50):
+def fetch_forecast(locations, model = 'ukmo_seamless', batch_size = 50, start_date = None, end_date = None,
+                   api_url = API_URL):
     '''fetches the hourly open-meteo forecast for every munro, one row per munro per hour,
     plus the sunrise time for each munro and day.
-    elevation=nan turns off open-meteo's lapse-rate adjustment, so values are the model's own'''
+    elevation=nan turns off open-meteo's lapse-rate adjustment, so values are the model's own.
+    With start_date and end_date (and HISTORICAL_URL) it fetches those past days instead of the next 7'''
     forecast_dfs = []
     sunrise_dfs = []
     for start in range(0, len(locations), batch_size):
@@ -71,10 +75,10 @@ def fetch_forecast(locations, model = 'ukmo_seamless', batch_size = 50):
             'hourly': ','.join(HOURLY_VARIABLES),
             'daily': 'sunrise',
             'models': model,
-            'forecast_days': 7,
-            'timezone': 'GMT'
+            'timezone': 'GMT',
+            **({'start_date': start_date, 'end_date': end_date} if start_date else {'forecast_days': 7})
             }
-        response = get_with_retries(params) #open-meteo has a per-minute limit, and each munro counts as a call
+        response = get_with_retries(params, api_url) #open-meteo has a per-minute limit, and each munro counts as a call
         response.raise_for_status()
         results = response.json()
         if isinstance(results, dict): #a single location comes back as a dict, not a list

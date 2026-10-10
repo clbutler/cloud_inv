@@ -69,7 +69,7 @@ gh release download data --pattern forecasts.db --dir outputs
 
 ## Checking against satellite images
 
-Work in progress, on the `satellite-validation` branch. The aim is to check the forecast against what actually happened and, later, to collect labelled images for training a model.
+Work in progress. The aim is to check the forecast against what actually happened and, later, to collect labelled images for training a model.
 
 From above, an inversion looks like a sea of cloud filling the low ground, with the hilltops clear. [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) photographs Britain every 2 to 5 days at 10 m resolution, so a script can look for that pattern.
 
@@ -87,20 +87,83 @@ flowchart LR
    - **the top**: ground within 100 m of the summit height and within 1 km of it;
    - **the low ground**: more than 300 m below the summit, or halfway down to the valley floor on hills too small for that.
 
-   It labels the pass **inversion** (10 % or less cloud on the top and at least 10 % on the low ground), **summit in cloud**, **clear**, **mixed** or **no data**. Away from the Munros, the "summit" is the highest ground within 1 km of where the photo was taken.
+   It labels the pass **inversion** (10 % or less cloud on the top, at least 10 % on the low ground, and the low ground at least 20 points whiter than the ground above it), **snow** (no verdict), **summit in cloud**, **clear**, **mixed** or **no data**. Away from the Munros, the "summit" is the highest ground within 1 km of where the photo was taken.
 3. **Images and review.** `main_satellite_sightings.py` runs the labeller on each checked sighting. `main_satellite_images.py` draws the true-colour image of each pass, and `main_review_page.py` builds a local page for marking whether an inversion is visible in each one.
 4. **Forecast check.** `main_satellite.py` labels every Munro on each day with saved scores and compares the labels with the forecast made before the pass.
+5. **Random days.** `main_satellite_scan.py` samples days across every month since 2017, and `main_backcast.py` scores past days with archived forecasts. `main_review_batch.py` turns either into a review page. The page shows neither the labeller's nor the site's verdict, and reveals a ground photo, where one exists, only after the satellite view has been answered.
 
-**Results so far.** On 59 hand-checked Sentinel-2 images, the labeller found 79 % (19/24) of the visible cloud inversions, with a 3 % (1/35) false-positive rate. When it said "inversion" it was right 19 times in 20. The low-cloud threshold was chosen on the images from before 2022. On the held-out images from 2022 onwards, it found 10/10 with no false positives.
+**Can you tell an inversion from a satellite view?** The labels below come from a person looking at each Sentinel-2 view. So first, a check of that person against the ground. Where a [Geograph](https://www.geograph.org.uk) photo was taken near the same hill on the same day, the photo was judged separately from the satellite view, and the satellite view was answered first so the photo couldn't sway it.
+
+| | satellite view: inversion | satellite view: none | total |
+|---|---|---|---|
+| photo: inversion | 21 | 14 | 35 |
+| photo: none | 3 | 30 | 33 |
+
+Over 68 views on 48 days:
+
+| | photo agrees | 95 % range |
+|---|---|---|
+| satellite view says inversion | 21 of 24 (88 %) | 69–96 % |
+| satellite view says none, when the photo shows none | 30 of 33 (91 %) | 76–97 % |
+| photo shows an inversion and the satellite view sees it | 21 of 35 (60 %) | 44–74 % |
+
+Overall agreement is 75 % (Cohen's kappa 0.50, where 0 is chance and 1 is perfect). Almost every disagreement is a photo of an inversion with no inversion in the satellite view. Geograph records the day a photo was taken but not the time, and Sentinel-2 passes at about 11:30 UTC, so most of these are probably inversions that had cleared by the pass. That can't be proved from the data, so the honest reading is: a "yes" from the satellite view is reliable, but the satellite view misses inversions that don't last until late morning.
+
+The automatic labeller can also be checked against the photos directly, with no person in between (72 views):
+
+| | photo agrees | 95 % range |
+|---|---|---|
+| labeller says inversion | 14 of 15 (93 %) | 70–99 % |
+| labeller says none, when the photo shows none | 31 of 32 (97 %) | 84–99 % |
+| photo shows an inversion and the labeller sees it | 14 of 40 (35 %) | 22–50 % |
+
+So the labeller is cautious: when it calls an inversion the ground almost always agrees, but it calls far fewer than the photographers saw.
+
+**How good is the automatic labeller?** Against those satellite-view answers, on 557 views over 263 days:
+
+| | labeller: inversion | labeller: other | total |
+|---|---|---|---|
+| checked: inversion | 40 | 20 | 60 |
+| checked: none | 30 | 467 | 497 |
+
+When it says "inversion" it is right 57 % of the time (40/70), and it finds 67 % of the inversions (40/60). The thresholds were set on days outside the held-out months. On the held-out days alone it is right 58 % of the time (19/33) and finds 76 % (19/25), so the rules aren't just fitted to the data they were tuned on.
+
+An earlier version looked much better: 19 right out of 20 "inversion" calls. That test used only days when someone had photographed an inversion, mostly on low hills in England. On random Munro days its "inversions" were mostly snow, which Sentinel-2's own classes call "not cloud", and scattered cumulus that happened to miss the summit. Two rules fixed most of that:
+- **Snow**: a view with snow in it gets no verdict.
+- **Contours**: a cloud sea follows the contours, so the low ground must be clearly whiter than the ground above it. Cumulus whitens both alike.
+
+**How good is the forecast?** For 40 Munros spread across Scotland, the site's scoring was run on [archived Met Office forecasts](https://open-meteo.com/en/docs/historical-forecast-api) from August 2024 (`main_backcast.py`). Each morning was set against the satellite view of the same day (`main_review_batch.py batch2`). Every Likely and Possible day was checked, plus a random sample of Unlikely days and some Unlikely days the labeller had flagged.
+
+| site's verdict | checked: inversion | checked: none | total |
+|---|---|---|---|
+| Likely | 2 | 17 | 19 |
+| Possible | 12 | 198 | 210 |
+| Unlikely (random sample) | 1 | 104 | 105 |
+| Unlikely (flagged by the labeller) | 17 | 80 | 97 |
+
+The same comparison at scale uses the labeller instead of a person, on every scored day with a usable satellite view: 7,814 Munro-days on 445 days, snowy views left out.
+
+| site's verdict | labeller saw an inversion | held-out months | other months |
+|---|---|---|---|
+| Likely | 3 of 19 (16 %) | 1 of 8 (13 %) | 2 of 11 (18 %) |
+| Possible | 15 of 210 (7.1 %) | 5 of 59 (8.5 %) | 10 of 151 (6.6 %) |
+| Unlikely | 101 of 7,585 (1.3 %) | 40 of 2,696 (1.5 %) | 61 of 4,889 (1.2 %) |
+
+A Likely morning is about 12 times as likely as an Unlikely one to still show an inversion at 11:30, and a Possible one about 5 times, and that holds in the held-out months. But the site rated only 18 of the 119 inversions the labeller saw as Likely or Possible, so it misses most of them.
+
+In the hand-checked table, Possible days show an inversion at 11:30 more often than random Unlikely days (6 % against 1 %), but few of the site's Likely or Possible mornings still have one by the time the satellite passes. Where the satellite saw the summit in cloud on a Possible day, there was never an inversion. Either the clear top check is too lenient, or the cloud lifted after dawn. A dawn forecast checked against a late-morning picture can't tell those apart, so this table is a lower bound on how well the forecast does at sunrise.
+
+All these tables are rebuilt from the hand checks and the backcast by `python main_validation.py`.
 
 **Limits.**
-- Sentinel-2 passes at about 11:30 UTC, so the labeller only sees inversions that last until then. Of 93 photo-confirmed inversion days, 53 had no pass over that spot at all.
-- The numbers are small, and nearly every test image comes from a day when someone photographed an inversion. On ordinary showery days the false-positive rate may be higher.
-- In winter, snow and long shadows can confuse Sentinel-2's cloud classification.
+- Sentinel-2 passes at about 11:30 UTC, so neither the labeller nor the hand checks see inversions that clear earlier. Of 93 photo-confirmed inversion days, 53 had no pass over that spot at all.
+- The 60 inversions checked by hand come from 32 separate days, and many from a few settled spells, so the percentages are still rough.
+- Ground photos are rare on random days: the nearest Geograph photo of an ordinary day is usually 15 to 100 km from the Munro.
 
 | File | What it holds |
 |---|---|
 | `data/inversion_sightings.csv` | Geograph sightings: date, place, nearest Munro, link, and the hand checks `checked` and `inversion` (Y/N) |
+| `data/satellite_batch1_checks.csv`, `data/satellite_batch2_checks.csv` | hand checks of random Munro days (batch 1) and of past days the site scored (batch 2): `visible`, and `photo_shows` where a ground photo was revealed |
 | `data/satellite_image_checks.csv` | one row per satellite pass over a sighting: the labeller's verdict and the hand check `visible` (is an inversion visible in the image: Y, N, maybe or unclear) |
 | `outputs/satellite_vs_sightings.csv`, `outputs/satellite_images/` | the labeller's results, images and review page (not in git, rebuilt by the scripts) |
 | `outputs/satellite.db`, `outputs/satellite_vs_scores.csv` | Munro labels for the days with saved scores, and the comparison with the forecast (not in git) |
@@ -112,6 +175,10 @@ python main_satellite_sightings.py  # run the labeller on the checked sightings,
 python main_satellite_images.py     # true-colour image of each pass (--classes adds the cloud classes)
 python main_review_page.py          # then open ../outputs/satellite_images/review.html
 python main_satellite.py            # label the Munros and compare with the forecast (needs forecasts.db)
+python main_backcast.py forecast    # score past days from archived forecasts, about 2 hours (free API limits)
+python main_backcast.py satellite   # label the satellite passes for the same Munros and days
+python main_review_batch.py batch2  # then open ../outputs/satellite_batch2/review.html
+python main_validation.py           # the evidence tables above
 ```
 
 ## Running it locally
