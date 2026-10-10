@@ -159,3 +159,18 @@ for rag in ['Green', 'Amber', 'Red']:
                                                  for h in (True, False)]
     print('| {} | {} | {} | {} |'.format(RAG_WORDS[rag], *['{}/{} ({:.1%})'.format(
         (c['label'] == 'inversion').sum(), len(c), (c['label'] == 'inversion').mean()) for c in cells]))
+
+flagged, seen = backcast['rag'].isin(['Green', 'Amber']), backcast['label'] == 'inversion'
+tp, fp, fn, tn = (flagged & seen).sum(), (flagged & ~seen).sum(), (~flagged & seen).sum(), (~flagged & ~seen).sum()
+print('\nConfusion matrix (Likely or Possible counts as yes):\n')
+print('| | satellite saw an inversion | satellite saw none |\n|---|---|---|')
+print('| cloudflip said Likely or Possible | {} (caught) | {} (false alarm) |'.format(tp, fp))
+print('| cloudflip said Unlikely | {} (missed) | {} (correctly ruled out) |'.format(fn, tn))
+print('\n- precision {:.1%}, recall {:.1%}, accuracy {:.1%}; inversions on {:.2%} of mornings'.format(
+    tp / (tp + fp), tp / (tp + fn), (tp + tn) / len(backcast), seen.mean()))
+print('- Unlikely right {:.1%}; a flagged morning is {:.1f} times as likely as an ordinary one to have an inversion'.format(
+    tn / (tn + fn), (tp / (tp + fp)) / seen.mean()))
+for h, part in backcast.groupby('held_out'):
+    f, i = part['rag'].isin(['Green', 'Amber']), part['label'] == 'inversion'
+    print('- {}: precision {:.1%}, recall {:.1%}'.format('held-out months' if h else 'other months',
+          (f & i).sum() / f.sum(), (f & i).sum() / i.sum()))

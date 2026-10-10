@@ -4,6 +4,8 @@
 
 **Live site: [yourcloudflip.netlify.app](https://yourcloudflip.netlify.app)**
 
+**How good is it?** Checked against satellite views of 7,814 past Munro mornings, a "Likely" morning was about 10 times as likely as an ordinary one to still have an inversion visible from space, and "Unlikely" was right 98.7 % of the time. But it flags only about 1 in 7 inversions. [More below](#how-accurate-is-it).
+
 [![Nightly forecast](https://github.com/clbutler/cloud_inv/actions/workflows/nightly.yml/badge.svg)](https://github.com/clbutler/cloud_inv/actions/workflows/nightly.yml)
 
 [![cloudflip: a 7-day strip, a map of all 282 Munros and the four checks for one hill](docs/screenshot.png)](https://yourcloudflip.netlify.app)
@@ -50,7 +52,15 @@ The thresholds come from the Mountain Weather Information Service (MWIS) article
 
 ## How accurate is it?
 
-The forecast is checked against satellite pictures of the same mornings (see [How the satellite check works](#how-the-satellite-check-works)). Before trusting that, two other things need checking: that an inversion can be recognised from space at all, and that the automatic labeller recognises it.
+**Headlines**, from 7,814 past mornings at 40 Munros (August 2024 to June 2026), each checked against a satellite view of the same morning:
+
+- **Inversions are rare.** On an ordinary Munro morning, only about 1 in 65 (1.5 %) still has one visible from space at 11:30 UTC.
+- **"Likely" raises the odds about 10 times**, to about 1 in 6 (16 %). "Likely" or "Possible" together raises them about 5 times, to about 1 in 13 (8 %).
+- **"Unlikely" is a safe call.** When cloudflip said Unlikely, there was no inversion 98.7 % of the time.
+- **But it misses most inversions.** Only about 1 in 7 (15 %) of the inversions the satellite saw had been rated Likely or Possible.
+- **These are lower bounds.** cloudflip forecasts sunrise, and the satellite looks at about 11:30 UTC, after many inversions have cleared.
+
+The rest of this section says how those figures were reached. The forecast is judged by an automatic labeller reading satellite views (see [How the satellite check works](#how-the-satellite-check-works)), so first come two checks on that: that an inversion can be recognised from space at all, and that the labeller recognises it.
 
 ### Can you tell an inversion from space?
 
@@ -86,17 +96,33 @@ Some views were held back as a check: March, June, September and December for th
 
 ### Does the forecast work?
 
-The site's scoring was run on [archived Met Office forecasts](https://open-meteo.com/en/docs/historical-forecast-api) for 40 Munros spread across Scotland, from August 2024 to June 2026. Each morning's verdict was then set against the labeller's reading of that day's satellite view: 7,814 Munro-mornings with a usable view, snowy views left out.
+The site's scoring was run on [archived Met Office forecasts](https://open-meteo.com/en/docs/historical-forecast-api) for 40 Munros spread across Scotland, from August 2024 to June 2026. Each morning's verdict was then set against the labeller's reading of that day's satellite view: 7,814 Munro-mornings from 445 days with a usable view, snowy views left out.
 
-| Site's verdict | Inversion still visible at 11:30 |
+**The confusion matrix.** This counts every morning by what cloudflip said and what the satellite saw. "Likely" and "Possible" both count as cloudflip saying yes.
+
+| | satellite saw an inversion | satellite saw none |
+|---|---|---|
+| **cloudflip said Likely or Possible** | 18 (caught) | 211 (false alarm) |
+| **cloudflip said Unlikely** | 101 (missed) | 7,484 (correctly ruled out) |
+
+Two figures come from it:
+
+- **Precision: 7.9 %.** Of the 229 mornings cloudflip flagged, 18 had an inversion. This answers "if the site says Likely or Possible, how often is it right?" On its own 7.9 % sounds low, but only 1.5 % of all mornings had an inversion, so a flagged morning is about 5 times as likely as an ordinary one.
+- **Recall: 15 %.** Of the 119 inversions the satellite saw, cloudflip had flagged 18. This answers "of the inversions that happened, how many did the site see coming?"
+
+Plain accuracy (the share of all mornings called correctly) is 96 %, but it isn't a useful measure here: inversions are so rare that a site saying "Unlikely" every single day would score 98.5 %. Precision and recall are what show whether the forecast actually finds inversions.
+
+Broken down by verdict:
+
+| cloudflip's verdict | inversion still visible at 11:30 UTC |
 |---|---|
-| Likely | **16 %** |
-| Possible | **7 %** |
-| Unlikely | **1.3 %** |
+| Likely | **16 %** (1 in 6) |
+| Possible | **7 %** (1 in 14) |
+| Unlikely | **1.3 %** (1 in 75) |
 
-A Likely morning is about 12 times as likely as an Unlikely one to show an inversion, and a Possible one about 5 times. The same pattern holds in the held-back months. But the forecast misses most inversions: only 15 % of the ones the satellite saw had been rated Likely or Possible.
+The same pattern holds in the held-back months (March, June, September and December): precision 9 % and recall 13 % there, against 7 % and 16 % in the other months.
 
-These figures understate the forecast at sunrise. It scores dawn, and the satellite sees 11:30, by which time many inversions have lifted or cleared. Of the Possible mornings checked by eye, none where the satellite showed the summit in cloud was an inversion. Either the clear-summit check is too lenient, or the cloud lifted over the summit after dawn. A late-morning picture can't tell those apart.
+Two things to bear in mind. The labeller that stands in for the truth is itself right only about 6 times in 10 when it says "inversion" (above), so some "caught" and "missed" mornings are wrong. And cloudflip forecasts sunrise while the satellite sees 11:30 UTC, so the forecast is probably better at dawn than these figures show. Of the Possible mornings checked by eye, none where the satellite showed the summit in cloud was an inversion. Either the clear-summit check is too lenient, or the cloud lifted over the summit after dawn. A late-morning picture can't tell those apart.
 
 **Limits.** The 60 inversions checked by eye come from 32 separate days, many from a few settled spells, so the percentages are still rough. Sentinel-2 passes each place only every 2 to 5 days. The labeller can't judge snowy hills, because Sentinel-2's own classes mix up snow and cloud tops.
 
