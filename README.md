@@ -131,6 +131,22 @@ The numbers behind those questions:
 
 **How the views were judged by eye.** `main_review_batch.py` builds a review page of satellite views. The page shows neither the labeller's verdict nor the forecast, and the cards are shuffled, so neither can sway the answer. Where a Geograph photo exists, it's revealed only after the satellite view has been answered. The batches so far are 67 random days since 2017 (`main_satellite_scan.py`) and 431 mornings the site had scored (`main_backcast.py`).
 
+## Project status
+
+The original requirements (MoSCoW), and where they stand:
+
+| Priority | Requirement | Status |
+|---|---|---|
+| Must | Inversion likelihood for any individual Munro | ✅ Done: click any Munro on the map or in the list |
+| Must | Usable without running Python | ✅ Done: [hosted on Netlify](https://yourcloudflip.netlify.app), updated nightly |
+| Must | Show when the data was fetched | ✅ Done: in the site footer |
+| Should | Map of all Munros | ✅ Done |
+| Should | Compare Munros | ✅ Done: "best bets" ranks every Munro for the chosen day |
+| Should | Red/Amber/Green rating | ✅ Done, as Likely/Possible/Unlikely in sunrise colours, which are easier to read than red/green for colour-blind users |
+| Could | Choose future dates | ✅ Done: 7-day strip |
+| Could | Breakdown of the rating | ✅ Done: the four checks, with their values |
+| Won't | Locations other than Munros | Out of scope |
+
 ## For developers
 
 ### Running it locally
