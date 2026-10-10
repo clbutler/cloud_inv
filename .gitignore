@@ -15,3 +15,14 @@ outputs/munros.html
 # local log written by the Claude Code hook in .claude/settings.json
 .claude/hook-log.jsonl
 .claude/last-reviewed
+
+# satellite review batches (scripts/main_satellite_scan.py, main_review_batch.py); answers live in data/
+outputs/satellite_scan.csv
+outputs/satellite_scan_scenes.csv
+outputs/satellite_scan.log
+outputs/satellite_batch*/
+outputs/geograph_days/
+outputs/backcast.db
+outputs/backcast_*.log
+outputs/backcast_vs_satellite.csv
+outputs/validation_labels.csv

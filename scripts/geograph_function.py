@@ -38,6 +38,24 @@ def search_photos(match = MATCH, limit = 5000):
     return pd.DataFrame(result['rows'])
 
 
+def photos_on_day(date, country = 'Scotland'):
+    '''every photo taken in one country on one day (YYYY-MM-DD), whatever it shows, with lat/lon in degrees: where
+    the photographer stood if given, otherwise what was photographed. The api can filter by day and country but not
+    by distance, and returns at most 1000 rows, so a busy day across all of britain would be cut short'''
+    where = "takenday='{}' and country='{}'".format(date.replace('-', ''), country)
+    response = requests.get(API_URL, timeout = 120, params = {'select': ','.join(FIELDS), 'limit': 1000, 'where': where})
+    response.raise_for_status()
+    result = response.json()
+    if 'rows' not in result:
+        raise RuntimeError('Geograph search failed: {}'.format(result))
+    if int(result['meta']['total_found']) > 1000:
+        print('Geograph: {} has more than 1000 photos in {}; only the first 1000 are used'.format(date, country))
+    photos = pd.DataFrame(result['rows'] or [], columns = FIELDS)
+    has_view = photos['vgrlen'].fillna(0).astype(int) > 0
+    return photos.assign(lat = np.degrees(np.where(has_view, photos['vlat'], photos['wgs84_lat']).astype(float)),
+                         lon = np.degrees(np.where(has_view, photos['vlong'], photos['wgs84_long']).astype(float)))
+
+
 def nearest_munro(photos, munros):
     '''adds the nearest munro and its distance, using OS grid metres'''
     to_grid = Transformer.from_crs('EPSG:4326', 'EPSG:27700', always_xy = True)

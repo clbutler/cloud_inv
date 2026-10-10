@@ -38,6 +38,14 @@ LOW_CLOUD_MIN = 0.1 #share of the low ground that must be cloud for an inversion
 SCL_NODATA = [0, 1] #no data, saturated or defective
 SCL_CLOUD = [8, 9] #cloud medium and high probability; fog and stratus tops land here
 SCL_CIRRUS = 10
+SCL_SNOW = 11
+SNOW_MAX = 0.01 #more snow than this in the box and the view can't be judged: the scene classes call a snowy top
+                #'not cloud', so it passes as clear, and call bright cloud snow even in summer. On the first random
+                #batch (2026-10-10) 23 of the 38 false inversions had snow; none of the real ones did
+CONTOUR_MIN = 0.2 #a cloud sea follows the contours: the low ground must be this much whiter (cloud or snow class)
+                  #than the ground above it. Scattered cumulus whitens both alike. On 196 hand-checked views the
+                  #rule called an inversion (2026-10-10) it kept 40 of 50 real ones and dropped 116 of 146 false,
+                  #the same on held-out days (28 % -> 58 % real) as on the rest (24 % -> 57 %)
 
 # make GDAL read only the bytes it needs from the cloud-optimised GeoTIFFs
 os.environ.setdefault('GDAL_DISABLE_READDIR_ON_OPEN', 'EMPTY_DIR')
@@ -68,10 +76,11 @@ def read_box(href, transform, resampling, pixel_m = PIXEL_M, bands = 1):
         return None
 
 
-def search(collection, datetime = None, bbox = SCOTLAND_BBOX):
-    '''returns the signed STAC items covering bbox (lon/lat), scotland by default'''
+def search(collection, datetime = None, bbox = SCOTLAND_BBOX, query = None):
+    '''returns the signed STAC items covering bbox (lon/lat), scotland by default.
+    query filters on item properties, e.g. {'eo:cloud_cover': {'lte': 95}}'''
     catalog = pystac_client.Client.open(STAC_URL, modifier = planetary_computer.sign_inplace)
-    return list(catalog.search(collections = [collection], bbox = bbox, datetime = datetime).items())
+    return list(catalog.search(collections = [collection], bbox = bbox, datetime = datetime, query = query).items())
 
 
 def sites_bbox(grids, margin = 0.1):
@@ -133,6 +142,8 @@ def label_box(scl, dem, summit_m, low_drop_m = LOW_GROUND_M):
     low = (dem > 0) & (dem < summit_m - low_drop_m) #dem 0 is sea or missing
     valid = ~np.isin(scl, SCL_NODATA)
     cloud = np.isin(scl, SCL_CLOUD)
+    white = cloud | (scl == SCL_SNOW) #a cloud sea is sometimes classed as snow
+    above = dem >= summit_m - low_drop_m
     def fraction(mask, of):
         n = (of & valid).sum()
         return float((mask & of & valid).sum() / n) if n else np.nan
@@ -142,12 +153,16 @@ def label_box(scl, dem, summit_m, low_drop_m = LOW_GROUND_M):
         'summit_cloud': fraction(cloud, near_summit),
         'low_cloud': fraction(cloud, low),
         'cirrus': fraction(scl == SCL_CIRRUS, near_summit | low),
+        'snow': fraction(scl == SCL_SNOW, dem > 0),
+        'white_low_minus_high': fraction(white, low) - fraction(white, above),
         }
     if obs['summit_valid'] < 0.5 or obs['low_valid'] < 0.5:
         obs['label'] = 'no_data'
     elif obs['summit_cloud'] >= 0.5:
         obs['label'] = 'summit_cloud'
-    elif obs['summit_cloud'] <= 0.1 and obs['low_cloud'] >= LOW_CLOUD_MIN:
+    elif obs['snow'] > SNOW_MAX:
+        obs['label'] = 'snow' #can't tell a snowy top from a cloud top, so no verdict
+    elif obs['summit_cloud'] <= 0.1 and obs['low_cloud'] >= LOW_CLOUD_MIN and obs['white_low_minus_high'] >= CONTOUR_MIN:
         obs['label'] = 'inversion' #cloud confined to low ground: cumulus would cover the high ground too
     elif obs['summit_cloud'] <= 0.1 and obs['low_cloud'] <= 0.05:
         obs['label'] = 'clear'
@@ -156,16 +171,16 @@ def label_box(scl, dem, summit_m, low_drop_m = LOW_GROUND_M):
     return obs
 
 
-def observe(munros_df, start, end, threads = 8, id_col = 'munro_id', dem = None):
+def observe(munros_df, start, end, threads = 8, id_col = 'munro_id', dem = None, query = None):
     '''one row per sentinel-2 scene x munro (or site) inside it, with cloud fractions and a label.
     A site needs id_col, lat and lon; without height_m its summit is found from the terrain (fit_hills).
-    Pass dem (from terrain) to reuse heights already read'''
+    Pass dem (from terrain) to reuse heights already read, and query to skip scenes by their properties'''
     grids = munro_grids(munros_df)
     if dem is None:
         print('Reading terrain for {} sites'.format(len(grids)))
         dem = terrain(grids, threads, id_col)
     grids = fit_hills(grids, dem, id_col)
-    scenes = search('sentinel-2-l2a', '{}/{}'.format(start, end), sites_bbox(grids))
+    scenes = search('sentinel-2-l2a', '{}/{}'.format(start, end), sites_bbox(grids), query)
     print('Found {} Sentinel-2 scenes from {} to {}'.format(len(scenes), start, end))
     jobs = []
     for item in scenes:
