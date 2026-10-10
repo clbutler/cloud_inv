@@ -164,8 +164,8 @@ flagged, seen = backcast['rag'].isin(['Green', 'Amber']), backcast['label'] == '
 tp, fp, fn, tn = (flagged & seen).sum(), (flagged & ~seen).sum(), (~flagged & seen).sum(), (~flagged & ~seen).sum()
 print('\nConfusion matrix (Likely or Possible counts as yes):\n')
 print('| | labeller saw an inversion | labeller saw none |\n|---|---|---|')
-print('| cloudflip said Likely or Possible | {} (caught) | {} (false alarm) |'.format(tp, fp))
-print('| cloudflip said Unlikely | {} (missed) | {} (correctly ruled out) |'.format(fn, tn))
+print('| cloudflip said Likely or Possible | {} true positives | {} false positives |'.format(tp, fp))
+print('| cloudflip said Unlikely | {} false negatives | {} true negatives |'.format(fn, tn))
 print('\n- all months: ' + rates(backcast, flagged, seen))
 for h, idx in backcast.groupby('held_out').groups.items():
     print('- {}: '.format('held-out months' if h else 'other months') + rates(backcast.loc[idx], flagged[idx], seen[idx]))
