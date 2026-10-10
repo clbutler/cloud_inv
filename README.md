@@ -68,14 +68,19 @@ One caution: 59 of these pairs come from an earlier review page that showed the 
 
 ### How good is the automatic labeller?
 
-The labeller was checked two ways: against the satellite views judged by eye (557 views from 263 days: the two review batches below plus 59 days with a Geograph inversion photo), and straight against the ground photos (72 views), which doesn't depend on anyone's reading of the satellite view.
+The labeller is the program that looks at each satellite view and decides whether it shows an inversion ([how it works](#how-the-satellite-check-works)). To grade it, each view needs a "right answer", and there are two sources of one:
 
-| | against views judged by eye | against ground photos |
+- **A person looking at the same satellite view.** 557 views: the two review batches described below, plus 59 days with a Geograph inversion photo.
+- **A photo taken on the ground that day.** 72 views. This doesn't rely on the satellite picture at all, so it's an independent check on what was really there.
+
+Two questions matter:
+
+| | right answer from a person | right answer from a ground photo |
 |---|---|---|
-| When it says "inversion", it's right | **57 %** | **93 %** |
-| Of the real inversions, it finds | **67 %** | **35 %** |
+| **When it says "inversion", how often is it right?** | 57 % | 93 % |
+| **Of the real inversions, how many does it spot?** | 67 % | 35 % |
 
-The photo days are mostly clear-cut cases, so it's more often right there. It finds fewer of them because many had cleared before the satellite passed.
+In plain words: against a person, about 6 in 10 of its "inversion" calls are right, and it spots about 2 in 3 of the real inversions. Against the ground photos it's rarely wrong when it says "inversion", but it spots only about 1 in 3 of the inversions people photographed. Most of those had probably cleared before the satellite passed at 11:30, leaving nothing for it to see. It does better on the first question with photos because the days people photographed were mostly clear-cut inversions.
 
 Some views were held back as a check: March, June, September and December for the forecast mornings, and every day from 2022 onwards for the rest. On those it was right 58 % of the time and found 76 % of inversions, about the same as on the other views. The contour threshold was chosen from a few round numbers while looking at all the views, though, so that's a consistency check rather than a clean test on unseen data.
 
