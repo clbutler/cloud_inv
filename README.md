@@ -68,14 +68,19 @@ One caution: 59 of these pairs come from an earlier review page that showed the 
 
 ### How good is the automatic labeller?
 
-The labeller was checked two ways: against the satellite views judged by eye (557 views from 263 days: the two review batches below plus 59 days with a Geograph inversion photo), and straight against the ground photos (72 views), which doesn't depend on anyone's reading of the satellite view.
+The labeller is the program that looks at each satellite view and decides whether it shows an inversion ([how it works](#how-the-satellite-check-works)). To grade it, each view needs a "right answer", and there are two sources of one:
 
-| | against views judged by eye | against ground photos |
+- **A person's verdict on the same satellite view.** 557 views from 263 days: the two review batches described below, plus 59 views of days with a Geograph inversion photo.
+- **A person's verdict on a ground photo taken near the same hill that day.** 72 views. This comes from a different picture, so it's a separate check, though a dawn ground photo can show an inversion that had gone by the time the satellite passed.
+
+Two questions matter:
+
+| | judged from the satellite view | judged from a ground photo |
 |---|---|---|
-| When it says "inversion", it's right | **57 %** | **93 %** |
-| Of the real inversions, it finds | **67 %** | **35 %** |
+| **When it says "inversion", how often is it right?** | **57 %** | **93 %** |
+| **Of the real inversions, how many does it spot?** | **67 %** | **35 %** |
 
-The photo days are mostly clear-cut cases, so it's more often right there. It finds fewer of them because many had cleared before the satellite passed.
+In plain words: against the satellite views, about 6 in 10 of its "inversion" calls are right, and it spots about 2 in 3 of the inversions a person can see. Against the ground photos its "inversion" calls are nearly always right, but that flatters it: 40 of the 72 ground photos show an inversion, so a "yes" is likely to be right there anyway. It spots only about 1 in 3 of the inversions in the ground photos. Some of those had probably cleared before the satellite passed at about 11:30 UTC, but not all: judged by eye, the satellite view still shows 60 % of them, so the labeller misses some inversions that were there to be seen.
 
 Some views were held back as a check: March, June, September and December for the forecast mornings, and every day from 2022 onwards for the rest. On those it was right 58 % of the time and found 76 % of inversions, about the same as on the other views. The contour threshold was chosen from a few round numbers while looking at all the views, though, so that's a consistency check rather than a clean test on unseen data.
 
