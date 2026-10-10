@@ -16,41 +16,9 @@ Normally the air gets colder with height. In a temperature inversion, a layer of
 
 Scotland's 282 Munros, the mountains over 3,000 ft, are among the best places in the UK to see one. Inversions are hard to predict, though, and mountain forecasts are usually given per area, not per hill. cloudflip gives a verdict for every Munro, for every morning of the next seven days.
 
-## How it works
-
-```mermaid
-flowchart LR
-    A[Open-Meteo API<br/>Met Office UK 2 km model] --> B[Python pipeline<br/>fetch and score]
-    B --> C[(SQLite database<br/>GitHub Release)]
-    B --> D[site/data/scores.js]
-    D --> E[cloudflip website<br/>Leaflet map]
-    F[GitHub Actions<br/>daily, 04:00 UTC] -. runs .-> B
-```
-
-1. **Fetch.** `scripts/openmeteo_function.py` asks [Open-Meteo](https://open-meteo.com) for 7 days of hourly Met Office forecasts at every Munro. It gets surface weather, plus temperature, humidity, cloud and wind at six pressure levels from about 100 m to 1,500 m. The pressure levels are what make an inversion visible: a warmer layer above a colder one.
-2. **Score.** `scripts/inversion_score_function.py` checks every hour from one hour before sunrise to three hours after, and keeps the best hour for each Munro and day.
-3. **Store.** Every run is saved to a SQLite database (see [The forecast database](#for-developers)).
-4. **Publish.** `scripts/site_export_function.py` writes the latest scores for the website, a static page in `site/` that uses Leaflet.
-5. **Automate.** A [GitHub Actions workflow](.github/workflows/nightly.yml) runs the whole pipeline every day at 04:00 UTC and commits the new website data. Netlify redeploys the site from `main` whenever that commit lands.
-
-## How the forecast is scored
-
-Each Munro is graded on four checks. Each check scores pass, partial or fail.
-
-| Check | Question | Pass | Partial |
-|---|---|---|---|
-| **Warm lid** | Is there a layer below the summit where the air gets *warmer* with height? | temperature rises with height | cools slower than 3 °C/km |
-| **Cloud below** | Is there enough moisture in the glens to form cloud or fog? | cloud ≥ 50 % or humidity ≥ 95 % | humidity ≥ 87 % |
-| **Clear summit** | Will the summit itself be out of the cloud? | humidity < 84 % and little cloud above | humidity < 87 % |
-| **Still air** | Is it calm enough below the summit for the cloud to settle? | wind ≤ 11 km/h | wind ≤ 20 km/h |
-
-- **Likely**: all four checks pass.
-- **Possible**: all four at least partly pass.
-- **Unlikely**: anything else.
-
-The thresholds come from the Mountain Weather Information Service (MWIS) articles on inversions, humidity thresholds for cloud from Wang & Rossow (1995, *J. Appl. Meteor.*), and radiation-fog rules from the fog-forecasting literature. Forecast models often misjudge the height of an inversion and local detail, so the score is a guide, not a guarantee.
-
 ## How accurate is it?
+
+cloudflip gives each Munro one of three verdicts every morning: **Likely**, **Possible** or **Unlikely**, built from four checks on the forecast (see [How the forecast is scored](#how-the-forecast-is-scored)).
 
 **Headlines**, from 7,814 past mornings at 40 Munros (August 2024 to June 2026), each set against an automatic reading of a satellite view of the same morning:
 
@@ -59,7 +27,42 @@ The thresholds come from the Mountain Weather Information Service (MWIS) article
 - **It misses most inversions.** Only about 1 in 7 (15 %) of the inversions seen had been rated Likely or Possible.
 - **Treat these as rough.** The automatic reading is itself wrong about 4 times in 10 when it says "inversion", which could push the figures either way. And cloudflip forecasts sunrise while the satellite looks at about 11:30 UTC, after many inversions have cleared, which probably makes the forecast look worse than it is at dawn.
 
-The rest of this section says how those figures were reached. The forecast is judged by an automatic labeller reading satellite views (see [How the satellite check works](#how-the-satellite-check-works)), so first come two checks on that: that an inversion can be recognised from space at all, and that the labeller recognises it.
+The forecast is judged by an automatic labeller reading satellite views, explained in [How the satellite check works](#how-the-satellite-check-works). The forecast figures come first below, then the two checks they rest on: that an inversion can be recognised from space at all, and that the labeller recognises it.
+
+### Does the forecast work?
+
+The site's scoring was run on [archived Met Office forecasts](https://open-meteo.com/en/docs/historical-forecast-api) for 40 Munros spread across Scotland, from August 2024 to June 2026. Each morning's verdict was then set against the labeller's reading of that day's satellite view: 7,814 Munro-mornings from 445 days with a usable view, snowy views left out.
+
+**The confusion matrix.** This counts every morning by what cloudflip said and what the labeller read in that morning's satellite view. "Likely" and "Possible" both count as cloudflip saying yes.
+
+| | labeller saw an inversion | labeller saw none |
+|---|---|---|
+| **cloudflip said Likely or Possible** | **18** true positives | **211** false positives |
+| **cloudflip said Unlikely** | **101** false negatives | **7,484** true negatives |
+
+- **True positive**: cloudflip said yes and there was an inversion (caught).
+- **False positive**: cloudflip said yes but there was none (a false alarm).
+- **False negative**: cloudflip said no but there was one (missed).
+- **True negative**: cloudflip said no and there was none (correctly ruled out).
+
+Two figures come from it:
+
+- **Precision: 7.9 %**, true positives ÷ (true positives + false positives) = 18 ÷ 229. This answers "if the site says Likely or Possible, how often is it right?" On its own 7.9 % sounds low, but only 1.5 % of all mornings had an inversion, so a flagged morning is about 5 times as likely as the average one.
+- **Recall: 15 %**, true positives ÷ (true positives + false negatives) = 18 ÷ 119. This answers "of the inversions that happened, how many did the site see coming?"
+
+Plain accuracy (the share of all mornings called correctly) is 96 %, but it isn't a useful measure here: inversions are so rare that a site saying "Unlikely" every single day would score 98.5 %. For the same reason, "Unlikely" being right 98.7 % of the time says little on its own. Precision and recall are what show whether the forecast actually finds inversions.
+
+Broken down by verdict:
+
+| cloudflip's verdict | inversion still visible at 11:30 UTC |
+|---|---|
+| Likely | **16 %** (3 of 19 mornings, so very uncertain) |
+| Possible | **7 %** (1 in 14) |
+| Unlikely | **1.3 %** (1 in 75) |
+
+The held-back months (March, June, September and December) look similar: precision 9 % and recall 13 %, against 7 % and 16 % in the other months. But that rests on only 6 caught inversions, so it's a rough check rather than a confirmation.
+
+Of the Possible mornings checked by eye, none where the satellite showed the summit in cloud was an inversion. Either the [clear-summit check](#how-the-forecast-is-scored) is too lenient, or the cloud lifted over the summit after dawn. A late-morning picture can't tell those apart.
 
 ### Can you tell an inversion from space?
 
@@ -93,37 +96,41 @@ In plain words: against the satellite views, about 6 in 10 of its "inversion" ca
 
 Some views were held back as a check: March, June, September and December for the forecast mornings, and every day from 2022 onwards for the rest. On those it was right 58 % of the time and found 76 % of inversions, about the same as on the other views. The contour threshold was chosen from a few round numbers while looking at all the views, though, so that's a consistency check rather than a clean test on unseen data.
 
-### Does the forecast work?
-
-The site's scoring was run on [archived Met Office forecasts](https://open-meteo.com/en/docs/historical-forecast-api) for 40 Munros spread across Scotland, from August 2024 to June 2026. Each morning's verdict was then set against the labeller's reading of that day's satellite view: 7,814 Munro-mornings from 445 days with a usable view, snowy views left out.
-
-**The confusion matrix.** This counts every morning by what cloudflip said and what the labeller read in that morning's satellite view. "Likely" and "Possible" both count as cloudflip saying yes.
-
-| | labeller saw an inversion | labeller saw none |
-|---|---|---|
-| **cloudflip said Likely or Possible** | 18 (caught) | 211 (false alarm) |
-| **cloudflip said Unlikely** | 101 (missed) | 7,484 (correctly ruled out) |
-
-Two figures come from it:
-
-- **Precision: 7.9 %.** Of the 229 mornings cloudflip flagged, 18 had an inversion. This answers "if the site says Likely or Possible, how often is it right?" On its own 7.9 % sounds low, but only 1.5 % of all mornings had an inversion, so a flagged morning is about 5 times as likely as the average one.
-- **Recall: 15 %.** Of the 119 inversions the labeller saw, cloudflip had flagged 18. This answers "of the inversions that happened, how many did the site see coming?"
-
-Plain accuracy (the share of all mornings called correctly) is 96 %, but it isn't a useful measure here: inversions are so rare that a site saying "Unlikely" every single day would score 98.5 %. For the same reason, "Unlikely" being right 98.7 % of the time says little on its own. Precision and recall are what show whether the forecast actually finds inversions.
-
-Broken down by verdict:
-
-| cloudflip's verdict | inversion still visible at 11:30 UTC |
-|---|---|
-| Likely | **16 %** (3 of 19 mornings, so very uncertain) |
-| Possible | **7 %** (1 in 14) |
-| Unlikely | **1.3 %** (1 in 75) |
-
-The held-back months (March, June, September and December) look similar: precision 9 % and recall 13 %, against 7 % and 16 % in the other months. But that rests on only 6 caught inversions, so it's a rough check rather than a confirmation.
-
-Two things to bear in mind. The labeller that stands in for the truth is itself right only about 6 times in 10 when it says "inversion" (above), so some "caught" and "missed" mornings are wrong. And cloudflip forecasts sunrise while the satellite sees 11:30 UTC, so the forecast is probably better at dawn than these figures show. Of the Possible mornings checked by eye, none where the satellite showed the summit in cloud was an inversion. Either the clear-summit check is too lenient, or the cloud lifted over the summit after dawn. A late-morning picture can't tell those apart.
-
 **Limits.** The 60 inversions checked by eye come from 32 separate days, many from a few settled spells, so the percentages are still rough. Sentinel-2 passes each place only every 2 to 5 days. The labeller can't judge snowy hills, because Sentinel-2's own classes mix up snow and cloud tops.
+
+## How it works
+
+```mermaid
+flowchart LR
+    A[Open-Meteo API<br/>Met Office UK 2 km model] --> B[Python pipeline<br/>fetch and score]
+    B --> C[(SQLite database<br/>GitHub Release)]
+    B --> D[site/data/scores.js]
+    D --> E[cloudflip website<br/>Leaflet map]
+    F[GitHub Actions<br/>daily, 04:00 UTC] -. runs .-> B
+```
+
+1. **Fetch.** `scripts/openmeteo_function.py` asks [Open-Meteo](https://open-meteo.com) for 7 days of hourly Met Office forecasts at every Munro. It gets surface weather, plus temperature, humidity, cloud and wind at six pressure levels from about 100 m to 1,500 m. The pressure levels are what make an inversion visible: a warmer layer above a colder one.
+2. **Score.** `scripts/inversion_score_function.py` checks every hour from one hour before sunrise to three hours after, and keeps the best hour for each Munro and day.
+3. **Store.** Every run is saved to a SQLite database (see [The forecast database](#for-developers)).
+4. **Publish.** `scripts/site_export_function.py` writes the latest scores for the website, a static page in `site/` that uses Leaflet.
+5. **Automate.** A [GitHub Actions workflow](.github/workflows/nightly.yml) runs the whole pipeline every day at 04:00 UTC and commits the new website data. Netlify redeploys the site from `main` whenever that commit lands.
+
+## How the forecast is scored
+
+Each Munro is graded on four checks. Each check scores pass, partial or fail.
+
+| Check | Question | Pass | Partial |
+|---|---|---|---|
+| **Warm lid** | Is there a layer below the summit where the air gets *warmer* with height? | temperature rises with height | cools slower than 3 °C/km |
+| **Cloud below** | Is there enough moisture in the glens to form cloud or fog? | cloud ≥ 50 % or humidity ≥ 95 % | humidity ≥ 87 % |
+| **Clear summit** | Will the summit itself be out of the cloud? | humidity < 84 % and little cloud above | humidity < 87 % |
+| **Still air** | Is it calm enough below the summit for the cloud to settle? | wind ≤ 11 km/h | wind ≤ 20 km/h |
+
+- **Likely**: all four checks pass.
+- **Possible**: all four at least partly pass.
+- **Unlikely**: anything else.
+
+The thresholds come from the Mountain Weather Information Service (MWIS) articles on inversions, humidity thresholds for cloud from Wang & Rossow (1995, *J. Appl. Meteor.*), and radiation-fog rules from the fog-forecasting literature. Forecast models often misjudge the height of an inversion and local detail, so the score is a guide, not a guarantee.
 
 ## How the satellite check works
 
