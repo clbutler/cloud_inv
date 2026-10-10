@@ -54,7 +54,7 @@ The forecast is checked against satellite pictures of the same mornings (see [Ho
 
 ### Can you tell an inversion from space?
 
-Each satellite view was judged by eye. Where a [Geograph](https://www.geograph.org.uk) photo had been taken near the same Munro on the same day, the photo was judged separately, and the satellite view was always judged first so the photo couldn't sway it. Based on 68 pairs from 48 days:
+Each satellite view was judged by eye. Where a [Geograph](https://www.geograph.org.uk) photo had been taken near the same hill on the same day, the photo was judged separately. Based on 68 pairs from 48 days:
 
 | | |
 |---|---|
@@ -64,16 +64,20 @@ Each satellite view was judged by eye. Where a [Geograph](https://www.geograph.o
 
 So an inversion seen from space is almost always real, but the satellite misses some that people photographed. Sentinel-2 passes at about 11:30 UTC, and Geograph records the day a photo was taken but not the time, so most of the misses are probably dawn inversions that had cleared by late morning.
 
+One caution: 59 of these pairs come from an earlier review page that showed the photo verdict and the labeller's verdict beside each satellite view, so they weren't judged blind. The newer review pages hide both and reveal the photo only after the satellite view has been answered. The 9 blind pairs so far all agree, but they're all days with no inversion, so more blind pairs with an inversion are needed before this table can be called independent.
+
 ### How good is the automatic labeller?
 
-The labeller was checked two ways: against the satellite views judged by eye (557 views from 263 days), and straight against the ground photos (72 views), which doesn't depend on anyone's reading of the satellite view.
+The labeller was checked two ways: against the satellite views judged by eye (557 views from 263 days: the two review batches below plus 59 days with a Geograph inversion photo), and straight against the ground photos (72 views), which doesn't depend on anyone's reading of the satellite view.
 
 | | against views judged by eye | against ground photos |
 |---|---|---|
 | When it says "inversion", it's right | **57 %** | **93 %** |
 | Of the real inversions, it finds | **67 %** | **35 %** |
 
-The photo days are mostly clear-cut cases, so it's more often right there. It finds fewer of them because many had cleared before the satellite passed. Its rules were tuned on some months and tested on others held back for the purpose (March, June, September and December). On the held-back months it was right 58 % of the time and found 76 % of inversions, so the rules aren't just fitted to the data they were tuned on.
+The photo days are mostly clear-cut cases, so it's more often right there. It finds fewer of them because many had cleared before the satellite passed.
+
+Some views were held back as a check: March, June, September and December for the forecast mornings, and every day from 2022 onwards for the rest. On those it was right 58 % of the time and found 76 % of inversions, about the same as on the other views. The contour threshold was chosen from a few round numbers while looking at all the views, though, so that's a consistency check rather than a clean test on unseen data.
 
 ### Does the forecast work?
 
@@ -87,7 +91,7 @@ The site's scoring was run on [archived Met Office forecasts](https://open-meteo
 
 A Likely morning is about 12 times as likely as an Unlikely one to show an inversion, and a Possible one about 5 times. The same pattern holds in the held-back months. But the forecast misses most inversions: only 15 % of the ones the satellite saw had been rated Likely or Possible.
 
-These figures understate the forecast at sunrise. It scores dawn, and the satellite sees 11:30, by which time many inversions have lifted or cleared. Where the satellite showed the summit in cloud on a Possible morning, there was never an inversion, which suggests the clear-summit check is too lenient.
+These figures understate the forecast at sunrise. It scores dawn, and the satellite sees 11:30, by which time many inversions have lifted or cleared. Of the Possible mornings checked by eye, none where the satellite showed the summit in cloud was an inversion. Either the clear-summit check is too lenient, or the cloud lifted over the summit after dawn. A late-morning picture can't tell those apart.
 
 **Limits.** The 60 inversions checked by eye come from 32 separate days, many from a few settled spells, so the percentages are still rough. Sentinel-2 passes each place only every 2 to 5 days. The labeller can't judge snowy hills, because Sentinel-2's own classes mix up snow and cloud tops.
 
@@ -104,6 +108,8 @@ The labeller (`label_box` in `scripts/satellite_function.py`) turns that idea in
 3. **Add the terrain.** The [Copernicus 30 m height model](https://planetarycomputer.microsoft.com/dataset/cop-dem-glo-30) gives the height of every pixel. That splits the square into:
    - **the top**: ground within 100 m of the summit's height and within 1 km of it;
    - **the low ground**: more than 300 m below the summit (the gold line in the pictures).
+
+   On hills too small for that, such as photo spots away from the Munros, the low ground starts halfway down to the valley floor, and the top shrinks to match.
 4. **Decide.** It works down these questions and stops at the first "yes":
 
 ```mermaid
@@ -111,7 +117,7 @@ flowchart TD
     A{Can it see at least half of<br/>the top and the low ground?} -- no --> N[no data]
     A -- yes --> B{Is half or more of<br/>the top in cloud?}
     B -- yes --> S[summit in cloud]
-    B -- no --> C{Is there any snow<br/>in the square?}
+    B -- no --> C{Is there any snow<br/>on the land?}
     C -- yes --> W[snow: no verdict]
     C -- no --> D{Top almost clear,<br/>some cloud on the low ground,<br/>and the low ground clearly<br/>whiter than the ground above?}
     D -- yes --> I[inversion]
@@ -127,9 +133,11 @@ The numbers behind those questions:
 | Top almost clear | 10 % cloud or less | a few wisps on the summit are allowed |
 | Some cloud on the low ground | 10 % or more | a cloud sea filling only the glen floors covers little of an 8 km square |
 | Low ground clearly whiter than the ground above | at least 20 percentage points more white (cloud or snow class) | a cloud sea follows the contours; cumulus covers high and low ground alike, so this rule removes most false alarms |
-| Any snow | more than 1 % of the square | a snowy summit is classed "not cloud", so it would pass as clear, and bright cloud is sometimes classed as snow |
+| Any snow | more than 1 % of the land in the square | a snowy summit is classed "not cloud", so it would pass as clear, and bright cloud is sometimes classed as snow |
 
-**How the views were judged by eye.** `main_review_batch.py` builds a review page of satellite views. The page shows neither the labeller's verdict nor the forecast, and the cards are shuffled, so neither can sway the answer. Where a Geograph photo exists, it's revealed only after the satellite view has been answered. The batches so far are 67 random days since 2017 (`main_satellite_scan.py`) and 431 mornings the site had scored (`main_backcast.py`).
+**How the views were judged by eye.** `main_review_batch.py` builds a review page of satellite views. The page shows neither the labeller's verdict nor the forecast, and the cards are shuffled, so neither can sway the answer. Where a Geograph photo exists, it's revealed only after the satellite view has been answered. There are two batches so far:
+- **Batch 1**: 67 views from 54 random days since 2017 (`main_satellite_scan.py`). The days were random, but the labeller picked which views to show: mostly ones it called an inversion, plus some near misses and clear or cloudy ones.
+- **Batch 2**: 431 mornings the site had scored (`main_backcast.py`). These were every Likely and Possible morning, plus some Unlikely ones, chosen at random or because the labeller saw an inversion.
 
 ## Project status
 
@@ -177,7 +185,7 @@ The SQLite database (`forecasts.db`) isn't stored in the repo's files. It's atta
 | `munros` | name, height, location and model ground height | replaced each run |
 
 ```bash
-gh release download data --pattern forecasts.db --dir outputs
+gh release download data --pattern forecasts.db --dir outputs --clobber
 ```
 </details>
 
@@ -186,13 +194,15 @@ gh release download data --pattern forecasts.db --dir outputs
 
 ```bash
 cd scripts
-python main_satellite_scan.py       # sample satellite passes over the Munros since 2017
-python main_backcast.py forecast    # score past mornings from archived forecasts (about 2 hours: free API limits)
-python main_backcast.py satellite   # label the satellite passes for the same Munros and days
-python main_review_batch.py batch2  # build a review page, then open ../outputs/satellite_batch2/review.html
-python main_validation.py           # rebuild the accuracy figures above
 python main_sightings.py            # collect Geograph photos tagged as inversions
 python main_satellite_sightings.py  # run the labeller on those photos' days
+python main_satellite_scan.py       # sample satellite passes over the Munros since 2017
+python main_review_batch.py         # batch 1 review page: ../outputs/satellite_batch1/review.html
+python main_backcast.py forecast    # score past mornings from archived forecasts (about 2 hours: free API limits)
+python main_backcast.py satellite   # label the satellite passes for the same Munros and days
+python main_backcast.py compare     # line the two up
+python main_review_batch.py batch2  # batch 2 review page: ../outputs/satellite_batch2/review.html
+python main_validation.py           # rebuild the accuracy figures above (needs all of the above)
 ```
 
 | File | What it holds |
@@ -201,7 +211,7 @@ python main_satellite_sightings.py  # run the labeller on those photos' days
 | `data/satellite_image_checks.csv` | satellite views of days with a Geograph inversion photo, judged by eye |
 | `data/inversion_sightings.csv` | Geograph photos tagged as inversions, each checked by hand (`inversion`) |
 
-Everything under `outputs/` is rebuilt by the scripts and isn't kept in git.
+Apart from the Munro shapefile (`outputs/munro.*`) and some old outputs, `outputs/` is rebuilt by the scripts and isn't kept in git.
 </details>
 
 ## Credits and licences
